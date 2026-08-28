@@ -30,6 +30,7 @@ import os
 import re
 import sys
 from dataclasses import dataclass
+import functools
 from typing import Dict, List, Optional, Set, Tuple
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
@@ -84,14 +85,17 @@ def _depth0_text(text: str, lo: int, hi: int) -> str:
     return "".join(out)
 
 
+@functools.lru_cache(maxsize=128)
+def _get_depth0_regex(key: str, value_pattern: str) -> re.Pattern:
+    return re.compile(r"\b" + re.escape(key) + r"\s*=\s*" + value_pattern)
+
+
 def _first_at_depth0(
     text: str, lo: int, hi: int, key: str, value_pattern: str
 ) -> Optional[str]:
     """First ``key = <value_pattern>`` at brace-depth 0 of the ``text[lo:hi]`` span.
     Comments must already be blanked so ``#`` braces don't skew the depth count."""
-    for m in re.compile(r"\b" + re.escape(key) + r"\s*=\s*" + value_pattern).finditer(
-        text, lo, hi
-    ):
+    for m in _get_depth0_regex(key, value_pattern).finditer(text, lo, hi):
         seg = text[lo : m.start()]
         if seg.count("{") == seg.count("}"):
             return m.group(1)
