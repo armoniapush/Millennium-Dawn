@@ -432,11 +432,14 @@ class Validator(BaseValidator):
 
         # A var read only through a runtime-built name (`foo_[idx]_bar`) has zero
         # literal refs; suppress it if any collected dynamic pattern matches.
-        compiled_dynamic = [re.compile(p) for p in dynamic_patterns]
+        if dynamic_patterns:
+            combined_dynamic_rx = re.compile("|".join(f"(?:{p})" for p in dynamic_patterns))
+        else:
+            combined_dynamic_rx = None
 
         for var, ref_count in var_ref_counts.items():
             if ref_count <= self.min_references:
-                if any(rx.match(var.lower()) for rx in compiled_dynamic):
+                if combined_dynamic_rx and combined_dynamic_rx.match(var.lower()):
                     continue
                 basename = unique_vars[var]
                 ref_text = f"(refs: {ref_count})"
