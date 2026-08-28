@@ -823,13 +823,13 @@ class Validator(BaseValidator):
         # Compile dynamic patterns once, deduplicating raw tokens first.
         dynamic_ref_patterns = []
         seen_raw = set()
+        dynamic_token_re = re.compile(r"\\\[[A-Za-z_][A-Za-z0-9_]*\\\]")
         for token in raw_dynamic_tokens:
             if token in seen_raw:
                 continue
             seen_raw.add(token)
             esc = re.escape(token)
-            esc = re.sub(
-                r"\\\[[A-Za-z_][A-Za-z0-9_]*\\\]",
+            esc = dynamic_token_re.sub(
                 r"[A-Za-z0-9_]+",
                 esc,
             )

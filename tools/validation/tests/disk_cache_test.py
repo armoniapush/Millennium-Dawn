@@ -72,6 +72,9 @@ def test_fingerprints_are_memoized_until_source_changes(tmp_path, monkeypatch):
     assert len(calls) == 1
 
     source.write_text("two", encoding="utf-8")
+    import os
+    stat = os.stat(source)
+    os.utime(source, (stat.st_atime + 1, stat.st_mtime + 1))
     changed = disk_cache._validator_code_fingerprint("memoized")
     assert changed != first
     assert len(calls) == 2
