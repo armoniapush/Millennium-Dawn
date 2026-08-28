@@ -976,14 +976,19 @@ def build_money_consumer_map(
                 consumers[var].add(name)
 
     changed = True
+    known_changed = {var: True for var in consumers}
+    regex_cache = {}
     while changed:
         changed = False
         for var, known in consumers.items():
-            call_re = re.compile(
-                r"\b(?:"
-                + "|".join(re.escape(n) for n in sorted(known))
-                + r")\s*=\s*yes\b"
-            )
+            if known_changed[var]:
+                regex_cache[var] = re.compile(
+                    r"\b(?:"
+                    + "|".join(re.escape(n) for n in sorted(known))
+                    + r")\s*=\s*yes\b"
+                )
+                known_changed[var] = False
+            call_re = regex_cache[var]
             for name, body in bodies.items():
                 if name in known:
                     continue
@@ -993,6 +998,7 @@ def build_money_consumer_map(
                 _, first_write = first_positions(body, var)
                 if first_write is None or call.start() < first_write:
                     known.add(name)
+                    known_changed[var] = True
                     changed = True
     return {var: frozenset(names) for var, names in consumers.items()}
 
