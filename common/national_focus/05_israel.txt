@@ -16773,17 +16773,19 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_ISRFOREIGNPOL FOCUS_FILTER_FOREIGN_POLICY }
 
 		available = {
-			# FIXME: tooltip
-			any_of_scopes = {
-				array = global.gcc_member_state
-				has_idea = ISR_gulf_mossad_protecc
+			custom_trigger_tooltip = {
+				tooltip = moss_diplo_tt
+				any_of_scopes = {
+					array = global.gcc_member_state
+					has_idea = ISR_gulf_mossad_protecc
+				}
 			}
 		}
 
 		completion_reward = {
 			log = "[GetDateText]: [This.GetName]: focus ISR_mossad_diplomacy executed"
 			custom_effect_tooltip = moss_diplo_tt
-			# FIXME: Tooltip here
+
 			for_each_scope_loop = {
 				array = global.gcc_member_state
 				if = {
