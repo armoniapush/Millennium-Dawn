@@ -6,6 +6,7 @@ import glob
 import os
 import re
 import sys
+import functools
 from collections import Counter
 from typing import Dict, List, Set
 
@@ -93,16 +94,22 @@ def extract_goal_categories(content: str) -> Dict[str, str]:
     return categories
 
 
+_RULES_PATTERN = re.compile(r"\bdefault_rules\s*=\s*\{([^}]*)\}", re.DOTALL)
+
+
+@functools.lru_cache(maxsize=1024)
+def _get_template_pattern(template_id: str):
+    return re.compile(rf"{re.escape(template_id)}\s*=\s*\{{(.*?)\n\}}", re.DOTALL)
+
 def extract_default_rules_block(content: str, template_id: str) -> List[str]:
     """Extract rule IDs from a template's default_rules = { } block."""
-    pattern = re.compile(rf"{re.escape(template_id)}\s*=\s*\{{(.*?)\n\}}", re.DOTALL)
+    pattern = _get_template_pattern(template_id)
     match = pattern.search(content)
     if not match:
         return []
 
     template_body = match.group(1)
-    rules_pattern = re.compile(r"\bdefault_rules\s*=\s*\{([^}]*)\}", re.DOTALL)
-    rules_match = rules_pattern.search(template_body)
+    rules_match = _RULES_PATTERN.search(template_body)
     if not rules_match:
         return []
 
