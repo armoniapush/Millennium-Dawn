@@ -71,6 +71,9 @@ def test_fingerprints_are_memoized_until_source_changes(tmp_path, monkeypatch):
     assert first == second
     assert len(calls) == 1
 
+    import time
+
+    time.sleep(0.01)  # ensure mtime changes
     source.write_text("two", encoding="utf-8")
     import os
     stat = os.stat(source)

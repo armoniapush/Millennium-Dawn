@@ -1373,14 +1373,17 @@ class Validator(BaseValidator):
         # narrower than ``\w+`` (which matched lowercase and could
         # incorrectly capture unrelated literal flags).
         tag_wildcard = r"[A-Z][A-Z0-9_]{1,11}"
-        for flag in flags:
+        pattern_cache = {}
+        for flag in set(flags):
             if "@" not in flag:
                 continue
-            if not scope_pat.search(flag):
-                continue
             parts = scope_pat.split(flag)
-            pattern_str = tag_wildcard.join(re.escape(p) for p in parts)
-            patterns.append(re.compile(f"^{pattern_str}$"))
+            if len(parts) > 1:
+                parts_tuple = tuple(parts)
+                if parts_tuple not in pattern_cache:
+                    pattern_str = tag_wildcard.join(re.escape(p) for p in parts_tuple)
+                    pattern_cache[parts_tuple] = re.compile(f"^{pattern_str}$")
+                patterns.append(pattern_cache[parts_tuple])
         return patterns
 
     def validate_cleared_flags(
