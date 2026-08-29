@@ -280,6 +280,7 @@
  GCC_denounce_iranian_meddling_desc: "We cannot simply allow Iran to run amok in the region without voicing our discontent. The inaction of our allies is what has contributed to this lamentable state of affairs, so we must take it upon ourselves to step up and denounce the Persian threat."
  GCC_confront_iranian_partners: "Blockade Persian Partners"
  GCC_confront_iranian_partners_desc: "The Gulf Cooperation Council was envisioned as a united front against common threats to the Arab monarchies of the Gulf. This unity has been fractured by differing approaches towards the threat posed by Iran, with some of our erstwhile partners pursuing amicable relations with our deadly enemy. This can be tolerated no longer."
+ GCC_confront_iranian_partners_available_tt: "At least one member of the §YGulf Cooperation Council§! has completed the focus §YImprove Relations with Iran§!."
  GCC_the_war_within: "War in the Arabian Peninsula"
  GCC_the_war_within_desc: "The Gulf Cooperation Council has become a hollow shell of regional cooperation. Regrettably, we have no choice now but to settle our differences with our neighbors and former friends through violent means."
  GCC_strengthen_us_ties: "Strengthen US Ties"

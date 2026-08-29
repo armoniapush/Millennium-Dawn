@@ -8236,10 +8236,12 @@ focus_tree = {
 		available = {
 			NOT = { has_government = communism }
 			NOT = { has_completed_focus = GCC_strategic_hedging }
-			# FIXME: Add a tooltip for this
-			any_of_scopes = {
-				array = global.gcc_member_state
-				has_completed_focus = GCC_improve_relations_with_iran
+			custom_trigger_tooltip = {
+				tooltip = GCC_confront_iranian_partners_available_tt
+				any_of_scopes = {
+					array = global.gcc_member_state
+					has_completed_focus = GCC_improve_relations_with_iran
+				}
 			}
 		}
 
