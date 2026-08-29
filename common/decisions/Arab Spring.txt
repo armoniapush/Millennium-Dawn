@@ -97,7 +97,7 @@ arab_spring_category = {
 
 		remove_effect = {
 			log = "[GetDateText]: [This.GetName]: decision arab_spring_request_crackdown executed"
-			# FIXME: Tooltip here
+			custom_effect_tooltip = arab_spring_request_crackdown_tt
 			random_scope_in_array = {
 				array = global.gcc_member_state
 				limit = { has_country_flag = gcc_dominant_member }

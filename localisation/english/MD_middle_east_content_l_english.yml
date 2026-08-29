@@ -1047,6 +1047,7 @@
  arab_spring_encourage_supporters_desc: "The opposition's rallies create a false impression that our government lacks support among the [ROOT.GetAdjective] people. Nothing could be further from the truth. We must rally our political will to encourage loyal [ROOT.GetAdjective] citizens to take to the streets in support of our government."
  arab_spring_request_crackdown: "Request Peninsula Shield Crackdown"
  arab_spring_request_crackdown_desc: "As a member of the Gulf Cooperation Council, we have access to the Peninsula Shield Force - a joint military unit composed of troops from all six GCC states. While deploying these forces would relieve pressure on our strained security services, it would also make us increasingly dependent on foreign military intervention to maintain domestic order."
+ arab_spring_request_crackdown_tt: "Sends a request for Peninsula Shield intervention to the dominant member of the GCC."
  arab_spring_deploy_the_military: "Deploy the Army"
  arab_spring_deploy_the_military_desc: "Our internal security forces are overwhelmed by the scale of unrest. Deploying the military will help restore order, though this heavy-handed approach may further inflame tensions and risk military defections."
  arab_spring_return_to_barracks: "Return Troops to their Barracks"
