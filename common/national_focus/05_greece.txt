@@ -1214,7 +1214,6 @@ focus_tree = {
 						}
 					}
 				}
-				# TODO: no legacy equivalent for countermeasures_3, so non-BBA players get no bonus here
 				if = {
 					limit = { has_dlc = "By Blood Alone" }
 					add_tech_bonus = {
@@ -1222,6 +1221,14 @@ focus_tree = {
 						ahead_reduction = 3.5
 						uses = 1
 						technology = countermeasures_3
+					}
+				}
+				else = {
+					add_tech_bonus = {
+						name = GRE_f35_program
+						ahead_reduction = 3.5
+						uses = 1
+						category = CAT_air_eqp
 					}
 				}
 			}
@@ -1233,7 +1240,6 @@ focus_tree = {
 						}
 					}
 				}
-				# TODO: no legacy equivalent for avionics_3, so non-BBA players get no bonus here
 				if = {
 					limit = { has_dlc = "By Blood Alone" }
 					add_tech_bonus = {
@@ -1241,6 +1247,14 @@ focus_tree = {
 						ahead_reduction = 3.5
 						uses = 1
 						technology = avionics_3
+					}
+				}
+				else = {
+					add_tech_bonus = {
+						name = GRE_f35_program
+						ahead_reduction = 3.5
+						uses = 1
+						category = CAT_air_eqp
 					}
 				}
 			}
