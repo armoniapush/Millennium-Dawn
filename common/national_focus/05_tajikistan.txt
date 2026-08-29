@@ -8498,7 +8498,7 @@ focus_tree = {
 			log = "[GetDateText]: [THIS.GetName]: Focus TAJ_operational_integrity"
 			add_ideas = TAJ_operational_integrity
 			newline = yes
-			# TODO: no legacy equivalent for nsb_attack_helicopter_tech_1, so non-NSB players get no bonus here
+
 			if = {
 				limit = { has_dlc = "No Step Back" }
 				add_tech_bonus = {
@@ -8506,6 +8506,14 @@ focus_tree = {
 					bonus = 1
 					uses = 1
 					technology = nsb_attack_helicopter_tech_1
+				}
+			}
+			else = {
+				add_tech_bonus = {
+					name = attack_helicopter_1
+					bonus = 1
+					uses = 1
+					technology = attack_helicopter_1
 				}
 			}
 		}
