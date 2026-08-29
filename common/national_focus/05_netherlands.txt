@@ -7220,7 +7220,6 @@ focus_tree = {
 						}
 					}
 				}
-				# TODO: no legacy equivalent for countermeasures_3, so non-BBA players get no bonus here
 				if = {
 					limit = { has_dlc = "By Blood Alone" }
 					add_tech_bonus = {
@@ -7228,6 +7227,14 @@ focus_tree = {
 						ahead_reduction = 3.5
 						uses = 1
 						technology = countermeasures_3
+					}
+				}
+				else = {
+					add_tech_bonus = {
+						name = HOL_join_jsf
+						ahead_reduction = 3.5
+						uses = 1
+						technology = AS_Fighter5
 					}
 				}
 			}
@@ -9985,7 +9992,6 @@ focus_tree = {
 						}
 					}
 				}
-				# TODO: no legacy equivalent for countermeasures_3, so non-BBA players get no bonus here
 				if = {
 					limit = { has_dlc = "By Blood Alone" }
 					add_tech_bonus = {
@@ -9993,6 +9999,14 @@ focus_tree = {
 						ahead_reduction = 3.5
 						uses = 1
 						technology = countermeasures_3
+					}
+				}
+				else = {
+					add_tech_bonus = {
+						name = HOL_f35c_development
+						ahead_reduction = 3.5
+						uses = 1
+						technology = AS_Fighter5
 					}
 				}
 			}
