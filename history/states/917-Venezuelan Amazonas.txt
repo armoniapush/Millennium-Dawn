@@ -22,5 +22,11 @@ state = {
 	}
 	manpower = 142917
 	buildings_max_level_factor = 1.000
-	state_category = state_00
+	state_category = state_03
+	resources = {
+		aluminium = 50
+		tungsten = 30
+		chromium = 25
+		rubber = 35
+	}
 }

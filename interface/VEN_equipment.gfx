@@ -1,0 +1,450 @@
+﻿spriteTypes = {
+	spriteType = {
+		name = "GFX_VEN_Anti_Air_0_medium"
+		texturefile = "gfx/interface/technologies/0_generic/artillery/FIM43.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Anti_Air_1_medium"
+		texturefile = "gfx/interface/technologies/0_generic/artillery/FIM92.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Anti_Air_2_medium"
+		texturefile = "gfx/interface/technologies/0_generic/artillery/FIM92E.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Anti_Air_3_medium"
+		texturefile = "gfx/interface/technologies/0_generic/artillery/FIM194.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Anti_Air_4_medium"
+		texturefile = "gfx/interface/technologies/0_generic/artillery/FIM245.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Anti_Air_5_medium"
+		texturefile = "gfx/interface/technologies/SOV/INF/MANPADS6.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Anti_Air_6_medium"
+		texturefile = "gfx/interface/technologies/USA/INF/MANPADS7.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Anti_Air_7_medium"
+		texturefile = "gfx/interface/technologies/USA/INF/MANPADS8.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Anti_Air_8_medium"
+		texturefile = "gfx/interface/technologies/USA/INF/MANPADS9.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Anti_tank_1_medium"
+		texturefile = "gfx/interface/technologies/USA/INF/LAW.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Anti_tank_2_medium"
+		texturefile = "gfx/interface/technologies/USA/INF/M47.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Anti_tank_3_medium"
+		texturefile = "gfx/interface/technologies/USA/INF/FGM148.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Anti_tank_4_medium"
+		texturefile = "gfx/interface/technologies/USA/INF/FGM246.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Anti_tank_5_medium"
+		texturefile = "gfx/interface/technologies/SOV/INF/AT5.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Anti_tank_6_medium"
+		texturefile = "gfx/interface/technologies/SOV/INF/FA-1.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Anti_tank_7_medium"
+		texturefile = "gfx/interface/technologies/SOV/INF/FA-2.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Anti_tank_8_medium"
+		texturefile = "gfx/interface/technologies/SOV/INF/FA-3.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Anti_tank_9_medium"
+		texturefile = "gfx/interface/technologies/SOV/INF/FA-4.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_APC_1_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M113A2_A1.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_APC_2_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M113A2_A3.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_APC_3_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M113A3_A4.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_APC_4_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/LAV-25_A4.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_APC_5_medium"
+		texturefile = "gfx/interface/technologies/SOV/LAND/BTR-90.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_APC_6_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M1130_A1.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_APC_7_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/AMPV_A2.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_APC_8_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M36_APC_A2.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_artillery_1_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M102.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_artillery_2_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/ART2.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_artillery_3_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/ART3.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_artillery_4_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M585.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_artillery_5_medium"
+		texturefile = "gfx/interface/technologies/SOV/INF/D-60.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_artillery_6_medium"
+		texturefile = "gfx/interface/technologies/SOV/INF/ART6.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Heavy_Anti_tank_1_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/HAT1.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Heavy_Anti_tank_2_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/HAT2.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Heavy_Anti_tank_3_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/HAT3.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Heavy_Anti_tank_4_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/HAT4.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Heavy_Anti_tank_5_medium"
+		texturefile = "gfx/interface/technologies/SOV/LAND/HAT5.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Heavy_Anti_tank_6_medium"
+		texturefile = "gfx/interface/technologies/SOV/LAND/SAT6.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Heavy_Anti_tank_7_medium"
+		texturefile = "gfx/interface/technologies/SOV/LAND/SAT7.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Heavy_Anti_tank_8_medium"
+		texturefile = "gfx/interface/technologies/SOV/LAND/SAT8.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Heavy_Anti_tank_9_medium"
+		texturefile = "gfx/interface/technologies/SOV/LAND/SAT9.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_heavy_util_vehicle_1_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M35.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_heavy_util_vehicle_10_medium"
+		texturefile = "gfx/interface/technologies/SOV/LAND/HU10.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_heavy_util_vehicle_2_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/HU2.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_heavy_util_vehicle_3_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/HU3.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_heavy_util_vehicle_4_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/HU4.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_heavy_util_vehicle_5_medium"
+		texturefile = "gfx/interface/technologies/SOV/LAND/HU5.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_heavy_util_vehicle_6_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/HU6.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_heavy_util_vehicle_7_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/HU7.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_heavy_util_vehicle_8_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/HU8.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_heavy_util_vehicle_9_medium"
+		texturefile = "gfx/interface/technologies/SOV/LAND/HU9.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_IFV_1_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/IFV1.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_IFV_10_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/FCV_A2.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_IFV_2_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/AIFV.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_IFV_3_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M2A1_DS_A1.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_IFV_4_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M2A3_WL_A3.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_IFV_5_medium"
+		texturefile = "gfx/interface/technologies/SOV/LAND/BMP-3_Kaktus.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_IFV_6_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M3A4.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_IFV_7_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/OMFV_A3.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_IFV_8_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/FCV_A2.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_IFV_9_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/FCV_A2.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_MBT_1_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M60A3RISE.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_MBT_12_medium"
+		texturefile = "gfx/interface/technologies/SOV/LAND/T80U.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_MBT_14_medium"
+		texturefile = "gfx/interface/technologies/SOV/LAND/T72B.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_MBT_15_medium"
+		texturefile = "gfx/interface/technologies/SOV/LAND/T72B3.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_MBT_16_medium"
+		texturefile = "gfx/interface/technologies/SOV/LAND/T72B3M.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_MBT_2_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/XM803.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_MBT_3_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M1A1HA.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_MBT_4_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M1A2.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_MBT_5_medium"
+		texturefile = "gfx/interface/technologies/SOV/LAND/T-14K.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_MBT_7_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/AbramsX.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_MBT_8_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M6A1.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_medium_tank_amphibious_chassis_1_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/AAVP-7A1.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_medium_tank_amphibious_chassis_2_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/LAV-25A2_A1.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_medium_tank_amphibious_chassis_3_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/ACV_APC_A2.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_medium_tank_amphibious_chassis_4_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M36_APC_A2.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_nsb_Anti_Air_0_medium"
+		texturefile = "gfx/interface/technologies/0_generic/artillery/FIM43.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_nsb_Anti_Air_1_medium"
+		texturefile = "gfx/interface/technologies/0_generic/artillery/FIM92.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_nsb_Anti_Air_2_medium"
+		texturefile = "gfx/interface/technologies/0_generic/artillery/FIM92E.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_nsb_Anti_Air_3_medium"
+		texturefile = "gfx/interface/technologies/0_generic/artillery/FIM194.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_nsb_Anti_Air_4_medium"
+		texturefile = "gfx/interface/technologies/0_generic/artillery/FIM245.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_nsb_Anti_Air_5_medium"
+		texturefile = "gfx/interface/technologies/SOV/INF/MANPADS6.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_nsb_Anti_Air_6_medium"
+		texturefile = "gfx/interface/technologies/USA/INF/MANPADS7.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_nsb_Anti_Air_7_medium"
+		texturefile = "gfx/interface/technologies/USA/INF/MANPADS8.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_nsb_Anti_Air_8_medium"
+		texturefile = "gfx/interface/technologies/USA/INF/MANPADS9.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_nsb_artillery_1_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M102.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_nsb_artillery_2_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/ART2.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_nsb_artillery_3_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/ART3.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_nsb_artillery_4_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M585.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_nsb_artillery_5_medium"
+		texturefile = "gfx/interface/technologies/SOV/INF/D-60.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_nsb_artillery_6_medium"
+		texturefile = "gfx/interface/technologies/SOV/INF/ART6.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Rec_tank_0_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/REC1.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Rec_tank_1_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/REC2.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Rec_tank_2_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/REC3.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Rec_tank_3_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/XM1302.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Rec_tank_4_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M10_A1.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_Rec_tank_5_medium"
+		texturefile = "gfx/interface/technologies/SOV/LAND/REC6.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_SP_Anti_Air_0_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/SPA1.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_SP_Anti_Air_1_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/SPA2.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_SP_Anti_Air_2_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M-Shorad.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_SP_Anti_Air_3_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/HEMTT-NASAMS.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_SP_Anti_Air_4_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/SPA5.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_SP_arty_0_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M107.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_SP_arty_1_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M109A5.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_SP_arty_2_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M109A7.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_SP_arty_3_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/SPG4.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_SP_arty_4_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/SPG5.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_SP_R_arty_0_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M113MLRS.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_SP_R_arty_1_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M270.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_SP_R_arty_2_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/M142.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_SP_R_arty_3_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/HEMTT-GD.dds"
+	}
+	spriteType = {
+		name = "GFX_VEN_SP_R_arty_4_medium"
+		texturefile = "gfx/interface/technologies/USA/LAND/ORTAxMLRS.dds"
+	}
+}
