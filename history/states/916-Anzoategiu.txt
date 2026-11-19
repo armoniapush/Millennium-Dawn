@@ -3,7 +3,7 @@ state = {
 	name = "STATE_916"
 
 	resources = {
-		oil = 65
+		oil = 300
 	}
 
 	history = {
@@ -36,5 +36,5 @@ state = {
 	}
 	manpower = 3349124
 	buildings_max_level_factor = 1.000
-	state_category = state_04
+	state_category = state_07
 }
