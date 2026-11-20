@@ -16,6 +16,8 @@ ideas = {
 				production_speed_arms_factory_factor = -0.05
 				drift_defence_factor = 0.10
 				corruption_cost_factor = 0.15
+				productivity_growth_modifier = -0.10
+				social_cost_multiplier_modifier = 0.08
 			}
 		}
 
@@ -32,6 +34,8 @@ ideas = {
 				trade_opinion_factor = 0.15
 				stability_factor = 0.05
 				drift_defence_factor = -0.15
+				productivity_growth_modifier = 0.10
+				industrial_capacity_factory = 0.05
 			}
 		}
 
@@ -221,8 +225,9 @@ ideas = {
 				communism_drift = 0.02
 				production_factory_efficiency_gain_factor = 0.05
 				stability_factor = 0.05
-				consumer_goods_factor = 0.02
+				consumer_goods_factor = 0.03
 				corruption_cost_factor = 0.15
+				productivity_growth_modifier = -0.05
 			}
 		}
 
@@ -250,10 +255,11 @@ ideas = {
 
 			modifier = {
 				democratic_drift = 0.05
-				production_factory_efficiency_gain_factor = -0.1
-				stability_factor = -0.05
-				consumer_goods_factor = -0.02
+				production_factory_efficiency_gain_factor = 0.10
+				consumer_goods_factor = -0.03
 				production_speed_arms_factory_factor = 0.05
+				industrial_capacity_factory = 0.05
+				productivity_growth_modifier = 0.10
 			}
 		}
 
@@ -532,6 +538,9 @@ ideas = {
 				consumer_goods_factor = -0.05
 				tax_gain_multiplier_modifier = 0.10
 				bureaucracy_cost_multiplier_modifier = 0.20
+				productivity_growth_modifier = 0.15
+				production_speed_buildings_factor = 0.08
+				return_on_investment_modifier = 0.01
 			}
 		}
 		VEN_idea_libertarian_economy = {
@@ -540,8 +549,10 @@ ideas = {
 			modifier = {
 				consumer_goods_factor = -0.10
 				tax_gain_multiplier_modifier = -0.15
-				return_on_investment_modifier = 0.02
-				productivity_growth_modifier = 0.20
+				return_on_investment_modifier = 0.03
+				productivity_growth_modifier = 0.25
+				receiving_investment_cost_modifier = -0.20
+				production_speed_buildings_factor = 0.10
 				bureaucracy_cost_multiplier_modifier = -0.50
 				police_cost_multiplier_modifier = -0.50
 				stability_factor = -0.10
@@ -617,6 +628,8 @@ ideas = {
 				political_power_gain = 0.15
 				communism_drift = 0.01
 				drift_defence_factor = 0.3
+				productivity_growth_modifier = -0.10
+				social_cost_multiplier_modifier = 0.10
 			}
 		}
 		VEN_tourist_destination_2 = {
@@ -638,6 +651,115 @@ ideas = {
 				conscription = 0.005
 				army_org = 0.5
 				experience_gain_army = 0.05
+			}
+		}
+
+		VEN_navy_sovereign_planning_idea = {
+			name = VEN_navy_sovereign_planning_idea
+			picture = navy_strengthened
+			allowed_civil_war = { always = yes }
+			modifier = {
+				foreign_influence_defense_modifier = 0.10
+				naval_doctrine_cost_factor = -0.10
+				refit_speed = 0.10
+			}
+		}
+
+		VEN_navy_hybrid_armament_idea = {
+			name = VEN_navy_hybrid_armament_idea
+			picture = australian_missile_company
+			allowed_civil_war = { always = yes }
+			modifier = {
+				foreign_influence_defense_modifier = 0.12
+				naval_doctrine_cost_factor = -0.12
+				refit_speed = 0.12
+				naval_damage_factor = 0.08
+				navy_screen_attack_factor = 0.10
+				naval_anti_air_attack_factor = 0.10
+				sub_visibility = -0.05
+			}
+		}
+
+		VEN_navy_sovereign_armada_idea = {
+			name = VEN_navy_sovereign_armada_idea
+			picture = navy_dominant
+			allowed_civil_war = { always = yes }
+			modifier = {
+				foreign_influence_defense_modifier = 0.15
+				naval_doctrine_cost_factor = -0.15
+				industrial_capacity_dockyard = 0.15
+				repair_speed_factor = 0.15
+				refit_speed = 0.15
+				naval_damage_factor = 0.10
+				navy_submarine_attack_factor = 0.12
+				navy_screen_attack_factor = 0.12
+				naval_anti_air_attack_factor = 0.12
+				sub_visibility = -0.08
+			}
+		}
+
+		VEN_us_naval_mission_1 = {
+			name = VEN_us_naval_mission_1
+			picture = AST_usnavy
+			allowed_civil_war = { always = yes }
+			modifier = {
+				license_purchase_cost = -0.15
+				license_production_speed = 0.10
+				naval_doctrine_cost_factor = -0.10
+				democratic_drift = 0.02
+				foreign_influence_defense_modifier = -0.10
+			}
+		}
+
+		VEN_us_naval_mission_2 = {
+			name = VEN_us_naval_mission_2
+			picture = AST_usnavy
+			allowed_civil_war = { always = yes }
+			modifier = {
+				license_purchase_cost = -0.25
+				license_production_speed = 0.20
+				industrial_capacity_dockyard = 0.10
+				naval_doctrine_cost_factor = -0.15
+				democratic_drift = 0.03
+				foreign_influence_defense_modifier = -0.15
+			}
+		}
+
+		VEN_us_naval_mission_3 = {
+			name = VEN_us_naval_mission_3
+			picture = ENG_navy_forc
+			allowed_civil_war = { always = yes }
+			modifier = {
+				license_purchase_cost = -0.25
+				license_production_speed = 0.25
+				industrial_capacity_dockyard = 0.15
+				naval_hit_chance = 0.10
+				naval_damage_factor = 0.12
+				navy_screen_attack_factor = 0.12
+				navy_capital_ship_attack_factor = 0.12
+				naval_doctrine_cost_factor = -0.20
+				democratic_drift = 0.04
+				foreign_influence_defense_modifier = -0.20
+			}
+		}
+
+		VEN_us_caribbean_fleet_idea = {
+			name = VEN_us_caribbean_fleet_idea
+			picture = navy_dominant
+			allowed_civil_war = { always = yes }
+			modifier = {
+				license_purchase_cost = -0.35
+				license_production_speed = 0.30
+				industrial_capacity_dockyard = 0.25
+				refit_speed = 0.25
+				naval_hit_chance = 0.15
+				naval_damage_factor = 0.18
+				navy_screen_attack_factor = 0.18
+				navy_capital_ship_attack_factor = 0.18
+				navy_max_range_factor = 0.15
+				naval_doctrine_cost_factor = -0.25
+				democratic_drift = 0.05
+				foreign_influence_defense_modifier = -0.25
 			}
 		}
 
@@ -700,11 +822,11 @@ ideas = {
 			allowed_civil_war = { always = yes }
 
 			modifier = {
-				army_attack_factor = 0.05
-				army_defence_factor = 0.05
-				army_org_regain = 0.05
+				army_attack_factor = 0.08
+				army_defence_factor = 0.08
+				army_org_regain = 0.08
 				training_time_factor = -0.15
-				terrain_penalty_reduction = 0.10
+				terrain_penalty_reduction = 0.12
 			}
 		}
 
@@ -713,7 +835,10 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			picture = army_solider_head
 			modifier = {
-				army_personnel_cost_multiplier_modifier = -0.15
+				army_personnel_cost_multiplier_modifier = -0.20
+				mobilization_speed = 0.20
+				army_infantry_defence_factor = 0.10
+				conscription = 0.01
 			}
 		}
 
@@ -722,8 +847,88 @@ ideas = {
 			allowed_civil_war = { always = yes }
 			picture = general_staff
 			modifier = {
-				training_time_factor = -0.05
-				army_leader_cost_factor = -0.10
+				training_time_factor = -0.15
+				army_leader_cost_factor = -0.25
+				army_leader_start_level = 2
+				planning_speed = 0.15
+				max_command_power = 25
+			}
+		}
+
+		VEN_cavim_production_idea = {
+
+			allowed_civil_war = { always = yes }
+			picture = army_solider_head
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.15
+				production_factory_max_efficiency_factor = 0.10
+				industrial_capacity_factory = 0.08
+			}
+		}
+
+		VEN_army_asymmetric_idea = {
+
+			allowed_civil_war = { always = yes }
+			picture = army_solider_head
+			modifier = {
+				attrition_for_enemies = 0.20
+				supply_consumption_factor = -0.15
+				resistance_growth_on_our_occupied_states = 0.25
+				army_core_defence_factor = 0.15
+				dig_in_speed_factor = 0.15
+				land_doctrine_track_mastery_gain_factor = 0.15
+			}
+		}
+
+		VEN_army_special_ops_idea = {
+
+			allowed_civil_war = { always = yes }
+			picture = general_staff
+			modifier = {
+				special_forces_cap = 0.25
+				special_forces_attack_factor = 0.15
+				special_forces_defence_factor = 0.10
+				special_forces_out_of_supply_factor = -0.25
+				amphibious_invasion = 0.20
+				land_doctrine_track_mastery_gain_factor = 0.15
+			}
+		}
+
+		VEN_elite_c4isr_idea = {
+
+			allowed_civil_war = { always = yes }
+			picture = general_staff
+			modifier = {
+				recon_factor = 0.25
+				initiative_factor = 0.15
+				coordination_bonus = 0.10
+				land_doctrine_cost_factor = -0.15
+			}
+		}
+
+		VEN_spirit_of_bolivar_idea = {
+
+			allowed_civil_war = { always = yes }
+			picture = general_staff
+			modifier = {
+				army_artillery_attack_factor = 0.18
+				army_artillery_defence_factor = 0.15
+				planning_speed = 0.20
+				max_planning = 0.15
+				land_doctrine_track_mastery_gain_factor = 0.15
+			}
+		}
+
+		VEN_joint_exercises_idea = {
+
+			allowed_civil_war = { always = yes }
+			picture = general_staff
+			modifier = {
+				max_command_power = 60
+				experience_gain_army_factor = 0.25
+				coordination_bonus = 0.15
+				army_bonus_air_superiority_factor = 0.10
+				command_power_gain_mult = 0.15
 			}
 		}
 
@@ -739,7 +944,7 @@ ideas = {
 			}
 		}
 
-		VEN_Education_and_scientific_reforms = {
+		VEN_edu_science_reform = {
 			name = VEN_Education_and_scientific_reforms_idea
 
 			allowed_civil_war = { always = yes }
@@ -752,7 +957,7 @@ ideas = {
 		}
 
 		VEN_Education_and_scientific_reforms_2 = {
-			name = VEN_Education_and_scientific_reforms
+			name = VEN_edu_science_reform
 
 			allowed_civil_war = { always = yes }
 			picture = research_minstry
@@ -764,7 +969,7 @@ ideas = {
 		}
 
 		VEN_Education_and_scientific_reforms_3 = {
-			name = VEN_Education_and_scientific_reforms
+			name = VEN_edu_science_reform
 
 			allowed_civil_war = { always = yes }
 			picture = research_minstry
@@ -775,8 +980,8 @@ ideas = {
 			}
 		}
 
-		VEN_securing_the_workforce = {
-			name = VEN_securing_the_workforce
+		VEN_secure_workforce = {
+			name = VEN_secure_workforce
 
 
 			picture = production_bonus
@@ -806,14 +1011,90 @@ ideas = {
 			}
 		}
 
+		VEN_global_talent_hub = {
+			allowed_civil_war = { always = yes }
+			picture = brain_drain_idea
+			modifier = {
+				research_speed_factor = 0.12
+				production_factory_max_efficiency_factor = 0.08
+				production_factory_start_efficiency_factor = 0.06
+				production_factory_efficiency_gain_factor = 0.08
+				monthly_population = 0.35
+				stability_factor = 0.08
+				productivity_growth_modifier = 0.20
+			}
+		}
+
+		VEN_oil_dependency_transition = {
+			allowed_civil_war = { always = yes }
+			picture = oil
+			modifier = {
+				tax_gain_multiplier_modifier = 0.05
+				production_speed_industrial_complex_factor = 0.10
+				production_speed_infrastructure_factor = 0.10
+				local_resources_factor = 0.10
+			}
+		}
+
+		VEN_emirates_of_the_caribbean = {
+			allowed_civil_war = { always = yes }
+			picture = industrial_concern
+			modifier = {
+				tax_gain_multiplier_modifier = 0.18
+				production_speed_buildings_factor = 0.15
+				industrial_capacity_factory = 0.12
+				research_speed_factor = 0.08
+				stability_factor = 0.10
+				interest_rate_multiplier_modifier = -0.25
+				productivity_growth_modifier = 0.15
+			}
+		}
+
+		VEN_fiscal_overheating_debuff = {
+			allowed_civil_war = { always = yes }
+			picture = industrial_concern
+			modifier = {
+				consumer_goods_factor = 0.06
+				political_power_gain = -0.15
+				interest_rate_multiplier_modifier = 0.15
+				stability_factor = -0.03
+			}
+		}
+
+		VEN_megaproject_debt_strain = {
+			allowed_civil_war = { always = yes }
+			picture = industrial_concern
+			modifier = {
+				consumer_goods_factor = 0.10
+				political_power_gain = -0.25
+				interest_rate_multiplier_modifier = 0.25
+				production_speed_buildings_factor = -0.05
+			}
+		}
+
+		VEN_us_backed_intervention = {
+			allowed_civil_war = { always = yes }
+			picture = AST_usnavy
+			modifier = {
+				justify_war_goal_time = -0.25
+				army_attack_factor = 0.05
+				planning_speed = 0.10
+				war_support_factor = 0.05
+			}
+		}
+
 		VEN_loyal_military = {
 
 			allowed_civil_war = { always = yes }
 			picture = roit_police_idea
 			modifier = {
-				extra_marine_supply_grace = 24
-				navy_max_range_factor = 0.15
-				land_reinforce_rate = 0.03
+				army_org_factor = 0.15
+				army_org_regain = 0.15
+				supply_consumption_factor = -0.15
+				breakthrough_factor = 0.10
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
+				land_reinforce_rate = 0.06
 			}
 		}
 
@@ -951,8 +1232,9 @@ ideas = {
 				political_power_factor = 0.10
 				drift_defence_factor = 0.10
 				communism_drift = 0.03
-				social_cost_multiplier_modifier = 0.03
+				social_cost_multiplier_modifier = 0.10
 				production_factory_max_efficiency_factor = 0.05
+				productivity_growth_modifier = -0.05
 			}
 		}
 		VEN_civilian_defense = {
@@ -1074,6 +1356,333 @@ ideas = {
 				army_attack_factor = 0.05
 				experience_gain_army_factor = 0.15
 				army_personnel_cost_multiplier_modifier = -0.05
+			}
+		}
+
+		VEN_joint_aerospace_supremacy_idea = {
+
+			allowed_civil_war = { always = yes }
+
+			picture = fighter_production_increase
+
+			modifier = {
+				air_superiority_efficiency = 0.10
+				air_mission_efficiency = 0.10
+				air_ace_generation_chance_factor = 0.15
+				air_doctrine_cost_factor = -0.10
+				air_fuel_consumption_factor = -0.10
+			}
+		}
+
+		VEN_national_aerospace_initiative_idea = {
+
+			allowed_civil_war = { always = yes }
+
+			picture = company_southwestern_aerospace
+
+			modifier = {
+				research_speed_factor = 0.03
+				production_speed_arms_factory_factor = 0.10
+			}
+		}
+
+		VEN_sovereign_aerospace_complex_idea = {
+
+			allowed_civil_war = { always = yes }
+
+			picture = combined_bomber_offensive
+
+			modifier = {
+				research_speed_factor = 0.06
+				production_speed_arms_factory_factor = 0.15
+				production_factory_max_efficiency_factor = 0.10
+				air_superiority_efficiency = 0.10
+			}
+			equipment_bonus = {
+				small_plane_airframe = {
+					build_cost_ic = -0.12
+					air_agility = 0.08
+					reliability = 0.08
+					instant = yes
+				}
+				medium_plane_airframe = {
+					build_cost_ic = -0.12
+					air_range = 0.15
+					reliability = 0.08
+					instant = yes
+				}
+				large_plane_airframe = {
+					build_cost_ic = -0.12
+					air_range = 0.15
+					reliability = 0.08
+					instant = yes
+				}
+			}
+		}
+
+		VEN_gnb_garrison_commands_idea = {
+
+			allowed_civil_war = { always = yes }
+
+			picture = politicised_army
+
+			modifier = {
+				required_garrison_factor = -0.20
+				resistance_damage_to_garrison = -0.20
+				army_core_defence_factor = 0.05
+			}
+		}
+
+		VEN_gnb_pacification_doctrine_idea = {
+
+			allowed_civil_war = { always = yes }
+
+			picture = politicised_army
+
+			modifier = {
+				compliance_growth = 0.20
+				resistance_growth = -0.15
+				non_core_manpower = 0.10
+			}
+		}
+
+		VEN_gnb_border_defense_idea = {
+
+			allowed_civil_war = { always = yes }
+
+			picture = politicised_army
+
+			modifier = {
+				dig_in_speed_factor = 0.15
+				max_dig_in_factor = 0.10
+				resistance_growth_on_our_occupied_states = 0.20
+			}
+		}
+
+		VEN_gnb_mobile_order_idea = {
+
+			allowed_civil_war = { always = yes }
+
+			picture = politicised_army
+
+			modifier = {
+				army_speed_factor = 0.05
+				supply_consumption_factor = -0.05
+			}
+		}
+
+		VEN_gnb_territorial_intel_idea = {
+
+			allowed_civil_war = { always = yes }
+
+			picture = politicised_army
+
+			modifier = {
+				stability_factor = 0.05
+				max_command_power = 25
+				compliance_growth_on_our_occupied_states = -0.20
+			}
+		}
+
+		VEN_gnb_sovereign_order_idea = {
+
+			allowed_civil_war = { always = yes }
+
+			picture = politicised_army
+
+			modifier = {
+				stability_factor = 0.10
+				army_core_defence_factor = 0.15
+				army_core_attack_factor = 0.10
+				compliance_growth = 0.25
+				resistance_growth = -0.20
+				required_garrison_factor = -0.25
+				resistance_damage_to_garrison = -0.25
+				non_core_manpower = 0.12
+				dig_in_speed_factor = 0.15
+				max_dig_in_factor = 0.10
+				resistance_growth_on_our_occupied_states = 0.25
+				compliance_growth_on_our_occupied_states = -0.25
+				army_speed_factor = 0.05
+				supply_consumption_factor = -0.05
+				max_command_power = 30
+			}
+		}
+
+		VEN_gnb_territorial_shield_buff = {
+
+			allowed_civil_war = { always = yes }
+
+			picture = politicised_army
+
+			modifier = {
+				stability_factor = 0.05
+				army_core_defence_factor = 0.10
+				resistance_growth = -0.10
+			}
+		}
+
+		# Rama Blindada, Mecanizada y Motorizada
+		VEN_cemablin_t72_doctrine_idea = {
+			allowed_civil_war = { always = yes }
+			picture = armor2
+			modifier = {
+				army_armor_attack_factor = 0.08
+				breakthrough_factor = 0.05
+			}
+		}
+
+		VEN_norinco_vn16_amphibious_idea = {
+			allowed_civil_war = { always = yes }
+			picture = apc_star_idea
+			modifier = {
+				mechanized_attack_factor = 0.10
+				mechanized_defence_factor = 0.08
+				amphibious_invasion = 0.08
+			}
+		}
+
+		VEN_amx30_modernization_idea = {
+			allowed_civil_war = { always = yes }
+			picture = armor
+			modifier = {
+				army_armor_speed_factor = 0.08
+				army_armor_defence_factor = 0.06
+				breakthrough_factor = 0.06
+			}
+		}
+
+		VEN_llanos_cavalry_mobility_idea = {
+			allowed_civil_war = { always = yes }
+			picture = apc_star_idea
+			modifier = {
+				mechanized_attack_factor = 0.08
+				army_speed_factor = 0.06
+				supply_consumption_factor = -0.05
+			}
+		}
+
+		VEN_tiuna_motorization_idea = {
+			allowed_civil_war = { always = yes }
+			picture = army_motorisation_good
+			modifier = {
+				army_speed_factor = 0.04
+			}
+			equipment_bonus = {
+				util_vehicle_type = {
+					instant = yes
+					build_cost_ic = -0.10
+					reliability = 0.10
+				}
+				heavy_util_vehicle_type = {
+					instant = yes
+					build_cost_ic = -0.10
+					reliability = 0.10
+				}
+			}
+		}
+
+		VEN_motorized_logistics_idea = {
+			allowed_civil_war = { always = yes }
+			picture = generic_supply_lines
+			modifier = {
+				supply_consumption_factor = -0.08
+				motorized_attack_factor = 0.08
+				motorized_defence_factor = 0.08
+			}
+		}
+
+		VEN_cenareca_mass_production_idea = {
+			allowed_civil_war = { always = yes }
+			picture = production_bonus
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.06
+				industrial_capacity_factory = 0.05
+			}
+		}
+
+		VEN_armored_spearhead_idea = {
+			allowed_civil_war = { always = yes }
+			picture = armor
+			modifier = {
+				army_armor_attack_factor = 0.08
+				army_armor_speed_factor = 0.08
+				breakthrough_factor = 0.06
+			}
+		}
+
+		VEN_combined_arms_corps_idea = {
+			allowed_civil_war = { always = yes }
+			picture = armor2
+			modifier = {
+				army_armor_attack_factor = 0.10
+				army_armor_defence_factor = 0.08
+				mechanized_attack_factor = 0.08
+				motorized_attack_factor = 0.06
+				army_org_factor = 0.05
+			}
+		}
+
+		# Pilar Derecho Aéreo: CODAI, Drones y Aeroespacial
+		VEN_codai_air_defense_idea = {
+			allowed_civil_war = { always = yes }
+			picture = ukr_antiair_missile_troops_idea
+			modifier = {
+				static_anti_air_damage_factor = 0.20
+				static_anti_air_hit_chance_factor = 0.15
+				air_superiority_efficiency = 0.05
+			}
+		}
+
+		VEN_drone_recon_strike_idea = {
+			allowed_civil_war = { always = yes }
+			picture = isr_more_drones
+			modifier = {
+				air_cas_efficiency = 0.08
+				air_mission_efficiency = 0.06
+				ground_attack_factor = 0.05
+			}
+		}
+
+		VEN_autonomous_drone_swarm_idea = {
+			allowed_civil_war = { always = yes }
+			picture = ukr_dronearmy_idea
+			modifier = {
+				air_cas_efficiency = 0.12
+				air_mission_efficiency = 0.10
+				ground_attack_factor = 0.10
+				army_bonus_air_superiority_factor = 0.08
+			}
+		}
+
+		VEN_missile_telecom_shield_idea = {
+			allowed_civil_war = { always = yes }
+			picture = radar
+			modifier = {
+				encryption_factor = 0.15
+				decryption_factor = 0.15
+				air_fuel_consumption_factor = -0.08
+			}
+		}
+
+		VEN_orbital_c4isr_idea = {
+			allowed_civil_war = { always = yes }
+			picture = satellite_treaties_icon
+			modifier = {
+				research_speed_factor = 0.04
+				planning_speed = 0.15
+				max_planning_factor = 0.10
+			}
+		}
+
+		VEN_aerospace_energy_shield_idea = {
+			allowed_civil_war = { always = yes }
+			picture = sov_spaceforce_idea
+			modifier = {
+				static_anti_air_damage_factor = 0.35
+				static_anti_air_hit_chance_factor = 0.25
+				air_superiority_efficiency = 0.12
+				air_ace_generation_chance_factor = 0.15
 			}
 		}
 

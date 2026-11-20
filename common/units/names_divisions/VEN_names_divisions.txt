@@ -4,7 +4,7 @@ VEN_bolivarian_national_militia = {
 	for_countries = { VEN }
 
 	can_use = {
-		has_completed_focus = VEN_venezuela_national_militia
+		has_completed_focus = VEN_national_militia
 	}
 
 	division_types = { "Militia_Bat" "Mot_Militia_Bat" }
@@ -18,7 +18,7 @@ VEN_bolivarian_national_guard = {
 	for_countries = { VEN }
 
 	can_use = {
-		has_completed_focus = VEN_boliviarian_national_guard
+		has_completed_focus = VEN_bolivarian_guard
 	}
 
 	division_types = { "L_Inf_Bat" "Mot_Inf_Bat" }

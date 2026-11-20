@@ -1,4 +1,4 @@
-﻿spriteTypes = {
+spriteTypes = {
 	spriteType = {
 		name = "GFX_VEN_Anti_Air_0_medium"
 		texturefile = "gfx/interface/technologies/0_generic/artillery/FIM43.dds"

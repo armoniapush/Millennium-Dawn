@@ -39815,6 +39815,10 @@ spriteTypes = {
 		texturefile = "gfx/interface/goals/united_states/350_ship_navy.dds"
 	}
 	spriteType = {
+		name = "usa_ship_navy"
+		texturefile = "gfx/interface/goals/united_states/usa_ship_navy.dds"
+	}
+	spriteType = {
 		name = "american_africa"
 		texturefile = "gfx/interface/goals/united_states/american_africa.dds"
 	}

@@ -509,3 +509,198 @@ VEN_ai_path_category = {
 		ai_will_do = { base = 100 }
 	}
 }
+
+VEN_gnb_territorial_commands = {
+
+	VEN_gnb_pacify_occupied_state = {
+		icon = GFX_decision_generic_police_action
+
+		state_target = yes
+
+		target_trigger = {
+			FROM = {
+				is_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+				OR = {
+					resistance > 5
+					compliance < 80
+				}
+			}
+		}
+
+		available = {
+			check_variable = { treasury > 0.49 }
+		}
+
+		cost = 25
+		days_remove = 15
+		days_re_enable = 60
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_gnb_pacify_occupied_state"
+			set_temp_variable = { treasury_change = -0.5 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_gnb_pacify_occupied_state remove"
+			FROM = {
+				if = {
+					limit = { ROOT = { has_completed_focus = VEN_gnb_pacification } }
+					add_compliance = 16
+					add_resistance = -20
+				}
+				else = {
+					add_compliance = 12
+					add_resistance = -15
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 0
+				check_variable = { treasury < 1.5 }
+			}
+		}
+	}
+
+	VEN_gnb_integrate_pacified_state = {
+		icon = GFX_decision_generic_construction
+
+		state_target = yes
+
+		visible = {
+			has_completed_focus = VEN_gnb_pacification
+		}
+
+		target_trigger = {
+			FROM = {
+				is_owned_and_controlled_by = ROOT
+				NOT = { is_core_of = ROOT }
+				NOT = { has_state_flag = VEN_gnb_state_integrated }
+			}
+		}
+
+		available = {
+			FROM = { compliance > 49 }
+			check_variable = { treasury > 0.99 }
+		}
+
+		cost = 50
+		days_remove = 20
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_gnb_integrate_pacified_state"
+			set_temp_variable = { treasury_change = -1.0 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_gnb_integrate_pacified_state remove"
+			FROM = {
+				set_state_flag = VEN_gnb_state_integrated
+				add_dynamic_modifier = { modifier = VEN_gnb_integrated_territory_modifier }
+			}
+		}
+
+		ai_will_do = {
+			base = 8
+			modifier = {
+				factor = 0
+				check_variable = { treasury < 2.0 }
+			}
+		}
+	}
+
+	VEN_gnb_activate_zone_brigade = {
+		icon = GFX_decision_generic_military
+
+		state_target = yes
+
+		target_trigger = {
+			FROM = {
+				is_owned_and_controlled_by = ROOT
+				OR = {
+					state = 875
+					state = 876
+					state = 915
+				}
+			}
+		}
+
+		available = {
+			OR = {
+				has_war = yes
+				threat > 0.35
+			}
+			check_variable = { treasury > 0.74 }
+		}
+
+		cost = 25
+		days_re_enable = 180
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_gnb_activate_zone_brigade"
+			set_temp_variable = { treasury_change = -0.75 }
+			modify_treasury_effect = yes
+			if = {
+				limit = { NOT = { has_template = "Guardia Nacional" } }
+				division_template = {
+					name = "Guardia Nacional"
+					division_names_group = VEN_bolivarian_national_guard
+					is_locked = no
+					regiments = {
+						L_Inf_Bat = { x = 0 y = 0 }
+						L_Inf_Bat = { x = 0 y = 1 }
+						Mot_Inf_Bat = { x = 1 y = 0 }
+					}
+				}
+			}
+			FROM = {
+				create_unit = {
+					division = "name = \"Brigada Territorial GNB\" division_template = \"Guardia Nacional\" start_experience_factor = 0.5"
+					owner = VEN
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 5
+			modifier = {
+				factor = 0
+				has_war = no
+			}
+		}
+	}
+
+	VEN_gnb_operation_territorial_shield = {
+		icon = GFX_decision_generic_army_support
+
+		available = {
+			command_power > 19
+		}
+
+		cost = 35
+		days_re_enable = 180
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_gnb_operation_territorial_shield"
+			add_command_power = -20
+			army_experience = 10
+			add_timed_idea = {
+				idea = VEN_gnb_territorial_shield_buff
+				days = 120
+			}
+		}
+
+		ai_will_do = {
+			base = 3
+			modifier = {
+				factor = 3
+				has_war = yes
+			}
+		}
+	}
+}

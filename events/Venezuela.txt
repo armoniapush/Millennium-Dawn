@@ -149,29 +149,84 @@ country_event = {
 	option = {
 		name = venezuela.50.o1
 		log = "[GetDateText]: [This.GetName]: venezuela.50.o1 executed"
-		set_variable = { VEN.var_us_import_policy = 1 }
-		custom_effect_tooltip = VEN_us_import_policy_loc1
+		set_temp_variable = { treasury_change = -2.5 }
+		modify_treasury_effect = yes
+		USA = { add_opinion_modifier = { target = ROOT modifier = large_increase } }
+		set_temp_variable = { tag_index = USA }
+		set_temp_variable = { influence_target = VEN }
+		set_temp_variable = { percent_change = -2 }
+		change_influence_percentage = yes
+		hidden_effect = {
+			add_to_variable = { VEN_mil_coord = 0.03 }
+			add_to_variable = { VEN_mil_org = 0.03 }
+		}
+		custom_effect_tooltip = VEN_nato_cmd_updated_tt
+		ai_chance = { factor = 25 }
 	}
 
 	option = {
 		name = venezuela.50.o2
 		log = "[GetDateText]: [This.GetName]: venezuela.50.o2 executed"
-		set_variable = { VEN.var_us_import_policy = 2 }
-		custom_effect_tooltip = VEN_us_import_policy_loc2
+		set_temp_variable = { treasury_change = -1.5 }
+		modify_treasury_effect = yes
+		USA = { add_opinion_modifier = { target = ROOT modifier = declaration_of_friendship } }
+		hidden_effect = {
+			add_to_variable = { VEN_mil_org = 0.04 }
+			add_to_variable = { VEN_mil_supply = -0.03 }
+		}
+		custom_effect_tooltip = VEN_nato_cmd_updated_tt
+		ai_chance = { factor = 35 }
 	}
 
 	option = {
 		name = venezuela.50.o3
 		log = "[GetDateText]: [This.GetName]: venezuela.50.o3 executed"
-		set_variable = { VEN.var_us_import_policy = 3 }
-		custom_effect_tooltip = VEN_us_import_policy_loc3
+		add_equipment_to_stockpile = {
+			type = infantry_weapons_1
+			amount = 1000
+			producer = USA
+		}
+		add_equipment_to_stockpile = {
+			type = util_vehicle_1
+			amount = 80
+			producer = USA
+		}
+		set_temp_variable = { tag_index = USA }
+		set_temp_variable = { influence_target = VEN }
+		set_temp_variable = { percent_change = 4 }
+		change_influence_percentage = yes
+		hidden_effect = {
+			add_to_variable = { VEN_mil_supply = -0.05 }
+		}
+		custom_effect_tooltip = VEN_nato_cmd_updated_tt
+		ai_chance = { factor = 25 }
 	}
 
 	option = {
 		name = venezuela.50.o4
 		log = "[GetDateText]: [This.GetName]: venezuela.50.o4 executed"
-		set_variable = { VEN.var_us_import_policy = 4 }
-		custom_effect_tooltip = VEN_us_import_policy_loc4
+		set_temp_variable = { treasury_change = 2.0 }
+		modify_treasury_effect = yes
+		add_equipment_to_stockpile = {
+			type = infantry_weapons_1
+			amount = 1500
+			producer = USA
+		}
+		add_equipment_to_stockpile = {
+			type = Anti_Air_1
+			amount = 80
+			producer = USA
+		}
+		USA = { add_opinion_modifier = { target = ROOT modifier = small_decrease } }
+		set_temp_variable = { tag_index = USA }
+		set_temp_variable = { influence_target = VEN }
+		set_temp_variable = { percent_change = 8 }
+		change_influence_percentage = yes
+		hidden_effect = {
+			add_to_variable = { VEN_mil_doctrine_cost = -0.05 }
+		}
+		custom_effect_tooltip = VEN_nato_cmd_updated_tt
+		ai_chance = { factor = 15 }
 	}
 }
 
@@ -904,5 +959,562 @@ country_event = {
 				clr_country_flag = VEN_refused_deal
 			}
 		}
+	}
+}
+
+# Concurso Internacional de Cazas FX-VEN (Neutral)
+country_event = {
+	id = venezuela.210
+	title = venezuela.210.t
+	desc = venezuela.210.d
+	picture = GFX_fighter_jet
+	is_triggered_only = yes
+
+	# Opcion A: Saab JAS 39 Gripen (Suecia) - 30 unidades ($6.0B)
+	option = {
+		name = venezuela.210.a
+		log = "[GetDateText]: [This.GetName]: venezuela.210.a executed"
+		trigger = {
+			SWE = { exists = yes NOT = { has_war_with = ROOT } }
+		}
+		set_country_flag = VEN_contest_gripen
+		set_temp_variable = { treasury_change = -9.0 }
+		modify_treasury_effect = yes
+		SWE = {
+			set_temp_variable = { treasury_change = 9.0 }
+			modify_treasury_effect = yes
+			add_opinion_modifier = { target = ROOT modifier = large_increase }
+		}
+		add_opinion_modifier = { target = SWE modifier = large_increase }
+		set_temp_variable = { percent_change = 3 }
+		set_temp_variable = { tag_index = SWE }
+		set_temp_variable = { influence_target = VEN }
+		change_influence_percentage = yes
+		if = {
+			limit = { has_dlc = "By Blood Alone" }
+			add_equipment_to_stockpile = {
+				type = small_plane_strike_airframe_2
+				variant_name = "JAS 39 Gripen A/B"
+				amount = 30
+				producer = SWE
+			}
+		}
+		else = {
+			add_equipment_to_stockpile = {
+				type = MR_Fighter3
+				amount = 30
+				producer = SWE
+			}
+		}
+		ai_chance = { factor = 50 }
+	}
+
+	# Opcion B: Dassault Rafale (Francia) - 24 unidades ($7.8B)
+	option = {
+		name = venezuela.210.b
+		log = "[GetDateText]: [This.GetName]: venezuela.210.b executed"
+		trigger = {
+			FRA = { exists = yes NOT = { has_war_with = ROOT } }
+		}
+		set_country_flag = VEN_contest_rafale
+		set_temp_variable = { treasury_change = -11.7 }
+		modify_treasury_effect = yes
+		FRA = {
+			set_temp_variable = { treasury_change = 11.7 }
+			modify_treasury_effect = yes
+			add_opinion_modifier = { target = ROOT modifier = large_increase }
+		}
+		add_opinion_modifier = { target = FRA modifier = large_increase }
+		set_temp_variable = { percent_change = 3 }
+		set_temp_variable = { tag_index = FRA }
+		set_temp_variable = { influence_target = VEN }
+		change_influence_percentage = yes
+		if = {
+			limit = { has_dlc = "By Blood Alone" }
+			add_equipment_to_stockpile = {
+				type = medium_plane_fighter_airframe_2
+				variant_name = "Rafale C"
+				amount = 24
+				producer = FRA
+			}
+		}
+		else = {
+			add_equipment_to_stockpile = {
+				type = MR_Fighter3
+				amount = 24
+				producer = FRA
+			}
+		}
+		ai_chance = { factor = 30 }
+	}
+
+	# Opcion C: Eurofighter Typhoon (Alemania) - 24 unidades ($8.0B)
+	option = {
+		name = venezuela.210.c
+		log = "[GetDateText]: [This.GetName]: venezuela.210.c executed"
+		trigger = {
+			GER = { exists = yes NOT = { has_war_with = ROOT } }
+		}
+		set_country_flag = VEN_contest_typhoon
+		set_temp_variable = { treasury_change = -12.0 }
+		modify_treasury_effect = yes
+		GER = {
+			set_temp_variable = { treasury_change = 12.0 }
+			modify_treasury_effect = yes
+			add_opinion_modifier = { target = ROOT modifier = large_increase }
+		}
+		add_opinion_modifier = { target = GER modifier = large_increase }
+		set_temp_variable = { percent_change = 3 }
+		set_temp_variable = { tag_index = GER }
+		set_temp_variable = { influence_target = VEN }
+		change_influence_percentage = yes
+		if = {
+			limit = { has_dlc = "By Blood Alone" }
+			add_equipment_to_stockpile = {
+				type = medium_plane_airframe_2
+				variant_name = "Typhoon Tranche 1"
+				amount = 24
+				producer = GER
+			}
+		}
+		else = {
+			add_equipment_to_stockpile = {
+				type = MR_Fighter3
+				amount = 24
+				producer = GER
+			}
+		}
+		ai_chance = { factor = 20 }
+	}
+}
+
+# Buro de Diseno Nacional CAVIM - Especializacion de Prototipos (Rama Nacional)
+country_event = {
+	id = venezuela.211
+	title = venezuela.211.t
+	desc = venezuela.211.d
+	picture = GFX_fighter_jet
+	is_triggered_only = yes
+
+	# Opcion A: Caza de Superioridad y Furtividad - CAVIM F-21 Relampago
+	option = {
+		name = venezuela.211.a
+		log = "[GetDateText]: [This.GetName]: venezuela.211.a executed"
+		add_tech_bonus = {
+			name = venezuela.211.a
+			bonus = 1.0
+			uses = 2
+			category = CAT_medium_aircraft
+		}
+		add_tech_bonus = {
+			name = venezuela.211.a
+			bonus = 0.75
+			uses = 1
+			category = CAT_air_stealth
+		}
+		if = {
+			limit = { has_dlc = "By Blood Alone" }
+			create_equipment_variant = {
+				name = "CAVIM F-21 Relámpago"
+				type = small_plane_strike_airframe_2
+				parent_version = 0
+				modules = {
+					fixed_main_weapon_slot = weap_mp_med_hardpoint_2
+					fixed_gun_slot = weap_multi_gun_2
+					fixed_auxiliary_weapon_slot_1 = weap_a2a_hardpoint_2
+					engine_type_slot = engine_light_single_3
+					avionics_type_slot = avionics_manned_3
+					wingform_type_slot = wing_delta
+					special_slot_type_1 = spec_countermeasures_2
+					special_slot_type_2 = spec_tgp_2
+					special_slot_type_3 = spec_refuel_1
+				}
+				upgrades = {
+					plane_bba_radar_upgrade = 4
+					plane_bba_engine_upgrade = 3
+				}
+				icon = "GFX_USA_AIR_F_16V"
+				model = "USA_small_plane_airframe_2_entity"
+			}
+			add_equipment_to_stockpile = {
+				type = small_plane_strike_airframe_2
+				variant_name = "CAVIM F-21 Relámpago"
+				amount = 6
+				producer = VEN
+			}
+		}
+		else = {
+			add_equipment_to_stockpile = {
+				type = MR_Fighter3
+				amount = 6
+				producer = VEN
+			}
+		}
+		ai_chance = { factor = 50 }
+	}
+
+	# Opcion B: Bombardero Estrategico y Ataque Pesado - CAVIM B-24 Caroni
+	option = {
+		name = venezuela.211.b
+		log = "[GetDateText]: [This.GetName]: venezuela.211.b executed"
+		add_tech_bonus = {
+			name = venezuela.211.b
+			bonus = 1.0
+			uses = 2
+			category = CAT_heavy_aircraft
+		}
+		if = {
+			limit = { NOT = { is_special_project_completed = sp:sp_missile_project } }
+			sp:sp_missile_project = { add_project_progress_ratio = 0.40 }
+		}
+		if = {
+			limit = { has_dlc = "By Blood Alone" }
+			create_equipment_variant = {
+				name = "CAVIM B-24 Caroní"
+				type = medium_plane_cas_airframe_2
+				parent_version = 0
+				modules = {
+					fixed_main_weapon_slot = weap_mp_heavy_hardpoint_2
+					fixed_gun_slot = weap_multi_gun_3
+					fixed_auxiliary_weapon_slot_1 = weap_a2a_hardpoint_2
+					fixed_auxiliary_weapon_slot_2 = weap_mp_heavy_hardpoint_2
+					engine_type_slot = engine_jet_double_3
+					avionics_type_slot = avionics_manned_3
+					wingform_type_slot = wing_delta_canard
+					special_slot_type_1 = spec_countermeasures_2
+					special_slot_type_2 = spec_refuel_2
+					special_slot_type_3 = spec_redundant_2
+				}
+				upgrades = {
+					plane_bba_radar_upgrade = 3
+					plane_bba_engine_upgrade = 3
+				}
+				icon = "GFX_SOV_AIR_Su_30MKA"
+				model = "GEN_SU30_entity"
+			}
+			add_equipment_to_stockpile = {
+				type = medium_plane_cas_airframe_2
+				variant_name = "CAVIM B-24 Caroní"
+				amount = 4
+				producer = VEN
+			}
+		}
+		else = {
+			add_equipment_to_stockpile = {
+				type = Strike_fighter2
+				amount = 4
+				producer = VEN
+			}
+		}
+		ai_chance = { factor = 25 }
+	}
+
+	# Opcion C: Helicoptero de Ataque y Drones - CAVIM AH-14 Roraima
+	option = {
+		name = venezuela.211.c
+		log = "[GetDateText]: [This.GetName]: venezuela.211.c executed"
+		add_tech_bonus = {
+			name = venezuela.211.c
+			bonus = 1.0
+			uses = 2
+			category = CAT_helicopters
+		}
+		add_tech_bonus = {
+			name = venezuela.211.c
+			bonus = 0.75
+			uses = 1
+			category = CAT_air_drones
+		}
+		if = {
+			limit = { NOT = { is_special_project_completed = sp:sp_helicopter_project } }
+			sp:sp_helicopter_project = { add_project_progress_ratio = 0.50 }
+		}
+		add_equipment_to_stockpile = {
+			type = attack_helicopter_2
+			amount = 12
+			producer = VEN
+		}
+		ai_chance = { factor = 25 }
+	}
+}
+
+# Modelo de Capital Occidental (VEN_introduce_western_industries)
+country_event = {
+	id = venezuela.220
+	title = venezuela.220.t
+	desc = venezuela.220.d
+	picture = GFX_USA_generic
+
+	is_triggered_only = yes
+
+	# Opcion A: Modelo Wall Street & Desregulacion
+	option = {
+		name = venezuela.220.a
+		log = "[GetDateText]: [This.GetName]: venezuela.220.a executed"
+		set_temp_variable = { corp_change = -4 }
+		modify_corporate_tax_rate_effect = yes
+		hidden_effect = {
+			add_to_variable = { VEN_west_offices_prod = 0.05 }
+			add_to_variable = { VEN_west_recv_inv_cost = -0.05 }
+		}
+		custom_effect_tooltip = VEN_western_boom_updated_tt
+		set_temp_variable = { temp_opinion = 10 }
+		change_international_bankers_opinion = yes
+		set_temp_variable = { tag_index = USA }
+		set_temp_variable = { influence_target = VEN }
+		set_temp_variable = { percent_change = 3 }
+		change_influence_percentage = yes
+		ai_chance = { factor = 40 }
+	}
+
+	# Opcion B: Pacto Industrial Social-Mercado Europeo
+	option = {
+		name = venezuela.220.b
+		log = "[GetDateText]: [This.GetName]: venezuela.220.b executed"
+		one_random_industrial_complex = yes
+		hidden_effect = {
+			add_to_variable = { VEN_west_build_speed = 0.05 }
+			add_to_variable = { VEN_west_research_speed = 0.03 }
+		}
+		custom_effect_tooltip = VEN_western_boom_updated_tt
+		set_temp_variable = { temp_opinion = 5 }
+		change_labour_unions_opinion = yes
+		if = {
+			limit = { country_exists = GER }
+			set_temp_variable = { tag_index = GER }
+			set_temp_variable = { influence_target = VEN }
+			set_temp_variable = { percent_change = 3 }
+			change_influence_percentage = yes
+		}
+		ai_chance = { factor = 35 }
+	}
+
+	# Opcion C: Zonas Economicas Especiales Soberanas
+	option = {
+		name = venezuela.220.c
+		log = "[GetDateText]: [This.GetName]: venezuela.220.c executed"
+		875 = { add_extra_state_shared_building_slots = 2 }
+		874 = { add_extra_state_shared_building_slots = 2 }
+		hidden_effect = {
+			add_to_variable = { VEN_west_tax_gain = 0.04 }
+		}
+		custom_effect_tooltip = VEN_western_boom_updated_tt
+		set_temp_variable = { percent_change = 3 }
+		change_domestic_influence_percentage = yes
+		ai_chance = { factor = 25 }
+	}
+}
+
+# Terminos de Concesion en Maracaibo y el Orinoco (VEN_usa_oil_privatization)
+country_event = {
+	id = venezuela.221
+	title = venezuela.221.t
+	desc = venezuela.221.d
+	picture = GFX_USA_generic
+
+	is_triggered_only = yes
+
+	# Opcion A: Concesion Mayoritaria a Petroleras de EE. UU.
+	option = {
+		name = venezuela.221.a
+		log = "[GetDateText]: [This.GetName]: venezuela.221.a executed"
+		set_temp_variable = { treasury_change = 25.0 }
+		modify_treasury_effect = yes
+		874 = { add_resource = { type = oil amount = 10 } }
+		916 = { add_resource = { type = oil amount = 6 } }
+		hidden_effect = {
+			add_to_variable = { VEN_west_oil_export = 0.10 }
+		}
+		custom_effect_tooltip = VEN_western_boom_updated_tt
+		USA = { add_opinion_modifier = { target = ROOT modifier = declaration_of_friendship } }
+		set_temp_variable = { tag_index = USA }
+		set_temp_variable = { influence_target = VEN }
+		set_temp_variable = { percent_change = 4 }
+		change_influence_percentage = yes
+		set_temp_variable = { temp_opinion = 15 }
+		change_fossil_fuel_industry_opinion = yes
+		set_temp_variable = { temp_opinion = -10 }
+		change_labour_unions_opinion = yes
+		ai_chance = { factor = 55 }
+	}
+
+	# Opcion B: Empresa Mixta 51/49 (Control Estatal)
+	option = {
+		name = venezuela.221.b
+		log = "[GetDateText]: [This.GetName]: venezuela.221.b executed"
+		set_temp_variable = { treasury_change = 12.0 }
+		modify_treasury_effect = yes
+		874 = { add_resource = { type = oil amount = 6 } }
+		916 = { add_resource = { type = oil amount = 4 } }
+		hidden_effect = {
+			add_to_variable = { VEN_west_oil_export = 0.05 }
+			add_to_variable = { VEN_west_tax_gain = 0.04 }
+		}
+		custom_effect_tooltip = VEN_western_boom_updated_tt
+		set_temp_variable = { temp_opinion = 8 }
+		change_fossil_fuel_industry_opinion = yes
+		set_temp_variable = { temp_opinion = -3 }
+		change_labour_unions_opinion = yes
+		ai_chance = { factor = 45 }
+	}
+}
+
+# STANAG & Joint Doctrine Overhaul
+country_event = {
+	id = venezuela.222
+	title = venezuela.222.t
+	desc = venezuela.222.d
+	picture = GFX_NATO_picture
+	is_triggered_only = yes
+
+	# Opcion A: Guerra Aeroterrestre y Maniobra Mecanizada
+	option = {
+		name = venezuela.222.a
+		log = "[GetDateText]: [This.GetName]: venezuela.222.a executed"
+		hidden_effect = {
+			add_to_variable = { VEN_mil_planning = 0.05 }
+			add_to_variable = { VEN_mil_max_planning = 0.05 }
+			add_to_variable = { VEN_mil_coord = 0.04 }
+		}
+		custom_effect_tooltip = VEN_nato_cmd_updated_tt
+		add_tech_bonus = {
+			name = venezuela.222.a
+			bonus = 0.75
+			uses = 1
+			category = CAT_armor
+		}
+		if = {
+			limit = { has_military_industrial_organization = VEN_cenareca_armored_organization }
+			mio:VEN_cenareca_armored_organization = {
+				add_mio_funds = 500
+				add_mio_size = 1
+			}
+		}
+		ai_chance = { factor = 40 }
+	}
+
+	# Opcion B: Fuerza Aeromovil y Operaciones Especiales en Selva
+	option = {
+		name = venezuela.222.b
+		log = "[GetDateText]: [This.GetName]: venezuela.222.b executed"
+		hidden_effect = {
+			add_to_variable = { VEN_mil_org = 0.06 }
+			add_to_variable = { VEN_mil_supply = -0.06 }
+			add_to_variable = { VEN_mil_air_sup = 0.04 }
+		}
+		custom_effect_tooltip = VEN_nato_cmd_updated_tt
+		add_tech_bonus = {
+			name = venezuela.222.b
+			bonus = 0.75
+			uses = 1
+			category = CAT_special_forces
+		}
+		if = {
+			limit = { has_military_industrial_organization = VEN_cavim_materiel_organization }
+			mio:VEN_cavim_materiel_organization = {
+				add_mio_funds = 500
+				add_mio_size = 1
+			}
+		}
+		ai_chance = { factor = 35 }
+	}
+
+	# Opcion C: Escudo Aeronaval Conjunto del Caribe
+	option = {
+		name = venezuela.222.c
+		log = "[GetDateText]: [This.GetName]: venezuela.222.c executed"
+		hidden_effect = {
+			add_to_variable = { VEN_mil_naval_coord = 0.08 }
+			add_to_variable = { VEN_mil_air_sup = 0.06 }
+			add_to_variable = { VEN_mil_org = 0.03 }
+		}
+		custom_effect_tooltip = VEN_nato_cmd_updated_tt
+		if = {
+			limit = { has_military_industrial_organization = VEN_dianca_naval_organization }
+			mio:VEN_dianca_naval_organization = {
+				add_mio_funds = 350
+			}
+		}
+		if = {
+			limit = { has_military_industrial_organization = VEN_cavim_aircraft_drones_organization }
+			mio:VEN_cavim_aircraft_drones_organization = {
+				add_mio_funds = 350
+			}
+		}
+		ai_chance = { factor = 25 }
+	}
+}
+
+# SOUTHCOM Forward Operating Location Treaty
+country_event = {
+	id = venezuela.223
+	title = venezuela.223.t
+	desc = venezuela.223.d
+	picture = GFX_USA_generic
+	is_triggered_only = yes
+
+	# Opcion A: Base Conjunta Soberana (Equilibrada)
+	option = {
+		name = venezuela.223.a
+		log = "[GetDateText]: [This.GetName]: venezuela.223.a executed"
+		875 = {
+			add_building_construction = { type = air_base level = 2 instant_build = yes }
+			add_building_construction = { type = naval_base level = 2 instant_build = yes province = 8113 }
+			add_building_construction = { type = radar_station level = 2 instant_build = yes }
+		}
+		set_temp_variable = { tag_index = USA }
+		set_temp_variable = { influence_target = VEN }
+		set_temp_variable = { percent_change = 4 }
+		change_influence_percentage = yes
+		hidden_effect = {
+			add_to_variable = { VEN_mil_air_sup = 0.04 }
+			add_to_variable = { VEN_mil_naval_coord = 0.04 }
+		}
+		custom_effect_tooltip = VEN_nato_cmd_updated_tt
+		ai_chance = { factor = 50 }
+	}
+
+	# Opcion B: Fortaleza del Caribe Financiada por EE. UU.
+	option = {
+		name = venezuela.223.b
+		log = "[GetDateText]: [This.GetName]: venezuela.223.b executed"
+		set_temp_variable = { treasury_change = 4.0 }
+		modify_treasury_effect = yes
+		875 = {
+			add_building_construction = { type = air_base level = 3 instant_build = yes }
+			add_building_construction = { type = anti_air_building level = 2 instant_build = yes }
+			add_building_construction = { type = naval_base level = 2 instant_build = yes province = 8113 }
+		}
+		set_temp_variable = { tag_index = USA }
+		set_temp_variable = { influence_target = VEN }
+		set_temp_variable = { percent_change = 9 }
+		change_influence_percentage = yes
+		add_stability = -0.04
+		hidden_effect = {
+			add_to_variable = { VEN_mil_air_sup = 0.06 }
+			add_to_variable = { VEN_mil_naval_coord = 0.05 }
+		}
+		custom_effect_tooltip = VEN_nato_cmd_updated_tt
+		ai_chance = { factor = 30 }
+	}
+
+	# Opcion C: Centro Logistico Rotativo de Baja Huella
+	option = {
+		name = venezuela.223.c
+		log = "[GetDateText]: [This.GetName]: venezuela.223.c executed"
+		875 = {
+			add_building_construction = { type = air_base level = 1 instant_build = yes }
+			add_building_construction = { type = radar_station level = 1 instant_build = yes }
+		}
+		set_temp_variable = { tag_index = USA }
+		set_temp_variable = { influence_target = VEN }
+		set_temp_variable = { percent_change = 2 }
+		change_influence_percentage = yes
+		add_stability = 0.04
+		hidden_effect = {
+			add_to_variable = { VEN_mil_planning = 0.04 }
+		}
+		custom_effect_tooltip = VEN_nato_cmd_updated_tt
+		ai_chance = { factor = 20 }
 	}
 }

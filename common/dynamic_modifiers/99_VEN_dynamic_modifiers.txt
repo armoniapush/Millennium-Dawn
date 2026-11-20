@@ -4,3 +4,39 @@ VEN_mission_vuelta_al_campo_modifier = {
 	state_production_speed_buildings_factor = 0.15
 	state_productivity_growth_modifier = 0.25
 }
+
+VEN_gnb_integrated_territory_modifier = {
+	icon = "GFX_idea_generic_pp_unity_bonus"
+
+	state_resources_factor = 0.15
+	local_manpower = 0.15
+	local_building_slots = 1
+	state_production_speed_buildings_factor = 0.10
+}
+
+VEN_western_economic_boom_modifier = {
+	icon = "GFX_idea_foreign_capital"
+
+	corporate_tax_income_multiplier_modifier = VEN_west_corp_tax_income
+	tax_gain_multiplier_modifier = VEN_west_tax_gain
+	production_speed_buildings_factor = VEN_west_build_speed
+	offices_productivity = VEN_west_offices_prod
+	receiving_investment_cost_modifier = VEN_west_recv_inv_cost
+	receiving_investment_duration_modifier = VEN_west_recv_inv_dur
+	research_speed_factor = VEN_west_research_speed
+	oil_export_multiplier_modifier = VEN_west_oil_export
+	foreign_influence_defense_modifier = VEN_west_influence_def
+}
+
+VEN_nato_joint_command_modifier = {
+	icon = "GFX_idea_nato_member"
+
+	army_org_factor = VEN_mil_org
+	planning_speed = VEN_mil_planning
+	max_planning_factor = VEN_mil_max_planning
+	coordination_bonus = VEN_mil_coord
+	supply_consumption_factor = VEN_mil_supply
+	air_superiority_efficiency = VEN_mil_air_sup
+	naval_coordination = VEN_mil_naval_coord
+	land_doctrine_cost_factor = VEN_mil_doctrine_cost
+}

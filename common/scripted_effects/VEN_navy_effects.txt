@@ -1,0 +1,170 @@
+# Scripted effects for Venezuela's naval reform tree
+
+VEN_add_naval_mastery_15 = {
+	if = {
+		limit = { has_selected_naval_grand_doctrine = yes }
+		add_mastery = { amount = 15 folder = naval }
+	}
+	else = {
+		navy_experience = 15
+	}
+}
+
+VEN_add_naval_mastery_20 = {
+	if = {
+		limit = { has_selected_naval_grand_doctrine = yes }
+		add_mastery = { amount = 20 folder = naval }
+	}
+	else = {
+		navy_experience = 20
+	}
+}
+
+VEN_add_naval_mastery_25 = {
+	if = {
+		limit = { has_selected_naval_grand_doctrine = yes }
+		add_mastery = { amount = 25 folder = naval }
+	}
+	else = {
+		navy_experience = 25
+	}
+}
+
+VEN_advance_us_navy_mission = {
+	if = {
+		limit = { has_idea = VEN_us_naval_mission_1 }
+		swap_ideas = {
+			remove_idea = VEN_us_naval_mission_1
+			add_idea = VEN_us_naval_mission_2
+		}
+	}
+	else_if = {
+		limit = { has_idea = VEN_us_naval_mission_2 }
+		swap_ideas = {
+			remove_idea = VEN_us_naval_mission_2
+			add_idea = VEN_us_naval_mission_3
+		}
+	}
+	else_if = {
+		limit = { has_idea = VEN_us_naval_mission_3 }
+		swap_ideas = {
+			remove_idea = VEN_us_naval_mission_3
+			add_idea = VEN_us_caribbean_fleet_idea
+		}
+	}
+	else = {
+		add_ideas = VEN_us_naval_mission_1
+	}
+}
+
+VEN_grant_us_surface_license = {
+	if = {
+		limit = { USA = { has_tech = frigate_hull_4 } }
+		USA = {
+			create_production_license = {
+				target = VEN
+				equipment = { type = frigate_hull_4 }
+				cost_factor = 0
+			}
+		}
+	}
+	else_if = {
+		limit = { USA = { has_tech = frigate_hull_3 } }
+		USA = {
+			create_production_license = {
+				target = VEN
+				equipment = { type = frigate_hull_3 }
+				cost_factor = 0
+			}
+		}
+	}
+	else_if = {
+		limit = { USA = { has_tech = frigate_hull_2 } }
+		USA = {
+			create_production_license = {
+				target = VEN
+				equipment = { type = frigate_hull_2 }
+				cost_factor = 0
+			}
+		}
+	}
+	else_if = {
+		limit = { USA = { has_tech = corvette_hull_3 } }
+		USA = {
+			create_production_license = {
+				target = VEN
+				equipment = { type = corvette_hull_3 }
+				cost_factor = 0
+			}
+		}
+	}
+	else = {
+		add_tech_bonus = {
+			name = VEN_navy_us_license_pact
+			bonus = 0.75
+			uses = 2
+			category = CAT_frigates
+		}
+	}
+}
+
+VEN_grant_us_destroyer_sub_license = {
+	if = {
+		limit = { USA = { has_tech = destroyer_hull_4 } }
+		USA = {
+			create_production_license = {
+				target = VEN
+				equipment = { type = destroyer_hull_4 }
+				cost_factor = 0
+			}
+		}
+	}
+	else_if = {
+		limit = { USA = { has_tech = destroyer_hull_3 } }
+		USA = {
+			create_production_license = {
+				target = VEN
+				equipment = { type = destroyer_hull_3 }
+				cost_factor = 0
+			}
+		}
+	}
+	else_if = {
+		limit = { USA = { has_tech = destroyer_hull_2 } }
+		USA = {
+			create_production_license = {
+				target = VEN
+				equipment = { type = destroyer_hull_2 }
+				cost_factor = 0
+			}
+		}
+	}
+	else = {
+		add_tech_bonus = {
+			name = VEN_navy_us_destroyers
+			bonus = 0.75
+			uses = 1
+			category = CAT_destroyers
+		}
+	}
+	if = {
+		limit = { USA = { has_tech = attack_submarine_hull_3 } }
+		USA = {
+			create_production_license = {
+				target = VEN
+				equipment = { type = attack_submarine_hull_3 }
+				cost_factor = 0
+			}
+		}
+	}
+	else_if = {
+		limit = { USA = { has_tech = attack_submarine_hull_2 } }
+		USA = {
+			create_production_license = {
+				target = VEN
+				equipment = { type = attack_submarine_hull_2 }
+				cost_factor = 0
+			}
+		}
+	}
+}

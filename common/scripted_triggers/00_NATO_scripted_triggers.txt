@@ -21,5 +21,12 @@ can_join_NATO = {
 		original_tag = SOV
 		original_tag = TUR
 		original_tag = ISR
+		AND = {
+			original_tag = VEN
+			OR = {
+				has_completed_focus = VEN_join_nato
+				has_country_flag = VEN_nato_accession_ready
+			}
+		}
 	}
 }

@@ -1,0 +1,60 @@
+VEN_advance_army_reform = {
+	if = {
+		limit = { has_idea = VEN_outdated_army_idea }
+		swap_ideas = {
+			remove_idea = VEN_outdated_army_idea
+			add_idea = VEN_outdated_army_idea_1
+		}
+	}
+	else_if = {
+		limit = { has_idea = VEN_outdated_army_idea_1 }
+		swap_ideas = {
+			remove_idea = VEN_outdated_army_idea_1
+			add_idea = VEN_outdated_army_idea_2
+		}
+	}
+	else_if = {
+		limit = { has_idea = VEN_outdated_army_idea_2 }
+		swap_ideas = {
+			remove_idea = VEN_outdated_army_idea_2
+			add_idea = VEN_outdated_army_idea_3
+		}
+	}
+	else_if = {
+		limit = { has_idea = VEN_outdated_army_idea_3 }
+		swap_ideas = {
+			remove_idea = VEN_outdated_army_idea_3
+			add_idea = VEN_rejuvinated_army
+		}
+	}
+	else_if = {
+		limit = { NOT = { has_idea = VEN_rejuvinated_army } }
+		add_ideas = VEN_rejuvinated_army
+	}
+}
+
+VEN_add_land_mastery_20 = {
+	if = {
+		limit = { has_selected_land_grand_doctrine = yes }
+		add_mastery = {
+			amount = 20
+			folder = land
+		}
+	}
+	else = {
+		army_experience = 35
+	}
+}
+
+VEN_add_land_mastery_30 = {
+	if = {
+		limit = { has_selected_land_grand_doctrine = yes }
+		add_mastery = {
+			amount = 30
+			folder = land
+		}
+	}
+	else = {
+		army_experience = 50
+	}
+}

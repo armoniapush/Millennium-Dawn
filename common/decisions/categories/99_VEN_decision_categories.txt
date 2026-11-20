@@ -34,3 +34,12 @@ VEN_ai_path_category = {
 
 	visible = { VEN_ai_opposition_path = yes }
 }
+
+VEN_gnb_territorial_commands = {
+	allowed = { original_tag = VEN }
+
+	icon = GFX_decision_category_eng_move_to_secure_the_dominions
+	priority = 160
+
+	visible = { has_completed_focus = VEN_gnb_zone_commands }
+}

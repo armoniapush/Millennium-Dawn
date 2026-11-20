@@ -926,3 +926,12 @@
  UKR_west_strat_bomb_desc: "Ukraine has fulfilled its commitments to dismantle its remaining long-range bombers. This has strengthened confidence among its Western partners and opened the way for closer economic cooperation. \nAfter this national spirit expires, it is replaced with a permanent, superior one."
  UKR_west_strat_bomb_final: "Finalized Strategic Disarmament"
  UKR_west_strat_bomb_final_desc: "We have chosen to follow the disarmament treaties, scrap all of our Soviet-built long-range bomber aviation and focus our pilots and mechanics on fewer types of combat aircraft. \nThis has strengthened confidence among our Western partners and opened the way for closer economic cooperation. \nWe hope it will help us with faster training, easier maintenance and higher combat readiness."
+
+ # Venezuelan Ideas
+ VEN_global_talent_hub: "Global Talent & R&D Hub"
+ VEN_global_talent_hub_desc: "By investing heavily in universities, technical institutes, and modern research parks, Venezuela has reversed its brain drain and established itself as a premier destination for scientists, engineers, and skilled professionals. Higher research output, rising industrial productivity, and steady population growth are driving sustained economic stability."
+ VEN_oil_dependency_transition: "Oil Dependency Transition"
+ VEN_oil_dependency_transition_desc: "Sweeping fiscal, monetary, and regulatory reforms have begun weaning Venezuela's economy off crude oil volatility. Broadened tax revenues, faster civilian industrial and infrastructure construction, and improved domestic resource extraction mark the first steps toward a diversified economy."
+ VEN_emirates_of_the_caribbean: "Emirates of the Caribbean"
+ VEN_emirates_of_the_caribbean_desc: "Channeling diversified national surpluses into a well-managed sovereign wealth fund has transformed Venezuela into a prosperous Caribbean powerhouse. Strong fiscal revenues, low borrowing costs, rapid construction, and booming industrial and scientific productivity have secured long-term stability."
+ VEN_iron_control_vdp_desc: "The Venezuelan government has consolidated direct, uncompromising authority over Petróleos de Venezuela, S.A. (PDVSA). By tightening state oversight of the national oil and gas giant, Caracas channels a greater share of petroleum exports and revenues directly into the state coffers."
