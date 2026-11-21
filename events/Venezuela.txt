@@ -74,21 +74,7 @@ country_event = {
 	immediate = {
 		VEN_sync_entrenchment_modifier = yes
 		if = {
-			limit = {
-				OR = {
-					check_variable = { VEN_opp_momentum >= VEN_chavez_grip }
-					AND = {
-						is_ai = yes
-						VEN_ai_opposition_path = yes
-					}
-				}
-				NOT = {
-					AND = {
-						is_ai = yes
-						VEN_ai_historical_path = yes
-					}
-				}
-			}
+			limit = { check_variable = { VEN_opp_momentum >= VEN_chavez_grip } }
 			set_country_flag = VEN_2004_recall_chavez_recalled
 		}
 		else = {
@@ -96,11 +82,10 @@ country_event = {
 		}
 	}
 
-	# "NO" Wins: Chavez Survives & Consolidates
+	# Camino C: Accept the CNE Bulletin (Passive Opposition -> Chavez Consolidates)
 	option = {
 		name = venezuela.2.a
-		trigger = { has_country_flag = VEN_2004_recall_chavez_survives }
-		log = "[GetDateText]: [This.GetName]: venezuela.2.a executed"
+		log = "[GetDateText]: [This.GetName]: venezuela.2.a executed (Camino C)"
 		add_stability = 0.05
 		add_political_power = 75
 		set_party_index_to_ruling_party = yes
@@ -115,53 +100,26 @@ country_event = {
 		hidden_effect = {
 			clr_country_flag = VEN_recall_campaign_active
 			clr_country_flag = VEN_2004_recall_chavez_survives
+			clr_country_flag = VEN_2004_recall_chavez_recalled
 			mark_focus_tree_layout_dirty = yes
 		}
 		ai_chance = { base = 100 }
 	}
 
-	# Opposition Refuses Result -> Opens Post-Referendum Military Crossroads (Camino A vs B)
+	# Reject the CNE Fraud -> Opens Post-Referendum Military Crossroads (Human Only)
 	option = {
 		name = venezuela.2.c
 		trigger = {
-			has_country_flag = VEN_2004_recall_chavez_survives
 			is_ai = no
 		}
 		log = "[GetDateText]: [This.GetName]: venezuela.2.c executed (Post-Referendum Military Crossroads)"
 		hidden_effect = {
 			clr_country_flag = VEN_recall_campaign_active
 			clr_country_flag = VEN_2004_recall_chavez_survives
+			clr_country_flag = VEN_2004_recall_chavez_recalled
 		}
 		country_event = { id = venezuela.260 days = 2 }
-	}
-
-	# "SI" Wins: Chavez Recalled -> Democratic Opposition Takes Power
-	option = {
-		name = venezuela.2.b
-		trigger = { has_country_flag = VEN_2004_recall_chavez_recalled }
-		log = "[GetDateText]: [This.GetName]: venezuela.2.b executed"
-		add_stability = -0.05
-		VEN_clear_chavismo_ideas = yes
-		set_temp_variable = { rul_party_temp = 1 }
-		set_temp_variable = { disable_elections = 0 }
-		change_ruling_party_effect = yes
-		if = {
-			limit = { NOT = { has_character = VEN_enrique_mendoza } }
-			recruit_character = VEN_enrique_mendoza
-		}
-		promote_character = VEN_enrique_mendoza
-		set_country_flag = VEN_political_crisis_resolved
-		set_country_flag = VEN_path_democratic_locked
-		if = {
-			limit = { NOT = { has_completed_focus = VEN_we_are_in_power } }
-			complete_national_focus = VEN_we_are_in_power
-		}
-		hidden_effect = {
-			clr_country_flag = VEN_recall_campaign_active
-			clr_country_flag = VEN_2004_recall_chavez_recalled
-			mark_focus_tree_layout_dirty = yes
-		}
-		ai_chance = { base = 100 }
+		ai_chance = { base = 0 }
 	}
 }
 
@@ -195,7 +153,7 @@ country_event = {
 		hidden_effect = {
 			news_event = { id = venezuela_news.1 days = 1 }
 		}
-		ai_chance = { base = 50 }
+		ai_chance = { base = 0 }
 	}
 
 	# Camino B: US Intervention over FARC Narco-Terrorism Indictment (Leads to US Tutelage)
@@ -218,7 +176,183 @@ country_event = {
 		hidden_effect = {
 			news_event = { id = venezuela_news.2 days = 1 }
 		}
-		ai_chance = { base = 50 }
+		ai_chance = { base = 0 }
+	}
+
+	# Stand Down -> Camino C Fallback (AI always picks this if reached)
+	option = {
+		name = venezuela.260.c
+		log = "[GetDateText]: [This.GetName]: venezuela.260.c executed (Camino C Fallback)"
+		set_country_flag = VEN_political_crisis_resolved
+		set_country_flag = VEN_path_chavismo_locked
+		if = {
+			limit = { has_dynamic_modifier = { modifier = VEN_chavista_entrenchment_modifier } }
+			remove_dynamic_modifier = { modifier = VEN_chavista_entrenchment_modifier }
+		}
+		hidden_effect = {
+			mark_focus_tree_layout_dirty = yes
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+# Day 21: Camino B - U.S. Airlift & Expeditionary Support Arrives
+country_event = {
+	id = venezuela.261
+	title = venezuela.261.t
+	desc = venezuela.261.d
+	picture = GFX_event_VEN_tank
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		original_tag = VEN
+		has_civil_war = yes
+		has_country_flag = VEN_us_intervention_war
+		NOT = { has_country_flag = VEN_political_crisis_resolved }
+	}
+
+	option = {
+		name = venezuela.261.a
+		log = "[GetDateText]: [This.GetName]: venezuela.261.a executed (US Airlift Arrives)"
+		if = {
+			limit = { has_country_flag = VEN_us_debt_light }
+			add_equipment_to_stockpile = {
+				type = util_vehicle_2
+				amount = 150
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_weapons_2
+				amount = 2000
+				producer = USA
+			}
+			if = {
+				limit = { has_dlc = "By Blood Alone" }
+				add_equipment_to_stockpile = {
+					variant_name = "F-16C Blk 50/52"
+					type = small_plane_strike_airframe_2
+					amount = 18
+					producer = USA
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = MR_Fighter2
+					amount = 18
+					producer = USA
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = VEN_us_debt_medium }
+			add_equipment_to_stockpile = {
+				type = util_vehicle_2
+				amount = 250
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_weapons_2
+				amount = 3000
+				producer = USA
+			}
+			if = {
+				limit = { has_dlc = "By Blood Alone" }
+				add_equipment_to_stockpile = {
+					variant_name = "F-16C Blk 50/52"
+					type = small_plane_strike_airframe_2
+					amount = 24
+					producer = USA
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = MR_Fighter2
+					amount = 24
+					producer = USA
+				}
+			}
+		}
+		else = {
+			add_equipment_to_stockpile = {
+				type = util_vehicle_2
+				amount = 400
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_weapons_2
+				amount = 4500
+				producer = USA
+			}
+			if = {
+				limit = { has_dlc = "By Blood Alone" }
+				add_equipment_to_stockpile = {
+					variant_name = "F-16C Blk 50/52"
+					type = small_plane_strike_airframe_2
+					amount = 36
+					producer = USA
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = MR_Fighter2
+					amount = 36
+					producer = USA
+				}
+			}
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+# Day 21: Camino A - Soviet & Cuban Arms Bridge for Loyalist Forces
+country_event = {
+	id = venezuela.262
+	title = venezuela.262.t
+	desc = venezuela.262.d
+	picture = GFX_generic_soldiers
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		original_tag = VEN
+		has_civil_war = yes
+		NOT = { has_country_flag = VEN_political_crisis_resolved }
+	}
+
+	option = {
+		name = venezuela.262.a
+		log = "[GetDateText]: [This.GetName]: venezuela.262.a executed (Soviet-Cuban Airlift for Chavez)"
+		if = {
+			limit = { country_exists = SOV }
+			add_equipment_to_stockpile = {
+				type = infantry_weapons_2
+				amount = 2500
+				producer = SOV
+			}
+			add_equipment_to_stockpile = {
+				type = util_vehicle_2
+				amount = 150
+				producer = SOV
+			}
+			if = {
+				limit = { has_dlc = "By Blood Alone" }
+				add_equipment_to_stockpile = {
+					variant_name = "MiG-29"
+					type = small_plane_airframe_2
+					amount = 18
+					producer = SOV
+				}
+			}
+			else = {
+				add_equipment_to_stockpile = {
+					type = MR_Fighter2
+					amount = 18
+					producer = SOV
+				}
+			}
+		}
+		ai_chance = { base = 100 }
 	}
 }
 
@@ -230,6 +364,10 @@ news_event = {
 	picture = GFX_venezuelan_civil_war
 	is_triggered_only = yes
 	major = yes
+
+	trigger = {
+		country_exists = VEN
+	}
 
 	option = {
 		name = venezuela_news.1.a
@@ -245,6 +383,10 @@ news_event = {
 	picture = GFX_venezuela_heli_attack
 	is_triggered_only = yes
 	major = yes
+
+	trigger = {
+		country_exists = VEN
+	}
 
 	option = {
 		name = venezuela_news.2.a
@@ -263,9 +405,27 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 
+	trigger = {
+		country_exists = VEN
+		NOT = { has_country_flag = VEN_political_crisis_resolved }
+		NOT = { has_civil_war = yes }
+	}
+
 	immediate = {
 		hidden_effect = {
 			set_country_flag = VEN_ev_3_fired
+			if = {
+				limit = { NOT = { has_character = VEN_enrique_mendoza } }
+				recruit_character = VEN_enrique_mendoza
+			}
+			if = {
+				limit = { NOT = { has_character = VEN_carlos_ortega } }
+				recruit_character = VEN_carlos_ortega
+			}
+			if = {
+				limit = { NOT = { has_character = VEN_maria_corina_machado } }
+				recruit_character = VEN_maria_corina_machado
+			}
 			if = {
 				limit = {
 					NOT = { has_country_flag = VEN_ev_4_fired }
@@ -283,10 +443,10 @@ country_event = {
 		add_political_power = 25
 		add_stability = -0.04
 		add_to_variable = { VEN_chavez_grip = 8 }
-		add_to_variable = { VEN_opp_momentum = 10 }
+		subtract_from_variable = { VEN_opp_momentum = 8 }
 		VEN_sync_entrenchment_modifier = yes
 		set_country_flag = VEN_opp_front_ready
-		custom_effect_tooltip = VEN_recall_opp_boost_tt
+		custom_effect_tooltip = VEN_recall_chavez_boost_tt
 		ai_chance = {
 			base = 80
 			modifier = { factor = 0 VEN_ai_opposition_path = yes }
@@ -299,8 +459,8 @@ country_event = {
 		log = "[GetDateText]: [This.GetName]: venezuela.3.b executed"
 		add_political_power = -40
 		add_stability = 0.03
-		add_to_variable = { VEN_chavez_grip = -4 }
-		add_to_variable = { VEN_opp_momentum = 4 }
+		add_to_variable = { VEN_chavez_grip = -6 }
+		add_to_variable = { VEN_opp_momentum = 6 }
 		VEN_sync_entrenchment_modifier = yes
 		ai_chance = {
 			base = 20
@@ -329,6 +489,14 @@ country_event = {
 		hidden_effect = {
 			set_country_flag = VEN_ev_4_fired
 			if = {
+				limit = { NOT = { has_character = VEN_pedro_carmona_estanga } }
+				recruit_character = VEN_pedro_carmona_estanga
+			}
+			if = {
+				limit = { NOT = { has_character = VEN_guaicaipuro_lameda } }
+				recruit_character = VEN_guaicaipuro_lameda
+			}
+			if = {
 				limit = {
 					NOT = { has_country_flag = VEN_ev_5_fired }
 					NOT = { has_country_flag = VEN_political_crisis_resolved }
@@ -343,7 +511,9 @@ country_event = {
 		name = venezuela.4.a
 		log = "[GetDateText]: [This.GetName]: venezuela.4.a executed"
 		set_country_flag = VEN_navy_dissidents_ready
-		add_to_variable = { VEN_chavez_grip = -6 }
+		set_country_flag = VEN_military_outreach_prepared
+		set_country_flag = VEN_pdvsa_option_prepared
+		add_to_variable = { VEN_chavez_grip = -10 }
 		add_to_variable = { VEN_opp_momentum = 10 }
 		VEN_sync_entrenchment_modifier = yes
 		set_temp_variable = { party_index = 22 }
@@ -364,6 +534,7 @@ country_event = {
 		add_stability = -0.03
 		add_political_power = -25
 		add_to_variable = { VEN_chavez_grip = 8 }
+		subtract_from_variable = { VEN_opp_momentum = 8 }
 		VEN_sync_entrenchment_modifier = yes
 		custom_effect_tooltip = VEN_recall_chavez_boost_tt
 		ai_chance = {
@@ -594,6 +765,33 @@ country_event = {
 				remove_ideas = VEN_us_expeditionary_support_idea
 			}
 			if = {
+				limit = { country_exists = USA }
+				USA = {
+					if = {
+						limit = { has_idea = VEN_us_expeditionary_dispatch_idea }
+						remove_ideas = VEN_us_expeditionary_dispatch_idea
+					}
+				}
+			}
+			if = {
+				limit = { country_exists = SOV }
+				SOV = {
+					if = {
+						limit = { has_idea = VEN_red_expeditionary_dispatch_idea }
+						remove_ideas = VEN_red_expeditionary_dispatch_idea
+					}
+				}
+			}
+			if = {
+				limit = { country_exists = CUB }
+				CUB = {
+					if = {
+						limit = { has_idea = VEN_red_expeditionary_dispatch_idea }
+						remove_ideas = VEN_red_expeditionary_dispatch_idea
+					}
+				}
+			}
+			if = {
 				limit = { NOT = { has_government = communism } }
 				VEN_clear_chavismo_ideas = yes
 				if = {
@@ -611,7 +809,20 @@ country_event = {
 							end_civil_wars = yes
 						}
 					}
-					add_ideas = VEN_us_tutelage_idea
+					if = {
+						limit = { has_country_flag = VEN_us_debt_light }
+						add_ideas = VEN_us_tutelage_light_idea
+					}
+					else_if = {
+						limit = { has_country_flag = VEN_us_debt_heavy }
+						add_ideas = VEN_us_tutelage_heavy_idea
+					}
+					else = {
+						add_ideas = VEN_us_tutelage_idea
+					}
+					clr_country_flag = VEN_us_debt_light
+					clr_country_flag = VEN_us_debt_medium
+					clr_country_flag = VEN_us_debt_heavy
 					VEN = { give_military_access = USA }
 				}
 				else_if = {
@@ -713,11 +924,14 @@ country_event = {
 		log = "[GetDateText]: [This.GetName]: venezuela.50.o1 executed"
 		set_temp_variable = { treasury_change = -2.5 }
 		modify_treasury_effect = yes
-		USA = { add_opinion_modifier = { target = ROOT modifier = large_increase } }
-		set_temp_variable = { tag_index = USA }
-		set_temp_variable = { influence_target = VEN }
-		set_temp_variable = { percent_change = -2 }
-		change_influence_percentage = yes
+		if = {
+			limit = { country_exists = USA }
+			USA = { add_opinion_modifier = { target = ROOT modifier = large_increase } }
+			set_temp_variable = { tag_index = USA }
+			set_temp_variable = { influence_target = VEN }
+			set_temp_variable = { percent_change = -2 }
+			change_influence_percentage = yes
+		}
 		hidden_effect = {
 			add_to_variable = { VEN_mil_coord = 0.03 }
 			add_to_variable = { VEN_mil_org = 0.03 }
@@ -731,7 +945,10 @@ country_event = {
 		log = "[GetDateText]: [This.GetName]: venezuela.50.o2 executed"
 		set_temp_variable = { treasury_change = -1.5 }
 		modify_treasury_effect = yes
-		USA = { add_opinion_modifier = { target = ROOT modifier = declaration_of_friendship } }
+		if = {
+			limit = { country_exists = USA }
+			USA = { add_opinion_modifier = { target = ROOT modifier = declaration_of_friendship } }
+		}
 		hidden_effect = {
 			add_to_variable = { VEN_mil_org = 0.04 }
 			add_to_variable = { VEN_mil_supply = -0.03 }
@@ -779,11 +996,14 @@ country_event = {
 			amount = 80
 			producer = USA
 		}
-		USA = { add_opinion_modifier = { target = ROOT modifier = small_decrease } }
-		set_temp_variable = { tag_index = USA }
-		set_temp_variable = { influence_target = VEN }
-		set_temp_variable = { percent_change = 8 }
-		change_influence_percentage = yes
+		if = {
+			limit = { country_exists = USA }
+			USA = { add_opinion_modifier = { target = ROOT modifier = small_decrease } }
+			set_temp_variable = { tag_index = USA }
+			set_temp_variable = { influence_target = VEN }
+			set_temp_variable = { percent_change = 8 }
+			change_influence_percentage = yes
+		}
 		hidden_effect = {
 			add_to_variable = { VEN_mil_doctrine_cost = -0.05 }
 		}
@@ -864,6 +1084,11 @@ country_event = {
 	picture = GFX_handshake_black
 	is_triggered_only = yes
 
+	trigger = {
+		country_exists = VEN
+		FROM = { exists = yes }
+	}
+
 	# Great they joined
 	option = {
 		name = gca.2.a
@@ -879,6 +1104,11 @@ country_event = {
 	desc = gca.3.d
 	picture = GFX_handshake_black
 	is_triggered_only = yes
+
+	trigger = {
+		country_exists = VEN
+		FROM = { exists = yes }
+	}
 
 	option = { name = gca.3.a }
 }
@@ -959,13 +1189,17 @@ country_event = {
 			}
 			modifier = {
 				factor = 0
+				country_exists = HOL
 				HOL = { has_idea = NATO_member }
 			}
 		}
-		HOL = {
-			add_opinion_modifier = {
-				target = VEN
-				modifier = imminent_danger_to_national_security
+		if = {
+			limit = { country_exists = HOL }
+			HOL = {
+				add_opinion_modifier = {
+					target = VEN
+					modifier = imminent_danger_to_national_security
+				}
 			}
 		}
 	}
@@ -1010,11 +1244,20 @@ country_event = {
 	picture = GFX_treaty
 	is_triggered_only = yes
 
+	trigger = {
+		country_exists = VEN
+		country_exists = PRU
+		PRU = { NOT = { is_subject_of = VEN } }
+	}
+
 	option = {
 		name = venezuela.12.o1
 		log = "[GetDateText]: [This.GetName]: venezuela.12.o1 executed"
 		if = {
-			limit = { PRU = { NOT = { is_subject_of = VEN } } }
+			limit = {
+				country_exists = PRU
+				PRU = { NOT = { is_subject_of = VEN } }
+			}
 			VEN = { puppet = PRU }
 		}
 		ai_chance = { base = 75 }
@@ -1028,11 +1271,20 @@ country_event = {
 	picture = GFX_treaty_rejected
 	is_triggered_only = yes
 
+	trigger = {
+		country_exists = VEN
+		country_exists = PRU
+		PRU = { NOT = { is_subject_of = VEN } }
+	}
+
 	option = {
 		name = venezuela.13.o1
 		log = "[GetDateText]: [This.GetName]: venezuela.13.o1 executed"
 		if = {
-			limit = { PRU = { NOT = { is_subject_of = VEN } } }
+			limit = {
+				country_exists = PRU
+				PRU = { NOT = { is_subject_of = VEN } }
+			}
 			VEN = {
 				set_temp_variable = { wargoal_on = PRU }
 				add_threat_from_wargoal_effect = yes
@@ -1081,11 +1333,20 @@ country_event = {
 	picture = GFX_treaty
 	is_triggered_only = yes
 
+	trigger = {
+		country_exists = VEN
+		country_exists = PAN
+		PAN = { NOT = { is_subject_of = VEN } }
+	}
+
 	option = {
 		name = venezuela.17.o1
 		log = "[GetDateText]: [This.GetName]: venezuela.17.o1 executed"
 		if = {
-			limit = { PAN = { NOT = { is_subject_of = VEN } } }
+			limit = {
+				country_exists = PAN
+				PAN = { NOT = { is_subject_of = VEN } }
+			}
 			VEN = { puppet = PAN }
 		}
 		ai_chance = { base = 50 }
@@ -1099,11 +1360,20 @@ country_event = {
 	picture = GFX_treaty
 	is_triggered_only = yes
 
+	trigger = {
+		country_exists = VEN
+		country_exists = PAN
+		PAN = { NOT = { is_subject_of = VEN } }
+	}
+
 	option = {
 		name = venezuela.18.o1
 		log = "[GetDateText]: [This.GetName]: venezuela.18.o1 executed"
 		if = {
-			limit = { PAN = { NOT = { is_subject_of = VEN } } }
+			limit = {
+				country_exists = PAN
+				PAN = { NOT = { is_subject_of = VEN } }
+			}
 			VEN = {
 				set_temp_variable = { wargoal_on = PAN }
 				add_threat_from_wargoal_effect = yes
@@ -1127,6 +1397,12 @@ country_event = {
 	picture = GFX_treaty
 	is_triggered_only = yes
 
+	trigger = {
+		exists = yes
+		country_exists = VEN
+		NOT = { has_war_with = VEN }
+	}
+
 	option = {
 		name = venezuela.19.a
 		log = "[GetDateText]: [This.GetName]: venezuela.19.a executed"
@@ -1136,11 +1412,14 @@ country_event = {
 				days = 2
 			}
 		}
-		USA = {
-			diplomatic_relation = {
-				country = VEN
-				relation = guarantee
-				active = yes
+		if = {
+			limit = { country_exists = USA }
+			USA = {
+				diplomatic_relation = {
+					country = VEN
+					relation = guarantee
+					active = yes
+				}
 			}
 		}
 		set_temp_variable = { percent_change = 4 }
@@ -1182,6 +1461,12 @@ country_event = {
 	picture = GFX_treaty
 	is_triggered_only = yes
 
+	trigger = {
+		country_exists = VEN
+		country_exists = USA
+		NOT = { has_war_with = USA }
+	}
+
 	option = {
 		name = venezuela.20.a
 		log = "[GetDateText]: [This.GetName]: venezuela.20.a executed"
@@ -1203,6 +1488,11 @@ country_event = {
 	picture = GFX_treaty_rejected
 	is_triggered_only = yes
 
+	trigger = {
+		country_exists = VEN
+		country_exists = USA
+	}
+
 	option = {
 		name = venezuela.21.a
 		ai_chance = { base = 50 }
@@ -1219,8 +1509,11 @@ country_event = {
 	option = {
 		name = venezuela.22.a
 		log = "[GetDateText]: [This.GetName]: venezuela.22.a executed"
-		VEN = { give_military_access = USA }
-		USA = { give_military_access = VEN }
+		if = {
+			limit = { country_exists = USA }
+			VEN = { give_military_access = USA }
+			USA = { give_military_access = VEN }
+		}
 		ai_chance = {
 			base = 5
 			modifier = {
@@ -1257,6 +1550,11 @@ country_event = {
 	desc = venezuela.23.d
 	picture = GFX_generic_soldiers
 	is_triggered_only = yes
+
+	trigger = {
+		country_exists = VEN
+		country_exists = USA
+	}
 
 	option = {
 		name = venezuela.23.a
@@ -1361,10 +1659,16 @@ country_event = {
 	picture = GFX_stock_market
 	is_triggered_only = yes
 
+	trigger = {
+		exists = yes
+		country_exists = VEN
+		NOT = { has_war_with = VEN }
+	}
+
 	option = {
 		name = venezuela.200.a
 		log = "[GetDateText]: [This.GetName]: venezuela.200.a executed"
-		if = { limit = { original_tag = SOV }
+		if = { limit = { original_tag = SOV country_exists = SOV }
 			SOV = {
 				add_opinion_modifier = { target = ROOT modifier = economic_mission }
 				add_ideas = russian_trade_deal
@@ -1379,11 +1683,17 @@ country_event = {
 				change_influence_percentage = yes
 				add_ideas = russian_trade_deal
 				875 = {
-					add_extra_state_shared_building_slots = 2
-					add_building_construction = {
-						type = industrial_complex
-						level = 2
-						instant_build = yes
+					if = {
+						limit = { is_owned_and_controlled_by = VEN }
+						add_extra_state_shared_building_slots = 2
+						if = {
+							limit = { free_building_slots = { building = industrial_complex size > 1 include_locked = yes } }
+							add_building_construction = {
+								type = industrial_complex
+								level = 2
+								instant_build = yes
+							}
+						}
 					}
 				}
 			}
@@ -1391,7 +1701,7 @@ country_event = {
 			set_temp_variable = { sender_nation = VEN.id }
 			set_improved_trade_agreement = yes
 		}
-		else_if = { limit = { original_tag = CHI }
+		else_if = { limit = { original_tag = CHI country_exists = CHI }
 			CHI = {
 				add_ideas = china_trade_deal
 				add_opinion_modifier = {
@@ -1458,7 +1768,7 @@ country_event = {
 		log = "[GetDateText]: [This.GetName]: venezuela.201.a executed"
 		trigger = { FROM = { has_country_flag = VEN_accepted_deal } }
 		effect_tooltip = {
-			if = { limit = { FROM = { original_tag = SOV } }
+			if = { limit = { FROM = { original_tag = SOV } country_exists = SOV }
 				SOV = {
 					add_opinion_modifier = { target = ROOT modifier = economic_mission }
 					add_ideas = russian_trade_deal
@@ -1471,11 +1781,17 @@ country_event = {
 					change_influence_percentage = yes
 					add_ideas = russian_trade_deal
 					875 = {
-						add_extra_state_shared_building_slots = 2
-						add_building_construction = {
-							type = industrial_complex
-							level = 2
-							instant_build = yes
+						if = {
+							limit = { is_owned_and_controlled_by = VEN }
+							add_extra_state_shared_building_slots = 2
+							if = {
+								limit = { free_building_slots = { building = industrial_complex size > 1 include_locked = yes } }
+								add_building_construction = {
+									type = industrial_complex
+									level = 2
+									instant_build = yes
+								}
+							}
 						}
 					}
 				}
@@ -1483,7 +1799,7 @@ country_event = {
 				set_temp_variable = { sender_nation = VEN.id }
 				set_improved_trade_agreement = yes
 			}
-			else_if = { limit = { FROM = { original_tag = CHI } }
+			else_if = { limit = { FROM = { original_tag = CHI } country_exists = CHI }
 				CHI = {
 					add_ideas = china_trade_deal
 					add_opinion_modifier = {
@@ -1553,10 +1869,13 @@ country_event = {
 		set_country_flag = VEN_contest_gripen
 		set_temp_variable = { treasury_change = -9.0 }
 		modify_treasury_effect = yes
-		SWE = {
-			set_temp_variable = { treasury_change = 9.0 }
-			modify_treasury_effect = yes
-			add_opinion_modifier = { target = ROOT modifier = large_increase }
+		if = {
+			limit = { country_exists = SWE }
+			SWE = {
+				set_temp_variable = { treasury_change = 9.0 }
+				modify_treasury_effect = yes
+				add_opinion_modifier = { target = ROOT modifier = large_increase }
+			}
 		}
 		add_opinion_modifier = { target = SWE modifier = large_increase }
 		set_temp_variable = { percent_change = 3 }
@@ -1592,10 +1911,13 @@ country_event = {
 		set_country_flag = VEN_contest_rafale
 		set_temp_variable = { treasury_change = -11.7 }
 		modify_treasury_effect = yes
-		FRA = {
-			set_temp_variable = { treasury_change = 11.7 }
-			modify_treasury_effect = yes
-			add_opinion_modifier = { target = ROOT modifier = large_increase }
+		if = {
+			limit = { country_exists = FRA }
+			FRA = {
+				set_temp_variable = { treasury_change = 11.7 }
+				modify_treasury_effect = yes
+				add_opinion_modifier = { target = ROOT modifier = large_increase }
+			}
 		}
 		add_opinion_modifier = { target = FRA modifier = large_increase }
 		set_temp_variable = { percent_change = 3 }
@@ -1631,10 +1953,13 @@ country_event = {
 		set_country_flag = VEN_contest_typhoon
 		set_temp_variable = { treasury_change = -12.0 }
 		modify_treasury_effect = yes
-		GER = {
-			set_temp_variable = { treasury_change = 12.0 }
-			modify_treasury_effect = yes
-			add_opinion_modifier = { target = ROOT modifier = large_increase }
+		if = {
+			limit = { country_exists = GER }
+			GER = {
+				set_temp_variable = { treasury_change = 12.0 }
+				modify_treasury_effect = yes
+				add_opinion_modifier = { target = ROOT modifier = large_increase }
+			}
 		}
 		add_opinion_modifier = { target = GER modifier = large_increase }
 		set_temp_variable = { percent_change = 3 }
@@ -1901,11 +2226,14 @@ country_event = {
 			add_to_variable = { VEN_west_oil_export = 0.10 }
 		}
 		custom_effect_tooltip = VEN_western_boom_updated_tt
-		USA = { add_opinion_modifier = { target = ROOT modifier = declaration_of_friendship } }
-		set_temp_variable = { tag_index = USA }
-		set_temp_variable = { influence_target = VEN }
-		set_temp_variable = { percent_change = 4 }
-		change_influence_percentage = yes
+		if = {
+			limit = { country_exists = USA }
+			USA = { add_opinion_modifier = { target = ROOT modifier = declaration_of_friendship } }
+			set_temp_variable = { tag_index = USA }
+			set_temp_variable = { influence_target = VEN }
+			set_temp_variable = { percent_change = 4 }
+			change_influence_percentage = yes
+		}
 		set_temp_variable = { temp_opinion = 15 }
 		change_fossil_fuel_industry_opinion = yes
 		set_temp_variable = { temp_opinion = -10 }
@@ -2033,9 +2361,21 @@ country_event = {
 		name = venezuela.223.a
 		log = "[GetDateText]: [This.GetName]: venezuela.223.a executed"
 		875 = {
-			add_building_construction = { type = air_base level = 2 instant_build = yes }
-			add_building_construction = { type = naval_base level = 2 instant_build = yes province = 8113 }
-			add_building_construction = { type = radar_station level = 2 instant_build = yes }
+			if = {
+				limit = { is_owned_and_controlled_by = ROOT }
+				if = {
+					limit = { free_building_slots = { building = air_base size > 1 } }
+					add_building_construction = { type = air_base level = 2 instant_build = yes }
+				}
+				if = {
+					limit = { free_building_slots = { building = naval_base size > 1 } }
+					add_building_construction = { type = naval_base level = 2 instant_build = yes province = 8113 }
+				}
+				if = {
+					limit = { free_building_slots = { building = radar_station size > 1 } }
+					add_building_construction = { type = radar_station level = 2 instant_build = yes }
+				}
+			}
 		}
 		set_temp_variable = { tag_index = USA }
 		set_temp_variable = { influence_target = VEN }
@@ -2056,9 +2396,21 @@ country_event = {
 		set_temp_variable = { treasury_change = 4.0 }
 		modify_treasury_effect = yes
 		875 = {
-			add_building_construction = { type = air_base level = 3 instant_build = yes }
-			add_building_construction = { type = anti_air_building level = 2 instant_build = yes }
-			add_building_construction = { type = naval_base level = 2 instant_build = yes province = 8113 }
+			if = {
+				limit = { is_owned_and_controlled_by = ROOT }
+				if = {
+					limit = { free_building_slots = { building = air_base size > 2 } }
+					add_building_construction = { type = air_base level = 3 instant_build = yes }
+				}
+				if = {
+					limit = { free_building_slots = { building = anti_air_building size > 1 } }
+					add_building_construction = { type = anti_air_building level = 2 instant_build = yes }
+				}
+				if = {
+					limit = { free_building_slots = { building = naval_base size > 1 } }
+					add_building_construction = { type = naval_base level = 2 instant_build = yes province = 8113 }
+				}
+			}
 		}
 		set_temp_variable = { tag_index = USA }
 		set_temp_variable = { influence_target = VEN }
@@ -2078,8 +2430,17 @@ country_event = {
 		name = venezuela.223.c
 		log = "[GetDateText]: [This.GetName]: venezuela.223.c executed"
 		875 = {
-			add_building_construction = { type = air_base level = 1 instant_build = yes }
-			add_building_construction = { type = radar_station level = 1 instant_build = yes }
+			if = {
+				limit = { is_owned_and_controlled_by = ROOT }
+				if = {
+					limit = { free_building_slots = { building = air_base size > 0 } }
+					add_building_construction = { type = air_base level = 1 instant_build = yes }
+				}
+				if = {
+					limit = { free_building_slots = { building = radar_station size > 0 } }
+					add_building_construction = { type = radar_station level = 1 instant_build = yes }
+				}
+			}
 		}
 		set_temp_variable = { tag_index = USA }
 		set_temp_variable = { influence_target = VEN }
@@ -2246,6 +2607,12 @@ country_event = {
 
 	is_triggered_only = yes
 
+	trigger = {
+		country_exists = GUY
+		country_exists = VEN
+		NOT = { is_subject_of = VEN }
+	}
+
 	# Option A: Yield to US arbitration
 	option = {
 		name = venezuela.226.a
@@ -2301,6 +2668,12 @@ country_event = {
 
 	is_triggered_only = yes
 
+	trigger = {
+		country_exists = VEN
+		country_exists = USA
+		NOT = { has_war_with = USA }
+	}
+
 	option = {
 		name = venezuela.227.a
 		log = "[GetDateText]: [This.GetName]: venezuela.227.a executed"
@@ -2346,6 +2719,12 @@ country_event = {
 
 	is_triggered_only = yes
 
+	trigger = {
+		country_exists = VEN
+		country_exists = USA
+		NOT = { has_war_with = USA }
+	}
+
 	option = {
 		name = venezuela.228.a
 		log = "[GetDateText]: [This.GetName]: venezuela.228.a executed"
@@ -2387,6 +2766,12 @@ country_event = {
 	picture = GFX_generic_soldiers
 
 	is_triggered_only = yes
+
+	trigger = {
+		country_exists = VEN
+		country_exists = USA
+		NOT = { has_war_with = USA }
+	}
 
 	option = {
 		name = venezuela.229.a
@@ -2434,6 +2819,12 @@ country_event = {
 	picture = GFX_treaty
 
 	is_triggered_only = yes
+
+	trigger = {
+		country_exists = VEN
+		country_exists = USA
+		NOT = { has_war_with = USA }
+	}
 
 	# Option A: Accept becoming Washington's permanent junior partner (Buffed)
 	option = {
@@ -2546,6 +2937,11 @@ country_event = {
 	picture = GFX_great_recession_protests
 	is_triggered_only = yes
 
+	trigger = {
+		exists = yes
+		original_tag = VEN
+	}
+
 	option = {
 		name = venezuela.231.a
 		add_stability = -0.05
@@ -2591,6 +2987,11 @@ country_event = {
 	picture = GFX_stock_market
 	is_triggered_only = yes
 
+	trigger = {
+		exists = yes
+		original_tag = VEN
+	}
+
 	option = {
 		name = venezuela.232.a
 		if = {
@@ -2608,11 +3009,17 @@ country_event = {
 		set_temp_variable = { treasury_change = 35.0 }
 		modify_treasury_effect = yes
 		875 = {
-			add_extra_state_shared_building_slots = 1
-			add_building_construction = {
-				type = offices
-				level = 1
-				instant_build = yes
+			if = {
+				limit = { is_owned_and_controlled_by = ROOT }
+				add_extra_state_shared_building_slots = 1
+				if = {
+					limit = { free_building_slots = { building = offices size > 0 include_locked = yes } }
+					add_building_construction = {
+						type = offices
+						level = 1
+						instant_build = yes
+					}
+				}
 			}
 		}
 		add_to_variable = { VEN_fmm_recv_inv_cost = -0.10 }
@@ -2639,6 +3046,11 @@ country_event = {
 	desc = venezuela.233.d
 	picture = GFX_generic_soldiers
 	is_triggered_only = yes
+
+	trigger = {
+		exists = yes
+		original_tag = VEN
+	}
 
 	option = {
 		name = venezuela.233.a
@@ -2672,6 +3084,11 @@ country_event = {
 	desc = venezuela.234.d
 	picture = GFX_treaty
 	is_triggered_only = yes
+
+	trigger = {
+		exists = yes
+		original_tag = VEN
+	}
 
 	option = {
 		name = venezuela.234.a
@@ -2712,6 +3129,11 @@ country_event = {
 	picture = GFX_venez_capt
 	is_triggered_only = yes
 
+	trigger = {
+		exists = yes
+		original_tag = VEN
+	}
+
 	option = {
 		name = venezuela.235.a
 		set_temp_variable = { treasury_change = 15.0 }
@@ -2738,6 +3160,11 @@ country_event = {
 	desc = venezuela.236.d
 	picture = GFX_stock_market
 	is_triggered_only = yes
+
+	trigger = {
+		exists = yes
+		original_tag = VEN
+	}
 
 	option = {
 		name = venezuela.236.a
@@ -2766,6 +3193,11 @@ country_event = {
 	picture = GFX_grancolo
 	is_triggered_only = yes
 
+	trigger = {
+		exists = yes
+		original_tag = VEN
+	}
+
 	option = {
 		name = venezuela.237.a
 		add_to_variable = { VEN_bgi_army_atk = 0.05 }
@@ -2790,6 +3222,12 @@ country_event = {
 	desc = venezuela.238.d
 	picture = GFX_handshake_black
 	is_triggered_only = yes
+
+	trigger = {
+		exists = yes
+		country_exists = VEN
+		NOT = { has_war_with = VEN }
+	}
 
 	option = {
 		name = venezuela.238.a
@@ -2843,6 +3281,11 @@ country_event = {
 	picture = GFX_venez_carac
 	is_triggered_only = yes
 
+	trigger = {
+		exists = yes
+		original_tag = VEN
+	}
+
 	option = {
 		name = venezuela.239.a
 		add_tech_bonus = {
@@ -2891,6 +3334,11 @@ country_event = {
 	picture = GFX_venez_capt
 	is_triggered_only = yes
 
+	trigger = {
+		exists = yes
+		original_tag = VEN
+	}
+
 	option = {
 		name = venezuela.240.a
 		add_political_power = 120
@@ -2923,6 +3371,12 @@ country_event = {
 	picture = GFX_treaty
 	is_triggered_only = yes
 
+	trigger = {
+		exists = yes
+		country_exists = VEN
+		NOT = { has_war_with = VEN }
+	}
+
 	option = {
 		name = venezuela.241.a
 		add_opinion_modifier = { target = VEN modifier = has_expressed_loyalty }
@@ -2931,11 +3385,13 @@ country_event = {
 			if = {
 				limit = {
 					NOT = { has_idea = CSTO_member }
+					country_exists = SOV
 					SOV = { has_idea = CSTO_member is_faction_leader = yes }
 				}
 				CSTO_join = yes
 			}
-			else = {
+			else_if = {
+				limit = { country_exists = SOV }
 				diplomatic_relation = { country = SOV relation = non_aggression_pact }
 				give_military_access = SOV
 				SOV = { give_military_access = VEN }
@@ -2977,6 +3433,11 @@ country_event = {
 	picture = GFX_generic_soldiers
 	is_triggered_only = yes
 
+	trigger = {
+		exists = yes
+		original_tag = VEN
+	}
+
 	option = {
 		name = venezuela.242.a
 		add_stability = -0.05
@@ -3006,6 +3467,11 @@ country_event = {
 	desc = venezuela.243.d
 	picture = GFX_stock_market
 	is_triggered_only = yes
+
+	trigger = {
+		exists = yes
+		original_tag = VEN
+	}
 
 	option = {
 		name = venezuela.243.a
@@ -3266,6 +3732,12 @@ country_event = {
 	picture = GFX_handshake_black
 	is_triggered_only = yes
 
+	trigger = {
+		exists = yes
+		original_tag = VEN
+		NOT = { has_civil_war = yes }
+	}
+
 	# Side with the Dissident Military / Democratic Coalition
 	option = {
 		name = venezuela.249.a
@@ -3413,6 +3885,11 @@ country_event = {
 	picture = GFX_cartels_stacks
 	is_triggered_only = yes
 
+	trigger = {
+		exists = yes
+		FROM = { exists = yes }
+	}
+
 	option = {
 		name = venezuela.251.a
 		log = "[GetDateText]: [This.GetName]: venezuela.251.a executed"
@@ -3432,15 +3909,23 @@ country_event = {
 	picture = GFX_cartels_caught
 	is_triggered_only = yes
 
+	trigger = {
+		exists = yes
+		original_tag = VEN
+	}
+
 	option = {
 		name = venezuela.252.a
 		log = "[GetDateText]: [This.GetName]: venezuela.252.a executed"
 		add_stability = 0.05
 		add_political_power = 25
-		COL = {
-			add_opinion_modifier = {
-				target = ROOT
-				modifier = improved_relations
+		if = {
+			limit = { country_exists = COL }
+			COL = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = improved_relations
+				}
 			}
 		}
 		ai_chance = { base = 100 }
@@ -3455,14 +3940,22 @@ country_event = {
 	picture = GFX_cartels_stacks
 	is_triggered_only = yes
 
+	trigger = {
+		exists = yes
+		original_tag = VEN
+	}
+
 	option = {
 		name = venezuela.253.a
 		log = "[GetDateText]: [This.GetName]: venezuela.253.a executed"
 		add_ideas = VEN_ofac_sanctions_idea
-		USA = {
-			add_opinion_modifier = {
-				target = ROOT
-				modifier = hostile_status
+		if = {
+			limit = { country_exists = USA }
+			USA = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = hostile_status
+				}
 			}
 		}
 		ai_chance = { base = 100 }
@@ -3476,6 +3969,11 @@ country_event = {
 	desc = venezuela.254.d
 	picture = GFX_cartels_caught
 	is_triggered_only = yes
+
+	trigger = {
+		exists = yes
+		original_tag = VEN
+	}
 
 	# Cover up and protect the inner circle
 	option = {
@@ -3511,6 +4009,12 @@ country_event = {
 	desc = venezuela.255.d
 	picture = GFX_handshake_black
 	is_triggered_only = yes
+
+	trigger = {
+		exists = yes
+		FROM = { exists = yes }
+		NOT = { has_war_with = FROM }
+	}
 
 	# Approve Joint Task Force & Security Aid
 	option = {
@@ -3548,6 +4052,12 @@ country_event = {
 	picture = GFX_handshake_black
 	is_triggered_only = yes
 
+	trigger = {
+		exists = yes
+		country_exists = USA
+		NOT = { has_war_with = USA }
+	}
+
 	option = {
 		name = venezuela.256.a
 		log = "[GetDateText]: [This.GetName]: venezuela.256.a executed"
@@ -3566,14 +4076,17 @@ country_event = {
 		set_temp_variable = { cart_strength_change = -5 }
 		set_temp_variable = { cart_influence_change = -5 }
 		modify_cartel_variables_effect = yes
-		add_opinion_modifier = {
-			target = USA
-			modifier = improved_relations
-		}
-		USA = {
-			set_temp_variable = { percent_change = 3 }
-			set_temp_variable = { influence_target = PREV }
-			change_influence_percentage = yes
+		if = {
+			limit = { country_exists = USA }
+			add_opinion_modifier = {
+				target = USA
+				modifier = improved_relations
+			}
+			USA = {
+				set_temp_variable = { percent_change = 3 }
+				set_temp_variable = { influence_target = PREV }
+				change_influence_percentage = yes
+			}
 		}
 		if = {
 			limit = { has_idea = VEN_ofac_sanctions_idea }

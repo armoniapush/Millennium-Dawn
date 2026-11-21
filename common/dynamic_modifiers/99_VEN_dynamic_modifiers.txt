@@ -8,7 +8,7 @@ VEN_mission_vuelta_al_campo_modifier = {
 }
 
 VEN_gnb_integrated_territory_modifier = {
-	icon = "GFX_idea_generic_pp_unity_bonus"
+	icon = "GFX_idea_national_unity"
 
 	state_resources_factor = 0.15
 	local_manpower = 0.15
@@ -69,7 +69,7 @@ VEN_national_security_state_modifier = {
 ### US TUTELAGE MODIFIER ###
 
 VEN_us_tutelage_modifier = {
-	icon = "GFX_idea_usa_aid"
+	icon = "GFX_idea_USA_USAID"
 
 	political_power_factor = VEN_us_tutelage_pp
 	foreign_influence_defense_modifier = VEN_us_tutelage_inf_def

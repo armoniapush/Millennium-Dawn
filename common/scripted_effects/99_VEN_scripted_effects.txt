@@ -26,16 +26,16 @@ VEN_clear_chavismo_ideas = {
 # Purpose: Initializes and clamps VEN_chavez_grip / VEN_opp_momentum and updates entrenchment modifier variables.
 VEN_sync_entrenchment_modifier = {
 	if = {
+		limit = { NOT = { has_variable = VEN_chavez_grip } }
+		set_variable = { VEN_chavez_grip = 75 }
+	}
+	if = {
+		limit = { NOT = { has_variable = VEN_opp_momentum } }
+		set_variable = { VEN_opp_momentum = 25 }
+	}
+	if = {
 		limit = { NOT = { has_country_flag = VEN_entrenchment_init } }
 		set_country_flag = VEN_entrenchment_init
-		if = {
-			limit = { NOT = { has_variable = VEN_chavez_grip } }
-			set_variable = { VEN_chavez_grip = 70 }
-		}
-		if = {
-			limit = { NOT = { has_variable = VEN_opp_momentum } }
-			set_variable = { VEN_opp_momentum = 20 }
-		}
 		if = {
 			limit = {
 				emerging_anarchist_communism_in_power_or_coalition = yes
@@ -161,53 +161,99 @@ VEN_start_political_civil_war = {
 		}
 		if = {
 			limit = { has_country_flag = VEN_us_intervention_war }
-			start_civil_war = {
-				ideology = communism
-				size = 0.70
-				keep_political_leader = yes
+			clr_country_flag = VEN_us_debt_light
+			clr_country_flag = VEN_us_debt_medium
+			clr_country_flag = VEN_us_debt_heavy
+			if = {
+				limit = { check_variable = { VEN_opp_momentum >= 65 } }
+				set_country_flag = VEN_us_debt_light
+				start_civil_war = {
+					ideology = communism
+					size = 0.65
+					keep_political_leader = yes
+				}
 			}
-			add_ideas = VEN_us_expeditionary_support_idea
+			else_if = {
+				limit = { check_variable = { VEN_opp_momentum >= 40 } }
+				set_country_flag = VEN_us_debt_medium
+				start_civil_war = {
+					ideology = communism
+					size = 0.75
+					keep_political_leader = yes
+				}
+			}
+			else = {
+				set_country_flag = VEN_us_debt_heavy
+				start_civil_war = {
+					ideology = communism
+					size = 0.85
+					keep_political_leader = yes
+				}
+			}
+			if = {
+				limit = { NOT = { has_idea = VEN_us_expeditionary_support_idea } }
+				add_ideas = VEN_us_expeditionary_support_idea
+			}
 			division_template = {
 				name = "Brigada de Liberación"
-				priority = 1
+				priority = 2
 				regiments = {
-					L_Inf_Bat = { x = 0 y = 0 }
-					L_Inf_Bat = { x = 0 y = 1 }
-					L_Inf_Bat = { x = 0 y = 2 }
-					L_Inf_Bat = { x = 1 y = 0 }
-					L_Inf_Bat = { x = 1 y = 1 }
+					Special_Forces = { x = 0 y = 0 }
+					Special_Forces = { x = 0 y = 1 }
+					Mot_Inf_Bat = { x = 1 y = 0 }
+					Mot_Inf_Bat = { x = 1 y = 1 }
+					Mot_Inf_Bat = { x = 1 y = 2 }
+					Mot_Inf_Bat = { x = 1 y = 3 }
+					Arm_Inf_Bat = { x = 2 y = 0 }
+					Arty_Bat = { x = 2 y = 1 }
 				}
 				support = {
 					L_Engi_Comp = { x = 0 y = 0 }
 					L_Recce_Comp = { x = 0 y = 1 }
+					Arty_Battery = { x = 0 y = 2 }
 				}
 			}
 			capital_scope = {
 				create_unit = {
-					division = "name = \"1st Brigada de Liberación\" division_template = \"Brigada de Liberación\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
+					division = "name = \"1st Brigada de Liberación\" division_template = \"Brigada de Liberación\" start_experience_factor = 0.9 start_equipment_factor = 1.0"
 					owner = ROOT
 				}
-				create_unit = {
-					division = "name = \"2nd Brigada de Liberación\" division_template = \"Brigada de Liberación\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
-					owner = ROOT
+				if = {
+					limit = {
+						ROOT = {
+							OR = {
+								has_country_flag = VEN_us_debt_light
+								has_country_flag = VEN_us_debt_medium
+							}
+						}
+					}
+					create_unit = {
+						division = "name = \"2nd Brigada de Liberación\" division_template = \"Brigada de Liberación\" start_experience_factor = 0.9 start_equipment_factor = 1.0"
+						owner = ROOT
+					}
 				}
-				create_unit = {
-					division = "name = \"3rd Brigada de Liberación\" division_template = \"Brigada de Liberación\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
-					owner = ROOT
-				}
-				create_unit = {
-					division = "name = \"4th Brigada de Liberación\" division_template = \"Brigada de Liberación\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
-					owner = ROOT
-				}
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_weapons_2
+				amount = 500
+				producer = USA
 			}
 			if = {
 				limit = {
 					country_exists = USA
 					NOT = { has_war_with = USA }
 				}
+				give_military_access = USA
 				USA = {
+					set_rule = { can_send_volunteers = yes }
+					add_timed_idea = { idea = VEN_us_expeditionary_dispatch_idea days = 365 }
 					add_ai_strategy = {
 						type = send_volunteers_desire
+						id = ROOT
+						value = 1000
+					}
+					add_ai_strategy = {
+						type = support
 						id = ROOT
 						value = 500
 					}
@@ -217,16 +263,44 @@ VEN_start_political_civil_war = {
 					}
 				}
 			}
+			country_event = { id = venezuela.261 days = 21 }
 		}
 		else = {
-			start_civil_war = {
-				ideology = communism
-				size = 0.45
-				keep_political_leader = yes
+			if = {
+				limit = { check_variable = { VEN_opp_momentum >= 75 } }
+				start_civil_war = {
+					ideology = communism
+					size = 0.25
+					keep_political_leader = yes
+				}
+			}
+			else_if = {
+				limit = { check_variable = { VEN_opp_momentum >= 60 } }
+				start_civil_war = {
+					ideology = communism
+					size = 0.40
+					keep_political_leader = yes
+				}
+			}
+			else_if = {
+				limit = { check_variable = { VEN_opp_momentum >= 45 } }
+				start_civil_war = {
+					ideology = communism
+					size = 0.50
+					keep_political_leader = yes
+				}
+			}
+			else = {
+				start_civil_war = {
+					ideology = communism
+					size = 0.65
+					keep_political_leader = yes
+				}
 			}
 		}
 		random_enemy_country = {
 			limit = { original_tag = VEN }
+			set_country_flag = VEN_political_civil_war_active
 			set_country_flag = VEN_chavista_rebel_tag
 			if = {
 				limit = {
@@ -244,6 +318,97 @@ VEN_start_political_civil_war = {
 						modifier = generic_increased_military_support
 					}
 				}
+			}
+			else_if = {
+				limit = {
+					ROOT = {
+						NOT = { has_country_flag = VEN_us_intervention_war }
+						has_country_flag = VEN_cw_molina_leader
+					}
+				}
+				if = {
+					limit = { country_exists = SOV }
+					give_military_access = SOV
+					SOV = {
+						set_rule = { can_send_volunteers = yes }
+						add_timed_idea = { idea = VEN_red_expeditionary_dispatch_idea days = 365 }
+						add_ai_strategy = {
+							type = send_volunteers_desire
+							id = PREV
+							value = 1000
+						}
+						add_ai_strategy = {
+							type = support
+							id = PREV
+							value = 500
+						}
+						add_relation_modifier = {
+							target = PREV
+							modifier = generic_increased_military_support
+						}
+					}
+				}
+				if = {
+					limit = { country_exists = CUB }
+					give_military_access = CUB
+					CUB = {
+						set_rule = { can_send_volunteers = yes }
+						add_timed_idea = { idea = VEN_red_expeditionary_dispatch_idea days = 365 }
+						add_ai_strategy = {
+							type = send_volunteers_desire
+							id = PREV
+							value = 1000
+						}
+						add_ai_strategy = {
+							type = support
+							id = PREV
+							value = 500
+						}
+						add_relation_modifier = {
+							target = PREV
+							modifier = generic_increased_military_support
+						}
+					}
+				}
+				if = {
+					limit = { country_exists = SOV }
+					add_equipment_to_stockpile = {
+						type = infantry_weapons_2
+						amount = 1000
+						producer = SOV
+					}
+					add_equipment_to_stockpile = {
+						type = util_vehicle_2
+						amount = 100
+						producer = SOV
+					}
+				}
+				division_template = {
+					name = "Brigada Internacionalista"
+					priority = 2
+					regiments = {
+						Special_Forces = { x = 0 y = 0 }
+						Special_Forces = { x = 0 y = 1 }
+						Mot_Inf_Bat = { x = 1 y = 0 }
+						Mot_Inf_Bat = { x = 1 y = 1 }
+						Mot_Inf_Bat = { x = 1 y = 2 }
+						Mot_Inf_Bat = { x = 1 y = 3 }
+						Arm_Inf_Bat = { x = 2 y = 0 }
+						Arty_Bat = { x = 2 y = 1 }
+					}
+					support = {
+						L_Engi_Comp = { x = 0 y = 0 }
+						L_Recce_Comp = { x = 0 y = 1 }
+						Arty_Battery = { x = 0 y = 2 }
+					}
+				}
+				capital_scope = {
+					create_unit = {
+						division = "name = \"1st Brigada Internacionalista\" division_template = \"Brigada Internacionalista\" start_experience_factor = 0.9 start_equipment_factor = 1.0"
+						owner = PREV
+					}
+				}
+				country_event = { id = venezuela.262 days = 21 }
 			}
 			every_unit_leader = {
 				limit = {
@@ -295,6 +460,7 @@ VEN_start_political_civil_war = {
 		}
 		random_enemy_country = {
 			limit = { original_tag = VEN }
+			set_country_flag = VEN_political_civil_war_active
 			set_country_flag = VEN_opposition_rebel_tag
 			every_unit_leader = {
 				limit = {
@@ -340,6 +506,14 @@ VEN_sync_cartel_symbiosis_effect = {
 	if = {
 		limit = { has_dynamic_modifier = { modifier = cartel_penalties } }
 		remove_dynamic_modifier = { modifier = cartel_penalties }
+	}
+	if = {
+		limit = { NOT = { has_variable = strength_of_cartels } }
+		set_variable = { strength_of_cartels = 0 }
+	}
+	if = {
+		limit = { NOT = { has_variable = cartel_political_influence } }
+		set_variable = { cartel_political_influence = 0 }
 	}
 	clamp_variable = { var = strength_of_cartels min = 0 max = 100 }
 	clamp_variable = { var = cartel_political_influence min = 0 max = 100 }

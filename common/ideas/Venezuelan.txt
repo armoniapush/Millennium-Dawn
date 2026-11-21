@@ -1,4 +1,4 @@
-ideas = {
+﻿ideas = {
 	country = {
 		### BOLIVARIAN ECONOMY, TRADE & COMMUNIST PATH ###
 
@@ -1046,7 +1046,7 @@ ideas = {
 
 		VEN_oil_dependency_transition = {
 			allowed_civil_war = { always = yes }
-			picture = oil
+			picture = oil_profits
 			modifier = {
 				tax_gain_multiplier_modifier = 0.05
 				production_speed_industrial_complex_factor = 0.10
@@ -1846,6 +1846,37 @@ ideas = {
 			}
 		}
 
+		VEN_us_expeditionary_dispatch_idea = {
+			allowed_civil_war = { always = yes }
+			picture = USA_coalition_forces
+			modifier = {
+				send_volunteers_tension = -1.0
+				send_volunteer_size = 6
+				air_volunteer_cap = 2
+			}
+		}
+
+		VEN_red_expeditionary_dispatch_idea = {
+			allowed_civil_war = { always = yes }
+			picture = USA_coalition_forces
+			modifier = {
+				send_volunteers_tension = -1.0
+				send_volunteer_size = 4
+				air_volunteer_cap = 1
+			}
+		}
+
+		VEN_us_tutelage_light_idea = {
+			allowed_civil_war = { always = yes }
+			picture = USA_USAID
+			modifier = {
+				stability_factor = 0.05
+				production_speed_buildings_factor = 0.12
+				political_power_factor = -0.05
+				western_drift = 0.02
+			}
+		}
+
 		VEN_us_tutelage_idea = {
 			allowed_civil_war = { always = yes }
 			picture = USA_USAID
@@ -1856,6 +1887,328 @@ ideas = {
 				western_drift = 0.03
 			}
 		}
+
+		VEN_us_tutelage_heavy_idea = {
+			allowed_civil_war = { always = yes }
+			picture = USA_USAID
+			modifier = {
+				stability_factor = 0.03
+				political_power_factor = -0.25
+				local_resources_factor = -0.20
+				industrial_capacity_factory = -0.10
+				consumer_goods_factor = 0.08
+				western_drift = 0.05
+			}
+		}
+
+		VEN_nat_infrastructure_boom_idea = {
+			allowed_civil_war = { always = yes }
+			picture = construction
+			modifier = {
+				production_speed_buildings_factor = 0.10
+				local_resources_factor = 0.08
+			}
+		}
+
+		VEN_nat_technical_cadres_idea = {
+			allowed_civil_war = { always = yes }
+			picture = research_bonus
+			modifier = {
+				research_speed_factor = 0.05
+				production_factory_efficiency_gain_factor = 0.08
+			}
+		}
+
+		VEN_auth_western_sentinel_idea = {
+			allowed_civil_war = { always = yes }
+			picture = army_officer
+			modifier = {
+				consumer_goods_factor = -0.05
+				army_org_factor = 0.08
+				industrial_capacity_factory = 0.10
+				stability_factor = 0.05
+				nationalist_drift = 0.02
+			}
+		}
+
+		VEN_iron_imperial_integration_idea = {
+			allowed_civil_war = { always = yes }
+			picture = defense_industry
+			modifier = {
+				compliance_growth = 0.15
+				non_core_manpower = 0.05
+				industrial_capacity_factory = 0.06
+			}
+		}
+
+		VEN_kind_housing_boom_idea = {
+			allowed_civil_war = { always = yes }
+			picture = economy_housing
+			modifier = {
+				production_speed_industrial_complex_factor = 0.12
+				monthly_population = 0.15
+				stability_weekly = 0.002
+			}
+		}
+
+		VEN_kind_deterrence_idea = {
+			allowed_civil_war = { always = yes }
+			picture = coastal_navy
+			modifier = {
+				army_core_defence_factor = 0.12
+				max_dig_in = 3
+				industrial_capacity_dockyard = 0.10
+			}
+		}
+
+		VEN_kind_developmental_miracle_idea = {
+			allowed_civil_war = { always = yes }
+			picture = ocean_navy
+			modifier = {
+				consumer_goods_factor = -0.06
+				production_factory_max_efficiency_factor = 0.10
+				research_speed_factor = 0.05
+				stability_factor = 0.08
+			}
+		}
+
+		VEN_democratic_state_idea = {
+			allowed_civil_war = { always = yes }
+			picture = democracy
+			modifier = {
+				political_power_factor = 0.10
+				stability_factor = 0.06
+				democratic_drift = 0.03
+				corruption_cost_factor = -0.15
+			}
+		}
+
+		VEN_autonomous_central_bank_idea = {
+			allowed_civil_war = { always = yes }
+			picture = international_bankers
+			modifier = {
+				interest_rate_multiplier_modifier = -0.15
+				tax_gain_multiplier_modifier = 0.06
+				consumer_goods_factor = -0.04
+			}
+		}
+
+		VEN_sovereign_wealth_fund_idea = {
+			allowed_civil_war = { always = yes }
+			picture = entrepot_trade
+			modifier = {
+				receiving_investment_cost_modifier = -0.15
+				production_speed_buildings_factor = 0.06
+				stability_weekly = 0.001
+			}
+		}
+
+		VEN_hemispheric_trade_bloc_idea = {
+			allowed_civil_war = { always = yes }
+			picture = globalized_trade_economy
+			modifier = {
+				trade_opinion_factor = 0.25
+				resource_trade_cost_bonus_per_factory = 0.02
+				corporate_tax_income_multiplier_modifier = 0.08
+			}
+		}
+
+		VEN_caribbean_maritime_shield_idea = {
+			allowed_civil_war = { always = yes }
+			picture = ocean_navy
+			modifier = {
+				convoy_escort_efficiency = 0.20
+				naval_coordination = 0.10
+				industrial_capacity_dockyard = 0.12
+			}
+		}
+
+		VEN_green_orinoco_idea = {
+			allowed_civil_war = { always = yes }
+			picture = FRA_green_victory
+			modifier = {
+				local_resources_factor = 0.10
+				fuel_gain_factor = 0.15
+				production_speed_synthetic_refinery_factor = 0.20
+			}
+		}
+
+		VEN_federal_republic_idea = {
+			allowed_civil_war = { always = yes }
+			picture = sub_federalism_idea
+			modifier = {
+				political_power_factor = 0.08
+				stability_factor = 0.05
+				local_building_slots_factor = 0.10
+			}
+		}
+
+		VEN_hemispheric_charter_idea = {
+			allowed_civil_war = { always = yes }
+			picture = international_treaty2
+			modifier = {
+				political_power_gain = 0.15
+				guarantee_cost = -0.25
+				lend_lease_tension = -0.20
+				send_volunteer_size = 2
+			}
+		}
+
+		VEN_property_rights_idea = {
+			allowed_civil_war = { always = yes }
+			picture = tower_investment
+			modifier = {
+				production_speed_offices_factor = 0.12
+				production_speed_industrial_complex_factor = 0.10
+				receiving_investment_cost_modifier = -0.15
+				productivity_growth_modifier = 0.10
+			}
+		}
+
+		VEN_auth_sovereign_reserves_idea = {
+			allowed_civil_war = { always = yes }
+			picture = oil_profits
+			modifier = {
+				oil_export_multiplier_modifier = 0.12
+				fuel_gain_factor = 0.15
+				max_fuel_factor = 0.25
+			}
+		}
+
+		VEN_atlantic_fleet_idea = {
+			allowed_civil_war = { always = yes }
+			picture = ocean_navy
+			modifier = {
+				naval_coordination = 0.12
+				convoy_escort_efficiency = 0.20
+				industrial_capacity_dockyard = 0.15
+			}
+		}
+
+		VEN_inter_american_pact_idea = {
+			allowed_civil_war = { always = yes }
+			picture = international_treaty2
+			modifier = {
+				political_power_gain = 0.15
+				justify_war_goal_time = -0.20
+				send_volunteer_size = 2
+			}
+		}
+
+		VEN_fortress_americas_idea = {
+			allowed_civil_war = { always = yes }
+			picture = national_unity
+			modifier = {
+				political_power_factor = 0.12
+				stability_factor = 0.08
+				war_support_factor = 0.08
+				industrial_capacity_factory = 0.08
+			}
+		}
+
+		VEN_corporate_security_idea = {
+			allowed_civil_war = { always = yes }
+			picture = international_bankers
+			modifier = {
+				army_defence_factor = 0.08
+				resistance_damage_to_garrison = -0.20
+				foreign_influence_defense_modifier = 0.12
+			}
+		}
+
+		VEN_petro_titan_idea = {
+			allowed_civil_war = { always = yes }
+			picture = oil_profits
+			modifier = {
+				oil_export_multiplier_modifier = 0.15
+				corporate_tax_income_multiplier_modifier = 0.12
+				production_speed_buildings_factor = 0.10
+			}
+		}
+
+		VEN_free_market_superpower_idea = {
+			allowed_civil_war = { always = yes }
+			picture = globalized_trade_economy
+			modifier = {
+				productivity_growth_modifier = 0.15
+				offices_productivity = 0.15
+				consumer_goods_factor = -0.06
+				trade_opinion_factor = 0.25
+			}
+		}
+
+		# [SUBAGENT2_CHAVISTA_IDEAS_START]
+		VEN_patria_grande_integration_idea = {
+			allowed_civil_war = { always = yes }
+			picture = communism5
+			modifier = {
+				compliance_growth = 0.10
+				non_core_manpower = 0.03
+				political_power_factor = 0.08
+			}
+		}
+
+		VEN_brics_tech_corridor_idea = {
+			allowed_civil_war = { always = yes }
+			picture = shared_research
+			modifier = {
+				research_speed_factor = 0.06
+				production_speed_buildings_factor = 0.08
+				trade_opinion_factor = 0.15
+			}
+		}
+
+		VEN_tricontinental_cadres_idea = {
+			allowed_civil_war = { always = yes }
+			picture = communist_cadres
+			modifier = {
+				research_speed_factor = 0.05
+				army_org_factor = 0.06
+				subversive_activites_upkeep = -0.20
+			}
+		}
+
+		VEN_bolivarian_academy_sciences_idea = {
+			allowed_civil_war = { always = yes }
+			picture = research_bonus
+			modifier = {
+				research_speed_factor = 0.07
+				industrial_capacity_factory = 0.06
+			}
+		}
+
+		VEN_communal_state_charter_idea = {
+			allowed_civil_war = { always = yes }
+			picture = ETH_military_communism
+			modifier = {
+				stability_factor = 0.08
+				production_factory_max_efficiency_factor = 0.08
+				consumer_goods_factor = -0.03
+			}
+		}
+
+		VEN_narco_barracks_hegemon_idea = {
+			allowed_civil_war = { always = yes }
+			picture = generic_military_junta
+			modifier = {
+				army_attack_factor = 0.10
+				special_forces_attack_factor = 0.12
+				resistance_damage_to_garrison = -0.25
+				consumer_goods_factor = -0.05
+			}
+		}
+
+		VEN_bolivarian_multipolar_power_idea = {
+			allowed_civil_war = { always = yes }
+			picture = oil_profits
+			modifier = {
+				political_power_factor = 0.15
+				production_speed_buildings_factor = 0.10
+				oil_export_multiplier_modifier = 0.15
+				army_defence_factor = 0.08
+			}
+		}
+		# [SUBAGENT2_CHAVISTA_IDEAS_END]
 
 	}
 }

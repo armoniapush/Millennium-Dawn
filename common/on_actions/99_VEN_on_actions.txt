@@ -1,19 +1,40 @@
 # Venezuela On-Actions
 
 on_actions = {
+	# Historical 2001-2002 crisis timeline (Nov 2001 Decrees -> Feb 2002 Molina -> Apr 2002 -> Dec 2002)
+	on_monthly_VEN = {
+		effect = {
+			if = {
+				limit = {
+					original_tag = VEN
+					date > 2001.10.25
+					emerging_anarchist_communism_in_power_or_coalition = yes
+					has_civil_war = no
+					NOT = { has_country_flag = VEN_ev_3_fired }
+					NOT = { has_country_flag = VEN_political_crisis_resolved }
+				}
+				country_event = { id = venezuela.3 days = 12 }
+			}
+		}
+	}
+
 	# Fires post-civil-war resolution event (venezuela.7) when Venezuela's political civil war ends
 	on_civil_war_end = {
 		effect = {
 			if = {
 				limit = {
-					ROOT = {
-						original_tag = VEN
-						has_country_flag = VEN_political_civil_war_active
+					ROOT = { original_tag = VEN }
+					OR = {
+						ROOT = { has_country_flag = VEN_political_civil_war_active }
+						FROM = { has_country_flag = VEN_political_civil_war_active }
 					}
 				}
 				ROOT = {
 					clr_country_flag = VEN_political_civil_war_active
 					country_event = { id = venezuela.7 days = 1 }
+				}
+				FROM = {
+					clr_country_flag = VEN_political_civil_war_active
 				}
 			}
 		}

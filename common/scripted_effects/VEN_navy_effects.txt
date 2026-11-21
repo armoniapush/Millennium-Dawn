@@ -60,7 +60,8 @@ VEN_advance_us_navy_mission = {
 			add_idea = VEN_us_caribbean_fleet_idea
 		}
 	}
-	else = {
+	else_if = {
+		limit = { NOT = { has_idea = VEN_us_caribbean_fleet_idea } }
 		add_ideas = VEN_us_naval_mission_1
 	}
 }
@@ -69,7 +70,10 @@ VEN_advance_us_navy_mission = {
 # Purpose: Grants Venezuela a free US frigate/corvette production license (highest available tech), or a frigate tech bonus.
 VEN_grant_us_surface_license = {
 	if = {
-		limit = { USA = { has_tech = frigate_hull_4 } }
+		limit = {
+			country_exists = USA
+			USA = { has_tech = frigate_hull_4 }
+		}
 		USA = {
 			create_production_license = {
 				target = VEN
@@ -79,7 +83,10 @@ VEN_grant_us_surface_license = {
 		}
 	}
 	else_if = {
-		limit = { USA = { has_tech = frigate_hull_3 } }
+		limit = {
+			country_exists = USA
+			USA = { has_tech = frigate_hull_3 }
+		}
 		USA = {
 			create_production_license = {
 				target = VEN
@@ -89,7 +96,10 @@ VEN_grant_us_surface_license = {
 		}
 	}
 	else_if = {
-		limit = { USA = { has_tech = frigate_hull_2 } }
+		limit = {
+			country_exists = USA
+			USA = { has_tech = frigate_hull_2 }
+		}
 		USA = {
 			create_production_license = {
 				target = VEN
@@ -99,7 +109,10 @@ VEN_grant_us_surface_license = {
 		}
 	}
 	else_if = {
-		limit = { USA = { has_tech = corvette_hull_3 } }
+		limit = {
+			country_exists = USA
+			USA = { has_tech = corvette_hull_3 }
+		}
 		USA = {
 			create_production_license = {
 				target = VEN
@@ -122,7 +135,10 @@ VEN_grant_us_surface_license = {
 # Purpose: Grants Venezuela free US destroyer and attack submarine production licenses (highest available tech), or a destroyer tech bonus.
 VEN_grant_us_destroyer_sub_license = {
 	if = {
-		limit = { USA = { has_tech = destroyer_hull_4 } }
+		limit = {
+			country_exists = USA
+			USA = { has_tech = destroyer_hull_4 }
+		}
 		USA = {
 			create_production_license = {
 				target = VEN
@@ -132,7 +148,10 @@ VEN_grant_us_destroyer_sub_license = {
 		}
 	}
 	else_if = {
-		limit = { USA = { has_tech = destroyer_hull_3 } }
+		limit = {
+			country_exists = USA
+			USA = { has_tech = destroyer_hull_3 }
+		}
 		USA = {
 			create_production_license = {
 				target = VEN
@@ -142,7 +161,10 @@ VEN_grant_us_destroyer_sub_license = {
 		}
 	}
 	else_if = {
-		limit = { USA = { has_tech = destroyer_hull_2 } }
+		limit = {
+			country_exists = USA
+			USA = { has_tech = destroyer_hull_2 }
+		}
 		USA = {
 			create_production_license = {
 				target = VEN
@@ -160,7 +182,10 @@ VEN_grant_us_destroyer_sub_license = {
 		}
 	}
 	if = {
-		limit = { USA = { has_tech = attack_submarine_hull_3 } }
+		limit = {
+			country_exists = USA
+			USA = { has_tech = attack_submarine_hull_3 }
+		}
 		USA = {
 			create_production_license = {
 				target = VEN
@@ -170,7 +195,10 @@ VEN_grant_us_destroyer_sub_license = {
 		}
 	}
 	else_if = {
-		limit = { USA = { has_tech = attack_submarine_hull_2 } }
+		limit = {
+			country_exists = USA
+			USA = { has_tech = attack_submarine_hull_2 }
+		}
 		USA = {
 			create_production_license = {
 				target = VEN
