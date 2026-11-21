@@ -29,7 +29,7 @@ VEN_western_economic_boom_modifier = {
 }
 
 VEN_nato_joint_command_modifier = {
-	icon = "GFX_idea_nato_member"
+	icon = "GFX_idea_ven_nato_part"
 
 	army_org_factor = VEN_mil_org
 	planning_speed = VEN_mil_planning
@@ -39,4 +39,104 @@ VEN_nato_joint_command_modifier = {
 	air_superiority_efficiency = VEN_mil_air_sup
 	naval_coordination = VEN_mil_naval_coord
 	land_doctrine_cost_factor = VEN_mil_doctrine_cost
+}
+
+VEN_national_security_state_modifier = {
+	icon = "GFX_idea_nationalist_outlook"
+
+	political_power_factor = VEN_nss_pp
+	stability_factor = VEN_nss_stab
+	war_support_factor = VEN_nss_ws
+	nationalist_drift = VEN_nss_nat_drift
+	production_speed_arms_factory_factor = VEN_nss_arms_speed
+	industrial_capacity_factory = VEN_nss_factory_cap
+	oil_export_multiplier_modifier = VEN_nss_oil_export
+	army_attack_factor = VEN_nss_army_atk
+	army_defence_factor = VEN_nss_army_def
+	army_org_factor = VEN_nss_army_org
+	planning_speed = VEN_nss_planning
+	air_superiority_efficiency = VEN_nss_air_sup
+	land_doctrine_cost_factor = VEN_nss_doc_cost
+	foreign_influence_defense_modifier = VEN_nss_inf_def
+}
+
+VEN_us_tutelage_modifier = {
+	icon = "GFX_idea_usa_aid"
+
+	political_power_factor = VEN_us_tutelage_pp
+	foreign_influence_defense_modifier = VEN_us_tutelage_inf_def
+	trade_opinion_factor = VEN_us_tutelage_trade
+	consumer_goods_factor = VEN_us_tutelage_cg
+	army_org_factor = VEN_us_tutelage_org
+	democratic_drift = VEN_us_tutelage_dem
+}
+
+VEN_pdvsa_conglomerate_modifier = {
+	icon = "GFX_idea_oil_profits"
+
+	oil_export_multiplier_modifier = VEN_pdvsa_oil_export
+	corporate_tax_income_multiplier_modifier = VEN_pdvsa_corp_tax
+	production_speed_buildings_factor = VEN_pdvsa_build_speed
+	local_resources_factor = VEN_pdvsa_resources
+	productivity_growth_modifier = VEN_pdvsa_prod_growth
+	stability_factor = VEN_pdvsa_stab
+	political_power_factor = VEN_pdvsa_pp
+}
+
+VEN_free_market_miracle_modifier = {
+	icon = "GFX_idea_libertar_econ"
+
+	productivity_growth_modifier = VEN_fmm_prod_growth
+	offices_productivity = VEN_fmm_offices_prod
+	consumer_goods_factor = VEN_fmm_cg
+	receiving_investment_cost_modifier = VEN_fmm_recv_inv_cost
+	receiving_investment_duration_modifier = VEN_fmm_recv_inv_dur
+	production_speed_offices_factor = VEN_fmm_offices_speed
+	army_attack_factor = VEN_fmm_pmc_atk
+	special_forces_cap = VEN_fmm_pmc_sf
+	stability_factor = VEN_fmm_stab
+}
+
+VEN_black_gold_imperium_modifier = {
+	icon = "GFX_idea_fascism2"
+
+	political_power_factor = VEN_bgi_pp
+	nationalist_drift = VEN_bgi_nat_drift
+	oil_export_multiplier_modifier = VEN_bgi_oil_export
+	local_resources_factor = VEN_bgi_resources
+	corporate_tax_income_multiplier_modifier = VEN_bgi_corp_tax
+	production_speed_arms_factory_factor = VEN_bgi_arms_speed
+	industrial_capacity_factory = VEN_bgi_factory_cap
+	research_speed_factor = VEN_bgi_research
+	army_attack_factor = VEN_bgi_army_atk
+	army_defence_factor = VEN_bgi_army_def
+	army_org_factor = VEN_bgi_army_org
+	planning_speed = VEN_bgi_planning
+	justify_war_goal_time = VEN_bgi_wargoal_time
+	foreign_influence_modifier = VEN_bgi_influence
+	foreign_influence_defense_modifier = VEN_bgi_inf_def
+	operative_slot = VEN_bgi_operatives
+	intel_network_gain_factor = VEN_bgi_intel_net
+	decryption_factor = VEN_bgi_decryption
+	subversive_activites_upkeep = VEN_bgi_subversion
+}
+
+VEN_fifth_republic_state_modifier = {
+	icon = "GFX_idea_chavez_id_ea_populism"
+
+	political_power_factor = VEN_5th_pp
+	communism_drift = VEN_5th_comm_drift
+	stability_factor = VEN_5th_stab
+	war_support_factor = VEN_5th_ws
+	conscription_factor = VEN_5th_conscription
+	army_defence_factor = VEN_5th_army_def
+	army_attack_factor = VEN_5th_army_atk
+	foreign_influence_defense_modifier = VEN_5th_inf_def
+	production_speed_industrial_complex_factor = VEN_5th_civ_speed
+	production_speed_arms_factory_factor = VEN_5th_arms_speed
+	research_speed_factor = VEN_5th_research
+	consumer_goods_factor = VEN_5th_cg
+	corporate_tax_income_multiplier_modifier = VEN_5th_corp_tax
+	tax_gain_multiplier_modifier = VEN_5th_tax_gain
+	productivity_growth_modifier = VEN_5th_prod_growth
 }

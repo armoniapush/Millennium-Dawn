@@ -1,0 +1,273 @@
+spriteTypes = {
+	# Venezuelan Focus Icons (Short Standardized Names)
+	spriteType = {
+		name = "VEN_aero_shield"
+		texturefile = "gfx/interface/goals/venezuela/VEN_aero_shield.dds"
+	}
+	spriteType = {
+		name = "VEN_air_force"
+		texturefile = "gfx/interface/goals/venezuela/VEN_air_force.dds"
+	}
+	spriteType = {
+		name = "VEN_andean_shield"
+		texturefile = "gfx/interface/goals/venezuela/VEN_andean_shield.dds"
+	}
+	spriteType = {
+		name = "VEN_army"
+		texturefile = "gfx/interface/goals/venezuela/VEN_army.dds"
+	}
+	spriteType = {
+		name = "VEN_autarky_grid"
+		texturefile = "gfx/interface/goals/venezuela/VEN_autarky_grid.dds"
+	}
+	spriteType = {
+		name = "VEN_beacon_americas"
+		texturefile = "gfx/interface/goals/venezuela/VEN_beacon_americas.dds"
+	}
+	spriteType = {
+		name = "VEN_carib_armada"
+		texturefile = "gfx/interface/goals/venezuela/VEN_carib_armada.dds"
+	}
+	spriteType = {
+		name = "VEN_carib_ops"
+		texturefile = "gfx/interface/goals/venezuela/VEN_carib_ops.dds"
+	}
+	spriteType = {
+		name = "VEN_carib_security"
+		texturefile = "gfx/interface/goals/venezuela/VEN_carib_security.dds"
+	}
+	spriteType = {
+		name = "VEN_caudillo"
+		texturefile = "gfx/interface/goals/venezuela/VEN_caudillo.dds"
+	}
+	spriteType = {
+		name = "VEN_chavez"
+		texturefile = "gfx/interface/goals/venezuela/VEN_chavez.dds"
+	}
+	spriteType = {
+		name = "VEN_chavez_rose"
+		texturefile = "gfx/interface/goals/venezuela/VEN_chavez_rose.dds"
+	}
+	spriteType = {
+		name = "VEN_collapse"
+		texturefile = "gfx/interface/goals/venezuela/VEN_collapse.dds"
+	}
+	spriteType = {
+		name = "VEN_cons_auth"
+		texturefile = "gfx/interface/goals/venezuela/VEN_cons_auth.dds"
+	}
+	spriteType = {
+		name = "VEN_crisis_ops"
+		texturefile = "gfx/interface/goals/venezuela/VEN_crisis_ops.dds"
+	}
+	spriteType = {
+		name = "VEN_cuba_embargo"
+		texturefile = "gfx/interface/goals/venezuela/VEN_cuba_embargo.dds"
+	}
+	spriteType = {
+		name = "VEN_democracy"
+		texturefile = "gfx/interface/goals/venezuela/VEN_democracy.dds"
+	}
+	spriteType = {
+		name = "VEN_esequibo_us"
+		texturefile = "gfx/interface/goals/venezuela/VEN_esequibo_us.dds"
+	}
+	spriteType = {
+		name = "VEN_esequibo_war"
+		texturefile = "gfx/interface/goals/venezuela/VEN_esequibo_war.dds"
+	}
+	spriteType = {
+		name = "VEN_flag"
+		texturefile = "gfx/interface/goals/venezuela/VEN_flag.dds"
+	}
+	spriteType = {
+		name = "VEN_fortress_econ"
+		texturefile = "gfx/interface/goals/venezuela/VEN_fortress_econ.dds"
+	}
+	spriteType = {
+		name = "VEN_future"
+		texturefile = "gfx/interface/goals/venezuela/VEN_future.dds"
+	}
+	spriteType = {
+		name = "VEN_gnb"
+		texturefile = "gfx/interface/goals/venezuela/VEN_gnb.dds"
+	}
+	spriteType = {
+		name = "VEN_iron_fist"
+		texturefile = "gfx/interface/goals/venezuela/VEN_iron_fist.dds"
+	}
+	spriteType = {
+		name = "VEN_iron_regime"
+		texturefile = "gfx/interface/goals/venezuela/VEN_iron_regime.dds"
+	}
+	spriteType = {
+		name = "VEN_iron_rule"
+		texturefile = "gfx/interface/goals/venezuela/VEN_iron_rule.dds"
+	}
+	spriteType = {
+		name = "VEN_join_nato"
+		texturefile = "gfx/interface/goals/venezuela/VEN_join_nato.dds"
+	}
+	spriteType = {
+		name = "VEN_kind_dictator"
+		texturefile = "gfx/interface/goals/venezuela/VEN_kind_dictator.dds"
+	}
+	spriteType = {
+		name = "VEN_lib_carib"
+		texturefile = "gfx/interface/goals/venezuela/VEN_lib_carib.dds"
+	}
+	spriteType = {
+		name = "VEN_lib_cuba"
+		texturefile = "gfx/interface/goals/venezuela/VEN_lib_cuba.dds"
+	}
+	spriteType = {
+		name = "VEN_look_out"
+		texturefile = "gfx/interface/goals/venezuela/VEN_look_out.dds"
+	}
+	spriteType = {
+		name = "VEN_mil_control"
+		texturefile = "gfx/interface/goals/venezuela/VEN_mil_control.dds"
+	}
+	spriteType = {
+		name = "VEN_militia"
+		texturefile = "gfx/interface/goals/venezuela/VEN_militia.dds"
+	}
+	spriteType = {
+		name = "VEN_mvr"
+		texturefile = "gfx/interface/goals/venezuela/VEN_mvr.dds"
+	}
+	spriteType = {
+		name = "VEN_nat_cap"
+		texturefile = "gfx/interface/goals/venezuela/VEN_nat_cap.dds"
+	}
+	spriteType = {
+		name = "VEN_nat_officers"
+		texturefile = "gfx/interface/goals/venezuela/VEN_nat_officers.dds"
+	}
+	spriteType = {
+		name = "VEN_nat_order"
+		texturefile = "gfx/interface/goals/venezuela/VEN_nat_order.dds"
+	}
+	spriteType = {
+		name = "VEN_nationalize"
+		texturefile = "gfx/interface/goals/venezuela/VEN_nationalize.dds"
+	}
+	spriteType = {
+		name = "VEN_nato_fleet"
+		texturefile = "gfx/interface/goals/venezuela/VEN_nato_fleet.dds"
+	}
+	spriteType = {
+		name = "VEN_navy"
+		texturefile = "gfx/interface/goals/venezuela/VEN_navy.dds"
+	}
+	spriteType = {
+		name = "VEN_north_ties"
+		texturefile = "gfx/interface/goals/venezuela/VEN_north_ties.dds"
+	}
+	spriteType = {
+		name = "VEN_nuevo_ordo"
+		texturefile = "gfx/interface/goals/venezuela/VEN_nuevo_ordo.dds"
+	}
+	spriteType = {
+		name = "VEN_oil"
+		texturefile = "gfx/interface/goals/venezuela/VEN_oil.dds"
+	}
+	spriteType = {
+		name = "VEN_orinoco_mine"
+		texturefile = "gfx/interface/goals/venezuela/VEN_orinoco_mine.dds"
+	}
+	spriteType = {
+		name = "VEN_pdvsa"
+		texturefile = "gfx/interface/goals/venezuela/VEN_pdvsa.dds"
+	}
+	spriteType = {
+		name = "VEN_pdvsa_takeover"
+		texturefile = "gfx/interface/goals/venezuela/VEN_pdvsa_takeover.dds"
+	}
+	spriteType = {
+		name = "VEN_praetorian"
+		texturefile = "gfx/interface/goals/venezuela/VEN_praetorian.dds"
+	}
+	spriteType = {
+		name = "VEN_pres_powers"
+		texturefile = "gfx/interface/goals/venezuela/VEN_pres_powers.dds"
+	}
+	spriteType = {
+		name = "VEN_preserve"
+		texturefile = "gfx/interface/goals/venezuela/VEN_preserve.dds"
+	}
+	spriteType = {
+		name = "VEN_prosperity"
+		texturefile = "gfx/interface/goals/venezuela/VEN_prosperity.dds"
+	}
+	spriteType = {
+		name = "VEN_resource_deals"
+		texturefile = "gfx/interface/goals/venezuela/VEN_resource_deals.dds"
+	}
+	spriteType = {
+		name = "VEN_rev_brazil"
+		texturefile = "gfx/interface/goals/venezuela/VEN_rev_brazil.dds"
+	}
+	spriteType = {
+		name = "VEN_soc_alliance"
+		texturefile = "gfx/interface/goals/venezuela/VEN_soc_alliance.dds"
+	}
+	spriteType = {
+		name = "VEN_strong_ven"
+		texturefile = "gfx/interface/goals/venezuela/VEN_strong_ven.dds"
+	}
+	spriteType = {
+		name = "VEN_tech_dir"
+		texturefile = "gfx/interface/goals/venezuela/VEN_tech_dir.dds"
+	}
+	spriteType = {
+		name = "VEN_unity"
+		texturefile = "gfx/interface/goals/venezuela/VEN_unity.dds"
+	}
+	spriteType = {
+		name = "VEN_unity_alt"
+		texturefile = "gfx/interface/goals/venezuela/VEN_unity_alt.dds"
+	}
+	spriteType = {
+		name = "VEN_us_aid"
+		texturefile = "gfx/interface/goals/venezuela/VEN_us_aid.dds"
+	}
+	spriteType = {
+		name = "VEN_us_auth_pact"
+		texturefile = "gfx/interface/goals/venezuela/VEN_us_auth_pact.dds"
+	}
+	spriteType = {
+		name = "VEN_west_ind"
+		texturefile = "gfx/interface/goals/venezuela/VEN_west_ind.dds"
+	}
+
+	# Legacy Aliases (Used by Other Countries)
+	spriteType = {
+		name = "democracy_venez"
+		texturefile = "gfx/interface/goals/venezuela/VEN_democracy.dds"
+	}
+	spriteType = {
+		name = "flag_venez"
+		texturefile = "gfx/interface/goals/venezuela/VEN_flag.dds"
+	}
+	spriteType = {
+		name = "increase_presidential_powers"
+		texturefile = "gfx/interface/goals/venezuela/VEN_pres_powers.dds"
+	}
+	spriteType = {
+		name = "pdvsa"
+		texturefile = "gfx/interface/goals/venezuela/VEN_pdvsa.dds"
+	}
+	spriteType = {
+		name = "preserve_venez"
+		texturefile = "gfx/interface/goals/venezuela/VEN_preserve.dds"
+	}
+	spriteType = {
+		name = "revolution_in_brazil"
+		texturefile = "gfx/interface/goals/venezuela/VEN_rev_brazil.dds"
+	}
+	spriteType = {
+		name = "ven_oil"
+		texturefile = "gfx/interface/goals/venezuela/VEN_oil.dds"
+	}
+}

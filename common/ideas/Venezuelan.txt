@@ -474,8 +474,9 @@ ideas = {
 				}
 			}
 			modifier = {
-				army_attack_factor = -0.075
 				army_defence_factor = 0.12
+				max_dig_in_factor = 0.10
+				army_org_factor = 0.05
 			}
 		}
 		VEN_idea_autarky = {
@@ -501,8 +502,9 @@ ideas = {
 				}
 			}
 			modifier = {
-				army_attack_factor = 0.075
-				army_defence_factor = -0.12
+				army_attack_factor = 0.12
+				breakthrough_factor = 0.08
+				planning_speed = 0.10
 			}
 		}
 
@@ -511,13 +513,13 @@ ideas = {
 			picture = neutrality2
 			cancel = {
 				NOT = {
-					nationalist_military_junta_are_in_power_or_coalition = yes
+					has_government = nationalist
 				}
 			}
 
 			modifier = {
-				foreign_influence_modifier = 0.25
-				justify_war_goal_time = -0.5
+				foreign_influence_modifier = 0.30
+				justify_war_goal_time = -0.50
 				generate_wargoal_tension = -0.25
 			}
 		}
@@ -525,9 +527,9 @@ ideas = {
 
 			picture = license_production
 			modifier = {
-				consumer_goods_factor = 0.10
-				industrial_capacity_factory = 0.10
-				production_speed_arms_factory_factor = 0.05
+				industrial_capacity_factory = 0.15
+				production_speed_arms_factory_factor = 0.15
+				production_factory_efficiency_gain_factor = 0.10
 			}
 		}
 
@@ -597,18 +599,43 @@ ideas = {
 			picture = fascism
 			cancel = {
 				NOT = {
-					nationalist_fascist_are_in_power = yes
+					has_government = nationalist
 				}
 			}
 
 			modifier = {
-				send_volunteer_size = 1
+				send_volunteer_size = 3
+				foreign_influence_modifier = 0.30
+				foreign_influence_defense_modifier = 0.25
+				justify_war_goal_time = -0.35
+				political_power_factor = 0.15
+				global_building_slots_factor = 0.15
+				army_attack_factor = 0.08
+			}
+		}
+		VEN_caribbean_hegemon_idea = {
+
+			picture = national_defenders
+			cancel = {
+				NOT = {
+					has_government = nationalist
+				}
+			}
+
+			modifier = {
+				send_volunteer_size = 2
+				navy_max_range_factor = 0.15
+				naval_coordination = 0.10
 				foreign_influence_modifier = 0.15
-				foreign_influence_defense_modifier = 0.05
-				justify_war_goal_time = -0.15
-				political_power_factor = 0.05
-				personnel_cost_multiplier_modifier = 0.05
-				global_building_slots_factor = 0.05
+				stability_factor = 0.05
+			}
+		}
+		VEN_technocrat_boom_idea = {
+
+			picture = research_bonus
+			modifier = {
+				research_speed_factor = 0.08
+				productivity_growth_modifier = 0.10
 			}
 		}
 		VEN_tourist_destination = {
@@ -616,8 +643,8 @@ ideas = {
 			name = VEN_tourist_destination
 			picture = foreign_capital
 			modifier = {
-				tax_gain_multiplier_modifier = 0.025
-				monthly_population = 0.05
+				tax_gain_multiplier_modifier = 0.06
+				monthly_population = 0.08
 			}
 		}
 		VEN_venezuelan_dawn = {
@@ -1683,6 +1710,91 @@ ideas = {
 				static_anti_air_hit_chance_factor = 0.25
 				air_superiority_efficiency = 0.12
 				air_ace_generation_chance_factor = 0.15
+			}
+		}
+
+		VEN_hemispheric_realignment_idea = {
+			allowed_civil_war = { always = yes }
+			picture = democracy
+			modifier = {
+				political_power_factor = 0.08
+				democratic_drift = 0.03
+				trade_opinion_factor = 0.15
+				foreign_influence_defense_modifier = 0.10
+			}
+		}
+
+		VEN_caribbean_accord_idea = {
+			allowed_civil_war = { always = yes }
+			picture = trade
+			modifier = {
+				political_power_factor = 0.15
+				stability_factor = 0.06
+				democratic_drift = 0.04
+				trade_opinion_factor = 0.30
+				foreign_influence_defense_modifier = 0.20
+				improve_relations_maintain_cost_factor = -0.25
+				consumer_goods_factor = -0.02
+			}
+		}
+
+		VEN_caribbean_iron_hegemon_idea = {
+			allowed_civil_war = { always = yes }
+			picture = roit_police_idea
+			modifier = {
+				justify_war_goal_time = -0.35
+				annex_cost_factor = -0.15
+				army_core_attack_factor = 0.10
+				army_core_defence_factor = 0.10
+				political_power_factor = 0.10
+				conscription = 0.015
+			}
+		}
+
+		VEN_beacon_of_americas_idea = {
+			allowed_civil_war = { always = yes }
+			picture = trade
+			modifier = {
+				research_speed_factor = 0.08
+				political_power_factor = 0.15
+				production_speed_buildings_factor = 0.15
+				consumer_goods_factor = -0.04
+				army_morale_factor = 0.10
+				monthly_population = 0.25
+			}
+		}
+
+		VEN_nationalist_youth_corps_idea = {
+			allowed_civil_war = { always = yes }
+			picture = roit_police_idea
+			modifier = {
+				conscription = 0.02
+				training_time_factor = -0.15
+				war_support_factor = 0.10
+				nationalist_drift = 0.04
+			}
+		}
+
+		VEN_continental_caudillo_idea = {
+			allowed_civil_war = { always = yes }
+			picture = AST_usnavy
+			modifier = {
+				army_attack_factor = 0.10
+				breakthrough_factor = 0.10
+				industrial_capacity_factory = 0.12
+				political_power_factor = 0.12
+				justify_war_goal_time = -0.20
+			}
+		}
+
+		VEN_us_asset_freeze_shock_idea = {
+			allowed_civil_war = { always = yes }
+			picture = oil_profits
+			modifier = {
+				production_speed_buildings_factor = -0.20
+				industrial_capacity_factory = -0.15
+				consumer_goods_factor = 0.05
+				trade_opinion_factor = -0.50
 			}
 		}
 

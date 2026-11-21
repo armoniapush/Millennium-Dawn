@@ -1518,3 +1518,915 @@ country_event = {
 		ai_chance = { factor = 20 }
 	}
 }
+
+# Pacto de Seguridad Nacional con Washington (Rama Autoritaria-Nacionalista)
+country_event = {
+	id = venezuela.224
+	title = venezuela.224.t
+	desc = venezuela.224.d
+	picture = GFX_VEN_generic
+
+	is_triggered_only = yes
+
+	# Opcion A: Junta Civico-Militar Pro-Occidental (Nat_Autocracy)
+	option = {
+		name = venezuela.224.a
+		log = "[GetDateText]: [This.GetName]: venezuela.224.a executed"
+		set_temp_variable = { rul_party_temp = 22 }
+		set_temp_variable = { col_one = 0 }
+		set_temp_variable = { disable_elections = 1 }
+		change_ruling_party_effect = yes
+		add_popularity = { ideology = nationalist popularity = 0.12 }
+		recalculate_party = yes
+		hidden_effect = {
+			add_to_variable = { VEN_nss_army_org = 0.05 }
+			add_to_variable = { VEN_nss_ws = 0.05 }
+		}
+		custom_effect_tooltip = VEN_nss_updated_tt
+		ai_chance = { factor = 45 }
+	}
+
+	# Opcion B: Presidencialismo Nacionalista de Mano Dura (Nat_Populism)
+	option = {
+		name = venezuela.224.b
+		log = "[GetDateText]: [This.GetName]: venezuela.224.b executed"
+		set_temp_variable = { rul_party_temp = 20 }
+		set_temp_variable = { col_one = 0 }
+		set_temp_variable = { disable_elections = 0 }
+		change_ruling_party_effect = yes
+		add_popularity = { ideology = nationalist popularity = 0.10 }
+		recalculate_party = yes
+		hidden_effect = {
+			add_to_variable = { VEN_nss_pp = 0.08 }
+			add_to_variable = { VEN_nss_stab = 0.05 }
+		}
+		custom_effect_tooltip = VEN_nss_updated_tt
+		ai_chance = { factor = 35 }
+	}
+
+	# Opcion C: Autocracia Tecnocratica Occidental (Western_Autocracy)
+	option = {
+		name = venezuela.224.c
+		log = "[GetDateText]: [This.GetName]: venezuela.224.c executed"
+		set_temp_variable = { rul_party_temp = 0 }
+		set_temp_variable = { col_one = 22 }
+		set_temp_variable = { disable_elections = 1 }
+		change_ruling_party_effect = yes
+		add_popularity = { ideology = democratic popularity = 0.06 }
+		add_popularity = { ideology = nationalist popularity = 0.06 }
+		recalculate_party = yes
+		hidden_effect = {
+			add_to_variable = { VEN_nss_factory_cap = 0.05 }
+			add_to_variable = { VEN_nss_inf_def = 0.10 }
+		}
+		custom_effect_tooltip = VEN_nss_updated_tt
+		ai_chance = { factor = 20 }
+	}
+}
+
+# Respaldo de EE. UU. sobre el Esequibo y Guyana
+country_event = {
+	id = venezuela.225
+	title = venezuela.225.t
+	desc = venezuela.225.d
+	picture = GFX_VEN_generic
+
+	is_triggered_only = yes
+
+	# Opcion A: Exigir arbitraje estadounidense por la Guayana Esequiba (1005)
+	option = {
+		name = venezuela.225.a
+		log = "[GetDateText]: [This.GetName]: venezuela.225.a executed"
+		1005 = { add_core_of = VEN }
+		set_country_flag = VEN_demanded_esequibo_only
+		clr_country_flag = VEN_demanded_full_guyana
+		if = {
+			limit = {
+				country_exists = GUY
+				GUY = { owns_state = 1005 }
+			}
+			GUY = { country_event = { id = venezuela.226 days = 3 } }
+		}
+		ai_chance = { factor = 55 }
+	}
+
+	# Opcion B: Exigir la integracion total de Guyana con respaldo de Washington (1005 + 877)
+	option = {
+		name = venezuela.225.b
+		log = "[GetDateText]: [This.GetName]: venezuela.225.b executed"
+		1005 = { add_core_of = VEN }
+		877 = { add_claim_by = VEN }
+		set_country_flag = VEN_demanded_full_guyana
+		clr_country_flag = VEN_demanded_esequibo_only
+		if = {
+			limit = {
+				USA = {
+					exists = yes
+					NOT = { has_war_with = VEN }
+				}
+			}
+			add_equipment_to_stockpile = {
+				type = infantry_weapons
+				amount = 2000
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = util_vehicle_1
+				amount = 60
+				producer = USA
+			}
+		}
+		if = {
+			limit = { country_exists = GUY }
+			GUY = { country_event = { id = venezuela.226 days = 3 } }
+		}
+		ai_chance = { factor = 45 }
+	}
+}
+
+# Ultimatum en Georgetown bajo presion de Washington
+country_event = {
+	id = venezuela.226
+	title = venezuela.226.t
+	desc = venezuela.226.d
+	picture = GFX_VEN_generic
+
+	is_triggered_only = yes
+
+	# Opcion A: Ceder ante el arbitraje estadounidense
+	option = {
+		name = venezuela.226.a
+		log = "[GetDateText]: [This.GetName]: venezuela.226.a executed"
+		if = {
+			limit = { VEN = { has_country_flag = VEN_demanded_esequibo_only } }
+			VEN = { transfer_state = 1005 }
+		}
+		else = {
+			VEN = {
+				annex_country = {
+					target = GUY
+					transfer_troops = no
+				}
+			}
+		}
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 0.5
+				VEN = { has_country_flag = VEN_demanded_full_guyana }
+			}
+		}
+	}
+
+	# Opcion B: Rechazar el arbitraje y resistir
+	option = {
+		name = venezuela.226.b
+		log = "[GetDateText]: [This.GetName]: venezuela.226.b executed"
+		VEN = {
+			add_war_support = 0.05
+			create_wargoal = {
+				type = annex_everything
+				target = GUY
+			}
+		}
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 1.5
+				VEN = { has_country_flag = VEN_demanded_full_guyana }
+			}
+		}
+	}
+}
+
+# Presion de EE. UU. 1: Condiciones de la Embajada en Caracas
+country_event = {
+	id = venezuela.227
+	title = venezuela.227.t
+	desc = venezuela.227.d
+	picture = GFX_VEN_generic
+
+	is_triggered_only = yes
+
+	option = {
+		name = venezuela.227.a
+		log = "[GetDateText]: [This.GetName]: venezuela.227.a executed"
+		set_temp_variable = { treasury_change = 10.0 }
+		modify_treasury_effect = yes
+		set_temp_variable = { percent_change = 5 }
+		set_temp_variable = { tag_index = USA }
+		set_temp_variable = { influence_target = VEN }
+		change_influence_percentage = yes
+		if = {
+			limit = { USA = { exists = yes } }
+			USA = { add_opinion_modifier = { target = ROOT modifier = VEN_reached_to_usa } }
+		}
+		hidden_effect = {
+			add_to_variable = { VEN_us_tutelage_pp = -0.05 }
+			add_to_variable = { VEN_us_tutelage_inf_def = -0.05 }
+		}
+		custom_effect_tooltip = VEN_us_tutelage_updated_tt
+		ai_chance = { factor = 60 }
+	}
+
+	option = {
+		name = venezuela.227.b
+		log = "[GetDateText]: [This.GetName]: venezuela.227.b executed"
+		add_political_power = -50
+		set_temp_variable = { percent_change = 4 }
+		change_domestic_influence_percentage = yes
+		hidden_effect = {
+			add_to_variable = { VEN_us_tutelage_pp = 0.05 }
+			add_to_variable = { VEN_us_tutelage_inf_def = 0.08 }
+		}
+		custom_effect_tooltip = VEN_us_tutelage_updated_tt
+		ai_chance = { factor = 40 }
+	}
+}
+
+# Presion de EE. UU. 2: Auditores del FMI y del Tesoro
+country_event = {
+	id = venezuela.228
+	title = venezuela.228.t
+	desc = venezuela.228.d
+	picture = GFX_VEN_generic
+
+	is_triggered_only = yes
+
+	option = {
+		name = venezuela.228.a
+		log = "[GetDateText]: [This.GetName]: venezuela.228.a executed"
+		set_temp_variable = { treasury_change = 15.0 }
+		modify_treasury_effect = yes
+		decrease_corruption = yes
+		set_temp_variable = { percent_change = 6 }
+		set_temp_variable = { tag_index = USA }
+		set_temp_variable = { influence_target = VEN }
+		change_influence_percentage = yes
+		hidden_effect = {
+			add_to_variable = { VEN_us_tutelage_cg = -0.02 }
+			add_to_variable = { VEN_us_tutelage_pp = -0.05 }
+		}
+		custom_effect_tooltip = VEN_us_tutelage_updated_tt
+		ai_chance = { factor = 65 }
+	}
+
+	option = {
+		name = venezuela.228.b
+		log = "[GetDateText]: [This.GetName]: venezuela.228.b executed"
+		add_political_power = -75
+		set_temp_variable = { percent_change = 5 }
+		change_domestic_influence_percentage = yes
+		hidden_effect = {
+			add_to_variable = { VEN_us_tutelage_pp = 0.04 }
+			add_to_variable = { VEN_us_tutelage_inf_def = 0.05 }
+		}
+		custom_effect_tooltip = VEN_us_tutelage_updated_tt
+		ai_chance = { factor = 35 }
+	}
+}
+
+# Presion de EE. UU. 3: Tutela del Mando Sur (SOUTHCOM)
+country_event = {
+	id = venezuela.229
+	title = venezuela.229.t
+	desc = venezuela.229.d
+	picture = GFX_VEN_generic
+
+	is_triggered_only = yes
+
+	option = {
+		name = venezuela.229.a
+		log = "[GetDateText]: [This.GetName]: venezuela.229.a executed"
+		army_experience = 30
+		air_experience = 20
+		add_equipment_to_stockpile = {
+			type = infantry_weapons
+			amount = 2000
+			producer = USA
+		}
+		set_temp_variable = { percent_change = 6 }
+		set_temp_variable = { tag_index = USA }
+		set_temp_variable = { influence_target = VEN }
+		change_influence_percentage = yes
+		hidden_effect = {
+			add_to_variable = { VEN_us_tutelage_org = 0.05 }
+			add_to_variable = { VEN_us_tutelage_pp = -0.05 }
+		}
+		custom_effect_tooltip = VEN_us_tutelage_updated_tt
+		ai_chance = { factor = 60 }
+	}
+
+	option = {
+		name = venezuela.229.b
+		log = "[GetDateText]: [This.GetName]: venezuela.229.b executed"
+		add_political_power = -75
+		add_command_power = 25
+		set_temp_variable = { percent_change = 5 }
+		change_domestic_influence_percentage = yes
+		hidden_effect = {
+			add_to_variable = { VEN_us_tutelage_pp = 0.05 }
+			add_to_variable = { VEN_us_tutelage_inf_def = 0.10 }
+		}
+		custom_effect_tooltip = VEN_us_tutelage_updated_tt
+		ai_chance = { factor = 40 }
+	}
+}
+
+# Climax: El Pulso Final con Washington
+country_event = {
+	id = venezuela.230
+	title = venezuela.230.t
+	desc = venezuela.230.d
+	picture = GFX_VEN_generic
+
+	is_triggered_only = yes
+
+	# Opcion A: Aceptar ser el socio subalterno permanente de Washington (Buffeada)
+	option = {
+		name = venezuela.230.a
+		log = "[GetDateText]: [This.GetName]: venezuela.230.a executed"
+		set_temp_variable = { treasury_change = 35.0 }
+		modify_treasury_effect = yes
+		army_experience = 50
+		air_experience = 35
+		navy_experience = 35
+		add_command_power = 30
+		add_stability = 0.05
+		set_temp_variable = { percent_change = 10 }
+		set_temp_variable = { tag_index = USA }
+		set_temp_variable = { influence_target = VEN }
+		change_influence_percentage = yes
+		if = {
+			limit = { USA = { exists = yes } }
+			USA = {
+				give_guarantee = ROOT
+				add_opinion_modifier = { target = ROOT modifier = VEN_friendship }
+				reverse_add_opinion_modifier = { target = ROOT modifier = VEN_friendship }
+			}
+			874 = {
+				add_resource = { type = oil amount = 10 }
+			}
+		}
+		hidden_effect = {
+			set_variable = { VEN_us_tutelage_cg = -0.02 }
+			add_to_variable = { VEN_us_tutelage_org = 0.08 }
+			add_to_variable = { VEN_us_tutelage_trade = 0.15 }
+		}
+		custom_effect_tooltip = VEN_us_tutelage_updated_tt
+		ai_chance = { factor = 60 }
+	}
+
+	# Opcion B: Romper la tutela -> Crisis Total, Retiro de Beneficios y Casus Belli de EE. UU.
+	option = {
+		name = venezuela.230.b
+		log = "[GetDateText]: [This.GetName]: venezuela.230.b executed"
+		add_political_power = -200
+		add_stability = -0.15
+		add_war_support = 0.10
+		set_temp_variable = { treasury_change = -20.0 }
+		modify_treasury_effect = yes
+		increase_sanctions = yes
+		increase_sanctions = yes
+		add_timed_idea = {
+			idea = VEN_us_asset_freeze_shock_idea
+			days = 365
+		}
+		set_temp_variable = { percent_change = 10 }
+		change_domestic_influence_percentage = yes
+		if = {
+			limit = { has_dynamic_modifier = { modifier = VEN_us_tutelage_modifier } }
+			remove_dynamic_modifier = { modifier = VEN_us_tutelage_modifier }
+			custom_effect_tooltip = VEN_us_tutelage_removed_tt
+		}
+		hidden_effect = {
+			if = { limit = { has_idea = USA_usaid } remove_ideas = USA_usaid }
+			if = { limit = { has_idea = Major_Non_NATO_Ally } remove_ideas = Major_Non_NATO_Ally }
+			if = { limit = { has_idea = VEN_us_backed_intervention } remove_ideas = VEN_us_backed_intervention }
+			if = { limit = { has_idea = VEN_us_naval_mission_1 } remove_ideas = VEN_us_naval_mission_1 }
+			if = { limit = { has_idea = VEN_us_naval_mission_2 } remove_ideas = VEN_us_naval_mission_2 }
+			if = { limit = { has_idea = VEN_us_naval_mission_3 } remove_ideas = VEN_us_naval_mission_3 }
+			if = { limit = { has_idea = VEN_us_caribbean_fleet_idea } remove_ideas = VEN_us_caribbean_fleet_idea }
+			if = { limit = { has_idea = VEN_american_oil_deals } remove_ideas = VEN_american_oil_deals }
+			if = { limit = { has_idea = VEN_joint_oil_extraction } remove_ideas = VEN_joint_oil_extraction }
+		}
+		custom_effect_tooltip = VEN_us_benefits_stripped_tt
+		if = {
+			limit = { is_in_faction_with = USA }
+			leave_faction = yes
+		}
+		if = {
+			limit = { USA = { exists = yes } }
+			diplomatic_relation = { country = USA relation = non_aggression_pact active = no }
+			diplomatic_relation = { country = USA relation = military_access active = no }
+			USA = {
+				# Nacionalizacion: revoca todas las concesiones de petroleo/minerales cedidas a EE. UU. (874, 876, 916 -> 100% recuperado por VEN).
+				remove_resource_rights = 874
+				remove_resource_rights = 876
+				remove_resource_rights = 916
+				diplomatic_relation = { country = ROOT relation = guarantee active = no }
+				diplomatic_relation = { country = ROOT relation = military_access active = no }
+				add_opinion_modifier = { target = ROOT modifier = rival }
+				reverse_add_opinion_modifier = { target = ROOT modifier = rival }
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = ROOT
+				}
+				add_ai_strategy = {
+					type = conquer
+					id = "VEN"
+					value = 200
+				}
+			}
+		}
+		ai_chance = { factor = 40 }
+	}
+}
+
+# PDVSA National Oil Strike
+country_event = {
+	id = venezuela.231
+	title = venezuela.231.t
+	desc = venezuela.231.d
+	picture = GFX_great_recession_protests
+	is_triggered_only = yes
+
+	option = {
+		name = venezuela.231.a
+		add_stability = -0.05
+		add_political_power = -50
+		set_temp_variable = { temp_productivity_change = 5 }
+		flat_productivity_change_effect = yes
+		874 = {
+			add_resource = {
+				type = oil
+				amount = 2
+			}
+		}
+		set_temp_variable = { temp_opinion = 10 }
+		change_oligarchs_opinion = yes
+		ai_chance = { factor = 45 }
+	}
+	option = {
+		name = venezuela.231.b
+		set_temp_variable = { treasury_change = -12.0 }
+		modify_treasury_effect = yes
+		add_stability = 0.05
+		add_political_power = 50
+		set_temp_variable = { party_popularity_increase = 0.05 }
+		set_temp_variable = { temp_outlook_increase = 0.03 }
+		change_relative_party_popularity = yes
+		ai_chance = { factor = 35 }
+	}
+	option = {
+		name = venezuela.231.c
+		add_stability = -0.08
+		increase_economic_growth = yes
+		set_temp_variable = { temp_opinion = 10 }
+		change_fossil_fuel_industry_opinion = yes
+		ai_chance = { factor = 20 }
+	}
+}
+
+# Multinational Bidding War for ZEDEs & Concessions
+country_event = {
+	id = venezuela.232
+	title = venezuela.232.t
+	desc = venezuela.232.d
+	picture = GFX_stock_market
+	is_triggered_only = yes
+
+	option = {
+		name = venezuela.232.a
+		if = {
+			limit = { country_exists = USA }
+			give_resource_rights = {
+				receiver = USA
+				state = 874
+				resources = { oil }
+			}
+			set_temp_variable = { percent_change = 4 }
+			set_temp_variable = { tag_index = USA }
+			set_temp_variable = { influence_target = VEN }
+			change_influence_percentage = yes
+		}
+		set_temp_variable = { treasury_change = 35.0 }
+		modify_treasury_effect = yes
+		875 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = offices
+				level = 1
+				instant_build = yes
+			}
+		}
+		add_to_variable = { VEN_fmm_recv_inv_cost = -0.10 }
+		custom_effect_tooltip = VEN_fmm_zede_usa_tt
+		ai_chance = { factor = 55 }
+	}
+	option = {
+		name = venezuela.232.b
+		set_temp_variable = { treasury_change = 18.0 }
+		modify_treasury_effect = yes
+		add_stability = 0.03
+		set_temp_variable = { percent_change = 3 }
+		change_domestic_influence_percentage = yes
+		add_to_variable = { VEN_fmm_offices_prod = 0.08 }
+		custom_effect_tooltip = VEN_fmm_zede_sovereign_tt
+		ai_chance = { factor = 45 }
+	}
+}
+
+# Libertarian Shock & PMC Deployment
+country_event = {
+	id = venezuela.233
+	title = venezuela.233.t
+	desc = venezuela.233.d
+	picture = GFX_generic_soldiers
+	is_triggered_only = yes
+
+	option = {
+		name = venezuela.233.a
+		set_temp_variable = { treasury_change = -8.0 }
+		modify_treasury_effect = yes
+		army_experience = 25
+		add_war_support = 0.04
+		add_to_variable = { VEN_fmm_pmc_atk = 0.05 }
+		add_to_variable = { VEN_fmm_pmc_sf = 0.05 }
+		custom_effect_tooltip = VEN_fmm_pmc_deploy_tt
+		ai_chance = { factor = 60 }
+	}
+	option = {
+		name = venezuela.233.b
+		set_temp_variable = { treasury_change = -15.0 }
+		modify_treasury_effect = yes
+		add_stability = 0.06
+		add_political_power = 75
+		add_to_variable = { VEN_fmm_prod_growth = 0.05 }
+		custom_effect_tooltip = VEN_fmm_voucher_tt
+		ai_chance = { factor = 40 }
+	}
+}
+
+# Caribbean Oil Cartel Summit
+country_event = {
+	id = venezuela.234
+	title = venezuela.234.t
+	desc = venezuela.234.d
+	picture = GFX_treaty
+	is_triggered_only = yes
+
+	option = {
+		name = venezuela.234.a
+		add_war_support = 0.10
+		add_to_variable = { VEN_pdvsa_oil_export = 0.10 }
+		add_to_variable = { VEN_pdvsa_corp_tax = 0.10 }
+		custom_effect_tooltip = VEN_pdvsa_cartel_aggressive_tt
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = venezuela.234.b
+		set_temp_variable = { treasury_change = 15.0 }
+		modify_treasury_effect = yes
+		add_stability = 0.05
+		add_to_variable = { VEN_pdvsa_pp = 0.05 }
+		if = {
+			limit = { country_exists = COL }
+			set_temp_variable = { percent_change = 4 }
+			set_temp_variable = { influence_target = COL }
+			change_influence_percentage = yes
+		}
+		if = {
+			limit = { country_exists = GUY }
+			set_temp_variable = { percent_change = 4 }
+			set_temp_variable = { influence_target = GUY }
+			change_influence_percentage = yes
+		}
+		custom_effect_tooltip = VEN_pdvsa_cartel_syndicate_tt
+		ai_chance = { factor = 35 }
+	}
+}
+
+# The Purge of Caracas
+country_event = {
+	id = venezuela.235
+	title = venezuela.235.t
+	desc = venezuela.235.d
+	picture = GFX_venez_capt
+	is_triggered_only = yes
+
+	option = {
+		name = venezuela.235.a
+		set_temp_variable = { treasury_change = 15.0 }
+		modify_treasury_effect = yes
+		two_random_arms_factory = yes
+		add_stability = -0.03
+		add_war_support = 0.05
+		ai_chance = { factor = 60 }
+	}
+	option = {
+		name = venezuela.235.b
+		add_timed_idea = { idea = VEN_technocrat_boom_idea days = 365 }
+		add_stability = 0.05
+		add_to_variable = { VEN_bgi_research = 0.05 }
+		custom_effect_tooltip = VEN_bgi_purge_tech_tt
+		ai_chance = { factor = 40 }
+	}
+}
+
+# Petro-Imperialism: Weaponizing the Orinoco
+country_event = {
+	id = venezuela.236
+	title = venezuela.236.t
+	desc = venezuela.236.d
+	picture = GFX_stock_market
+	is_triggered_only = yes
+
+	option = {
+		name = venezuela.236.a
+		set_temp_variable = { treasury_change = 35.0 }
+		modify_treasury_effect = yes
+		add_to_variable = { VEN_bgi_oil_export = 0.15 }
+		add_to_variable = { VEN_bgi_corp_tax = 0.10 }
+		custom_effect_tooltip = VEN_bgi_petro_warchest_tt
+		ai_chance = { factor = 55 }
+	}
+	option = {
+		name = venezuela.236.b
+		add_to_variable = { VEN_bgi_operatives = 1 }
+		add_to_variable = { VEN_bgi_research = 0.10 }
+		add_to_variable = { VEN_bgi_intel_net = 0.15 }
+		custom_effect_tooltip = VEN_bgi_black_budget_tt
+		ai_chance = { factor = 45 }
+	}
+}
+
+# The Bolivarian Axis Doctrine
+country_event = {
+	id = venezuela.237
+	title = venezuela.237.t
+	desc = venezuela.237.d
+	picture = GFX_grancolo
+	is_triggered_only = yes
+
+	option = {
+		name = venezuela.237.a
+		add_to_variable = { VEN_bgi_army_atk = 0.05 }
+		add_to_variable = { VEN_bgi_wargoal_time = -0.15 }
+		custom_effect_tooltip = VEN_bgi_axis_iron_tt
+		ai_chance = { factor = 50 }
+	}
+	option = {
+		name = venezuela.237.b
+		add_to_variable = { VEN_bgi_influence = 0.20 }
+		add_to_variable = { VEN_bgi_oil_export = 0.10 }
+		add_political_power = 75
+		custom_effect_tooltip = VEN_bgi_axis_petro_tt
+		ai_chance = { factor = 50 }
+	}
+}
+
+# Petro-Bribe from Caracas (Target Nation)
+country_event = {
+	id = venezuela.238
+	title = venezuela.238.t
+	desc = venezuela.238.d
+	picture = GFX_handshake_black
+	is_triggered_only = yes
+
+	option = {
+		name = venezuela.238.a
+		set_temp_variable = { treasury_change = 20.0 }
+		modify_treasury_effect = yes
+		add_opinion_modifier = { target = VEN modifier = supports_us }
+		VEN = {
+			add_opinion_modifier = { target = ROOT modifier = supports_us }
+			set_temp_variable = { percent_change = 10 }
+			set_temp_variable = { influence_target = ROOT }
+			change_influence_percentage = yes
+			if = {
+				limit = {
+					is_faction_leader = yes
+					ROOT = { is_in_faction = no is_subject = no }
+				}
+				add_to_faction = ROOT
+			}
+		}
+		ai_chance = {
+			base = 55
+			modifier = {
+				factor = 2
+				has_government = nationalist
+			}
+			modifier = {
+				factor = 0.25
+				is_in_faction_with = USA
+			}
+		}
+	}
+	option = {
+		name = venezuela.238.b
+		VEN = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ROOT
+			}
+		}
+		ai_chance = {
+			base = 45
+		}
+	}
+}
+
+# Project Bolivar: The Atom & The Skies
+country_event = {
+	id = venezuela.239
+	title = venezuela.239.t
+	desc = venezuela.239.d
+	picture = GFX_venez_carac
+	is_triggered_only = yes
+
+	option = {
+		name = venezuela.239.a
+		add_tech_bonus = {
+			name = VEN_nuclear_deterrent_bonus
+			bonus = 1.5
+			uses = 2
+			category = CAT_nuclear_reactors
+		}
+		add_tech_bonus = {
+			name = VEN_strategic_missile_bonus
+			bonus = 1.0
+			uses = 2
+			category = CAT_missiles
+		}
+		random_owned_controlled_state = {
+			limit = { free_building_slots = { building = nuclear_reactor size > 0 include_locked = yes } }
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = nuclear_reactor
+				level = 1
+				instant_build = yes
+			}
+		}
+		ai_chance = { factor = 60 }
+	}
+	option = {
+		name = venezuela.239.b
+		add_tech_bonus = {
+			name = VEN_aerospace_supremacy_bonus
+			bonus = 1.5
+			uses = 3
+			category = CAT_air_eqp
+		}
+		add_to_variable = { VEN_bgi_army_atk = 0.05 }
+		add_to_variable = { VEN_bgi_research = 0.05 }
+		custom_effect_tooltip = VEN_bgi_aerospace_tt
+		ai_chance = { factor = 40 }
+	}
+}
+
+# Enabling Act & Constitutional Crisis
+country_event = {
+	id = venezuela.240
+	title = venezuela.240.t
+	desc = venezuela.240.d
+	picture = GFX_venez_capt
+	is_triggered_only = yes
+
+	option = {
+		name = venezuela.240.a
+		add_political_power = 120
+		add_stability = -0.05
+		set_temp_variable = { temp_opinion = -15 }
+		change_oligarchs_opinion = yes
+		add_to_variable = { VEN_5th_pp = 0.10 }
+		add_to_variable = { VEN_5th_corp_tax = -0.05 }
+		custom_effect_tooltip = VEN_5th_enabling_decree_tt
+		ai_chance = { factor = 60 }
+	}
+	option = {
+		name = venezuela.240.b
+		set_temp_variable = { temp_opinion = 10 }
+		change_the_military_opinion = yes
+		set_temp_variable = { temp_opinion = 10 }
+		change_communist_cadres_opinion = yes
+		add_to_variable = { VEN_5th_army_def = 0.05 }
+		add_to_variable = { VEN_5th_stab = 0.05 }
+		custom_effect_tooltip = VEN_5th_enabling_coalition_tt
+		ai_chance = { factor = 40 }
+	}
+}
+
+# Moscow-Caracas Security Pact (Russia)
+country_event = {
+	id = venezuela.241
+	title = venezuela.241.t
+	desc = venezuela.241.d
+	picture = GFX_treaty
+	is_triggered_only = yes
+
+	option = {
+		name = venezuela.241.a
+		add_opinion_modifier = { target = VEN modifier = has_expressed_loyalty }
+		VEN = {
+			add_opinion_modifier = { target = SOV modifier = has_expressed_loyalty }
+			if = {
+				limit = {
+					NOT = { has_idea = CSTO_member }
+					SOV = { has_idea = CSTO_member is_faction_leader = yes }
+				}
+				CSTO_join = yes
+			}
+			else = {
+				diplomatic_relation = { country = SOV relation = non_aggression_pact }
+				give_military_access = SOV
+				SOV = { give_military_access = VEN }
+			}
+			two_random_arms_factory = yes
+			add_equipment_to_stockpile = {
+				type = infantry_weapons_1
+				amount = 2500
+				producer = SOV
+			}
+		}
+		ai_chance = {
+			base = 75
+			modifier = {
+				factor = 0.3
+				has_opinion = { target = VEN value < -10 }
+			}
+		}
+	}
+	option = {
+		name = venezuela.241.b
+		VEN = {
+			add_political_power = 50
+			add_equipment_to_stockpile = {
+				type = infantry_weapons_1
+				amount = 1000
+				producer = SOV
+			}
+		}
+		ai_chance = { base = 25 }
+	}
+}
+
+# The Colectivos & Revolutionary Courts
+country_event = {
+	id = venezuela.242
+	title = venezuela.242.t
+	desc = venezuela.242.d
+	picture = GFX_generic_soldiers
+	is_triggered_only = yes
+
+	option = {
+		name = venezuela.242.a
+		add_stability = -0.05
+		add_war_support = 0.08
+		add_to_variable = { VEN_5th_army_atk = 0.06 }
+		add_to_variable = { VEN_5th_conscription = 0.08 }
+		add_to_variable = { VEN_5th_corp_tax = -0.08 }
+		custom_effect_tooltip = VEN_5th_colectivos_unleashed_tt
+		ai_chance = { factor = 55 }
+	}
+	option = {
+		name = venezuela.242.b
+		set_temp_variable = { temp_opinion = 10 }
+		change_the_military_opinion = yes
+		add_stability = 0.05
+		add_to_variable = { VEN_5th_army_def = 0.05 }
+		add_to_variable = { VEN_5th_arms_speed = 0.10 }
+		custom_effect_tooltip = VEN_5th_colectivos_fanb_tt
+		ai_chance = { factor = 45 }
+	}
+}
+
+# Funding the Bolivarian Missions
+country_event = {
+	id = venezuela.243
+	title = venezuela.243.t
+	desc = venezuela.243.d
+	picture = GFX_stock_market
+	is_triggered_only = yes
+
+	option = {
+		name = venezuela.243.a
+		set_temp_variable = { debt_change = 25 }
+		modify_debt_effect = yes
+		add_stability = 0.08
+		add_to_variable = { VEN_5th_cg = 0.05 }
+		add_to_variable = { VEN_5th_tax_gain = -0.05 }
+		custom_effect_tooltip = VEN_5th_missions_debt_tt
+		ai_chance = { factor = 65 }
+	}
+	option = {
+		name = venezuela.243.b
+		set_temp_variable = { treasury_change = -20 }
+		modify_treasury_effect = yes
+		set_temp_variable = { temp_opinion = -15 }
+		change_fossil_fuel_industry_opinion = yes
+		add_stability = 0.05
+		ai_chance = { factor = 35 }
+	}
+}

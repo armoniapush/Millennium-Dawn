@@ -22,3 +22,47 @@ faction_template_gca_alliance = {
 		dismissal_rule_world_tension
 	}
 }
+
+faction_template_american_guardian = {
+	name = american_guardian_pact
+	icon = GFX_faction_icon_seato
+	manifest = faction_manifest_strength_in_unity
+	can_leader_join_other_factions = no
+	visible = {
+		always = no
+	}
+
+	default_rules = {
+		# Join Rules
+		joining_rule_has_no_war
+		# War Declaration
+		war_declaration_generated_tension_25
+		# Call To War
+		call_to_war_rule_defensive_only
+		# Expulsion Rule
+		dismissal_rule_world_tension
+	}
+}
+
+faction_template_bolivarian_axis = {
+	name = bolivarian_axis
+	icon = GFX_faction_logo_generic_fascist
+	manifest = faction_manifest_conquest_of_territory
+	can_leader_join_other_factions = yes
+	visible = {
+		always = no
+	}
+
+	default_rules = {
+		# Join Rules
+		joining_rule_non_democratic
+		# War Declaration
+		war_declaration_rule_faction_leader_only
+		# Peace Conference
+		faction_peace_rule_conquest_focus
+		# Call To War
+		call_to_war_rule_faction_leader_only
+		# Expulsion Rule
+		dismissal_rule_world_tension
+	}
+}
