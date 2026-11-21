@@ -10,7 +10,7 @@ focus_tree = {
 	}
 
 	# Continuous Focus Position
-	continuous_focus_position = { x = 4759 y = -561 }
+	continuous_focus_position = { x = 4979 y = -111 }
 
 	shared_focus = BRA_americas_unity
 
@@ -64,8 +64,8 @@ focus_tree = {
 		id = VEN_reap_the_fruits
 		icon = VEN_flag
 
-		x = 52
-		y = -1
+		x = 84
+		y = -4
 
 		cost = 3.7
 
@@ -87,8 +87,8 @@ focus_tree = {
 		id = VEN_venezuelan_industry
 		icon = VEN_collapse
 
-		x = 59
-		y = -11
+		x = 121
+		y = 9
 
 		cost = 5
 
@@ -157,8 +157,8 @@ focus_tree = {
 		id = VEN_regional_infra
 		icon = construction_buldozer
 
-		x = 24
-		y = 2
+		x = 8
+		y = 1
 		relative_position_id = VEN_economic_reforms
 
 		cost = 5
@@ -662,8 +662,8 @@ focus_tree = {
 		id = VEN_diversifying_the_economy
 		icon = goal_JAP_valueup
 
-		x = 10
-		y = 2
+		x = -4
+		y = 1
 		relative_position_id = VEN_economic_reforms
 
 		cost = 10
@@ -1402,8 +1402,8 @@ focus_tree = {
 		id = VEN_the_oil_issue
 		icon = VEN_oil
 
-		x = 0
-		y = 2
+		x = -10
+		y = 1
 		relative_position_id = VEN_economic_reforms
 
 		cost = 10
@@ -1486,8 +1486,8 @@ focus_tree = {
 		id = VEN_pdvsa_drilling
 		icon = VEN_pdvsa
 
-		x = 18
-		y = 2
+		x = 3
+		y = 1
 		relative_position_id = VEN_economic_reforms
 
 		cost = 10
@@ -1845,8 +1845,8 @@ focus_tree = {
 		id = VEN_our_president
 		icon = VEN_chavez
 
-		x = 52
-		y = 14
+		x = 84
+		y = -2
 
 		cost = 3.7
 
@@ -1889,7 +1889,7 @@ focus_tree = {
 		id = VEN_ley_habilitante
 		icon = dangerous_laws
 
-		x = -24
+		x = 1
 		y = 1
 		relative_position_id = VEN_our_president
 
@@ -1924,9 +1924,9 @@ focus_tree = {
 		id = VEN_pdvsa_intervention_cne
 		icon = oil_red
 
-		x = -24
-		y = 2
-		relative_position_id = VEN_our_president
+		x = 0
+		y = 1
+		relative_position_id = VEN_ley_habilitante
 
 		cost = 5
 
@@ -1963,9 +1963,9 @@ focus_tree = {
 		id = VEN_bolivarian_circles_militia
 		icon = VEN_militia
 
-		x = -24
-		y = 3
-		relative_position_id = VEN_our_president
+		x = 0
+		y = 1
+		relative_position_id = VEN_pdvsa_intervention_cne
 
 		cost = 5
 
@@ -1994,7 +1994,7 @@ focus_tree = {
 		id = VEN_plan_bolivar
 		icon = BRA_bolsa_familia
 
-		x = -28
+		x = -1
 		y = 1
 		relative_position_id = VEN_our_president
 
@@ -2118,8 +2118,8 @@ focus_tree = {
 		id = VEN_rise_of_the_fifth_republic_movement
 		icon = VEN_mvr
 
-		x = 12
-		y = 24
+		x = 84
+		y = 7
 
 		cost = 5
 
@@ -2131,8 +2131,8 @@ focus_tree = {
 			}
 		}
 
-		prerequisite = { focus = VEN_bolivarian_circles_militia }
 		prerequisite = { focus = VEN_Education_For_The_Poor }
+		prerequisite = { focus = VEN_bolivarian_circles_militia }
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
@@ -2190,8 +2190,8 @@ focus_tree = {
 		id = VEN_bolivarianism
 		icon = VEN_chavez
 
-		x = -29
-		y = 2
+		x = -8
+		y = 1
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -2223,8 +2223,8 @@ focus_tree = {
 		id = VEN_alo_presidente
 		icon = Socialist_Radio
 
-		x = -31
-		y = 3
+		x = -11
+		y = 2
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -2265,8 +2265,8 @@ focus_tree = {
 		id = VEN_increase_presidential_powers
 		icon = VEN_pres_powers
 
-		x = -27
-		y = 3
+		x = -5
+		y = 2
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -2295,8 +2295,8 @@ focus_tree = {
 		id = VEN_press_censorship
 		icon = generic_controlled_press
 
-		x = -34
-		y = 4
+		x = -13
+		y = 3
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -2328,8 +2328,8 @@ focus_tree = {
 		id = VEN_friendly_cabinet
 		icon = centralization
 
-		x = -29
-		y = 4
+		x = -9
+		y = 3
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -2367,8 +2367,8 @@ focus_tree = {
 		id = VEN_expel_the_dea
 		icon = usa_attacked
 
-		x = -29
-		y = 6
+		x = -9
+		y = 4
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 3
@@ -2422,8 +2422,8 @@ focus_tree = {
 		id = VEN_border_radar_blackout
 		icon = smuggle_truck
 
-		x = -30
-		y = 7
+		x = -10
+		y = 5
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 3
@@ -2451,8 +2451,8 @@ focus_tree = {
 		id = VEN_guerrilla_border_sanctuary
 		icon = MEX_Support_the_cartels
 
-		x = -28
-		y = 7
+		x = -8
+		y = 5
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 3
@@ -2514,8 +2514,8 @@ focus_tree = {
 		id = VEN_militarize_bolipuertos
 		icon = oil_trade
 
-		x = -30
-		y = 8
+		x = -10
+		y = 6
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 4
@@ -2556,8 +2556,8 @@ focus_tree = {
 		id = VEN_orinoco_mining_arc
 		icon = geo_goldmine
 
-		x = -28
-		y = 8
+		x = -8
+		y = 6
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 4
@@ -2593,8 +2593,8 @@ focus_tree = {
 		id = VEN_bolibourgeoisie_front_companies
 		icon = money_laundering
 
-		x = -29
-		y = 9
+		x = -9
+		y = 7
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 4
@@ -2624,8 +2624,8 @@ focus_tree = {
 		id = VEN_state_barracks_symbiosis
 		icon = deal_with_mafia
 
-		x = -30
-		y = 10
+		x = -10
+		y = 8
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -2659,8 +2659,8 @@ focus_tree = {
 		id = VEN_asymmetric_proxy_warfare
 		icon = MEX_Support_the_carteles_unidos
 
-		x = -30
-		y = 11
+		x = -10
+		y = 9
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -2696,8 +2696,8 @@ focus_tree = {
 		id = VEN_suns_hegemony_chavez
 		icon = legalize_it
 
-		x = -28
-		y = 10
+		x = -8
+		y = 8
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -2726,8 +2726,8 @@ focus_tree = {
 		id = VEN_atlantic_narco_empire
 		icon = legalize_all_drugs
 
-		x = -28
-		y = 11
+		x = -8
+		y = 9
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -2772,8 +2772,8 @@ focus_tree = {
 		id = VEN_chavista_coup_in_colombia
 		icon = wolfinsheepsskin
 
-		x = -30
-		y = 12
+		x = -10
+		y = 10
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -2833,8 +2833,8 @@ focus_tree = {
 		id = VEN_chavista_suns_militias
 		icon = police_funding_bonus
 
-		x = -28
-		y = 12
+		x = -8
+		y = 10
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -2904,8 +2904,8 @@ focus_tree = {
 		id = VEN_chavista_expand_cartel_empire
 		icon = legalize_all_drugs
 
-		x = -29
-		y = 13
+		x = -9
+		y = 11
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -2999,8 +2999,8 @@ focus_tree = {
 		id = VEN_pdvsa
 		icon = VEN_pdvsa
 
-		x = -24
-		y = 4
+		x = -5
+		y = 3
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -3030,8 +3030,8 @@ focus_tree = {
 		id = VEN_telesur
 		icon = MEX_Propagandistic_media
 
-		x = -34
-		y = 5
+		x = -13
+		y = 4
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -3065,8 +3065,8 @@ focus_tree = {
 		id = VEN_deals_with_china
 		icon = align_to_china
 
-		x = -25
-		y = 5
+		x = -6
+		y = 4
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -3109,8 +3109,8 @@ focus_tree = {
 		id = VEN_deals_with_russia
 		icon = align_to_russia
 
-		x = -23
-		y = 5
+		x = -4
+		y = 4
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -3160,8 +3160,8 @@ focus_tree = {
 		id = VEN_brics_accession
 		icon = GFX_brics
 
-		x = -25
-		y = 6
+		x = -6
+		y = 5
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -3191,8 +3191,8 @@ focus_tree = {
 		id = VEN_moscow_security_pact
 		icon = aplly_to_join_csto
 
-		x = -23
-		y = 6
+		x = -4
+		y = 5
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -3234,8 +3234,8 @@ focus_tree = {
 		id = VEN_caracas_beijing_moscow_axis
 		icon = focus_generic_communist_industry
 
-		x = -24
-		y = 7
+		x = -4
+		y = 6
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -3964,8 +3964,8 @@ focus_tree = {
 		id = VEN_work_on_gran_colombia_unification
 		icon = VEN_flag
 
-		x = -34
-		y = 6
+		x = -13
+		y = 5
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -3994,8 +3994,8 @@ focus_tree = {
 		id = VEN_military_union
 		icon = VEN_army
 
-		x = -35
-		y = 7
+		x = -14
+		y = 6
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4026,8 +4026,8 @@ focus_tree = {
 		id = VEN_diplomatic_union
 		icon = diplomacy
 
-		x = -33
-		y = 7
+		x = -12
+		y = 6
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4057,8 +4057,8 @@ focus_tree = {
 		id = VEN_go_after_colombia
 		icon = aggressive_diplomacy
 
-		x = -35
-		y = 8
+		x = -14
+		y = 7
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4102,8 +4102,8 @@ focus_tree = {
 		id = VEN_gran_colombia_alliance
 		icon = VEN_flag
 
-		x = -33
-		y = 8
+		x = -12
+		y = 7
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4137,8 +4137,8 @@ focus_tree = {
 		id = VEN_go_after_ecuador_and_panama
 		icon = VEN_andean_shield
 
-		x = -35
-		y = 9
+		x = -14
+		y = 8
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4194,8 +4194,8 @@ focus_tree = {
 		id = VEN_expand_the_alliance
 		icon = major_alliance
 
-		x = -33
-		y = 9
+		x = -12
+		y = 8
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4227,8 +4227,8 @@ focus_tree = {
 		id = VEN_follow_guevara_example
 		icon = blr_new_red_army
 
-		x = -9
-		y = 2
+		x = 2
+		y = 1
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -4262,8 +4262,8 @@ focus_tree = {
 		id = VEN_follow_lenin_example
 		icon = align_to_soviet_union
 
-		x = 13
-		y = 2
+		x = 7
+		y = 1
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -4303,8 +4303,8 @@ focus_tree = {
 		id = VEN_arm_the_proletariat
 		icon = VEN_militia
 
-		x = -10
-		y = 3
+		x = 1
+		y = 2
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -4333,8 +4333,8 @@ focus_tree = {
 		id = VEN_communist_militias
 		icon = Generic_Crouched_Soldier
 
-		x = -8
-		y = 3
+		x = 3
+		y = 2
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -4365,8 +4365,8 @@ focus_tree = {
 		id = VEN_the_military_communes
 		icon = army_mobilisation
 
-		x = -11
-		y = 4
+		x = 0
+		y = 3
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4404,8 +4404,8 @@ focus_tree = {
 		id = VEN_the_motto_of_self_sacrifice
 		icon = army_marching
 
-		x = -9
-		y = 4
+		x = 2
+		y = 3
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -4432,8 +4432,8 @@ focus_tree = {
 		id = VEN_equality_in_the_eyes_of_state
 		icon = focus_generic_full_social_mobilization
 
-		x = -7
-		y = 4
+		x = 4
+		y = 3
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -4467,8 +4467,8 @@ focus_tree = {
 		id = VEN_proletarian_internationalism
 		icon = Generic_Communist_Propaganda02
 
-		x = -10
-		y = 5
+		x = 1
+		y = 4
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4503,8 +4503,8 @@ focus_tree = {
 		id = VEN_the_propaganda
 		icon = Focus_Socialist_Propaganda
 
-		x = -8
-		y = 5
+		x = 3
+		y = 4
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -4536,8 +4536,8 @@ focus_tree = {
 		id = VEN_red_rising
 		icon = great_red_menace
 
-		x = -9
-		y = 6
+		x = 2
+		y = 5
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4565,8 +4565,8 @@ focus_tree = {
 		id = VEN_assist_our_brothers
 		icon = alliance_with_cuba
 
-		x = -11
-		y = 7
+		x = 0
+		y = 6
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -4603,8 +4603,8 @@ focus_tree = {
 		id = VEN_the_quito_revolution
 		icon = attack_venezuela
 
-		x = -9
-		y = 7
+		x = 2
+		y = 6
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4640,8 +4640,8 @@ focus_tree = {
 		id = VEN_the_eastern_revolutions
 		icon = VEN_esequibo_war
 
-		x = -7
-		y = 7
+		x = 4
+		y = 6
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4687,8 +4687,8 @@ focus_tree = {
 		id = VEN_the_world_revolution
 		icon = burning_globe
 
-		x = -9
-		y = 8
+		x = 2
+		y = 7
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4721,8 +4721,8 @@ focus_tree = {
 		id = VEN_the_lima_insurrection
 		icon = armoured_fist
 
-		x = -11
-		y = 9
+		x = 0
+		y = 8
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4756,8 +4756,8 @@ focus_tree = {
 		id = VEN_our_cult
 		icon = VEN_chavez_rose
 
-		x = -9
-		y = 9
+		x = 2
+		y = 8
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -4783,8 +4783,8 @@ focus_tree = {
 		id = VEN_reclaim_the_home_of_bolivar
 		icon = VEN_flag
 
-		x = -7
-		y = 9
+		x = 4
+		y = 8
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4821,8 +4821,8 @@ focus_tree = {
 		id = VEN_venezuelan_dawn
 		icon = NKO_red_star_os
 
-		x = -9
-		y = 10
+		x = 2
+		y = 9
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4850,8 +4850,8 @@ focus_tree = {
 		id = VEN_the_santiago_assault
 		icon = army_mobilisation1
 
-		x = -10
-		y = 11
+		x = 1
+		y = 10
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4887,8 +4887,8 @@ focus_tree = {
 		id = VEN_brasilia_will_burn
 		icon = war_against_the_soviet_union
 
-		x = -8
-		y = 11
+		x = 3
+		y = 10
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4924,8 +4924,8 @@ focus_tree = {
 		id = VEN_strike_the_heart
 		icon = army_reform
 
-		x = -9
-		y = 12
+		x = 2
+		y = 11
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4963,8 +4963,8 @@ focus_tree = {
 		id = VEN_settle_the_republic
 		icon = VEN_preserve
 
-		x = 13
-		y = 3
+		x = 7
+		y = 2
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -4991,8 +4991,8 @@ focus_tree = {
 		id = VEN_separation_of_church_and_state
 		icon = communist_repression
 
-		x = 12
-		y = 4
+		x = 6
+		y = 3
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -5022,8 +5022,8 @@ focus_tree = {
 		id = VEN_the_new_economic_model
 		icon = central_planned_economy
 
-		x = 14
-		y = 4
+		x = 8
+		y = 3
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -5060,8 +5060,8 @@ focus_tree = {
 		id = VEN_socialism_with_venezuelan_characteristics
 		icon = Generic_Socialist_Propaganda
 
-		x = 12
-		y = 5
+		x = 6
+		y = 4
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -5091,8 +5091,8 @@ focus_tree = {
 		id = VEN_denounce_south_american_capitalism
 		icon = anti_fascist_diplomacy
 
-		x = 14
-		y = 5
+		x = 8
+		y = 4
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -5124,8 +5124,8 @@ focus_tree = {
 		id = VEN_the_agrarian_communes
 		icon = farms_red_barn
 
-		x = 13
-		y = 6
+		x = 7
+		y = 5
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -5156,8 +5156,8 @@ focus_tree = {
 		id = VEN_economic_restructuring
 		icon = central_planned_economy2
 
-		x = 13
-		y = 7
+		x = 7
+		y = 6
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -5184,8 +5184,8 @@ focus_tree = {
 		id = VEN_venezuelan_communism
 		icon = central_planned_economy3
 
-		x = 13
-		y = 8
+		x = 7
+		y = 7
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -5221,8 +5221,8 @@ focus_tree = {
 		id = VEN_bolivarian_missions
 		icon = focus_generic_workers_and_farmers_rise
 
-		x = 29
-		y = 2
+		x = 12
+		y = 1
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -5259,8 +5259,8 @@ focus_tree = {
 		id = VEN_welfare_state
 		icon = generic_healthcare
 
-		x = 28
-		y = 3
+		x = 11
+		y = 2
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -5292,8 +5292,8 @@ focus_tree = {
 		id = VEN_land_development
 		icon = agriculture
 
-		x = 30
-		y = 3
+		x = 13
+		y = 2
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -5330,8 +5330,8 @@ focus_tree = {
 		id = VEN_mission_mercal
 		icon = focus_generic_agricultural_subsidies
 
-		x = 27
-		y = 4
+		x = 10
+		y = 3
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -5367,8 +5367,8 @@ focus_tree = {
 		id = VEN_mission_robinson
 		icon = research
 
-		x = 29
-		y = 4
+		x = 12
+		y = 3
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -5399,8 +5399,8 @@ focus_tree = {
 		id = VEN_mission_corazon_adentro
 		icon = generic_hospital
 
-		x = 31
-		y = 4
+		x = 14
+		y = 3
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -5430,8 +5430,8 @@ focus_tree = {
 		id = VEN_mission_habitat
 		icon = BRA_public_housing_programs
 
-		x = 27
-		y = 5
+		x = 10
+		y = 4
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -5466,8 +5466,8 @@ focus_tree = {
 		id = VEN_mission_ciencia
 		icon = research2
 
-		x = 29
-		y = 5
+		x = 12
+		y = 4
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -5503,8 +5503,8 @@ focus_tree = {
 		id = VEN_mission_florentino
 		icon = communist_propaganda
 
-		x = 31
-		y = 5
+		x = 14
+		y = 4
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -5533,8 +5533,8 @@ focus_tree = {
 		id = VEN_mission_vuelvan_caras
 		icon = focus_generic_communist_industry
 
-		x = 29
-		y = 6
+		x = 12
+		y = 5
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -5724,8 +5724,8 @@ focus_tree = {
 		id = VEN_patria_grande_consolidated
 		icon = VEN_flag
 
-		x = -34
-		y = 10
+		x = -13
+		y = 9
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -5752,8 +5752,8 @@ focus_tree = {
 		id = VEN_brics_joint_tech_corridor
 		icon = GFX_brics
 
-		x = -24
-		y = 13
+		x = -4
+		y = 12
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 10
@@ -5783,8 +5783,8 @@ focus_tree = {
 		id = VEN_guevara_tricontinental_polytechnic
 		icon = research2
 
-		x = -9
-		y = 13
+		x = 2
+		y = 12
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -5813,8 +5813,8 @@ focus_tree = {
 		id = VEN_leninist_heavy_industry_plan
 		icon = industry_communism
 
-		x = 12
-		y = 9
+		x = 6
+		y = 8
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -5838,8 +5838,8 @@ focus_tree = {
 		id = VEN_leninist_academy_of_sciences
 		icon = research4
 
-		x = 14
-		y = 9
+		x = 8
+		y = 8
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 10
@@ -5868,8 +5868,8 @@ focus_tree = {
 		id = VEN_leninist_communal_state_charter
 		icon = communism7
 
-		x = 13
-		y = 10
+		x = 7
+		y = 9
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -5893,8 +5893,8 @@ focus_tree = {
 		id = VEN_leninist_anti_imperialist_vanguard
 		icon = communism12
 
-		x = 12
-		y = 11
+		x = 6
+		y = 10
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -5918,8 +5918,8 @@ focus_tree = {
 		id = VEN_leninist_petrochemical_autarky
 		icon = VEN_pdvsa
 
-		x = 14
-		y = 11
+		x = 8
+		y = 10
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -5941,8 +5941,8 @@ focus_tree = {
 		id = VEN_leninist_peoples_socialist_republic
 		icon = communism15
 
-		x = 13
-		y = 12
+		x = 7
+		y = 11
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -5966,8 +5966,8 @@ focus_tree = {
 		id = VEN_clap_and_sovereign_supply
 		icon = industry_civilian
 
-		x = 28
-		y = 9
+		x = 11
+		y = 8
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -5991,8 +5991,8 @@ focus_tree = {
 		id = VEN_bolivarian_militia_doctrine
 		icon = VEN_militia
 
-		x = 30
-		y = 9
+		x = 13
+		y = 8
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -6015,8 +6015,8 @@ focus_tree = {
 		id = VEN_social_state_of_law_and_justice
 		icon = VEN_unity
 
-		x = 29
-		y = 10
+		x = 12
+		y = 9
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -6039,8 +6039,8 @@ focus_tree = {
 		id = VEN_narco_barracks_hegemon
 		icon = MEX_Support_the_cartels
 
-		x = -29
-		y = 15
+		x = -9
+		y = 12
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 10
@@ -6065,7 +6065,7 @@ focus_tree = {
 		icon = VEN_chavez
 
 		x = 0
-		y = 15
+		y = 13
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 10
@@ -6099,8 +6099,8 @@ focus_tree = {
 		id = VEN_we_are_in_power
 		icon = democracy2
 
-		x = 33
-		y = 16
+		x = 53
+		y = 21
 		relative_position_id = VEN_reap_the_fruits
 
 		cost = 5
@@ -6146,7 +6146,7 @@ focus_tree = {
 		id = VEN_venezuelian_unity
 		icon = VEN_unity
 
-		x = 22
+		x = 14
 		y = 25
 		relative_position_id = VEN_reap_the_fruits
 
@@ -6215,8 +6215,8 @@ focus_tree = {
 		id = VEN_purge_the_opponents
 		icon = VEN_iron_fist
 
-		x = -1
-		y = 2
+		x = -2
+		y = 1
 		relative_position_id = VEN_venezuelian_unity
 
 		cost = 5
@@ -6254,8 +6254,8 @@ focus_tree = {
 		id = VEN_spread_right_wing_propaganda
 		icon = focus_generic_fascist_propaganda
 
-		x = 1
-		y = 2
+		x = 2
+		y = 1
 		relative_position_id = VEN_venezuelian_unity
 
 		cost = 5
@@ -6299,7 +6299,7 @@ focus_tree = {
 		icon = VEN_autarky_grid
 
 		x = 0
-		y = 3
+		y = 2
 		relative_position_id = VEN_venezuelian_unity
 
 		cost = 5
@@ -6336,7 +6336,7 @@ focus_tree = {
 		icon = VEN_mil_control
 
 		x = 0
-		y = 4
+		y = 3
 		relative_position_id = VEN_venezuelian_unity
 
 		cost = 5
@@ -6382,8 +6382,8 @@ focus_tree = {
 		id = VEN_mandatory_service #change to Maintain mandatory service
 		icon = Generic_Colonial_Army
 
-		x = 5
-		y = 5
+		x = 4
+		y = 4
 		relative_position_id = VEN_venezuelian_unity
 
 		cost = 5
@@ -6411,8 +6411,8 @@ focus_tree = {
 		id = VEN_desperate_defense
 		icon = military_fort2
 
-		x = -3
-		y = 5
+		x = -4
+		y = 4
 		relative_position_id = VEN_venezuelian_unity
 
 		cost = 5
@@ -6448,8 +6448,8 @@ focus_tree = {
 		id = VEN_furious_attack
 		icon = infantry_axis
 
-		x = -1
-		y = 5
+		x = -2
+		y = 4
 		relative_position_id = VEN_venezuelian_unity
 
 		cost = 5
@@ -6485,8 +6485,8 @@ focus_tree = {
 		id = VEN_ease_out_corruption
 		icon = champagne_bribes
 
-		x = 1
-		y = 5
+		x = 0
+		y = 4
 		relative_position_id = VEN_venezuelian_unity
 
 		cost = 5
@@ -6522,8 +6522,8 @@ focus_tree = {
 		id = VEN_purge_out_corruption
 		icon = MEX_War_on_corruption
 
-		x = 3
-		y = 5
+		x = 2
+		y = 4
 		relative_position_id = VEN_venezuelian_unity
 
 		cost = 5
@@ -6561,7 +6561,7 @@ focus_tree = {
 		icon = VEN_nationalize
 
 		x = 0
-		y = 6
+		y = 5
 		relative_position_id = VEN_venezuelian_unity
 
 		cost = 5
@@ -6614,7 +6614,7 @@ focus_tree = {
 		icon = VEN_orinoco_mine
 
 		x = -2
-		y = 7
+		y = 6
 		relative_position_id = VEN_venezuelian_unity
 
 		cost = 7
@@ -6663,7 +6663,7 @@ focus_tree = {
 		icon = VEN_fortress_econ
 
 		x = 2
-		y = 7
+		y = 6
 		relative_position_id = VEN_venezuelian_unity
 
 		cost = 7
@@ -6724,7 +6724,7 @@ focus_tree = {
 		id = VEN_nat_petrochemical_sovereignty
 		icon = modern_refinery_industry
 		x = 0
-		y = 7
+		y = 6
 		relative_position_id = VEN_venezuelian_unity
 		cost = 7
 		prerequisite = { focus = VEN_nationalize_foreign_industries }
@@ -6756,7 +6756,7 @@ focus_tree = {
 		id = VEN_nat_orinoco_rail_plan
 		icon = support_rail
 		x = -2
-		y = 8
+		y = 7
 		relative_position_id = VEN_venezuelian_unity
 		cost = 7
 		prerequisite = { focus = VEN_establish_autarky }
@@ -6792,7 +6792,7 @@ focus_tree = {
 		id = VEN_nat_technical_schools
 		icon = education_reform
 		x = 0
-		y = 8
+		y = 7
 		relative_position_id = VEN_venezuelian_unity
 		cost = 5
 		prerequisite = { focus = VEN_nat_petrochemical_sovereignty }
@@ -6810,7 +6810,7 @@ focus_tree = {
 		id = VEN_nat_coastal_shipyards
 		icon = naval_dockyard
 		x = 2
-		y = 8
+		y = 7
 		relative_position_id = VEN_venezuelian_unity
 		cost = 7
 		prerequisite = { focus = VEN_domestic_arms_industry }
@@ -6838,7 +6838,7 @@ focus_tree = {
 		id = VEN_nat_ivic_defense_institute
 		icon = science
 		x = 0
-		y = 9
+		y = 8
 		relative_position_id = VEN_venezuelian_unity
 		cost = 7
 		prerequisite = { focus = VEN_nat_orinoco_rail_plan }
@@ -6862,7 +6862,7 @@ focus_tree = {
 		id = VEN_look_outwards
 		icon = VEN_look_out
 
-		x = 1
+		x = 0
 		y = 3
 		relative_position_id = VEN_iron_regime
 
@@ -7099,7 +7099,7 @@ focus_tree = {
 		id = VEN_northern_expansion
 		icon = attack_cuba
 
-		x = -1
+		x = -2
 		y = 5
 		relative_position_id = VEN_iron_regime
 
@@ -7193,7 +7193,7 @@ focus_tree = {
 		id = VEN_nearby_islands_control
 		icon = VEN_carib_security
 
-		x = 1
+		x = 2
 		y = 5
 		relative_position_id = VEN_iron_regime
 
@@ -7254,7 +7254,7 @@ focus_tree = {
 		icon = VEN_future
 
 		x = 0
-		y = 10
+		y = 9
 		relative_position_id = VEN_venezuelian_unity
 
 		cost = 5
@@ -7291,8 +7291,8 @@ focus_tree = {
 		id = VEN_conservative_authoritarism
 		icon = VEN_cons_auth
 
-		x = -9
-		y = 11
+		x = -6
+		y = 10
 		relative_position_id = VEN_venezuelian_unity
 
 		cost = 7
@@ -7458,7 +7458,7 @@ focus_tree = {
 		id = VEN_adopt_nato_standards
 		icon = nato
 
-		x = -1
+		x = -2
 		y = 3
 		relative_position_id = VEN_conservative_authoritarism
 
@@ -7500,7 +7500,7 @@ focus_tree = {
 		id = VEN_invite_american_companies
 		icon = VEN_us_aid
 
-		x = 1
+		x = 2
 		y = 3
 		relative_position_id = VEN_conservative_authoritarism
 
@@ -7627,7 +7627,7 @@ focus_tree = {
 		id = VEN_the_condor_and_the_eagle
 		icon = eagle44
 
-		x = -1
+		x = -2
 		y = 6
 		relative_position_id = VEN_conservative_authoritarism
 
@@ -7678,7 +7678,7 @@ focus_tree = {
 		id = VEN_nato_vanguard_in_south_america
 		icon = VEN_join_nato
 
-		x = 1
+		x = 2
 		y = 6
 		relative_position_id = VEN_conservative_authoritarism
 
@@ -7721,7 +7721,7 @@ focus_tree = {
 	focus = {
 		id = VEN_auth_atlantic_ports
 		icon = naval_dockyard
-		x = -1
+		x = -2
 		y = 7
 		relative_position_id = VEN_conservative_authoritarism
 		cost = 7
@@ -7745,7 +7745,7 @@ focus_tree = {
 	focus = {
 		id = VEN_auth_hemispheric_aerospace
 		icon = air_defense2
-		x = 1
+		x = 2
 		y = 7
 		relative_position_id = VEN_conservative_authoritarism
 		cost = 7
@@ -7800,7 +7800,7 @@ focus_tree = {
 	focus = {
 		id = VEN_auth_esequibo_arbitration
 		icon = VEN_esequibo_war
-		x = -1
+		x = -2
 		y = 9
 		relative_position_id = VEN_conservative_authoritarism
 		cost = 7
@@ -7823,7 +7823,7 @@ focus_tree = {
 	focus = {
 		id = VEN_auth_strategic_studies_center
 		icon = research2
-		x = 1
+		x = 2
 		y = 9
 		relative_position_id = VEN_conservative_authoritarism
 		cost = 7
@@ -7867,7 +7867,7 @@ focus_tree = {
 		icon = VEN_iron_regime
 
 		x = 0
-		y = 11
+		y = 10
 		relative_position_id = VEN_venezuelian_unity
 
 		cost = 7
@@ -8570,7 +8570,7 @@ focus_tree = {
 		id = VEN_push_on_north
 		icon = attack_mexico
 
-		x = -1
+		x = -2
 		y = 7
 		relative_position_id = VEN_iron_regime
 
@@ -8667,7 +8667,7 @@ focus_tree = {
 		id = VEN_orinoco_engineering_corps
 		icon = focus_ARG_fascist_researchers
 
-		x = -1
+		x = -2
 		y = 3
 		relative_position_id = VEN_iron_regime
 
@@ -8801,7 +8801,7 @@ focus_tree = {
 	focus = {
 		id = VEN_iron_occupied_integration
 		icon = construction3
-		x = 1
+		x = 2
 		y = 7
 		relative_position_id = VEN_iron_regime
 		cost = 7
@@ -8891,7 +8891,7 @@ focus_tree = {
 		id = VEN_imperial_nuclear_program
 		icon = focus_generic_nuclear_development
 
-		x = -1
+		x = -2
 		y = 9
 		relative_position_id = VEN_iron_regime
 
@@ -8926,7 +8926,7 @@ focus_tree = {
 		id = VEN_empire_of_the_evil
 		icon = burning_globe
 
-		x = 1
+		x = 2
 		y = 9
 		relative_position_id = VEN_iron_regime
 
@@ -8982,8 +8982,8 @@ focus_tree = {
 		id = VEN_kind_dictatorship
 		icon = VEN_kind_dictator
 
-		x = 9
-		y = 11
+		x = 8
+		y = 10
 		relative_position_id = VEN_venezuelian_unity
 
 		cost = 7
@@ -9041,7 +9041,7 @@ focus_tree = {
 		id = VEN_concentrate_on_our_problems
 		icon = Generic_Political_Purge
 
-		x = -1
+		x = -2
 		y = 1
 		relative_position_id = VEN_kind_dictatorship
 
@@ -9074,7 +9074,7 @@ focus_tree = {
 		id = VEN_open_borders_for_foreigners
 		icon = VEN_resource_deals
 
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = VEN_kind_dictatorship
 
@@ -9245,7 +9245,7 @@ focus_tree = {
 		id = VEN_give_a_little_freedom
 		icon = focus_generic_freedom_council
 
-		x = -1
+		x = -2
 		y = 3
 		relative_position_id = VEN_kind_dictatorship
 
@@ -9287,7 +9287,7 @@ focus_tree = {
 		id = VEN_diversify_oil_economy
 		icon = BRA_petrobras_oil_benefits
 
-		x = 1
+		x = 2
 		y = 3
 		relative_position_id = VEN_kind_dictatorship
 
@@ -9412,7 +9412,7 @@ focus_tree = {
 	focus = {
 		id = VEN_kind_pragmatic_tech_hub
 		icon = research
-		x = -1
+		x = -2
 		y = 5
 		relative_position_id = VEN_kind_dictatorship
 		cost = 7
@@ -9435,7 +9435,7 @@ focus_tree = {
 	focus = {
 		id = VEN_kind_armed_neutrality
 		icon = defense
-		x = 1
+		x = 2
 		y = 5
 		relative_position_id = VEN_kind_dictatorship
 		cost = 7
@@ -9503,7 +9503,7 @@ focus_tree = {
 		id = VEN_pdvsa_takeover
 		icon = VEN_pdvsa_takeover
 
-		x = 172
+		x = 93
 		y = 25
 		relative_position_id = VEN_reap_the_fruits
 
@@ -9602,7 +9602,7 @@ focus_tree = {
 		id = VEN_empower_monopolies
 		icon = focus_trade_republic
 
-		x = -17
+		x = -6
 		y = 1
 		relative_position_id = VEN_begin_our_recovery
 
@@ -9694,7 +9694,7 @@ focus_tree = {
 		id = VEN_purge_antimonopolists
 		icon = forced_labour
 
-		x = -8
+		x = -6
 		y = 2
 		relative_position_id = VEN_empower_monopolies
 
@@ -9728,7 +9728,7 @@ focus_tree = {
 		id = VEN_iron_control_of_pdvsa
 		icon = armoured_fist
 
-		x = -8
+		x = -6
 		y = 3
 		relative_position_id = VEN_empower_monopolies
 
@@ -9762,7 +9762,7 @@ focus_tree = {
 		id = VEN_corporativist_1984
 		icon = blr_azarenochek
 
-		x = -8
+		x = -6
 		y = 4
 		relative_position_id = VEN_empower_monopolies
 
@@ -9796,7 +9796,7 @@ focus_tree = {
 		id = VEN_oil_and_gas_financial_system
 		icon = oil_red
 
-		x = -3
+		x = -2
 		y = 2
 		relative_position_id = VEN_empower_monopolies
 
@@ -9889,7 +9889,7 @@ focus_tree = {
 		id = VEN_a_council_of_corporations
 		icon = GENERIC_austerity_measures
 
-		x = 3
+		x = 2
 		y = 2
 		relative_position_id = VEN_empower_monopolies
 
@@ -9934,7 +9934,7 @@ focus_tree = {
 		id = VEN_privatize_small_buissnesses
 		icon = money
 
-		x = 8
+		x = 6
 		y = 2
 		relative_position_id = VEN_empower_monopolies
 
@@ -9973,7 +9973,7 @@ focus_tree = {
 		id = VEN_pacify_the_plebs
 		icon = forced_labour
 
-		x = 8
+		x = 6
 		y = 3
 		relative_position_id = VEN_empower_monopolies
 
@@ -10006,7 +10006,7 @@ focus_tree = {
 		id = VEN_digital_grip
 		icon = computer
 
-		x = 8
+		x = 6
 		y = 4
 		relative_position_id = VEN_empower_monopolies
 
@@ -10047,7 +10047,7 @@ focus_tree = {
 		icon = PB_ENG_Target_Monopolies
 
 		x = 0
-		y = 4
+		y = 3
 		relative_position_id = VEN_empower_monopolies
 
 		cost = 10
@@ -10102,8 +10102,8 @@ focus_tree = {
 		id = VEN_privatize_all_oil
 		icon = oil_trade
 
-		x = -5
-		y = 5
+		x = -4
+		y = 4
 		relative_position_id = VEN_empower_monopolies
 
 		cost = 7.2
@@ -10140,8 +10140,8 @@ focus_tree = {
 		id = VEN_diversify_the_economy
 		icon = balance_buget
 
-		x = -6
-		y = 6
+		x = -4
+		y = 5
 		relative_position_id = VEN_empower_monopolies
 
 		cost = 7.2
@@ -10179,8 +10179,8 @@ focus_tree = {
 		id = VEN_empower_banks
 		icon = generic_banks
 
-		x = -9
-		y = 7
+		x = -6
+		y = 6
 		relative_position_id = VEN_empower_monopolies
 
 		cost = 5
@@ -10233,8 +10233,8 @@ focus_tree = {
 		id = VEN_empower_industrialists
 		icon = construct_factory
 
-		x = -4
-		y = 7
+		x = -2
+		y = 6
 		relative_position_id = VEN_empower_monopolies
 
 		cost = 5
@@ -10288,8 +10288,8 @@ focus_tree = {
 		id = VEN_develop_fintech
 		icon = factory_planning
 
-		x = -9
-		y = 8
+		x = -6
+		y = 7
 		relative_position_id = VEN_empower_monopolies
 
 		cost = 7.2
@@ -10333,8 +10333,8 @@ focus_tree = {
 		id = VEN_macroeconomic_management
 		icon = decentralized_economy
 
-		x = -6
-		y = 8
+		x = -4
+		y = 7
 		relative_position_id = VEN_empower_monopolies
 
 		cost = 5
@@ -10363,8 +10363,8 @@ focus_tree = {
 		id = VEN_develop_industry
 		icon = women_in_the_economy
 
-		x = -3
-		y = 8
+		x = -2
+		y = 7
 		relative_position_id = VEN_empower_monopolies
 
 		cost = 7.2
@@ -10409,7 +10409,7 @@ focus_tree = {
 		icon = befriend_south_america
 
 		x = -4
-		y = 9
+		y = 8
 		relative_position_id = VEN_empower_monopolies
 
 		cost = 7.2
@@ -10443,7 +10443,7 @@ focus_tree = {
 		icon = USA_american_mandate_iniative
 
 		x = 0
-		y = 10
+		y = 9
 		relative_position_id = VEN_empower_monopolies
 
 		cost = 7.2
@@ -10476,8 +10476,8 @@ focus_tree = {
 		id = VEN_ally_the_northern_power
 		icon = USA_glorify_the_military
 
-		x = -3
-		y = 11
+		x = -2
+		y = 10
 		relative_position_id = VEN_empower_monopolies
 
 		cost = 10
@@ -10532,8 +10532,8 @@ focus_tree = {
 		id = VEN_invite_american_banks
 		icon = usa_investments
 
-		x = 3
-		y = 11
+		x = 2
+		y = 10
 		relative_position_id = VEN_empower_monopolies
 
 		cost = 7.2
@@ -10581,7 +10581,7 @@ focus_tree = {
 		icon = mlw_buying_kubotas
 
 		x = 2
-		y = 5
+		y = 4
 		relative_position_id = VEN_empower_monopolies
 
 		cost = 7.2
@@ -10622,8 +10622,8 @@ focus_tree = {
 		id = VEN_increase_population_growth
 		icon = goal_JAP_baby
 
-		x = -1
-		y = 6
+		x = 0
+		y = 5
 		relative_position_id = VEN_empower_monopolies
 
 		cost = 5
@@ -10653,8 +10653,8 @@ focus_tree = {
 		id = VEN_economic_expansion
 		icon = romanian_economic_development_plan
 
-		x = 3
-		y = 6
+		x = 4
+		y = 5
 		relative_position_id = VEN_empower_monopolies
 
 		cost = 7.2
@@ -10704,7 +10704,7 @@ focus_tree = {
 		id = VEN_establish_free_market
 		icon = BRA_deregulation_new
 
-		x = 14
+		x = 6
 		y = 1
 		relative_position_id = VEN_begin_our_recovery
 
@@ -10797,7 +10797,7 @@ focus_tree = {
 		id = VEN_invite_foreign_companies_libert
 		icon = generic_bank
 
-		x = 0
+		x = -2
 		y = 2
 		relative_position_id = VEN_establish_free_market
 
@@ -10840,7 +10840,7 @@ focus_tree = {
 		id = VEN_council_of_international_corporations
 		icon = union_representation_act
 
-		x = 0
+		x = -2
 		y = 3
 		relative_position_id = VEN_establish_free_market
 
@@ -10879,13 +10879,13 @@ focus_tree = {
 		id = VEN_total_deregulation
 		icon = goal_JAP_valueeven
 
-		x = 0
-		y = 4
+		x = 2
+		y = 2
 		relative_position_id = VEN_establish_free_market
 
 		cost = 7.2
 
-		prerequisite = { focus = VEN_council_of_international_corporations }
+		prerequisite = { focus = VEN_diplomatic_efforts }
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
@@ -10912,8 +10912,8 @@ focus_tree = {
 		id = VEN_privatization_of_everything
 		icon = economic_prosperity
 
-		x = 0
-		y = 5
+		x = 2
+		y = 3
 		relative_position_id = VEN_establish_free_market
 
 		cost = 7.2
@@ -10959,11 +10959,12 @@ focus_tree = {
 		icon = goal_JAP_good_business
 
 		x = 0
-		y = 6
+		y = 4
 		relative_position_id = VEN_establish_free_market
 
 		cost = 5
 
+		prerequisite = { focus = VEN_council_of_international_corporations }
 		prerequisite = { focus = VEN_privatization_of_everything }
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
@@ -10993,8 +10994,8 @@ focus_tree = {
 		id = VEN_pmc_army
 		icon = Generic_American_Soldier2
 
-		x = 7
-		y = 7
+		x = 2
+		y = 5
 		relative_position_id = VEN_establish_free_market
 
 		cost = 7.2
@@ -11036,8 +11037,8 @@ focus_tree = {
 		id = VEN_minimize_government
 		icon = goal_JAP_analib_water
 
-		x = 13
-		y = 7
+		x = 4
+		y = 5
 		relative_position_id = VEN_establish_free_market
 
 		cost = 5
@@ -11074,8 +11075,8 @@ focus_tree = {
 		id = VEN_cap_end_conscription #change name to end of mandatory service
 		icon = GEO_Loyalty_or_Fear
 
-		x = 13
-		y = 8
+		x = 4
+		y = 6
 		relative_position_id = VEN_establish_free_market
 
 		cost = 5
@@ -11107,8 +11108,8 @@ focus_tree = {
 		id = VEN_money_motivated_military
 		icon = goal_JAP_competition
 
-		x = 7
-		y = 8
+		x = 2
+		y = 6
 		relative_position_id = VEN_establish_free_market
 
 		cost = 7.2
@@ -11156,7 +11157,7 @@ focus_tree = {
 		icon = BRA_libertarian_economics
 
 		x = 0
-		y = 11
+		y = 9
 		relative_position_id = VEN_establish_free_market
 
 		cost = 7.2
@@ -11195,7 +11196,7 @@ focus_tree = {
 		icon = MEX_Purge_corrupt_judges
 
 		x = 0
-		y = 10
+		y = 8
 		relative_position_id = VEN_establish_free_market
 
 		cost = 7.2
@@ -11235,8 +11236,8 @@ focus_tree = {
 		id = VEN_attract_foreign_investors
 		icon = focus_drinks_peace
 
-		x = -10
-		y = 10
+		x = -3
+		y = 8
 		relative_position_id = VEN_establish_free_market
 
 		cost = 7.2
@@ -11280,7 +11281,7 @@ focus_tree = {
 		icon = USA_libertarian_party
 
 		x = 0
-		y = 12
+		y = 10
 		relative_position_id = VEN_establish_free_market
 
 		cost = 10
@@ -11317,7 +11318,7 @@ focus_tree = {
 		id = VEN_pdvsa_emergency_audit
 		icon = radical_tax_reform
 
-		x = -4
+		x = -2
 		y = 1
 		relative_position_id = VEN_pdvsa_takeover
 
@@ -11342,7 +11343,7 @@ focus_tree = {
 		id = VEN_petro_monetary_stabilization
 		icon = gold_standard2
 
-		x = 4
+		x = 2
 		y = 1
 		relative_position_id = VEN_pdvsa_takeover
 
@@ -11371,8 +11372,8 @@ focus_tree = {
 		id = VEN_orinoco_heavy_refineries
 		icon = oil_production2
 
-		x = 1
-		y = 7
+		x = 2
+		y = 6
 		relative_position_id = VEN_empower_monopolies
 
 		cost = 7.2
@@ -11406,8 +11407,8 @@ focus_tree = {
 		id = VEN_pdvsa_technological_institute
 		icon = research4
 
-		x = 1
-		y = 9
+		x = 2
+		y = 8
 		relative_position_id = VEN_empower_monopolies
 
 		cost = 10
@@ -11434,8 +11435,8 @@ focus_tree = {
 		id = VEN_corporate_security_directorate
 		icon = cctv2
 
-		x = 8
-		y = 6
+		x = 6
+		y = 5
 		relative_position_id = VEN_empower_monopolies
 
 		cost = 7.2
@@ -11462,8 +11463,8 @@ focus_tree = {
 		id = VEN_offshore_platform_defense
 		icon = navy3
 
-		x = 8
-		y = 7
+		x = 6
+		y = 6
 		relative_position_id = VEN_empower_monopolies
 
 		cost = 7.2
@@ -11491,8 +11492,8 @@ focus_tree = {
 		id = VEN_caribbean_refinery_hegemony
 		icon = oil_red
 
-		x = 8
-		y = 8
+		x = 6
+		y = 7
 		relative_position_id = VEN_empower_monopolies
 
 		cost = 7.2
@@ -11532,7 +11533,7 @@ focus_tree = {
 		icon = industry4
 
 		x = 0
-		y = 12
+		y = 11
 		relative_position_id = VEN_empower_monopolies
 
 		cost = 10
@@ -11561,8 +11562,8 @@ focus_tree = {
 		id = VEN_caracas_stock_exchange_boom
 		icon = focus_RAJ_issue_bonds_on_the_stock_market
 
-		x = -10
-		y = 7
+		x = -3
+		y = 5
 		relative_position_id = VEN_establish_free_market
 
 		cost = 7.2
@@ -11589,8 +11590,8 @@ focus_tree = {
 		id = VEN_property_rights_free_ports
 		icon = trade_with_america
 
-		x = -10
-		y = 8
+		x = -3
+		y = 6
 		relative_position_id = VEN_establish_free_market
 
 		cost = 7.2
@@ -11618,8 +11619,8 @@ focus_tree = {
 		id = VEN_private_energy_grid_concessions
 		icon = oil_companies
 
-		x = -10
-		y = 9
+		x = -3
+		y = 7
 		relative_position_id = VEN_establish_free_market
 
 		cost = 7.2
@@ -11652,7 +11653,7 @@ focus_tree = {
 		icon = focus_generic_university_2
 
 		x = 0
-		y = 7
+		y = 5
 		relative_position_id = VEN_establish_free_market
 
 		cost = 10
@@ -11680,7 +11681,7 @@ focus_tree = {
 		icon = ukr_digital_state
 
 		x = 0
-		y = 8
+		y = 6
 		relative_position_id = VEN_establish_free_market
 
 		cost = 7.2
@@ -11712,7 +11713,7 @@ focus_tree = {
 		icon = BRA_tax_reduce
 
 		x = 0
-		y = 9
+		y = 7
 		relative_position_id = VEN_establish_free_market
 
 		cost = 10
@@ -11738,8 +11739,8 @@ focus_tree = {
 		id = VEN_private_air_and_maritime_defense
 		icon = air_industry
 
-		x = 10
-		y = 9
+		x = 3
+		y = 7
 		relative_position_id = VEN_establish_free_market
 
 		cost = 7.2
@@ -11767,8 +11768,8 @@ focus_tree = {
 		id = VEN_secure_caribbean_trade_lanes
 		icon = sniper
 
-		x = 10
-		y = 10
+		x = 3
+		y = 8
 		relative_position_id = VEN_establish_free_market
 
 		cost = 7.2
@@ -11808,7 +11809,7 @@ focus_tree = {
 		icon = generic_bank
 
 		x = 0
-		y = 13
+		y = 11
 		relative_position_id = VEN_establish_free_market
 
 		cost = 10
@@ -11839,7 +11840,7 @@ focus_tree = {
 		id = VEN_northern_ties
 		icon = VEN_north_ties
 
-		x = 85
+		x = 53
 		y = 25
 		relative_position_id = VEN_reap_the_fruits
 
@@ -11975,7 +11976,7 @@ focus_tree = {
 		id = VEN_usa_democratic_transition
 		icon = VEN_democracy
 
-		x = -28
+		x = -13
 		y = 3
 		relative_position_id = VEN_northern_ties
 
@@ -12031,7 +12032,7 @@ focus_tree = {
 		id = VEN_our_war_on_drugs
 		icon = Drug_Fueled
 
-		x = -3
+		x = -2
 		y = 1
 		relative_position_id = VEN_usa_democratic_transition
 
@@ -12103,7 +12104,7 @@ focus_tree = {
 		id = VEN_us_recovery_aid
 		icon = VEN_us_aid
 
-		x = 3
+		x = 2
 		y = 1
 		relative_position_id = VEN_usa_democratic_transition
 
@@ -12276,7 +12277,7 @@ focus_tree = {
 		id = VEN_introduce_western_industries
 		icon = VEN_west_ind
 
-		x = 0
+		x = -8
 		y = 1
 		relative_position_id = VEN_peace_in_the_caribbean
 
@@ -12333,13 +12334,13 @@ focus_tree = {
 		id = VEN_auto_industries
 		icon = tesla
 
-		x = 1
+		x = 4
 		y = 1
-		relative_position_id = VEN_usa_oil_privatization
+		relative_position_id = VEN_introduce_western_industries
 
 		cost = 7.2
 
-		prerequisite = { focus = VEN_usa_oil_privatization }
+		prerequisite = { focus = VEN_introduce_western_industries }
 
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESEARCH }
 
@@ -12378,7 +12379,7 @@ focus_tree = {
 		id = VEN_caracas_financial_hub
 		icon = expand_finance_ministry
 
-		x = -3
+		x = -2
 		y = 1
 		relative_position_id = VEN_introduce_western_industries
 
@@ -12416,13 +12417,13 @@ focus_tree = {
 		id = VEN_usa_oil_privatization
 		icon = VEN_pdvsa
 
-		x = -8
+		x = -4
 		y = 1
-		relative_position_id = VEN_peace_in_the_caribbean
+		relative_position_id = VEN_introduce_western_industries
 
 		cost = 7.2
 
-		prerequisite = { focus = VEN_peace_in_the_caribbean }
+		prerequisite = { focus = VEN_introduce_western_industries }
 
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_RESOURCE }
 
@@ -12482,13 +12483,12 @@ focus_tree = {
 		id = VEN_port_of_puerto_cabello
 		icon = naval_dockyard
 
-		x = 2
+		x = 4
 		y = 3
-		relative_position_id = VEN_usa_oil_privatization
+		relative_position_id = VEN_introduce_western_industries
 
 		cost = 7.2
 
-		prerequisite = { focus = VEN_auto_industries }
 		prerequisite = { focus = VEN_western_grid_modernization }
 
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_NAVY }
@@ -12525,13 +12525,13 @@ focus_tree = {
 		id = VEN_western_grid_modernization
 		icon = generic_solar
 
-		x = 3
-		y = 1
-		relative_position_id = VEN_usa_oil_privatization
+		x = 4
+		y = 2
+		relative_position_id = VEN_introduce_western_industries
 
 		cost = 7.2
 
-		prerequisite = { focus = VEN_usa_oil_privatization }
+		prerequisite = { focus = VEN_auto_industries }
 
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_ENERGY }
 
@@ -12558,7 +12558,7 @@ focus_tree = {
 		id = VEN_purging_corrupt_officials
 		icon = BLR_Anti_Corruption
 
-		x = 1
+		x = 0
 		y = 1
 		relative_position_id = VEN_introduce_western_industries
 
@@ -12590,7 +12590,7 @@ focus_tree = {
 		icon = market_economy
 
 		x = 0
-		y = 3
+		y = 4
 		relative_position_id = VEN_introduce_western_industries
 
 		cost = 10
@@ -12645,7 +12645,7 @@ focus_tree = {
 		icon = university
 
 		x = -2
-		y = 4
+		y = 5
 		relative_position_id = VEN_introduce_western_industries
 
 		cost = 7.2
@@ -12693,7 +12693,7 @@ focus_tree = {
 		icon = science
 
 		x = 2
-		y = 4
+		y = 5
 		relative_position_id = VEN_introduce_western_industries
 
 		cost = 7.2
@@ -12733,7 +12733,7 @@ focus_tree = {
 		id = VEN_army_westernization
 		icon = NATO_squad_doctrine
 
-		x = 14
+		x = 8
 		y = 1
 		relative_position_id = VEN_peace_in_the_caribbean
 
@@ -12774,7 +12774,7 @@ focus_tree = {
 		id = VEN_us_import_policy
 		icon = blr_buy_west_weapons
 
-		x = 0
+		x = -2
 		y = 1
 		relative_position_id = VEN_army_westernization
 
@@ -12813,8 +12813,8 @@ focus_tree = {
 		icon = nato_standards
 
 		x = -2
-		y = 2
-		relative_position_id = VEN_army_westernization
+		y = 1
+		relative_position_id = VEN_us_import_policy
 
 		cost = 7.2
 
@@ -12848,8 +12848,8 @@ focus_tree = {
 		icon = army_radar
 
 		x = 0
-		y = 2
-		relative_position_id = VEN_army_westernization
+		y = 1
+		relative_position_id = VEN_us_import_policy
 
 		cost = 7.2
 
@@ -12907,8 +12907,8 @@ focus_tree = {
 		icon = military_bases
 
 		x = 2
-		y = 2
-		relative_position_id = VEN_army_westernization
+		y = 1
+		relative_position_id = VEN_us_import_policy
 
 		cost = 7.2
 
@@ -12944,8 +12944,8 @@ focus_tree = {
 		icon = nato_membership_action_plan
 
 		x = 0
-		y = 3
-		relative_position_id = VEN_army_westernization
+		y = 2
+		relative_position_id = VEN_us_import_policy
 
 		cost = 7.2
 
@@ -12983,8 +12983,8 @@ focus_tree = {
 		icon = special_forces
 
 		x = -2
-		y = 4
-		relative_position_id = VEN_army_westernization
+		y = 1
+		relative_position_id = VEN_major_non_nato_partner
 
 		cost = 7.2
 
@@ -13033,8 +13033,8 @@ focus_tree = {
 		icon = VEN_join_nato
 
 		x = 0
-		y = 4
-		relative_position_id = VEN_army_westernization
+		y = 1
+		relative_position_id = VEN_major_non_nato_partner
 
 		cost = 10
 
@@ -13083,8 +13083,8 @@ focus_tree = {
 		icon = guided_missile2
 
 		x = 2
-		y = 4
-		relative_position_id = VEN_army_westernization
+		y = 1
+		relative_position_id = VEN_major_non_nato_partner
 
 		cost = 7.2
 
@@ -13138,7 +13138,7 @@ focus_tree = {
 		id = VEN_fifth_gen_fighter
 		icon = f35
 
-		x = 0
+		x = 2
 		y = 4
 		relative_position_id = VEN_join_nato
 
@@ -13192,7 +13192,7 @@ focus_tree = {
 		id = VEN_nato_caribbean_fleet_base
 		icon = VEN_nato_fleet
 
-		x = 2
+		x = 4
 		y = 2
 		relative_position_id = VEN_join_nato
 
@@ -13232,7 +13232,7 @@ focus_tree = {
 		id = VEN_joint_aerospace_shield
 		icon = VEN_aero_shield
 
-		x = 2
+		x = 4
 		y = 1
 		relative_position_id = VEN_join_nato
 
@@ -13275,7 +13275,7 @@ focus_tree = {
 		id = VEN_integrated_atlantic_shield
 		icon = american_shield
 
-		x = 0
+		x = 2
 		y = 5
 		relative_position_id = VEN_join_nato
 
@@ -13306,9 +13306,9 @@ focus_tree = {
 		id = VEN_beacon_of_the_americas
 		icon = VEN_beacon_americas
 
-		x = 3
-		y = 10
-		relative_position_id = VEN_introduce_western_industries
+		x = 0
+		y = 11
+		relative_position_id = VEN_peace_in_the_caribbean
 
 		cost = 10
 
@@ -13347,7 +13347,7 @@ focus_tree = {
 		id = VEN_chevron
 		icon = chevron
 
-		x = -3
+		x = 0
 		y = 1
 		relative_position_id = VEN_usa_oil_privatization
 
@@ -13392,7 +13392,7 @@ focus_tree = {
 		id = VEN_us_oil_ventures
 		icon = focus_generic_american_investments
 
-		x = -3
+		x = 0
 		y = 2
 		relative_position_id = VEN_usa_oil_privatization
 
@@ -13454,7 +13454,7 @@ focus_tree = {
 		id = VEN_shell
 		icon = royal_dutch_shell
 
-		x = -1
+		x = 2
 		y = 1
 		relative_position_id = VEN_usa_oil_privatization
 
@@ -13526,7 +13526,7 @@ focus_tree = {
 		id = VEN_british_investments
 		icon = trade_with_britain
 
-		x = -1
+		x = 2
 		y = 2
 		relative_position_id = VEN_usa_oil_privatization
 
@@ -13573,7 +13573,7 @@ focus_tree = {
 		id = VEN_american_oil_deal
 		icon = oil_companies
 
-		x = -2
+		x = 1
 		y = 3
 		relative_position_id = VEN_usa_oil_privatization
 
@@ -13599,7 +13599,7 @@ focus_tree = {
 		id = VEN_untether_the_oil
 		icon = oil_trade
 
-		x = -2
+		x = 0
 		y = 4
 		relative_position_id = VEN_usa_oil_privatization
 
@@ -13651,12 +13651,11 @@ focus_tree = {
 		icon = lookin_for_beans
 
 		x = 2
-		y = 2
+		y = 3
 		relative_position_id = VEN_introduce_western_industries
 
 		cost = 7.2
 
-		prerequisite = { focus = VEN_purging_corrupt_officials }
 		prerequisite = { focus = VEN_property_rights_and_sezs }
 
 		search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -13678,7 +13677,7 @@ focus_tree = {
 		id = VEN_west_cyber_defense_cmd
 		icon = cyberspace_protection
 
-		x = 2
+		x = 4
 		y = 3
 		relative_position_id = VEN_join_nato
 
@@ -14046,7 +14045,7 @@ focus_tree = {
 		id = VEN_air_usa_alignment
 		icon = amercian_f16
 
-		x = 0
+		x = 2
 		y = 1
 		relative_position_id = VEN_join_nato
 
@@ -14134,7 +14133,7 @@ focus_tree = {
 		id = VEN_air_f16_f35_licenses
 		icon = F16_2
 
-		x = 0
+		x = 2
 		y = 2
 		relative_position_id = VEN_join_nato
 
@@ -14291,7 +14290,7 @@ focus_tree = {
 		id = VEN_air_nato_interop
 		icon = f35
 
-		x = 0
+		x = 2
 		y = 3
 		relative_position_id = VEN_join_nato
 
@@ -14420,7 +14419,7 @@ focus_tree = {
 		id = VEN_armor_west_overhaul
 		icon = europe_tank
 
-		x = -2
+		x = 0
 		y = 1
 		relative_position_id = VEN_join_nato
 
@@ -14480,7 +14479,7 @@ focus_tree = {
 		id = VEN_armor_wheeled_ifv
 		icon = apc
 
-		x = -2
+		x = 0
 		y = 2
 		relative_position_id = VEN_join_nato
 
@@ -14523,7 +14522,7 @@ focus_tree = {
 		id = VEN_end_conscription #change name to end of mandatory service
 		icon = GEO_Loyalty_or_Fear
 
-		x = -4
+		x = -2
 		y = 1
 		relative_position_id = VEN_join_nato
 
@@ -14559,7 +14558,7 @@ focus_tree = {
 		id = VEN_caribbean_intervention
 		icon = VEN_carib_ops
 
-		x = 7
+		x = 0
 		y = 1
 		relative_position_id = VEN_peace_in_the_caribbean
 
@@ -14644,7 +14643,7 @@ focus_tree = {
 		id = VEN_liberate_cuba
 		icon = VEN_lib_cuba
 
-		x = -1
+		x = -2
 		y = 2
 		relative_position_id = VEN_caribbean_intervention
 
@@ -14681,7 +14680,7 @@ focus_tree = {
 		id = VEN_anti_cartel_crusade
 		icon = MEX_Destroy_the_carteles_unidos
 
-		x = 1
+		x = 2
 		y = 2
 		relative_position_id = VEN_caribbean_intervention
 
@@ -14755,7 +14754,7 @@ focus_tree = {
 		id = VEN_andean_democratic_shield
 		icon = VEN_andean_shield
 
-		x = -1
+		x = -2
 		y = 4
 		relative_position_id = VEN_caribbean_intervention
 
@@ -14796,7 +14795,7 @@ focus_tree = {
 		id = VEN_liberate_nicaragua_and_haiti
 		icon = VEN_lib_carib
 
-		x = 1
+		x = 2
 		y = 4
 		relative_position_id = VEN_caribbean_intervention
 
@@ -14868,9 +14867,9 @@ focus_tree = {
 		id = VEN_orinoco_clean_corridor
 		icon = geo_goldmine
 
-		x = 2
+		x = 4
 		y = 4
-		relative_position_id = VEN_usa_oil_privatization
+		relative_position_id = VEN_introduce_western_industries
 
 		cost = 7.2
 
@@ -14902,7 +14901,7 @@ focus_tree = {
 		id = VEN_autonomous_central_bank
 		icon = generic_bank
 
-		x = -1
+		x = 2
 		y = 1
 		relative_position_id = VEN_introduce_western_industries
 
@@ -14932,8 +14931,8 @@ focus_tree = {
 		id = VEN_sovereign_wealth_fund
 		icon = gold_standard2
 
-		x = -2
-		y = 2
+		x = 0
+		y = 3
 		relative_position_id = VEN_introduce_western_industries
 
 		cost = 7.2
@@ -14961,7 +14960,7 @@ focus_tree = {
 		icon = focus_generic_university_2
 
 		x = 0
-		y = 4
+		y = 5
 		relative_position_id = VEN_introduce_western_industries
 
 		cost = 10
@@ -15004,7 +15003,7 @@ focus_tree = {
 		icon = trade_with_america
 
 		x = 0
-		y = 5
+		y = 6
 		relative_position_id = VEN_introduce_western_industries
 
 		cost = 7.2
@@ -15073,9 +15072,9 @@ focus_tree = {
 		id = VEN_green_energy_transition
 		icon = oil_green
 
-		x = 0
-		y = 5
-		relative_position_id = VEN_usa_oil_privatization
+		x = -3
+		y = 7
+		relative_position_id = VEN_introduce_western_industries
 
 		cost = 7.2
 
@@ -15113,7 +15112,7 @@ focus_tree = {
 		icon = ukr_digital_state
 
 		x = 0
-		y = 6
+		y = 7
 		relative_position_id = VEN_introduce_western_industries
 
 		cost = 7.2
@@ -15174,7 +15173,7 @@ focus_tree = {
 		icon = treaty3
 
 		x = 0
-		y = 5
+		y = 7
 		relative_position_id = VEN_caribbean_intervention
 
 		cost = 7.2
@@ -15204,13 +15203,13 @@ focus_tree = {
 		id = VEN_property_rights_and_sezs
 		icon = focus_BRA_pro_business_taxes
 
-		x = 3
-		y = 1
+		x = 0
+		y = 2
 		relative_position_id = VEN_introduce_western_industries
 
 		cost = 7.2
 
-		prerequisite = { focus = VEN_introduce_western_industries }
+		prerequisite = { focus = VEN_purging_corrupt_officials }
 
 		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_INDUSTRY }
 
@@ -15244,7 +15243,7 @@ focus_tree = {
 		id = VEN_usa_authoritarian_pact
 		icon = VEN_us_auth_pact
 
-		x = 34
+		x = 13
 		y = 3
 		relative_position_id = VEN_northern_ties
 
@@ -15315,7 +15314,7 @@ focus_tree = {
 		id = VEN_iron_fist_crackdown
 		icon = VEN_iron_fist
 
-		x = -4
+		x = -2
 		y = 1
 		relative_position_id = VEN_usa_authoritarian_pact
 
@@ -15372,7 +15371,7 @@ focus_tree = {
 		id = VEN_sovereign_resource_deals
 		icon = VEN_resource_deals
 
-		x = 4
+		x = 2
 		y = 1
 		relative_position_id = VEN_usa_authoritarian_pact
 
@@ -15497,7 +15496,7 @@ focus_tree = {
 		id = VEN_nationalist_state_capitalism
 		icon = VEN_nat_cap
 
-		x = -18
+		x = -8
 		y = 1
 		relative_position_id = VEN_national_order_doctrine
 
@@ -15534,7 +15533,7 @@ focus_tree = {
 		id = VEN_militarize_orinoco_mining
 		icon = VEN_orinoco_mine
 
-		x = -5
+		x = -1
 		y = 1
 		relative_position_id = VEN_nationalist_state_capitalism
 
@@ -15608,7 +15607,7 @@ focus_tree = {
 		id = VEN_sovereign_arms_complex
 		icon = army_military_industryy
 
-		x = 2
+		x = 1
 		y = 1
 		relative_position_id = VEN_nationalist_state_capitalism
 
@@ -15654,7 +15653,7 @@ focus_tree = {
 		id = VEN_fortress_economy
 		icon = VEN_fortress_econ
 
-		x = 3
+		x = 2
 		y = 2
 		relative_position_id = VEN_nationalist_state_capitalism
 
@@ -15705,7 +15704,7 @@ focus_tree = {
 		id = VEN_national_petrochemical_titan
 		icon = oil
 
-		x = -3
+		x = -2
 		y = 2
 		relative_position_id = VEN_nationalist_state_capitalism
 
@@ -15753,7 +15752,7 @@ focus_tree = {
 		id = VEN_military_autarky_grid
 		icon = VEN_autarky_grid
 
-		x = 3
+		x = 2
 		y = 3
 		relative_position_id = VEN_nationalist_state_capitalism
 
@@ -15869,7 +15868,7 @@ focus_tree = {
 		id = VEN_praetorian_high_command
 		icon = VEN_praetorian
 
-		x = -7
+		x = -1
 		y = 1
 		relative_position_id = VEN_national_order_doctrine
 
@@ -15920,7 +15919,7 @@ focus_tree = {
 		id = VEN_us_black_ops_liaison
 		icon = special_forces
 
-		x = 3
+		x = 2
 		y = 1
 		relative_position_id = VEN_praetorian_high_command
 
@@ -16120,7 +16119,7 @@ focus_tree = {
 		id = VEN_armored_caudillo_legions
 		icon = artillery
 
-		x = -3
+		x = -2
 		y = 3
 		relative_position_id = VEN_praetorian_high_command
 
@@ -16329,7 +16328,7 @@ focus_tree = {
 		id = VEN_monroe_junior_partner
 		icon = diplomacy
 
-		x = 19
+		x = 9
 		y = 1
 		relative_position_id = VEN_national_order_doctrine
 
@@ -16365,7 +16364,7 @@ focus_tree = {
 		id = VEN_reclaim_esequibo_by_force
 		icon = VEN_esequibo_war
 
-		x = -4
+		x = -2
 		y = 3
 		relative_position_id = VEN_monroe_junior_partner
 
@@ -16580,7 +16579,7 @@ focus_tree = {
 		id = VEN_propaganda_and_youth_corps
 		icon = propaganda
 
-		x = -3
+		x = -2
 		y = 1
 		relative_position_id = VEN_monroe_junior_partner
 
@@ -16615,7 +16614,7 @@ focus_tree = {
 		id = VEN_caribbean_security_council
 		icon = VEN_carib_security
 
-		x = 3
+		x = 2
 		y = 1
 		relative_position_id = VEN_monroe_junior_partner
 
@@ -16741,7 +16740,7 @@ focus_tree = {
 		id = VEN_auth_customs_and_tax_authority
 		icon = radical_tax_reform
 
-		x = 5
+		x = 3
 		y = 1
 		relative_position_id = VEN_nationalist_state_capitalism
 
@@ -16770,7 +16769,7 @@ focus_tree = {
 		id = VEN_strategic_sovereign_reserves
 		icon = gold_standard2
 
-		x = -3
+		x = -2
 		y = 3
 		relative_position_id = VEN_nationalist_state_capitalism
 
@@ -16929,7 +16928,7 @@ focus_tree = {
 		id = VEN_auth_air_doctrine_reform
 		icon = air_industry
 
-		x = 2
+		x = 3
 		y = 1
 		relative_position_id = VEN_national_order_doctrine
 
@@ -17082,7 +17081,7 @@ focus_tree = {
 		id = VEN_andean_security_intervention
 		icon = sniper
 
-		x = 4
+		x = 2
 		y = 3
 		relative_position_id = VEN_monroe_junior_partner
 
@@ -17183,7 +17182,7 @@ focus_tree = {
 	focus = {
 		id = VEN_auth_navy_us_mission
 		icon = usa_ship_navy
-		x = 10
+		x = 5
 		y = 1
 		relative_position_id = VEN_national_order_doctrine
 
@@ -17899,7 +17898,7 @@ focus_tree = {
 		id = VEN_auth_national_cyber_cmd
 		icon = cyberspace_protection
 
-		x = 3
+		x = 2
 		y = 3
 		relative_position_id = VEN_praetorian_high_command
 
@@ -17954,7 +17953,7 @@ focus_tree = {
 		id = VEN_auth_securing_the_oil
 		icon = seize_oil
 
-		x = -2
+		x = -3
 		y = 1
 		relative_position_id = VEN_nationalist_state_capitalism
 
@@ -17996,7 +17995,7 @@ focus_tree = {
 		id = VEN_auth_mandatory_service #change to Maintain mandatory service
 		icon = Generic_Colonial_Army
 
-		x = -3
+		x = -2
 		y = 1
 		relative_position_id = VEN_praetorian_high_command
 
@@ -18030,8 +18029,8 @@ focus_tree = {
 		id = VEN_fight_the_cartels
 		icon = MEX_Erradicate_the_cartels
 
-		x = 41
-		y = 3
+		x = -24
+		y = 1
 		relative_position_id = VEN_national_army
 
 		cost = 3
@@ -18080,8 +18079,8 @@ focus_tree = {
 		id = VEN_war_on_drugs
 		icon = chemical_warfare
 
-		x = 39
-		y = 4
+		x = -26
+		y = 2
 		relative_position_id = VEN_national_army
 
 		cost = 4
@@ -18132,8 +18131,8 @@ focus_tree = {
 		id = VEN_southcom_dea_cooperation
 		icon = american_arms_focus
 
-		x = 41
-		y = 4
+		x = -24
+		y = 2
 		relative_position_id = VEN_national_army
 
 		cost = 4
@@ -18169,8 +18168,8 @@ focus_tree = {
 		id = VEN_fight_the_farc
 		icon = Generic_Jungle_Ghost
 
-		x = 43
-		y = 4
+		x = -22
+		y = 2
 		relative_position_id = VEN_national_army
 
 		cost = 4
@@ -18226,8 +18225,8 @@ focus_tree = {
 		id = VEN_riverine_patrols
 		icon = focus_SIA_river_patrols
 
-		x = 39
-		y = 5
+		x = -26
+		y = 3
 		relative_position_id = VEN_national_army
 
 		cost = 3
@@ -18251,8 +18250,8 @@ focus_tree = {
 		id = VEN_dea_intel_fusion
 		icon = recon
 
-		x = 41
-		y = 5
+		x = -24
+		y = 3
 		relative_position_id = VEN_national_army
 
 		cost = 3
@@ -18277,8 +18276,8 @@ focus_tree = {
 		id = VEN_aerial_interdiction
 		icon = POL_sikorsky
 
-		x = 43
-		y = 5
+		x = -22
+		y = 3
 		relative_position_id = VEN_national_army
 
 		cost = 3
@@ -18314,8 +18313,8 @@ focus_tree = {
 		id = VEN_special_forces_raids
 		icon = ypg_spec
 
-		x = 39
-		y = 6
+		x = -26
+		y = 4
 		relative_position_id = VEN_national_army
 
 		cost = 4
@@ -18340,8 +18339,8 @@ focus_tree = {
 		id = VEN_arresting_high_profile_individuals
 		icon = focus_NRY_arrest_quisling
 
-		x = 43
-		y = 6
+		x = -22
+		y = 4
 		relative_position_id = VEN_national_army
 
 		cost = 4
@@ -18385,8 +18384,8 @@ focus_tree = {
 		id = VEN_dismantle_the_farc
 		icon = generic_counter_insurgency_icon
 
-		x = 41
-		y = 7
+		x = -24
+		y = 5
 		relative_position_id = VEN_national_army
 
 		cost = 5
@@ -18433,8 +18432,8 @@ focus_tree = {
 		id = VEN_hemispheric_security_partner
 		icon = USA_prism
 
-		x = 41
-		y = 8
+		x = -24
+		y = 6
 		relative_position_id = VEN_national_army
 
 		cost = 5
@@ -18485,8 +18484,8 @@ focus_tree = {
 		id = VEN_national_army
 		icon = small_arms3
 
-		x = 59
-		y = 0
+		x = 166
+		y = 9
 
 		cost = 10
 
@@ -18507,8 +18506,8 @@ focus_tree = {
 		id = VEN_the_navy
 		icon = VEN_navy
 
-		x = 27
-		y = 3
+		x = -17
+		y = 1
 		relative_position_id = VEN_national_army
 
 		cost = 10
@@ -18547,7 +18546,7 @@ focus_tree = {
 		id = VEN_navy_dianca_plan
 		icon = naval_industry
 
-		x = -2
+		x = 0
 		y = 1
 		relative_position_id = VEN_the_navy
 
@@ -18990,8 +18989,8 @@ focus_tree = {
 		id = VEN_military_reforms
 		icon = VEN_army
 
-		x = 0
-		y = 3
+		x = 6
+		y = 1
 		relative_position_id = VEN_national_army
 
 		cost = 10
@@ -19847,7 +19846,7 @@ focus_tree = {
 		icon = army_general_stuff1
 
 		x = 0
-		y = 7
+		y = 6
 		relative_position_id = VEN_military_reforms
 
 		cost = 5
@@ -19903,7 +19902,7 @@ focus_tree = {
 		icon = army_marching
 
 		x = -2
-		y = 8
+		y = 7
 		relative_position_id = VEN_military_reforms
 
 		cost = 5
@@ -19943,7 +19942,7 @@ focus_tree = {
 		icon = army_reform
 
 		x = 2
-		y = 8
+		y = 7
 		relative_position_id = VEN_military_reforms
 
 		cost = 10
@@ -19976,7 +19975,7 @@ focus_tree = {
 		icon = VEN_strong_ven
 
 		x = 0
-		y = 9
+		y = 8
 		relative_position_id = VEN_military_reforms
 
 		cost = 10
@@ -20009,8 +20008,8 @@ focus_tree = {
 		id = VEN_bolivarian_guard
 		icon = VEN_gnb
 
-		x = 48
-		y = 3
+		x = 21
+		y = 1
 		relative_position_id = VEN_national_army
 
 		cost = 5
@@ -20103,7 +20102,7 @@ focus_tree = {
 		icon = army_defence1
 
 		x = 2
-		y = 2
+		y = 1
 		relative_position_id = VEN_bolivarian_guard
 
 		cost = 5
@@ -20160,7 +20159,7 @@ focus_tree = {
 		icon = generic_utility_vehice
 
 		x = -1
-		y = 3
+		y = 2
 		relative_position_id = VEN_bolivarian_guard
 
 		cost = 5
@@ -20195,7 +20194,7 @@ focus_tree = {
 		icon = infiltration_tactics
 
 		x = 1
-		y = 3
+		y = 2
 		relative_position_id = VEN_bolivarian_guard
 
 		cost = 5
@@ -20221,7 +20220,7 @@ focus_tree = {
 		icon = VEN_gnb
 
 		x = 0
-		y = 4
+		y = 3
 		relative_position_id = VEN_bolivarian_guard
 
 		cost = 10
@@ -20253,8 +20252,8 @@ focus_tree = {
 		id = VEN_the_airforce
 		icon = VEN_air_force
 
-		x = 13
-		y = 3
+		x = -7
+		y = 1
 		relative_position_id = VEN_national_army
 
 		cost = 5
@@ -20280,7 +20279,7 @@ focus_tree = {
 		id = VEN_air_bael_upgrade
 		icon = airforce_base_1
 
-		x = -4
+		x = -3
 		y = 1
 		relative_position_id = VEN_the_airforce
 
@@ -20740,7 +20739,7 @@ focus_tree = {
 		id = VEN_combat_aircraft
 		icon = air_superiority
 
-		x = 5
+		x = 4
 		y = 1
 		relative_position_id = VEN_the_airforce
 
@@ -20783,7 +20782,7 @@ focus_tree = {
 		id = VEN_air_neutral_autonomy
 		icon = air_doctrine
 
-		x = 5
+		x = 4
 		y = 2
 		relative_position_id = VEN_the_airforce
 
@@ -20811,7 +20810,7 @@ focus_tree = {
 		id = VEN_air_fx_ven_tender
 		icon = european_jet
 
-		x = 5
+		x = 4
 		y = 3
 		relative_position_id = VEN_the_airforce
 
@@ -20839,7 +20838,7 @@ focus_tree = {
 		id = VEN_air_asymmetric
 		icon = advan_fighters
 
-		x = 5
+		x = 4
 		y = 4
 		relative_position_id = VEN_the_airforce
 
@@ -21008,7 +21007,7 @@ focus_tree = {
 		id = VEN_air_supremacy
 		icon = VEN_air_force
 
-		x = 5
+		x = 4
 		y = 5
 		relative_position_id = VEN_the_airforce
 
@@ -21054,8 +21053,8 @@ focus_tree = {
 		id = VEN_air_sam_network
 		icon = air_defense2
 
-		x = 0
-		y = 2
+		x = 1
+		y = 1
 		relative_position_id = VEN_the_airforce
 
 		cost = 5
@@ -21390,8 +21389,8 @@ focus_tree = {
 		id = VEN_armor_mech_cmd
 		icon = army_military_industryy
 
-		x = 34
-		y = 3
+		x = 15
+		y = 1
 		relative_position_id = VEN_national_army
 
 		cost = 5
