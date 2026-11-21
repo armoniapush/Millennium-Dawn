@@ -10,23 +10,32 @@ focus_tree = {
 	}
 
 	# Continuous Focus Position
-	continuous_focus_position = { x = -4800 y = 1400 }
+	continuous_focus_position = { x = 4763 y = -565 }
 
 	shared_focus = BRA_americas_unity
 
+	# Focus Tree Shortcuts (root tree heads & main political sub-branch heads)
+	# Root Tree Heads
+	shortcut = {
+		name = VEN_national_army
+		target = VEN_national_army
+		scroll_wheel_factor = 0.80
+	}
 	shortcut = {
 		name = VEN_reap_the_fruits
 		target = VEN_reap_the_fruits
 		scroll_wheel_factor = 0.80
 	}
 	shortcut = {
-		name = VEN_maduro_2025_mandate
-		target = VEN_maduro_2025_mandate
+		name = VEN_venezuelan_industry
+		target = VEN_venezuelan_industry
 		scroll_wheel_factor = 0.80
 	}
+
+	# Main Political Sub-Branch Heads
 	shortcut = {
-		name = VEN_cartel_question
-		target = VEN_cartel_question
+		name = VEN_our_president
+		target = VEN_our_president
 		scroll_wheel_factor = 0.80
 	}
 	shortcut = {
@@ -40,33 +49,13 @@ focus_tree = {
 		scroll_wheel_factor = 0.80
 	}
 	shortcut = {
-		name = VEN_we_are_in_power
-		target = VEN_we_are_in_power
+		name = VEN_northern_ties
+		target = VEN_northern_ties
 		scroll_wheel_factor = 0.80
 	}
 	shortcut = {
-		name = VEN_closer_ties_with_northern_neighbours
-		target = VEN_closer_ties_with_northern_neighbours
-		scroll_wheel_factor = 0.80
-	}
-	shortcut = {
-		name = VEN_national_army
-		target = VEN_national_army
-		scroll_wheel_factor = 0.80
-	}
-	shortcut = {
-		name = VEN_the_navy
-		target = VEN_the_navy
-		scroll_wheel_factor = 0.80
-	}
-	shortcut = {
-		name = VEN_the_airforce
-		target = VEN_the_airforce
-		scroll_wheel_factor = 0.80
-	}
-	shortcut = {
-		name = VEN_venezuelan_industry
-		target = VEN_venezuelan_industry
+		name = VEN_pdvsa_takeover
+		target = VEN_pdvsa_takeover
 		scroll_wheel_factor = 0.80
 	}
 
@@ -76,7 +65,7 @@ focus_tree = {
 		icon = VEN_flag
 
 		x = 52
-		y = 4
+		y = -1
 
 		cost = 3.7
 
@@ -98,8 +87,8 @@ focus_tree = {
 		id = VEN_venezuelan_industry
 		icon = VEN_collapse
 
-		x = 85
-		y = -7
+		x = 60
+		y = -1
 
 		cost = 5
 
@@ -168,8 +157,8 @@ focus_tree = {
 		id = VEN_regional_infra
 		icon = construction_buldozer
 
-		x = 10
-		y = 1
+		x = 24
+		y = 2
 		relative_position_id = VEN_economic_reforms
 
 		cost = 5
@@ -646,8 +635,8 @@ focus_tree = {
 		id = VEN_diversifying_the_economy
 		icon = goal_JAP_valueup
 
-		x = -3
-		y = 1
+		x = 10
+		y = 2
 		relative_position_id = VEN_economic_reforms
 
 		cost = 10
@@ -679,7 +668,7 @@ focus_tree = {
 		}
 	}
 
-	# Pilar 1: Petroquimica & Energia Limpia
+	# Pillar 1: Petrochemicals & Clean Energy
 	focus = {
 		id = VEN_orinoco_petrochem
 		icon = oil_production
@@ -762,7 +751,7 @@ focus_tree = {
 		}
 	}
 
-	# Pilar 2: Guayana Metalurgia & Tierras Raras
+	# Pillar 2: Guayana Metallurgy & Rare Earths
 	focus = {
 		id = VEN_guayana_metallurgy
 		icon = steel_production
@@ -849,7 +838,7 @@ focus_tree = {
 		}
 	}
 
-	# Pilar 3: Corredores Industriales & Zonas Economicas Especiales
+	# Pillar 3: Industrial Corridors & Special Economic Zones
 	focus = {
 		id = VEN_industrial_corridors
 		icon = infrastructure
@@ -922,7 +911,7 @@ focus_tree = {
 		}
 	}
 
-	# Pilar 4: Agro-Soberania & Turismo del Caribe
+	# Pillar 4: Agro-Sovereignty & Caribbean Tourism
 	focus = {
 		id = VEN_agro_sovereignty
 		icon = agriculture
@@ -992,7 +981,7 @@ focus_tree = {
 		}
 	}
 
-	# Pilar 5: Finanzas Digitales & Hub de Talento Global
+	# Pillar 5: Digital Finance & Global Talent Hub
 	focus = {
 		id = VEN_digital_finance_hub
 		icon = EU_banking_new
@@ -1069,12 +1058,12 @@ focus_tree = {
 		}
 	}
 
-	# Cierre: Fondo Soberano & Emiratos del Caribe
+	# Capstone: Sovereign Wealth Fund & Caribbean Emirates
 	focus = {
 		id = VEN_sovereign_fund
 		icon = aramco_wealth
 
-		x = 0
+		x = 15
 		y = 3
 		relative_position_id = VEN_diversifying_the_economy
 
@@ -1121,7 +1110,7 @@ focus_tree = {
 		id = VEN_orinoco_fusion
 		icon = fusion_science
 
-		x = -4
+		x = -19
 		y = 1
 		relative_position_id = VEN_sovereign_fund
 
@@ -1176,7 +1165,7 @@ focus_tree = {
 		id = VEN_guayana_chips
 		icon = microschip_production
 
-		x = -2
+		x = -17
 		y = 1
 		relative_position_id = VEN_sovereign_fund
 
@@ -1228,7 +1217,7 @@ focus_tree = {
 		id = VEN_sebin_cyber_cmd
 		icon = cyberspace_protection
 
-		x = 0
+		x = -15
 		y = 1
 		relative_position_id = VEN_sovereign_fund
 
@@ -1283,7 +1272,7 @@ focus_tree = {
 		id = VEN_vertical_farming
 		icon = Generic_Digital_Agriculture
 
-		x = 2
+		x = -13
 		y = 1
 		relative_position_id = VEN_sovereign_fund
 
@@ -1335,7 +1324,7 @@ focus_tree = {
 		id = VEN_robotics_ai
 		icon = economic_robots
 
-		x = 4
+		x = -11
 		y = 1
 		relative_position_id = VEN_sovereign_fund
 
@@ -1388,7 +1377,7 @@ focus_tree = {
 		id = VEN_tech_singularity
 		icon = economic_sciencer
 
-		x = 0
+		x = -15
 		y = 2
 		relative_position_id = VEN_sovereign_fund
 
@@ -1439,8 +1428,8 @@ focus_tree = {
 		id = VEN_the_oil_issue
 		icon = VEN_oil
 
-		x = -12
-		y = 1
+		x = 0
+		y = 2
 		relative_position_id = VEN_economic_reforms
 
 		cost = 10
@@ -2056,8 +2045,8 @@ focus_tree = {
 		id = VEN_pdvsa_drilling
 		icon = VEN_pdvsa
 
-		x = 5
-		y = 1
+		x = 18
+		y = 2
 		relative_position_id = VEN_economic_reforms
 
 		cost = 10
@@ -2429,7 +2418,7 @@ focus_tree = {
 		icon = VEN_chavez
 
 		x = 52
-		y = 5
+		y = 14
 
 		cost = 3.7
 
@@ -2437,16 +2426,22 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
-		available = {
-			OR = {
-				has_country_leader = { name = "Hugo Chávez" ruling_only = yes }
-				has_country_leader = { name = "Nicolás Maduro" ruling_only = yes }
-				has_government = communism
-			}
+		bypass = {
+			emerging_anarchist_communism_in_power_or_coalition = no
 		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_our_president"
+			if = {
+				limit = { NOT = { has_variable = VEN_chavez_grip } }
+				set_variable = { VEN_chavez_grip = 65 }
+			}
+			if = {
+				limit = { NOT = { has_variable = VEN_opp_momentum } }
+				set_variable = { VEN_opp_momentum = 30 }
+			}
+			add_to_variable = { VEN_chavez_grip = 5 }
+			VEN_sync_entrenchment_modifier = yes
 			if = {
 				limit = { has_country_leader_with_trait = populist_president }
 				remove_country_leader_trait = populist_president
@@ -2462,10 +2457,232 @@ focus_tree = {
 	}
 
 	focus = {
+		id = VEN_ley_habilitante
+		icon = dangerous_laws
+
+		x = -3
+		y = 1
+		relative_position_id = VEN_our_president
+
+		cost = 3.7
+
+		prerequisite = { focus = VEN_our_president }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { emerging_anarchist_communism_in_power_or_coalition = yes }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_ley_habilitante"
+			add_to_variable = { VEN_chavez_grip = 5 }
+			VEN_sync_entrenchment_modifier = yes
+			if = {
+				limit = { NOT = { has_country_flag = VEN_political_crisis_resolved } }
+				country_event = { id = venezuela.3 days = 1 }
+			}
+		}
+
+		ai_will_do = {
+			base = 20
+			modifier = { factor = 0 VEN_ai_opposition_path = yes }
+		}
+	}
+
+	focus = {
+		id = VEN_pdvsa_intervention_cne
+		icon = oil_red
+
+		x = -3
+		y = 4
+		relative_position_id = VEN_our_president
+
+		cost = 3.7
+
+		prerequisite = { focus = VEN_ley_habilitante }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+
+		available = { emerging_anarchist_communism_in_power_or_coalition = yes }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_pdvsa_intervention_cne"
+			add_political_power = 75
+			add_stability = 0.03
+			add_to_variable = { VEN_chavez_grip = 10 }
+			VEN_sync_entrenchment_modifier = yes
+			if = {
+				limit = { NOT = { has_character = VEN_diosdado_cabello } }
+				recruit_character = VEN_diosdado_cabello
+			}
+			if = {
+				limit = { NOT = { has_character = VEN_ali_rodriguez_araque } }
+				recruit_character = VEN_ali_rodriguez_araque
+			}
+		}
+
+		ai_will_do = {
+			base = 20
+			modifier = { factor = 0 VEN_ai_opposition_path = yes }
+		}
+	}
+
+	focus = {
+		id = VEN_coordinadora_democratica
+		icon = protest_zloi
+
+		x = 31
+		y = 2
+		relative_position_id = VEN_our_president
+
+		cost = 3.7
+
+		prerequisite = { focus = VEN_strengthen_the_opposition }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		bypass = {
+			emerging_anarchist_communism_in_power_or_coalition = no
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_coordinadora_democratica"
+			add_political_power = 50
+			if = {
+				limit = { NOT = { has_character = VEN_pedro_carmona_estanga } }
+				recruit_character = VEN_pedro_carmona_estanga
+			}
+			if = {
+				limit = { NOT = { has_character = VEN_guaicaipuro_lameda } }
+				recruit_character = VEN_guaicaipuro_lameda
+			}
+			set_country_flag = VEN_pdvsa_option_prepared
+			add_to_variable = { VEN_opp_momentum = 8 }
+			subtract_from_variable = { VEN_chavez_grip = 5 }
+			VEN_sync_entrenchment_modifier = yes
+		}
+
+		ai_will_do = {
+			base = 10
+			modifier = { add = 25 VEN_ai_opposition_path = yes }
+			modifier = { factor = 0 VEN_ai_historical_path = yes }
+		}
+	}
+
+	focus = {
+		id = VEN_pdvsa_meritocracy_crisis
+		icon = oil_corpos
+
+		x = 35
+		y = 2
+		relative_position_id = VEN_our_president
+
+		cost = 3.7
+
+		prerequisite = { focus = VEN_strengthen_the_opposition }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		bypass = {
+			emerging_anarchist_communism_in_power_or_coalition = no
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_pdvsa_meritocracy_crisis"
+			set_country_flag = VEN_military_outreach_prepared
+			add_command_power = 25
+			add_to_variable = { VEN_opp_momentum = 8 }
+			VEN_sync_entrenchment_modifier = yes
+			if = {
+				limit = { NOT = { has_country_flag = VEN_political_crisis_resolved } }
+				country_event = { id = venezuela.4 days = 1 }
+			}
+		}
+
+		ai_will_do = {
+			base = 10
+			modifier = { add = 25 VEN_ai_opposition_path = yes }
+			modifier = { factor = 0 VEN_ai_historical_path = yes }
+		}
+	}
+
+	focus = {
+		id = VEN_april_2002_showdown
+		icon = Generic_Coup02
+
+		x = 33
+		y = 3
+		relative_position_id = VEN_our_president
+
+		cost = 5
+
+		prerequisite = { focus = VEN_coordinadora_democratica focus = VEN_pdvsa_meritocracy_crisis }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		bypass = {
+			OR = {
+				emerging_anarchist_communism_in_power_or_coalition = no
+				has_country_flag = VEN_political_crisis_resolved
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_april_2002_showdown"
+			if = {
+				limit = { NOT = { has_country_flag = VEN_political_crisis_resolved } }
+				country_event = { id = venezuela.5 days = 1 }
+			}
+		}
+
+		ai_will_do = {
+			base = 10
+			modifier = { add = 25 VEN_ai_opposition_path = yes }
+		}
+	}
+
+	focus = {
+		id = VEN_paro_petrolero_altamira
+		icon = general_strike
+
+		x = 33
+		y = 4
+		relative_position_id = VEN_our_president
+
+		cost = 5
+
+		prerequisite = { focus = VEN_april_2002_showdown }
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		bypass = {
+			OR = {
+				emerging_anarchist_communism_in_power_or_coalition = no
+				has_country_flag = VEN_political_crisis_resolved
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_paro_petrolero_altamira"
+			subtract_from_variable = { VEN_chavez_grip = 5 }
+			add_to_variable = { VEN_opp_momentum = 8 }
+			VEN_sync_entrenchment_modifier = yes
+			if = {
+				limit = { NOT = { has_country_flag = VEN_political_crisis_resolved } }
+				country_event = { id = venezuela.6 days = 1 }
+			}
+		}
+
+		ai_will_do = {
+			base = 10
+			modifier = { add = 25 VEN_ai_opposition_path = yes }
+		}
+	}
+
+	focus = {
 		id = VEN_plan_bolivar
 		icon = BRA_bolsa_familia
 
-		x = -3
+		x = -28
 		y = 1
 		relative_position_id = VEN_our_president
 
@@ -2474,6 +2691,8 @@ focus_tree = {
 		prerequisite = { focus = VEN_our_president }
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_EXPENDITURE }
+
+		available = { emerging_anarchist_communism_in_power_or_coalition = yes }
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_plan_bolivar"
@@ -2818,23 +3037,47 @@ focus_tree = {
 		id = VEN_rise_of_the_fifth_republic_movement
 		icon = VEN_mvr
 
-		x = 20
-		y = 11
+		x = 24
+		y = 24
 
 		cost = 5
+
+		allow_branch = {
+			NOT = {
+				has_country_flag = VEN_path_democratic_locked
+				has_country_flag = VEN_path_pdvsa_locked
+				has_country_flag = VEN_path_nationalist_locked
+			}
+		}
 
 		prerequisite = {
 			focus = VEN_indoctrinated_army
 			focus = VEN_professional_army
 		}
 		prerequisite = { focus = VEN_Education_For_The_Poor }
+		prerequisite = { focus = VEN_pdvsa_intervention_cne }
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
-		available = { emerging_anarchist_communism_in_power_or_coalition = yes }
+		available = {
+			emerging_anarchist_communism_in_power_or_coalition = yes
+			has_civil_war = no
+			NOT = { has_country_flag = VEN_recall_campaign_active }
+		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_rise_of_the_fifth_republic_movement"
+			set_country_flag = VEN_path_chavismo_locked
+			set_country_flag = VEN_political_crisis_resolved
+			mark_focus_tree_layout_dirty = yes
+			if = {
+				limit = { has_dynamic_modifier = { modifier = VEN_chavista_entrenchment_modifier } }
+				remove_dynamic_modifier = { modifier = VEN_chavista_entrenchment_modifier }
+			}
+			if = {
+				limit = { has_dynamic_modifier = { modifier = VEN_chavista_grip_modifier } }
+				remove_dynamic_modifier = { modifier = VEN_chavista_grip_modifier }
+			}
 			set_temp_variable = { party_index = 5 }
 			set_temp_variable = { party_popularity_increase = 0.06 }
 			set_temp_variable = { temp_outlook_increase = 0.06 }
@@ -2874,8 +3117,8 @@ focus_tree = {
 		id = VEN_bolivarianism
 		icon = VEN_chavez
 
-		x = -11
-		y = 1
+		x = -12
+		y = 2
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -2907,8 +3150,8 @@ focus_tree = {
 		id = VEN_alo_presidente
 		icon = Socialist_Radio
 
-		x = -12
-		y = 2
+		x = -14
+		y = 3
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -2949,7 +3192,7 @@ focus_tree = {
 		icon = VEN_pres_powers
 
 		x = -10
-		y = 2
+		y = 3
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -2978,8 +3221,8 @@ focus_tree = {
 		id = VEN_press_censorship
 		icon = generic_controlled_press
 
-		x = -13
-		y = 3
+		x = -17
+		y = 4
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -3008,8 +3251,8 @@ focus_tree = {
 		id = VEN_friendly_cabinet
 		icon = centralization
 
-		x = -11
-		y = 3
+		x = -12
+		y = 4
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -3040,12 +3283,621 @@ focus_tree = {
 		}
 	}
 
+	#############################################
+	# Chavista Cartel & Asymmetric Proxy Branch #
+	#############################################
+	focus = {
+		id = VEN_expel_the_dea
+		icon = usa_attacked
+
+		x = -12
+		y = 6
+		relative_position_id = VEN_rise_of_the_fifth_republic_movement
+
+		cost = 3
+
+		allow_branch = {
+			NOT = {
+				has_country_flag = VEN_path_democratic_locked
+				has_country_flag = VEN_path_pdvsa_locked
+				has_country_flag = VEN_path_nationalist_locked
+			}
+		}
+
+		prerequisite = { focus = VEN_friendly_cabinet }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_INSURGENCY }
+
+		available = {
+			emerging_anarchist_communism_in_power_or_coalition = yes
+			NOT = { has_completed_focus = VEN_fight_the_cartels }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_expel_the_dea"
+			add_political_power = 75
+			add_to_variable = { VEN_chavez_grip = 5 }
+			VEN_sync_entrenchment_modifier = yes
+			set_temp_variable = { temp_opinion = 5 }
+			change_the_military_opinion = yes
+			set_temp_variable = { cart_strength_change = 8 }
+			set_temp_variable = { cart_influence_change = 5 }
+			modify_cartel_variables_effect = yes
+			USA = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = hostile_status
+				}
+			}
+			unlock_decision_category_tooltip = VEN_cartel_operations_category
+		}
+
+		ai_will_do = {
+			base = 1
+			modifier = { factor = 10 VEN_ai_chavista_path = yes }
+			modifier = { factor = 0 VEN_ai_not_chavista_path = yes }
+		}
+	}
+
+	focus = {
+		id = VEN_border_radar_blackout
+		icon = smuggle_truck
+
+		x = -13
+		y = 7
+		relative_position_id = VEN_rise_of_the_fifth_republic_movement
+
+		cost = 3
+
+		prerequisite = { focus = VEN_expel_the_dea }
+		search_filters = { FOCUS_FILTER_INSURGENCY FOCUS_FILTER_ECONOMY }
+
+		available = { emerging_anarchist_communism_in_power_or_coalition = yes }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_border_radar_blackout"
+			air_experience = 25
+			set_temp_variable = { treasury_change = 1.5 }
+			modify_treasury_effect = yes
+			set_temp_variable = { cart_strength_change = 6 }
+			modify_cartel_variables_effect = yes
+			set_temp_variable = { temp_opinion = -3 }
+			change_communist_cadres_opinion = yes
+		}
+
+		ai_will_do = { base = 1 }
+	}
+
+	focus = {
+		id = VEN_guerrilla_border_sanctuary
+		icon = MEX_Support_the_cartels
+
+		x = -11
+		y = 7
+		relative_position_id = VEN_rise_of_the_fifth_republic_movement
+
+		cost = 3
+
+		prerequisite = { focus = VEN_expel_the_dea }
+		search_filters = { FOCUS_FILTER_INSURGENCY }
+
+		available = { emerging_anarchist_communism_in_power_or_coalition = yes }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_guerrilla_border_sanctuary"
+			set_temp_variable = { cart_strength_change = 5 }
+			set_temp_variable = { cart_influence_change = 5 }
+			modify_cartel_variables_effect = yes
+			if = {
+				limit = { has_idea = VEN_FARC_active }
+				swap_ideas = {
+					remove_idea = VEN_FARC_active
+					add_idea = VEN_FARC_narco_corridor
+				}
+			}
+			else_if = {
+				limit = { has_idea = VEN_FARC_weak }
+				swap_ideas = {
+					remove_idea = VEN_FARC_weak
+					add_idea = VEN_FARC_narco_corridor
+				}
+			}
+			else_if = {
+				limit = { has_idea = VEN_FARC_weakened }
+				swap_ideas = {
+					remove_idea = VEN_FARC_weakened
+					add_idea = VEN_FARC_narco_corridor
+				}
+			}
+			else_if = {
+				limit = { NOT = { has_idea = VEN_FARC_narco_corridor } }
+				add_ideas = VEN_FARC_narco_corridor
+			}
+			COL = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = hostile_status
+				}
+				set_temp_variable = { party_index = 4 }
+				set_temp_variable = { party_popularity_increase = 0.15 }
+				set_temp_variable = { temp_outlook_increase = 0.15 }
+				change_relative_party_popularity = yes
+			}
+		}
+
+		ai_will_do = { base = 1 }
+	}
+
+	focus = {
+		id = VEN_militarize_bolipuertos
+		icon = oil_trade
+
+		x = -13
+		y = 8
+		relative_position_id = VEN_rise_of_the_fifth_republic_movement
+
+		cost = 4
+
+		prerequisite = { focus = VEN_border_radar_blackout }
+		search_filters = { FOCUS_FILTER_CORRUPTION FOCUS_FILTER_MILITARY }
+
+		available = { emerging_anarchist_communism_in_power_or_coalition = yes }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_militarize_bolipuertos"
+			add_to_variable = { VEN_chavez_grip = 3 }
+			VEN_sync_entrenchment_modifier = yes
+			set_temp_variable = { temp_opinion = 5 }
+			change_the_military_opinion = yes
+			set_temp_variable = { cart_influence_change = 5 }
+			modify_cartel_variables_effect = yes
+			if = {
+				limit = { 875 = { is_owned_and_controlled_by = ROOT } }
+				875 = {
+					add_building_construction = {
+						type = naval_base
+						level = 2
+						province = 8113
+						instant_build = yes
+					}
+				}
+			}
+		}
+
+		ai_will_do = { base = 1 }
+	}
+
+	focus = {
+		id = VEN_orinoco_mining_arc
+		icon = geo_goldmine
+
+		x = -11
+		y = 8
+		relative_position_id = VEN_rise_of_the_fifth_republic_movement
+
+		cost = 4
+
+		prerequisite = { focus = VEN_guerrilla_border_sanctuary }
+		search_filters = { FOCUS_FILTER_RESOURCE FOCUS_FILTER_ECONOMY }
+
+		available = { emerging_anarchist_communism_in_power_or_coalition = yes }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_orinoco_mining_arc"
+			if = {
+				limit = { 876 = { is_owned_and_controlled_by = ROOT } }
+				add_resource = { type = steel amount = 10 state = 876 }
+				add_resource = { type = tungsten amount = 6 state = 876 }
+			}
+			if = {
+				limit = { 917 = { is_owned_and_controlled_by = ROOT } }
+				add_resource = { type = tungsten amount = 6 state = 917 }
+			}
+			set_temp_variable = { treasury_change = 3.0 }
+			modify_treasury_effect = yes
+			increase_corruption = yes
+			set_temp_variable = { cart_strength_change = 8 }
+			modify_cartel_variables_effect = yes
+			country_event = { id = venezuela.253 days = 5 }
+		}
+
+		ai_will_do = { base = 1 }
+	}
+
+	focus = {
+		id = VEN_bolibourgeoisie_front_companies
+		icon = money_laundering
+
+		x = -12
+		y = 9
+		relative_position_id = VEN_rise_of_the_fifth_republic_movement
+
+		cost = 4
+
+		prerequisite = { focus = VEN_militarize_bolipuertos }
+		prerequisite = { focus = VEN_orinoco_mining_arc }
+		search_filters = { FOCUS_FILTER_ECONOMY FOCUS_FILTER_CORRUPTION }
+
+		available = { emerging_anarchist_communism_in_power_or_coalition = yes }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_bolibourgeoisie_front_companies"
+			add_ideas = VEN_crypto_laundering_idea
+			set_temp_variable = { cart_influence_change = 8 }
+			modify_cartel_variables_effect = yes
+			set_temp_variable = { party_index = 15 }
+			set_temp_variable = { party_popularity_increase = 0.10 }
+			set_temp_variable = { temp_outlook_increase = 0.10 }
+			change_relative_party_popularity = yes
+			country_event = { id = venezuela.254 days = 10 }
+		}
+
+		ai_will_do = { base = 1 }
+	}
+
+	focus = {
+		id = VEN_state_barracks_symbiosis
+		icon = deal_with_mafia
+
+		x = -13
+		y = 10
+		relative_position_id = VEN_rise_of_the_fifth_republic_movement
+
+		cost = 5
+
+		prerequisite = { focus = VEN_bolibourgeoisie_front_companies }
+		mutually_exclusive = { focus = VEN_suns_hegemony_chavez }
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_ECONOMY }
+
+		available = { emerging_anarchist_communism_in_power_or_coalition = yes }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_state_barracks_symbiosis"
+			add_to_variable = { VEN_chavez_grip = 10 }
+			VEN_sync_entrenchment_modifier = yes
+			hidden_effect = {
+				set_country_flag = CARTEL_narco_wars_triggered
+				if = {
+					limit = { check_variable = { strength_of_cartels < 55 } }
+					set_variable = { strength_of_cartels = 55 }
+				}
+				VEN_sync_cartel_symbiosis_effect = yes
+				ingame_update_setup = yes
+			}
+			custom_effect_tooltip = VEN_symbiosis_established_tt
+		}
+
+		ai_will_do = { base = 1 }
+	}
+
+	focus = {
+		id = VEN_asymmetric_proxy_warfare
+		icon = MEX_Support_the_carteles_unidos
+
+		x = -13
+		y = 11
+		relative_position_id = VEN_rise_of_the_fifth_republic_movement
+
+		cost = 5
+
+		prerequisite = { focus = VEN_state_barracks_symbiosis }
+		search_filters = { FOCUS_FILTER_MILITARY FOCUS_FILTER_INSURGENCY }
+
+		available = { emerging_anarchist_communism_in_power_or_coalition = yes }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_asymmetric_proxy_warfare"
+			army_experience = 25
+			add_war_support = 0.05
+			if = {
+				limit = { country_exists = COL }
+				set_temp_variable = { percent_change = 5 }
+				set_temp_variable = { influence_target = COL }
+				change_influence_percentage = yes
+			}
+			if = {
+				limit = { country_exists = GUY }
+				set_temp_variable = { percent_change = 5 }
+				set_temp_variable = { influence_target = GUY }
+				change_influence_percentage = yes
+			}
+			custom_effect_tooltip = VEN_proxy_decisions_unlocked_tt
+		}
+
+		ai_will_do = { base = 1 }
+	}
+
+	focus = {
+		id = VEN_suns_hegemony_chavez
+		icon = legalize_it
+
+		x = -11
+		y = 10
+		relative_position_id = VEN_rise_of_the_fifth_republic_movement
+
+		cost = 5
+
+		prerequisite = { focus = VEN_bolibourgeoisie_front_companies }
+		mutually_exclusive = { focus = VEN_state_barracks_symbiosis }
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = {
+			custom_trigger_tooltip = {
+				check_variable = { cartel_political_influence > 39 }
+				tooltip = VEN_cartel_influence_40_tt
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_suns_hegemony_chavez"
+			custom_effect_tooltip = VEN_suns_seize_power
+			country_event = { id = venezuela.250 }
+		}
+
+		ai_will_do = { base = 0 }
+	}
+
+	focus = {
+		id = VEN_atlantic_narco_empire
+		icon = legalize_all_drugs
+
+		x = -11
+		y = 11
+		relative_position_id = VEN_rise_of_the_fifth_republic_movement
+
+		cost = 5
+
+		prerequisite = { focus = VEN_suns_hegemony_chavez }
+		search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_MILITARY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_atlantic_narco_empire"
+			add_war_support = 0.08
+			if = {
+				limit = { country_exists = COL }
+				set_temp_variable = { percent_change = 5 }
+				set_temp_variable = { influence_target = COL }
+				change_influence_percentage = yes
+			}
+			if = {
+				limit = { country_exists = GUY }
+				set_temp_variable = { percent_change = 5 }
+				set_temp_variable = { influence_target = GUY }
+				change_influence_percentage = yes
+			}
+			if = {
+				limit = { country_exists = BRA }
+				set_temp_variable = { percent_change = 5 }
+				set_temp_variable = { influence_target = BRA }
+				change_influence_percentage = yes
+			}
+			if = {
+				limit = { country_exists = GNB }
+				set_temp_variable = { percent_change = 8 }
+				set_temp_variable = { influence_target = GNB }
+				change_influence_percentage = yes
+			}
+			custom_effect_tooltip = VEN_proxy_decisions_unlocked_tt
+		}
+
+		ai_will_do = { base = 0 }
+	}
+
+	focus = {
+		id = VEN_chavista_coup_in_colombia
+		icon = wolfinsheepsskin
+
+		x = -13
+		y = 12
+		relative_position_id = VEN_rise_of_the_fifth_republic_movement
+
+		cost = 5
+
+		prerequisite = {
+			focus = VEN_asymmetric_proxy_warfare
+			focus = VEN_atlantic_narco_empire
+		}
+
+		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		available = { COL = { influence_higher_40 = yes } }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_chavista_coup_in_colombia"
+			puppet = COL
+			COL = {
+				clr_country_flag = dynamic_flag
+				set_cosmetic_tag = COL_farc_tag
+				set_temp_variable = { party_index = 4 }
+				set_temp_variable = { party_popularity_increase = 0.45 }
+				set_temp_variable = { temp_outlook_increase = 0.45 }
+				change_relative_party_popularity = yes
+				hidden_effect = {
+					set_temp_variable = { rul_party_temp = 4 }
+					set_temp_variable = { disable_elections = 1 }
+					change_ruling_party_effect = yes
+				}
+				start_civil_war = {
+					ideology = nationalist
+					keep_political_leader = yes
+					keep_political_party_members = yes
+					size = 0.25
+				}
+			}
+		}
+
+		ai_will_do = { base = 0 }
+	}
+
+	focus = {
+		id = VEN_chavista_suns_militias
+		icon = police_funding_bonus
+
+		x = -11
+		y = 12
+		relative_position_id = VEN_rise_of_the_fifth_republic_movement
+
+		cost = 5
+
+		prerequisite = {
+			focus = VEN_asymmetric_proxy_warfare
+			focus = VEN_atlantic_narco_empire
+		}
+
+		search_filters = { FOCUS_FILTER_MILITARY FOCUS_FILTER_CORRUPTION }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_chavista_suns_militias"
+			division_template = {
+				name = "Cartel Militia"
+				regiments = {
+					Mot_Militia_Bat = { x = 0 y = 0 }
+					Mot_Militia_Bat = { x = 0 y = 1 }
+
+					Mot_Militia_Bat = { x = 1 y = 0 }
+					Mot_Militia_Bat = { x = 1 y = 1 }
+
+					Mech_Inf_Bat = { x = 2 y = 0 }
+					Mech_Inf_Bat = { x = 2 y = 1 }
+
+					L_Inf_Bat = { x = 3 y = 0 }
+				}
+				regimental_support = {
+					armor_Comp = { x = 2 y = 0 }
+
+					Arty_Battery = { x = 3 y = 0 }
+				}
+			}
+			capital_scope = {
+				create_unit = {
+					division = "name = \"1st. Militia of the 'Suns'\" division_template = \"Cartel Militia\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+					owner = ROOT
+					count = 1
+				}
+				create_unit = {
+					division = "name = \"2nd. Militia of the 'Suns'\" division_template = \"Cartel Militia\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+					owner = ROOT
+					count = 1
+				}
+				create_unit = {
+					division = "name = \"3rd. Militia of the 'Suns'\" division_template = \"Cartel Militia\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+					owner = ROOT
+					count = 1
+				}
+				create_unit = {
+					division = "name = \"4th. Militia of the 'Suns'\" division_template = \"Cartel Militia\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+					owner = ROOT
+					count = 1
+				}
+				create_unit = {
+					division = "name = \"5th. Militia of the 'Suns'\" division_template = \"Cartel Militia\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
+					owner = ROOT
+					count = 1
+				}
+			}
+		}
+
+		ai_will_do = { base = 0 }
+	}
+
+	focus = {
+		id = VEN_chavista_expand_cartel_empire
+		icon = legalize_all_drugs
+
+		x = -12
+		y = 13
+		relative_position_id = VEN_rise_of_the_fifth_republic_movement
+
+		cost = 5
+
+		prerequisite = { focus = VEN_chavista_coup_in_colombia }
+		prerequisite = { focus = VEN_chavista_suns_militias }
+		will_lead_to_war_with = GUY
+		will_lead_to_war_with = SUR
+		will_lead_to_war_with = BRA
+		will_lead_to_war_with = BOL
+
+		search_filters = { FOCUS_FILTER_ANNEXATION }
+
+		bypass = {
+			OR = {
+				NOT = { country_exists = GUY }
+				is_in_faction_with = GUY
+				GUY = { is_subject_of = ROOT }
+			}
+			OR = {
+				NOT = { country_exists = SUR }
+				is_in_faction_with = SUR
+				SUR = { is_subject_of = ROOT }
+			}
+			OR = {
+				NOT = { country_exists = BRA }
+				is_in_faction_with = BRA
+				BRA = { is_subject_of = ROOT }
+			}
+			OR = {
+				NOT = { country_exists = BOL }
+				is_in_faction_with = BOL
+				BOL = { is_subject_of = ROOT }
+			}
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_chavista_expand_cartel_empire"
+			if = {
+				limit = {
+					country_exists = GUY
+					NOT = { is_in_faction_with = GUY }
+					NOT = { GUY = { is_subject_of = ROOT } }
+				}
+				set_temp_variable = { wargoal_on = GUY }
+				set_temp_variable = { wargoal_type = 2 }
+				add_threat_from_wargoal_effect = yes
+				create_wargoal = { type = annex_everything target = GUY }
+			}
+			if = {
+				limit = {
+					country_exists = SUR
+					NOT = { is_in_faction_with = SUR }
+					NOT = { SUR = { is_subject_of = ROOT } }
+				}
+				set_temp_variable = { wargoal_on = SUR }
+				set_temp_variable = { wargoal_type = 2 }
+				add_threat_from_wargoal_effect = yes
+				create_wargoal = { type = annex_everything target = SUR }
+			}
+			if = {
+				limit = {
+					country_exists = BRA
+					NOT = { is_in_faction_with = BRA }
+					NOT = { BRA = { is_subject_of = ROOT } }
+				}
+				set_temp_variable = { wargoal_on = BRA }
+				set_temp_variable = { wargoal_type = 2 }
+				add_threat_from_wargoal_effect = yes
+				create_wargoal = { type = annex_everything target = BRA }
+			}
+			if = {
+				limit = {
+					country_exists = BOL
+					NOT = { is_in_faction_with = BOL }
+					NOT = { BOL = { is_subject_of = ROOT } }
+				}
+				set_temp_variable = { wargoal_on = BOL }
+				set_temp_variable = { wargoal_type = 2 }
+				add_threat_from_wargoal_effect = yes
+				create_wargoal = { type = annex_everything target = BOL }
+			}
+		}
+
+		ai_will_do = { base = 0 }
+	}
+
 	focus = {
 		id = VEN_pdvsa
 		icon = VEN_pdvsa
 
-		x = -9
-		y = 3
+		x = -7
+		y = 4
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -3075,8 +3927,8 @@ focus_tree = {
 		id = VEN_telesur
 		icon = MEX_Propagandistic_media
 
-		x = -13
-		y = 4
+		x = -17
+		y = 5
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -3107,8 +3959,8 @@ focus_tree = {
 		id = VEN_deals_with_china
 		icon = align_to_china
 
-		x = -10
-		y = 4
+		x = -8
+		y = 5
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -3151,8 +4003,8 @@ focus_tree = {
 		id = VEN_deals_with_russia
 		icon = align_to_russia
 
-		x = -8
-		y = 4
+		x = -6
+		y = 5
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -3202,8 +4054,8 @@ focus_tree = {
 		id = VEN_brics_accession
 		icon = GFX_brics
 
-		x = -10
-		y = 5
+		x = -8
+		y = 6
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -3233,8 +4085,8 @@ focus_tree = {
 		id = VEN_moscow_security_pact
 		icon = aplly_to_join_csto
 
-		x = -8
-		y = 5
+		x = -6
+		y = 6
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -3276,8 +4128,8 @@ focus_tree = {
 		id = VEN_caracas_beijing_moscow_axis
 		icon = focus_generic_communist_industry
 
-		x = -9
-		y = 6
+		x = -7
+		y = 7
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -3311,8 +4163,8 @@ focus_tree = {
 		id = VEN_work_on_gran_colombia_unification
 		icon = VEN_flag
 
-		x = -13
-		y = 5
+		x = -17
+		y = 6
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -3341,8 +4193,8 @@ focus_tree = {
 		id = VEN_military_union
 		icon = VEN_army
 
-		x = -14
-		y = 6
+		x = -18
+		y = 7
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -3373,8 +4225,8 @@ focus_tree = {
 		id = VEN_diplomatic_union
 		icon = diplomacy
 
-		x = -12
-		y = 6
+		x = -16
+		y = 7
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -3404,8 +4256,8 @@ focus_tree = {
 		id = VEN_go_after_colombia
 		icon = aggressive_diplomacy
 
-		x = -14
-		y = 7
+		x = -18
+		y = 8
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -3446,8 +4298,8 @@ focus_tree = {
 		id = VEN_gran_colombia_alliance
 		icon = VEN_flag
 
-		x = -12
-		y = 7
+		x = -16
+		y = 8
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -3481,8 +4333,8 @@ focus_tree = {
 		id = VEN_go_after_ecuador_and_panama
 		icon = VEN_andean_shield
 
-		x = -14
-		y = 8
+		x = -18
+		y = 9
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -3522,8 +4374,8 @@ focus_tree = {
 		id = VEN_expand_the_alliance
 		icon = major_alliance
 
-		x = -12
-		y = 8
+		x = -16
+		y = 9
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -3555,8 +4407,8 @@ focus_tree = {
 		id = VEN_follow_guevara_example
 		icon = blr_new_red_army
 
-		x = -3
-		y = 1
+		x = 0
+		y = 2
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -3590,8 +4442,8 @@ focus_tree = {
 		id = VEN_follow_lenin_example
 		icon = align_to_soviet_union
 
-		x = 3
-		y = 1
+		x = 6
+		y = 2
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -3612,6 +4464,10 @@ focus_tree = {
 			increase_centralization = yes
 			add_to_variable = { VEN_5th_cg = 0.05 }
 			add_to_variable = { VEN_5th_civ_speed = 0.10 }
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+			}
 			custom_effect_tooltip = VEN_5th_lenin_tt
 		}
 
@@ -3627,8 +4483,8 @@ focus_tree = {
 		id = VEN_arm_the_proletariat
 		icon = VEN_militia
 
-		x = -4
-		y = 2
+		x = -1
+		y = 3
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -3657,8 +4513,8 @@ focus_tree = {
 		id = VEN_communist_militias
 		icon = Generic_Crouched_Soldier
 
-		x = -2
-		y = 2
+		x = 1
+		y = 3
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -3689,8 +4545,8 @@ focus_tree = {
 		id = VEN_the_military_communes
 		icon = army_mobilisation
 
-		x = -5
-		y = 3
+		x = -2
+		y = 4
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -3722,8 +4578,8 @@ focus_tree = {
 		id = VEN_the_motto_of_self_sacrifice
 		icon = army_marching
 
-		x = -3
-		y = 3
+		x = 0
+		y = 4
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -3750,8 +4606,8 @@ focus_tree = {
 		id = VEN_equality_in_the_eyes_of_state
 		icon = focus_generic_full_social_mobilization
 
-		x = -1
-		y = 3
+		x = 2
+		y = 4
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -3785,8 +4641,8 @@ focus_tree = {
 		id = VEN_proletarian_internationalism
 		icon = Generic_Communist_Propaganda02
 
-		x = -4
-		y = 4
+		x = -1
+		y = 5
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -3821,8 +4677,8 @@ focus_tree = {
 		id = VEN_the_propaganda
 		icon = Focus_Socialist_Propaganda
 
-		x = -2
-		y = 4
+		x = 1
+		y = 5
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -3854,8 +4710,8 @@ focus_tree = {
 		id = VEN_red_rising
 		icon = great_red_menace
 
-		x = -3
-		y = 5
+		x = 0
+		y = 6
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -3883,8 +4739,8 @@ focus_tree = {
 		id = VEN_assist_our_brothers
 		icon = alliance_with_cuba
 
-		x = -5
-		y = 6
+		x = -2
+		y = 7
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -3921,8 +4777,8 @@ focus_tree = {
 		id = VEN_the_quito_revolution
 		icon = attack_venezuela
 
-		x = -3
-		y = 6
+		x = 0
+		y = 7
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -3955,8 +4811,8 @@ focus_tree = {
 		id = VEN_the_eastern_revolutions
 		icon = VEN_esequibo_war
 
-		x = -1
-		y = 6
+		x = 2
+		y = 7
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -3999,8 +4855,8 @@ focus_tree = {
 		id = VEN_the_world_revolution
 		icon = burning_globe
 
-		x = -3
-		y = 7
+		x = 0
+		y = 8
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4033,8 +4889,8 @@ focus_tree = {
 		id = VEN_the_lima_insurrection
 		icon = armoured_fist
 
-		x = -5
-		y = 8
+		x = -2
+		y = 9
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4065,8 +4921,8 @@ focus_tree = {
 		id = VEN_our_cult
 		icon = VEN_chavez_rose
 
-		x = -3
-		y = 8
+		x = 0
+		y = 9
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -4092,8 +4948,8 @@ focus_tree = {
 		id = VEN_reclaim_the_home_of_bolivar
 		icon = VEN_flag
 
-		x = -1
-		y = 8
+		x = 2
+		y = 9
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4127,8 +4983,8 @@ focus_tree = {
 		id = VEN_venezuelan_dawn
 		icon = NKO_red_star_os
 
-		x = -3
-		y = 9
+		x = 0
+		y = 10
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4156,8 +5012,8 @@ focus_tree = {
 		id = VEN_the_santiago_assault
 		icon = army_mobilisation1
 
-		x = -4
-		y = 10
+		x = -1
+		y = 11
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4190,8 +5046,8 @@ focus_tree = {
 		id = VEN_brasilia_will_burn
 		icon = war_against_the_soviet_union
 
-		x = -2
-		y = 10
+		x = 1
+		y = 11
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4224,8 +5080,8 @@ focus_tree = {
 		id = VEN_strike_the_heart
 		icon = army_reform
 
-		x = -3
-		y = 11
+		x = 0
+		y = 12
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4260,8 +5116,8 @@ focus_tree = {
 		id = VEN_settle_the_republic
 		icon = VEN_preserve
 
-		x = 3
-		y = 2
+		x = 6
+		y = 3
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -4288,8 +5144,8 @@ focus_tree = {
 		id = VEN_separation_of_church_and_state
 		icon = communist_repression
 
-		x = 2
-		y = 3
+		x = 5
+		y = 4
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -4319,8 +5175,8 @@ focus_tree = {
 		id = VEN_the_new_economic_model
 		icon = central_planned_economy
 
-		x = 4
-		y = 3
+		x = 7
+		y = 4
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4354,8 +5210,8 @@ focus_tree = {
 		id = VEN_socialism_with_venezuelan_characteristics
 		icon = Generic_Socialist_Propaganda
 
-		x = 2
-		y = 4
+		x = 5
+		y = 5
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -4385,8 +5241,8 @@ focus_tree = {
 		id = VEN_denounce_south_american_capitalism
 		icon = anti_fascist_diplomacy
 
-		x = 4
-		y = 4
+		x = 7
+		y = 5
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -4418,8 +5274,8 @@ focus_tree = {
 		id = VEN_the_agrarian_communes
 		icon = farms_red_barn
 
-		x = 3
-		y = 5
+		x = 6
+		y = 6
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4450,8 +5306,8 @@ focus_tree = {
 		id = VEN_economic_restructuring
 		icon = central_planned_economy2
 
-		x = 3
-		y = 6
+		x = 6
+		y = 7
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4478,8 +5334,8 @@ focus_tree = {
 		id = VEN_venezuelan_communism
 		icon = central_planned_economy3
 
-		x = 3
-		y = 7
+		x = 6
+		y = 8
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4495,6 +5351,10 @@ focus_tree = {
 			two_random_dockyards = yes
 			add_ideas = VEN_the_people
 			increase_centralization = yes
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+			}
 		}
 
 		ai_will_do = {
@@ -4511,8 +5371,8 @@ focus_tree = {
 		id = VEN_bolivarian_missions
 		icon = focus_generic_workers_and_farmers_rise
 
-		x = 9
-		y = 1
+		x = 12
+		y = 2
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -4549,8 +5409,8 @@ focus_tree = {
 		id = VEN_welfare_state
 		icon = generic_healthcare
 
-		x = 8
-		y = 2
+		x = 11
+		y = 3
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -4582,8 +5442,8 @@ focus_tree = {
 		id = VEN_land_development
 		icon = agriculture
 
-		x = 10
-		y = 2
+		x = 13
+		y = 3
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -4614,8 +5474,8 @@ focus_tree = {
 		id = VEN_mission_mercal
 		icon = focus_generic_agricultural_subsidies
 
-		x = 7
-		y = 3
+		x = 10
+		y = 4
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -4651,8 +5511,8 @@ focus_tree = {
 		id = VEN_mission_robinson
 		icon = research
 
-		x = 9
-		y = 3
+		x = 12
+		y = 4
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -4683,8 +5543,8 @@ focus_tree = {
 		id = VEN_mission_corazon_adentro
 		icon = generic_hospital
 
-		x = 11
-		y = 3
+		x = 14
+		y = 4
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -4714,8 +5574,8 @@ focus_tree = {
 		id = VEN_mission_habitat
 		icon = BRA_public_housing_programs
 
-		x = 7
-		y = 4
+		x = 10
+		y = 5
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -4747,8 +5607,8 @@ focus_tree = {
 		id = VEN_mission_ciencia
 		icon = research2
 
-		x = 9
-		y = 4
+		x = 12
+		y = 5
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4784,8 +5644,8 @@ focus_tree = {
 		id = VEN_mission_florentino
 		icon = communist_propaganda
 
-		x = 11
-		y = 4
+		x = 14
+		y = 5
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 5
@@ -4814,8 +5674,8 @@ focus_tree = {
 		id = VEN_mission_vuelvan_caras
 		icon = focus_generic_communist_industry
 
-		x = 9
-		y = 5
+		x = 12
+		y = 6
 		relative_position_id = VEN_rise_of_the_fifth_republic_movement
 
 		cost = 7
@@ -4842,6 +5702,7 @@ focus_tree = {
 			modifier = { factor = 0 VEN_ai_not_chavista_path = yes }
 		}
 	}
+
 	##################
 	# Opposition Tree #
 	##################
@@ -4849,26 +5710,37 @@ focus_tree = {
 		id = VEN_strengthen_the_opposition
 		icon = BRA_decentralization
 
-		x = 14
-		y = 6
-		relative_position_id = VEN_reap_the_fruits
+		x = 33
+		y = 1
+		relative_position_id = VEN_our_president
 
 		cost = 5
 
-		prerequisite = {
-			focus = VEN_indoctrinated_army
-			focus = VEN_professional_army
-		}
+		prerequisite = { focus = VEN_our_president }
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
+
+		bypass = {
+			emerging_anarchist_communism_in_power_or_coalition = no
+		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_strengthen_the_opposition"
 			add_timed_idea = { idea = VEN_opposition_strengthened days = 365 }
 			if = {
-				limit = { NOT = { has_country_flag = VEN_2004_recall_referendum_engaged } }
-				country_event = venezuela.101
+				limit = { NOT = { has_character = VEN_enrique_mendoza } }
+				recruit_character = VEN_enrique_mendoza
 			}
+			if = {
+				limit = { NOT = { has_character = VEN_carlos_ortega } }
+				recruit_character = VEN_carlos_ortega
+			}
+			if = {
+				limit = { NOT = { has_character = VEN_maria_corina_machado } }
+				recruit_character = VEN_maria_corina_machado
+			}
+			add_to_variable = { VEN_opp_momentum = 6 }
+			VEN_sync_entrenchment_modifier = yes
 		}
 
 		ai_will_do = {
@@ -4882,37 +5754,37 @@ focus_tree = {
 		id = VEN_we_are_in_power
 		icon = democracy2
 
-		x = 17
-		y = 6
+		x = 33
+		y = 21
 		relative_position_id = VEN_reap_the_fruits
 
 		cost = 5
 
-		prerequisite = {
-			focus = VEN_indoctrinated_army
-			focus = VEN_professional_army
+		allow_branch = {
+			NOT = { has_country_flag = VEN_path_chavismo_locked }
 		}
+
+		prerequisite = { focus = VEN_paro_petrolero_altamira }
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
-		available = { emerging_anarchist_communism_in_power_or_coalition = no }
+		available = {
+			emerging_anarchist_communism_in_power_or_coalition = no
+			has_civil_war = no
+		}
+
+		bypass = {
+			has_country_flag = VEN_political_crisis_resolved
+			emerging_anarchist_communism_in_power_or_coalition = no
+			has_civil_war = no
+		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_we_are_in_power"
 			add_political_power = 150
-			hidden_effect = {
-				remove_ideas = VEN_plan_bolivar_5
-				remove_ideas = VEN_plan_bolivar_4
-				remove_ideas = VEN_plan_bolivar_3
-				remove_ideas = VEN_plan_bolivar_2
-				remove_ideas = VEN_plan_bolivar_1
-			}
-			if = {
-				limit = {
-					has_completed_focus = VEN_state_companies_economy
-				}
-				remove_ideas = bolivarian_economy
-			}
+			VEN_clear_chavismo_ideas = yes
+			set_country_flag = VEN_political_crisis_resolved
+			mark_focus_tree_layout_dirty = yes
 			custom_effect_tooltip = VEN_removal_of_plan_bolivar_TT
 		}
 
@@ -4929,16 +5801,25 @@ focus_tree = {
 		id = VEN_venezuelian_unity
 		icon = VEN_unity
 
-		x = -8
-		y = 8
+		x = 3
+		y = 25
 		relative_position_id = VEN_reap_the_fruits
 
 		cost = 5
+
+		allow_branch = {
+			NOT = {
+				has_country_flag = VEN_path_chavismo_locked
+				has_country_flag = VEN_path_democratic_locked
+				has_country_flag = VEN_path_pdvsa_locked
+			}
+		}
 
 		prerequisite = { focus = VEN_we_are_in_power }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		available = {
+			has_civil_war = no
 			OR = {
 				nationalist_right_wing_populists_are_in_power_or_coalition = yes
 				nationalist_fascists_are_in_power_or_coalition = yes
@@ -4949,6 +5830,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_venezuelian_unity"
+			set_country_flag = VEN_path_nationalist_locked
+			mark_focus_tree_layout_dirty = yes
 			add_political_power = 120
 			add_war_support = 0.05
 			if = {
@@ -5877,7 +6760,7 @@ focus_tree = {
 		id = VEN_conservative_authoritarism
 		icon = VEN_cons_auth
 
-		x = -8
+		x = -6
 		y = 12
 		relative_position_id = VEN_venezuelian_unity
 
@@ -5904,6 +6787,11 @@ focus_tree = {
 			add_popularity = {
 				ideology = democratic
 				popularity = 0.10
+			}
+			recalculate_party = yes
+			set_politics = {
+				ruling_party = nationalist
+				elections_allowed = no
 			}
 			if = {
 				limit = { has_idea = labour_unions }
@@ -6018,7 +6906,7 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_ally_the_us"
 			if = {
 				limit = { is_in_faction = yes }
-				dismantle_faction = yes
+				leave_faction = yes
 			}
 			NATO_major_non_nato_ally_join = yes
 			set_temp_variable = { percent_change = 2 }
@@ -6326,6 +7214,17 @@ focus_tree = {
 			set_temp_variable = { party_index = 21 }
 			set_temp_variable = { party_popularity_increase = 0.12 }
 			change_relative_party_popularity = yes
+			set_temp_variable = { rul_party_temp = 21 }
+			set_temp_variable = { disable_elections = 1 }
+			change_ruling_party_effect = yes
+			if = {
+				limit = { NOT = { has_character = VEN_enrique_medina_gomez } }
+				recruit_character = VEN_enrique_medina_gomez
+			}
+			promote_character = {
+				character = VEN_enrique_medina_gomez
+				ideology = Nat_Fascism
+			}
 			add_to_variable = { VEN_bgi_army_atk = 0.05 }
 			add_to_variable = { VEN_bgi_factory_cap = 0.05 }
 			custom_effect_tooltip = VEN_bgi_iron_regime_tt
@@ -6970,7 +7869,7 @@ focus_tree = {
 		id = VEN_kind_dictatorship
 		icon = VEN_kind_dictator
 
-		x = 8
+		x = 7
 		y = 12
 		relative_position_id = VEN_venezuelian_unity
 
@@ -6997,6 +7896,17 @@ focus_tree = {
 			set_temp_variable = { party_index = 20 }
 			set_temp_variable = { party_popularity_increase = 0.10 }
 			change_relative_party_popularity = yes
+			set_temp_variable = { rul_party_temp = 20 }
+			set_temp_variable = { disable_elections = 1 }
+			change_ruling_party_effect = yes
+			if = {
+				limit = { NOT = { has_character = VEN_raul_isaias_baduel } }
+				recruit_character = VEN_raul_isaias_baduel
+			}
+			promote_character = {
+				character = VEN_raul_isaias_baduel
+				ideology = Nat_Populism
+			}
 		}
 
 		ai_will_do = {
@@ -7250,6 +8160,7 @@ focus_tree = {
 				ideology = nationalist
 				popularity = 0.05
 			}
+			recalculate_party = yes
 		}
 
 		ai_will_do = {
@@ -7316,31 +8227,49 @@ focus_tree = {
 		id = VEN_pdvsa_takeover
 		icon = VEN_pdvsa_takeover
 
-		x = 17
-		y = 8
+		x = 63
+		y = 25
 		relative_position_id = VEN_reap_the_fruits
 
 		cost = 10
+
+		allow_branch = {
+			NOT = {
+				has_country_flag = VEN_path_chavismo_locked
+				has_country_flag = VEN_path_democratic_locked
+				has_country_flag = VEN_path_nationalist_locked
+			}
+		}
 
 		prerequisite = { focus = VEN_we_are_in_power }
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
+		available = {
+			emerging_anarchist_communism_in_power_or_coalition = no
+			has_civil_war = no
+		}
+
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_pdvsa_takeover"
-			custom_effect_tooltip = MER_democratic_clause_warning_tt
-			set_temp_variable = { rul_party_temp = 14 }
-			set_temp_variable = { disable_elections = 1 }
-			change_ruling_party_effect = yes
+			if = {
+				limit = { NOT = { has_country_flag = VEN_path_pdvsa_locked } }
+				custom_effect_tooltip = MER_democratic_clause_warning_tt
+				set_temp_variable = { rul_party_temp = 14 }
+				set_temp_variable = { disable_elections = 1 }
+				change_ruling_party_effect = yes
+			}
 			create_country_leader = {
 				name = "PDVSA Board of Directors"
-				picture = "pdvsa_leaders.dds"
-				ideology = neutral_conservatism
+				picture = "pdvsa_leader.dds"
+				ideology = Neutral_conservatism
 				traits = {
-					neutrality_neutral_conservatism
+					neutrality_Neutral_conservatism
 					captain_of_industry
 				}
 			}
+			set_country_flag = VEN_path_pdvsa_locked
+			mark_focus_tree_layout_dirty = yes
 			set_temp_variable = { temp_opinion = 10 }
 			change_fossil_fuel_industry_opinion = yes
 			add_political_power = 50
@@ -7411,14 +8340,6 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_empower_monopolies"
-			add_ideas = {
-				VEN_idea_monopolist_economy
-			}
-			add_stability = 0.10
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_empower_monopolies"
 			add_ideas = { VEN_idea_monopolist_economy }
 			add_stability = 0.10
 			set_variable = { VEN_pdvsa_oil_export = 0.05 }
@@ -7453,17 +8374,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_EXPENDITURE }
 
 		available = { neutrality_neutral_conservatism_in_power_or_coalition = yes }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_all_belongs_to_pdvsa"
-			add_resource = {
-				type = oil
-				amount = 8
-				state = 875
-			}
-			set_temp_variable = { treasury_change = -7.50 }
-			modify_treasury_effect = yes
-		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_all_belongs_to_pdvsa"
@@ -7518,12 +8428,6 @@ focus_tree = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_purge_antimonopolists"
 			set_temp_variable = { temp_opinion = 10 }
 			change_oligarchs_opinion = yes
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_purge_antimonopolists"
-			set_temp_variable = { temp_opinion = 10 }
-			change_oligarchs_opinion = yes
 			874 = {
 				add_extra_state_shared_building_slots = 1
 			}
@@ -7553,16 +8457,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		available = { neutrality_neutral_conservatism_in_power_or_coalition = yes }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_iron_control_of_pdvsa"
-			set_temp_variable = { temp_opinion = 10 }
-			change_fossil_fuel_industry_opinion = yes
-			change_oligarchs_opinion = yes
-			add_ideas = VEN_iron_control_vdp
-			set_temp_variable = { additional_income_change = { value = gdp_total multiply = 0.10 multiply = 0.02 } } #5% of GDP yearly #weekly
-			custom_effect_tooltip = additional_income_rate_percent_tt
-		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_iron_control_of_pdvsa"
@@ -7605,15 +8499,6 @@ focus_tree = {
 			set_temp_variable = { temp_opinion = 10 }
 			change_oligarchs_opinion = yes
 			increase_economic_growth = yes
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_corporativist_1984"
-			set_temp_variable = { corp_change = -3 }
-			modify_corporate_tax_rate_effect = yes
-			set_temp_variable = { temp_opinion = 10 }
-			change_oligarchs_opinion = yes
-			increase_economic_growth = yes
 			add_to_variable = { VEN_pdvsa_prod_growth = 0.05 }
 			add_to_variable = { VEN_pdvsa_stab = 0.04 }
 			custom_effect_tooltip = VEN_pdvsa_mod_corp_state_tt
@@ -7640,26 +8525,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_EXPENDITURE }
 
 		available = { neutrality_neutral_conservatism_in_power_or_coalition = yes }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_oil_and_gas_financial_system"
-			874 = {
-				add_building_construction = {
-					type = fossil_powerplant
-					level = 1
-					instant_build = yes
-				}
-			}
-			875 = {
-				add_building_construction = {
-					type = fossil_powerplant
-					level = 1
-					instant_build = yes
-				}
-			}
-			set_temp_variable = { treasury_change = -9.50 }
-			modify_treasury_effect = yes
-		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_oil_and_gas_financial_system"
@@ -7719,17 +8584,6 @@ focus_tree = {
 			add_stability = -0.05
 			set_temp_variable = { temp_opinion = 20 }
 			change_oligarchs_opinion = yes
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_oligarchic_republic"
-			set_temp_variable = { treasury_change = -12.0 }
-			modify_treasury_effect = yes
-			two_office_construction = yes
-			increase_corruption = yes
-			add_stability = -0.05
-			set_temp_variable = { temp_opinion = 20 }
-			change_oligarchs_opinion = yes
 			add_to_variable = { VEN_pdvsa_build_speed = 0.08 }
 			add_to_variable = { VEN_pdvsa_corp_tax = 0.05 }
 			add_to_variable = { VEN_pdvsa_stab = -0.03 }
@@ -7760,19 +8614,19 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_a_council_of_corporations"
-			swap_ideas = {
-				remove_idea = labour_unions
-				add_idea = industrial_conglomerates
+			if = {
+				limit = { has_idea = labour_unions }
+				swap_ideas = {
+					remove_idea = labour_unions
+					add_idea = industrial_conglomerates
+				}
 			}
-			set_temp_variable = { temp_opinion = 10 }
-			change_industrial_conglomerates_opinion = yes
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_a_council_of_corporations"
-			swap_ideas = {
-				remove_idea = labour_unions
-				add_idea = industrial_conglomerates
+			else_if = {
+				limit = { has_idea = industrial_conglomerates }
+				swap_ideas = {
+					remove_idea = industrial_conglomerates
+					add_idea = industrial_conglomerates
+				}
 			}
 			set_temp_variable = { temp_opinion = 10 }
 			change_industrial_conglomerates_opinion = yes
@@ -7802,28 +8656,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_EXPENDITURE }
 
 		available = { neutrality_neutral_conservatism_in_power_or_coalition = yes }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_privatize_small_buissnesses"
-			875 = {
-				add_extra_state_shared_building_slots = 1
-			}
-			915 = {
-				add_extra_state_shared_building_slots = 1
-			}
-			876 = {
-				add_extra_state_shared_building_slots = 1
-			}
-			917 = {
-				add_extra_state_shared_building_slots = 1
-			}
-			916 = {
-				add_extra_state_shared_building_slots = 1
-			}
-			set_temp_variable = { treasury_change = -5.00 }
-			modify_treasury_effect = yes
-			grant_reform_mandate = yes
-		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_privatize_small_buissnesses"
@@ -7869,13 +8701,6 @@ focus_tree = {
 			set_temp_variable = { party_popularity_increase = 0.05 }
 			set_temp_variable = { temp_outlook_increase = 0.05 }
 			change_relative_party_popularity = yes
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_pacify_the_plebs"
-			set_temp_variable = { party_popularity_increase = 0.05 }
-			set_temp_variable = { temp_outlook_increase = 0.05 }
-			change_relative_party_popularity = yes
 			add_stability = 0.05
 			add_political_power = 25
 			add_to_variable = { VEN_pdvsa_stab = 0.05 }
@@ -7903,30 +8728,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_EXPENDITURE }
 
 		available = { neutrality_neutral_conservatism_in_power_or_coalition = yes }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_digital_grip"
-			random_owned_state = {
-				limit = {
-					infrastructure < 5
-					free_building_slots = { building = infrastructure size > 0 }
-				}
-				prioritize = { 917 }
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = internet_station
-					level = 1
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 1
-			}
-			set_temp_variable = { treasury_change = -7.5 }
-			modify_treasury_effect = yes
-		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_digital_grip"
@@ -7968,17 +8769,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_ANNEXATION }
 
 		available = { neutrality_neutral_conservatism_in_power_or_coalition = yes }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_eliminate_oil_competitors"
-			set_temp_variable = { wargoal_on = COL }
-			set_temp_variable = { wargoal_type = 2 }
-			add_threat_from_wargoal_effect = yes
-			create_wargoal = {
-				type = annex_everything
-				target = COL
-			}
-		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_eliminate_oil_competitors"
@@ -8028,20 +8818,6 @@ focus_tree = {
 			set_temp_variable = { temp_productivity_change = 25 }
 			flat_productivity_change_effect = yes
 			add_stability = -0.08
-			set_temp_variable = { temp_opinion = -15 }
-			change_labour_unions_opinion = yes
-			set_temp_variable = { percent_change = 10 }
-			change_domestic_influence_percentage = yes
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_privatize_all_oil"
-			set_temp_variable = { treasury_change = gdp_total }
-			multiply_temp_variable = { treasury_change = 0.15 }
-			modify_treasury_effect = yes
-			set_temp_variable = { temp_productivity_change = 25 }
-			flat_productivity_change_effect = yes
-			add_stability = -0.08
 			set_temp_variable = { temp_opinion = 25 }
 			change_oligarchs_opinion = yes
 			add_to_variable = { VEN_pdvsa_oil_export = 0.10 }
@@ -8069,18 +8845,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		available = { neutrality_neutral_conservatism_in_power_or_coalition = yes }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_diversify_the_economy"
-			set_temp_variable = { treasury_change = -25.0 }
-			modify_treasury_effect = yes
-			two_random_industrial_complex = yes
-			one_random_industrial_complex = yes
-			increase_economic_growth = yes
-			set_temp_variable = { temp_productivity_change = 20 }
-			flat_productivity_change_effect = yes
-			decrease_exports = yes
-		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_diversify_the_economy"
@@ -8121,17 +8885,19 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_empower_banks"
-			swap_ideas = {
-				remove_idea = labour_unions
-				add_idea = farmers
+			if = {
+				limit = { has_idea = labour_unions }
+				swap_ideas = {
+					remove_idea = labour_unions
+					add_idea = international_bankers
+				}
 			}
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_empower_banks"
-			swap_ideas = {
-				remove_idea = labour_unions
-				add_idea = international_bankers
+			else_if = {
+				limit = { has_idea = industrial_conglomerates }
+				swap_ideas = {
+					remove_idea = industrial_conglomerates
+					add_idea = international_bankers
+				}
 			}
 			875 = {
 				add_building_construction = {
@@ -8169,17 +8935,19 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_empower_industrialists"
-			swap_ideas = {
-				remove_idea = labour_unions
-				add_idea = industrial_conglomerates
+			if = {
+				limit = { has_idea = labour_unions }
+				swap_ideas = {
+					remove_idea = labour_unions
+					add_idea = industrial_conglomerates
+				}
 			}
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_empower_industrialists"
-			swap_ideas = {
-				remove_idea = labour_unions
-				add_idea = industrial_conglomerates
+			else_if = {
+				limit = { has_idea = industrial_conglomerates }
+				swap_ideas = {
+					remove_idea = industrial_conglomerates
+					add_idea = industrial_conglomerates
+				}
 			}
 			916 = {
 				add_extra_state_shared_building_slots = 1
@@ -8214,16 +8982,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		available = { neutrality_neutral_conservatism_in_power_or_coalition = yes }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_develop_fintech"
-			add_tech_bonus = {
-				name = VEN_develop_fintech
-				bonus = 1
-				uses = 1
-				category = CAT_industry
-			}
-		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_develop_fintech"
@@ -8271,11 +9029,6 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_macroeconomic_management"
 			increase_economic_growth = yes
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_macroeconomic_management"
-			increase_economic_growth = yes
 			add_political_power = 50
 			add_to_variable = { VEN_pdvsa_stab = 0.05 }
 			custom_effect_tooltip = VEN_pdvsa_mod_macro_tt
@@ -8302,16 +9055,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		available = { neutrality_neutral_conservatism_in_power_or_coalition = yes }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_develop_industry"
-			add_tech_bonus = {
-				name = VEN_develop_industry
-				bonus = 1
-				uses = 1
-				category = CAT_renewable_energy
-			}
-		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_develop_industry"
@@ -8359,16 +9102,6 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_ally_south_american_rightists"
-			set_temp_variable = { percent_change = 2 }
-			set_temp_variable = { influence_target = PRU }
-			change_influence_percentage = yes
-			set_temp_variable = { percent_change = 2 }
-			set_temp_variable = { influence_target = BOL }
-			change_influence_percentage = yes
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_ally_south_american_rightists"
 			add_political_power = 50
 			set_temp_variable = { percent_change = 4 }
 			set_temp_variable = { influence_target = PRU }
@@ -8399,14 +9132,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		available = { neutrality_neutral_conservatism_in_power_or_coalition = yes }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_follow_the_us_example"
-			set_temp_variable = { party_index = 15 }
-			set_temp_variable = { party_popularity_increase = 0.10 }
-			set_temp_variable = { temp_outlook_increase = 0.10 }
-			change_relative_party_popularity = yes
-		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_follow_the_us_example"
@@ -8495,25 +9220,6 @@ focus_tree = {
 			set_temp_variable = { tag_index = USA }
 			set_temp_variable = { influence_target = VEN }
 			change_influence_percentage = yes
-			875 = {
-				add_extra_state_shared_building_slots = 1
-				add_building_construction = {
-					type = offices
-					level = 1
-					instant_build = yes
-				}
-				subtract_from_temp_variable = { needed_money = 12 }
-			}
-			set_temp_variable = { treasury_change = needed_money }
-			modify_treasury_effect = yes
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_invite_american_banks"
-			set_temp_variable = { percent_change = 4 }
-			set_temp_variable = { tag_index = USA }
-			set_temp_variable = { influence_target = VEN }
-			change_influence_percentage = yes
 			set_temp_variable = { treasury_change = 12.0 }
 			modify_treasury_effect = yes
 			875 = {
@@ -8557,11 +9263,6 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_expand_and_diversify_the_market"
 			increase_exports = yes
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_expand_and_diversify_the_market"
-			increase_exports = yes
 			875 = {
 				add_extra_state_shared_building_slots = 1
 				add_building_construction = {
@@ -8599,11 +9300,6 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_increase_population_growth"
 			add_ideas = VEN_population_effort
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_increase_population_growth"
-			add_ideas = VEN_population_effort
 			875 = { add_extra_state_shared_building_slots = 1 }
 			916 = { add_extra_state_shared_building_slots = 1 }
 			add_to_variable = { VEN_pdvsa_stab = 0.03 }
@@ -8631,23 +9327,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		available = { neutrality_neutral_conservatism_in_power_or_coalition = yes }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_economic_expansion"
-			add_tech_bonus = {
-				name = VEN_economic_expansion
-				bonus = 1
-				uses = 1
-				category = CAT_genetics
-			}
-			add_tech_bonus = {
-				name = VEN_economic_expansion
-				bonus = 0.5
-				uses = 2
-				category = CAT_nanofibers
-				category = CAT_3d_printing
-			}
-		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_economic_expansion"
@@ -8699,8 +9378,16 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_establish_free_market"
 			set_temp_variable = { rul_party_temp = 16 }
-			set_temp_variable = { disable_elections = 1 }
+			set_temp_variable = { disable_elections = 0 }
 			change_ruling_party_effect = yes
+			if = {
+				limit = { NOT = { has_character = VEN_maria_corina_machado } }
+				recruit_character = VEN_maria_corina_machado
+			}
+			promote_character = {
+				character = VEN_maria_corina_machado
+				ideology = Neutral_Libertarian
+			}
 			add_stability = 0.10
 			add_ideas = { VEN_idea_libertarian_economy }
 			set_variable = { VEN_fmm_prod_growth = 0.05 }
@@ -8736,44 +9423,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		available = { neutrality_neutral_libertarian_in_power_or_coalition = yes }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_diplomatic_efforts"
-			add_opinion_modifier = {
-				target = USA
-				modifier = supports_us
-			}
-			USA = {
-				add_opinion_modifier = {
-					target = VEN
-					modifier = supports_us
-				}
-			}
-			if = {
-				limit = { NOT = { has_global_flag = GAME_RULE_eu_disabled } }
-				for_each_scope_loop = {
-					array = global.EU_member
-					tooltip = TT_ALL_EU_MEMBER_NATIONS_GAIN
-					if = {
-						limit = { NOT = { tag = ROOT } }
-						add_opinion_modifier = { target = VEN modifier = supports_us }
-						reverse_add_opinion_modifier = { target = VEN modifier = supports_us }
-					}
-				}
-			}
-			add_political_power = 100
-			add_popularity = {
-				ideology = neutrality
-				popularity = 0.10
-			}
-			set_temp_variable = { treasury_change = -10.0 }
-			modify_treasury_effect = yes
-			set_temp_variable = { int_investment_change = 25.0 }
-			modify_international_investment_effect = yes
-			two_office_construction = yes
-			set_temp_variable = { temp_productivity_change = 15 }
-			flat_productivity_change_effect = yes
-		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_diplomatic_efforts"
@@ -8815,17 +9464,19 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_invite_foreign_companies_libert"
-			swap_ideas = {
-				remove_idea = labour_unions
-				add_idea = international_bankers
+			if = {
+				limit = { has_idea = labour_unions }
+				swap_ideas = {
+					remove_idea = labour_unions
+					add_idea = international_bankers
+				}
 			}
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_invite_foreign_companies_libert"
-			swap_ideas = {
-				remove_idea = labour_unions
-				add_idea = international_bankers
+			else_if = {
+				limit = { has_idea = industrial_conglomerates }
+				swap_ideas = {
+					remove_idea = industrial_conglomerates
+					add_idea = international_bankers
+				}
 			}
 			add_to_variable = { VEN_fmm_offices_prod = 0.08 }
 			custom_effect_tooltip = VEN_fmm_mod_inv_comp_tt
@@ -8853,16 +9504,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_EXPENDITURE }
 
 		available = { neutrality_neutral_libertarian_in_power_or_coalition = yes }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_council_of_international_corporations"
-			set_temp_variable = { temp_opinion = 10 }
-			change_fossil_fuel_industry_opinion = yes
-			set_temp_variable = { treasury_change = { value = gdp_total multiply = -0.10 } }
-			modify_treasury_effect = yes
-			set_temp_variable = { int_investment_change = { value = treasury_change multiply = -2 } }
-			modify_international_investment_effect = yes
-		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_council_of_international_corporations"
@@ -8909,14 +9550,6 @@ focus_tree = {
 			decrease_centralization = yes
 			add_stability = 0.05
 			grant_reform_mandate = yes
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_total_deregulation"
-			block_bureau_increase = yes
-			decrease_centralization = yes
-			add_stability = 0.05
-			grant_reform_mandate = yes
 			add_to_variable = { VEN_fmm_prod_growth = 0.10 }
 			add_to_variable = { VEN_fmm_cg = -0.03 }
 			custom_effect_tooltip = VEN_fmm_mod_dereg_tt
@@ -8943,19 +9576,6 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_EXPENDITURE }
 
 		available = { neutrality_neutral_libertarian_in_power_or_coalition = yes }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_privatization_of_everything"
-			875 = {
-				add_building_construction = {
-					type = offices
-					level = 2
-				}
-				add_extra_state_shared_building_slots = 2
-			}
-			set_temp_variable = { treasury_change = -24.00 }
-			modify_treasury_effect = yes
-		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_privatization_of_everything"
@@ -9308,17 +9928,26 @@ focus_tree = {
 		id = VEN_northern_ties
 		icon = VEN_north_ties
 
-		x = 45
-		y = 8
+		x = 33
+		y = 25
 		relative_position_id = VEN_reap_the_fruits
 
 		cost = 5
+
+		allow_branch = {
+			NOT = {
+				has_country_flag = VEN_path_chavismo_locked
+				has_country_flag = VEN_path_pdvsa_locked
+				has_country_flag = VEN_path_nationalist_locked
+			}
+		}
 
 		prerequisite = { focus = VEN_we_are_in_power }
 
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		available = {
+			has_civil_war = no
 			OR = {
 				western_autocrats_are_in_power_or_coalition = yes
 				western_conservatism_are_in_power_or_coalition = yes
@@ -9330,6 +9959,8 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_northern_ties"
+			set_country_flag = VEN_path_democratic_locked
+			mark_focus_tree_layout_dirty = yes
 			add_political_power = 75
 			add_popularity = { ideology = democratic popularity = 0.08 }
 			recalculate_party = yes
@@ -9360,6 +9991,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL }
 
 		available = {
+			NOT = { has_completed_focus = VEN_expel_the_dea }
 			OR = {
 				western_autocrats_are_in_power_or_coalition = yes
 				western_conservatism_are_in_power_or_coalition = yes
@@ -9441,6 +10073,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY FOCUS_FILTER_CORRUPTION }
 
 		available = {
+			NOT = { has_completed_focus = VEN_expel_the_dea }
 			OR = {
 				western_autocrats_are_in_power_or_coalition = yes
 				western_conservatism_are_in_power_or_coalition = yes
@@ -9452,6 +10085,18 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_usa_democratic_transition"
+			if = {
+				limit = { western_autocrats_are_in_power_or_coalition = yes }
+				set_temp_variable = { rul_party_temp = 1 }
+				set_temp_variable = { disable_elections = 0 }
+				change_ruling_party_effect = yes
+			}
+			else = {
+				set_politics = {
+					ruling_party = democratic
+					elections_allowed = yes
+				}
+			}
 			add_stability = 0.10
 			add_political_power = 100
 			add_popularity = { ideology = democratic popularity = 0.10 }
@@ -9482,6 +10127,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MILITARY FOCUS_FILTER_STABILITY }
 
 		available = {
+			NOT = { has_completed_focus = VEN_expel_the_dea }
 			OR = {
 				western_autocrats_are_in_power_or_coalition = yes
 				western_conservatism_are_in_power_or_coalition = yes
@@ -9553,6 +10199,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_INDUSTRY FOCUS_FILTER_ECONOMY }
 
 		available = {
+			NOT = { has_completed_focus = VEN_expel_the_dea }
 			OR = {
 				western_autocrats_are_in_power_or_coalition = yes
 				western_conservatism_are_in_power_or_coalition = yes
@@ -9586,8 +10233,8 @@ focus_tree = {
 				}
 			}
 			decrease_sanctions = yes
-			# Concesion petrolera Fase 1 (Via Democratica): cede el petroleo de Maracaibo (874: 350/810 = ~43% del petroleo inicial).
-			# Venezuela conserva 916 (300) y 876 (160) = ~57% restante hasta la Fase 2.
+			# Oil Concession Phase 1 (Democratic Path): cedes Maracaibo oil (874: 350/810 = ~43% of initial oil).
+			# Venezuela retains 916 (300) and 876 (160) = ~57% remaining until Phase 2.
 			if = {
 				limit = {
 					USA = {
@@ -9641,6 +10288,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 
 		available = {
+			NOT = { has_completed_focus = VEN_expel_the_dea }
 			OR = {
 				western_autocrats_are_in_power_or_coalition = yes
 				western_conservatism_are_in_power_or_coalition = yes
@@ -9692,12 +10340,12 @@ focus_tree = {
 		}
 	}
 
-	# Pilar 1: Reconstruccion Economica y Capital Occidental
+	# Pillar 1: Economic Reconstruction & Western Capital
 	focus = {
 		id = VEN_introduce_western_industries
 		icon = VEN_west_ind
 
-		x = -5		
+		x = -5
 		y = 1
 		relative_position_id = VEN_peace_in_the_caribbean
 
@@ -9855,8 +10503,8 @@ focus_tree = {
 				add_to_variable = { VEN_west_build_speed = 0.05 }
 			}
 			custom_effect_tooltip = VEN_western_boom_updated_tt
-			# Concesion petrolera Fase 2 (Via Democratica): cede el petroleo del Orinoco-Llanos (876: 160/810 = ~20% del petroleo inicial).
-			# Acumulado cedido en Via Democratica: 874 (350) + 876 (160) = 510/810 (~63%); Venezuela conserva 916 (300 = ~37%) y todos sus minerales.
+			# Oil Concession Phase 2 (Democratic Path): cedes Orinoco-Llanos oil (876: 160/810 = ~20% of initial oil).
+			# Cumulative ceded in Democratic Path: 874 (350) + 876 (160) = 510/810 (~63%); Venezuela retains 916 (300 = ~37%) and all its minerals.
 			if = {
 				limit = {
 					USA = {
@@ -10126,7 +10774,7 @@ focus_tree = {
 		ai_will_do = { base = 10 }
 	}
 
-	# Pilar 2: Integracion Militar, OTAN y Vanguardia
+	# Pillar 2: Military Integration, NATO & Vanguard
 	focus = {
 		id = VEN_army_westernization
 		icon = NATO_squad_doctrine
@@ -10674,7 +11322,7 @@ focus_tree = {
 		ai_will_do = { base = 10 }
 	}
 
-	# Pilar 3: Doctrina Belica en el Caribe (Apoyada por EE. UU.)
+	# Pillar 3: Caribbean War Doctrine (US-Backed)
 	focus = {
 		id = VEN_caribbean_intervention
 		icon = VEN_carib_ops
@@ -10788,7 +11436,7 @@ focus_tree = {
 				name = VEN_liberate_cuba
 				bonus = 0.50
 				uses = 1
-				category = CAT_marine_tech
+				category = CAT_special_forces_equipment
 			}
 		}
 
@@ -10809,10 +11457,20 @@ focus_tree = {
 
 		search_filters = { FOCUS_FILTER_ANNEXATION FOCUS_FILTER_MILITARY }
 
+		available = {
+			NOT = { has_completed_focus = VEN_expel_the_dea }
+		}
+
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_anti_cartel_crusade"
 			two_random_arms_factory = yes
 			army_experience = 25
+			if = {
+				limit = { has_dynamic_modifier = { modifier = cartel_penalties } }
+				set_temp_variable = { cart_strength_change = -5 }
+				set_temp_variable = { cart_influence_change = -5 }
+				modify_cartel_variables_effect = yes
+			}
 			if = {
 				limit = {
 					country_exists = NIC
@@ -11026,6 +11684,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MILITARY FOCUS_FILTER_STABILITY FOCUS_FILTER_CORRUPTION }
 
 		available = {
+			NOT = { has_completed_focus = VEN_expel_the_dea }
 			OR = {
 				western_autocrats_are_in_power_or_coalition = yes
 				nationalist_right_wing_populists_are_in_power_or_coalition = yes
@@ -11104,8 +11763,8 @@ focus_tree = {
 				add_resource = { type = oil amount = 12 }
 				add_extra_state_shared_building_slots = 2
 			}
-			# Concesion petrolera (Via Autoritaria): cede solo el petroleo de Anzoategui (916: 300/810 = ~37% del petroleo inicial).
-			# Venezuela conserva Maracaibo 874 (350) + Orinoco 876 (160) + 875 (+12) = 522 de petroleo (~63% del total).
+			# Oil Concession (Authoritarian Path): cedes only Anzoategui oil (916: 300/810 = ~37% of initial oil).
+			# Venezuela retains Maracaibo 874 (350) + Orinoco 876 (160) + 875 (+12) = 522 oil (~63% of total).
 			if = {
 				limit = {
 					USA = {
@@ -11261,8 +11920,8 @@ focus_tree = {
 			}
 			custom_effect_tooltip = VEN_nss_updated_tt
 			one_random_industrial_complex = yes
-			# Concesion de minerales estrategicos (Via Autoritaria): cede solo tungsteno y aluminio de 876 (100% de lo extraido en 876).
-			# El acero (+12) y el petroleo (160) de 876 permanecen 100% bajo control venezolano.
+			# Strategic Minerals Concession (Authoritarian Path): cedes only tungsten and aluminum from 876 (100% of 876 extraction).
+			# Steel (+12) and oil (160) in 876 remain 100% under Venezuelan control.
 			if = {
 				limit = {
 					USA = {
@@ -11589,6 +12248,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MILITARY }
 
 		available = {
+			NOT = { has_completed_focus = VEN_expel_the_dea }
 			OR = {
 				western_autocrats_are_in_power_or_coalition = yes
 				nationalist_right_wing_populists_are_in_power_or_coalition = yes
@@ -11667,6 +12327,7 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_MILITARY }
 
 		available = {
+			NOT = { has_completed_focus = VEN_expel_the_dea }
 			OR = {
 				western_autocrats_are_in_power_or_coalition = yes
 				nationalist_right_wing_populists_are_in_power_or_coalition = yes
@@ -12327,420 +12988,52 @@ focus_tree = {
 
 		ai_will_do = { base = 10 }
 	}
-	##################
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	##################
-	# Cartel Subtree #
-	##################
-	focus = {
-		id = VEN_cartel_question
-		icon = ample_cocaine
-
-		x = 6
-		y = -5
-
-		cost = 5 # 35 Days
-
-		search_filters = { FOCUS_FILTER_STABILITY }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_cartel_question"
-			add_stability = 0.05
-		}
-
-		ai_will_do = { base = 1 }
-	}
-
-	focus = {
-		id = VEN_alliance_with_the_farc
-		icon = MEX_Support_the_cartels
-
-		x = -3
-		y = 1
-		relative_position_id = VEN_cartel_question
-
-		cost = 10
-
-		prerequisite = { focus = VEN_cartel_question }
-		mutually_exclusive = { focus = VEN_fight_the_cartels }
-
-		search_filters = { FOCUS_FILTER_INSURGENCY }
-
-		available = {
-			custom_trigger_tooltip = {
-				check_variable = { strength_of_cartels > 49 }
-				tooltip = VEN_cartel_strength_required
-			}
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_alliance_with_the_farc"
-			set_temp_variable = { cart_strength_change = 10 }
-			set_temp_variable = { cart_influence_change = 10 }
-			modify_cartel_variables_effect = yes
-		}
-
-		ai_will_do = {
-			base = 1
-		}
-	}
-
-	focus = {
-		id = VEN_bribe_schemes
-		icon = focus_SWI_embrace_rote_drei
-
-		x = -2
-		y = 2
-		relative_position_id = VEN_cartel_question
-
-		cost = 10
-
-		prerequisite = { focus = VEN_alliance_with_the_farc }
-
-		search_filters = { FOCUS_FILTER_CORRUPTION }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_bribe_schemes"
-			increase_corruption = yes
-			set_temp_variable = { party_index = 15 }
-			set_temp_variable = { party_popularity_increase = 0.15 }
-			set_temp_variable = { temp_outlook_increase = 0.15 }
-			change_relative_party_popularity = yes
-		}
-
-		ai_will_do = { base = 1 }
-	}
-
-	focus = {
-		id = VEN_pro_government_cartels
-		icon = MEX_Support_the_carteles_unidos
-
-		x = -4
-		y = 2
-		relative_position_id = VEN_cartel_question
-
-		cost = 10
-
-		prerequisite = { focus = VEN_alliance_with_the_farc }
-
-		search_filters = { FOCUS_FILTER_CORRUPTION }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_pro_government_cartels"
-			COL = {
-				set_temp_variable = { party_index = 4 }
-				set_temp_variable = { party_popularity_increase = 0.15 }
-				set_temp_variable = { temp_outlook_increase = 0.15 }
-				change_relative_party_popularity = yes
-			}
-		}
-
-		ai_will_do = { base = 1 }
-	}
-
-	focus = {
-		id = VEN_cartel_of_the_suns
-		icon = legalize_it
-
-		x = -3
-		y = 3
-		relative_position_id = VEN_cartel_question
-
-		cost = 10
-
-		prerequisite = { focus = VEN_pro_government_cartels }
-		prerequisite = { focus = VEN_bribe_schemes }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_cartel_of_the_suns"
-			custom_effect_tooltip = VEN_suns_seize_power
-			hidden_effect = {
-				clr_country_flag = dynamic_flag
-				set_cosmetic_tag = VEN_cartel_suns
-				start_civil_war = {
-					ideology = communism
-					size = 0.50
-					create_country_leader = {
-						name = "Hugo Chávez"
-						picture = "hugo_chavez.dds"
-						ideology = anarchist_communism
-						traits = {
-							emerging_anarchist_communism
-							military_career
-							silent_workhorse
-							populist_president
-						}
-					}
-				}
-				###
-				set_temp_variable = { rul_party_temp = 15 }
-				set_temp_variable = { disable_elections = 1 }
-				change_ruling_party_effect = yes
-			}
-		}
-
-		ai_will_do = { base = 0 }
-	}
-
-	focus = {
-		id = VEN_integrate_the_military_and_the_cartel
-		icon = police_funding_bonus
-
-		x = -2
-		y = 4
-		relative_position_id = VEN_cartel_question
-
-		cost = 10
-
-		prerequisite = { focus = VEN_cartel_of_the_suns }
-
-		search_filters = { FOCUS_FILTER_CORRUPTION }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_integrate_the_military_and_the_cartel"
-			division_template = {
-				name = "Cartel Militia"
-				regiments = {
-					Mot_Militia_Bat = { x = 0 y = 0 }
-					Mot_Militia_Bat = { x = 0 y = 1 }
-
-					Mot_Militia_Bat = { x = 1 y = 0 }
-					Mot_Militia_Bat = { x = 1 y = 1 }
-
-					Mech_Inf_Bat = { x = 2 y = 0 }
-					Mech_Inf_Bat = { x = 2 y = 1 }
-
-					L_Inf_Bat = { x = 3 y = 0 }
-				}
-				regimental_support = {
-					armor_Comp = { x = 2 y = 0 }
-
-					Arty_Battery = { x = 3 y = 0 }
-				}
-			}
-			capital_scope = {
-				create_unit = {
-					division = "name = \"1st. Militia of the 'Suns'\" division_template = \"Cartel Militia\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
-					owner = ROOT
-					count = 1
-				}
-				create_unit = {
-					division = "name = \"2nd. Militia of the 'Suns'\" division_template = \"Cartel Militia\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
-					owner = ROOT
-					count = 1
-				}
-				create_unit = {
-					division = "name = \"3rd. Militia of the 'Suns'\" division_template = \"Cartel Militia\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
-					owner = ROOT
-					count = 1
-				}
-				create_unit = {
-					division = "name = \"4th. Militia of the 'Suns'\" division_template = \"Cartel Militia\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
-					owner = ROOT
-					count = 1
-				}
-				create_unit = {
-					division = "name = \"5th. Militia of the 'Suns'\" division_template = \"Cartel Militia\" start_experience_factor = 0.3 start_equipment_factor = 1.0"
-					owner = ROOT
-					count = 1
-				}
-			}
-		}
-
-		ai_will_do = { base = 0 }
-	}
-
-	focus = {
-		id = VEN_coup_in_colombia
-		icon = wolfinsheepsskin
-
-		x = -4
-		y = 4
-		relative_position_id = VEN_cartel_question
-
-		cost = 10
-
-		prerequisite = { focus = VEN_cartel_of_the_suns }
-
-		search_filters = { FOCUS_FILTER_POLITICAL }
-
-		available = { COL = { influence_higher_40 = yes } }
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_coup_in_colombia"
-			puppet = COL
-			COL = {
-				clr_country_flag = dynamic_flag
-				set_cosmetic_tag = COL_farc_tag
-				set_temp_variable = { party_index = 4 }
-				set_temp_variable = { party_popularity_increase = 0.45 }
-				set_temp_variable = { temp_outlook_increase = 0.45 }
-				change_relative_party_popularity = yes
-				hidden_effect = {
-					set_temp_variable = { rul_party_temp = 4 }
-					set_temp_variable = { disable_elections = 1 }
-					change_ruling_party_effect = yes
-				}
-				start_civil_war = {
-					ideology = nationalist
-					keep_political_leader = yes
-					keep_political_party_members = yes
-					size = 0.25
-				}
-			}
-		}
-
-		ai_will_do = { base = 0 }
-	}
-
-	focus = {
-		id = VEN_expand_the_cartel_to_other_countries
-		icon = legalize_all_drugs
-
-		x = -3
-		y = 5
-		relative_position_id = VEN_cartel_question
-
-		cost = 10
-
-		prerequisite = { focus = VEN_coup_in_colombia }
-		prerequisite = { focus = VEN_integrate_the_military_and_the_cartel }
-		will_lead_to_war_with = GUY
-		will_lead_to_war_with = SUR
-		will_lead_to_war_with = BRA
-		will_lead_to_war_with = BOL
-
-		search_filters = { FOCUS_FILTER_ANNEXATION }
-
-		bypass = {
-			OR = {
-				NOT = { country_exists = GUY }
-				is_in_faction_with = GUY
-			}
-			OR = {
-				NOT = { country_exists = SUR }
-				is_in_faction_with = SUR
-			}
-			OR = {
-				NOT = { country_exists = BRA }
-				is_in_faction_with = BRA
-			}
-			OR = {
-				NOT = { country_exists = BOL }
-				is_in_faction_with = BOL
-			}
-		}
-
-		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_expand_the_cartel_to_other_countries"
-			if = {
-				limit = {
-					country_exists = GUY
-					NOT = { is_in_faction_with = GUY }
-				}
-				set_temp_variable = { wargoal_on = GUY }
-				set_temp_variable = { wargoal_type = 2 }
-				add_threat_from_wargoal_effect = yes
-				create_wargoal = { type = annex_everything target = GUY }
-			}
-			if = {
-				limit = {
-					country_exists = SUR
-					NOT = { is_in_faction_with = SUR }
-				}
-				set_temp_variable = { wargoal_on = SUR }
-				set_temp_variable = { wargoal_type = 2 }
-				add_threat_from_wargoal_effect = yes
-				create_wargoal = { type = annex_everything target = SUR }
-			}
-			if = {
-				limit = {
-					country_exists = BRA
-					NOT = { is_in_faction_with = BRA }
-				}
-				set_temp_variable = { wargoal_on = BRA }
-				set_temp_variable = { wargoal_type = 2 }
-				add_threat_from_wargoal_effect = yes
-				create_wargoal = { type = annex_everything target = BRA }
-			}
-			if = {
-				limit = {
-					country_exists = BOL
-					NOT = { is_in_faction_with = BOL }
-				}
-				set_temp_variable = { wargoal_on = BOL }
-				set_temp_variable = { wargoal_type = 2 }
-				add_threat_from_wargoal_effect = yes
-				create_wargoal = { type = annex_everything target = BOL }
-			}
-		}
-
-		ai_will_do = { base = 0 }
-	}
-
+	####################################
+	# Military Anti-Cartel Sub-branch  #
+	####################################
 	focus = {
 		id = VEN_fight_the_cartels
 		icon = MEX_Erradicate_the_cartels
 
-		x = 3
-		y = 1
-		relative_position_id = VEN_cartel_question
+		x = 4
+		y = 3
+		relative_position_id = VEN_national_army
 
-		cost = 10
+		cost = 3
 
-		prerequisite = { focus = VEN_cartel_question }
-		mutually_exclusive = { focus = VEN_alliance_with_the_farc }
+		prerequisite = { focus = VEN_national_army }
 
-		search_filters = { FOCUS_FILTER_INSURGENCY }
+		available = {
+			NOT = { has_completed_focus = VEN_expel_the_dea }
+		}
+
+		search_filters = { FOCUS_FILTER_MILITARY FOCUS_FILTER_INSURGENCY }
+
+		bypass = {
+			NOT = { has_dynamic_modifier = { modifier = cartel_penalties } }
+		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_fight_the_cartels"
-			set_temp_variable = { cart_strength_change = -4 }
-			set_temp_variable = { cart_influence_change = -2 }
+			army_experience = 20
+			add_command_power = 25
+			add_war_support = 0.03
+			set_temp_variable = { cart_strength_change = -8 }
+			set_temp_variable = { cart_influence_change = -5 }
 			modify_cartel_variables_effect = yes
+			if = {
+				limit = {
+					country_exists = USA
+					NOT = { has_war_with = USA }
+				}
+				USA = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = improved_relations
+					}
+				}
+			}
 		}
 
 		ai_will_do = {
@@ -12750,23 +13043,42 @@ focus_tree = {
 
 	focus = {
 		id = VEN_war_on_drugs
-		icon = ample_cocaine
+		icon = chemical_warfare
 
 		x = 2
-		y = 2
-		relative_position_id = VEN_cartel_question
+		y = 4
+		relative_position_id = VEN_national_army
 
-		cost = 10
+		cost = 4
 
 		prerequisite = { focus = VEN_fight_the_cartels }
 
-		search_filters = { FOCUS_FILTER_INSURGENCY FOCUS_FILTER_EXPENDITURE }
+		search_filters = { FOCUS_FILTER_MILITARY FOCUS_FILTER_INSURGENCY FOCUS_FILTER_EXPENDITURE }
+
+		bypass = {
+			NOT = { has_dynamic_modifier = { modifier = cartel_penalties } }
+		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_war_on_drugs"
+			army_experience = 15
+			add_command_power = 20
 			add_stability = 0.05
-			set_temp_variable = { treasury_change = -14.25 }
+			set_temp_variable = { treasury_change = -6.0 }
 			modify_treasury_effect = yes
+			set_temp_variable = { cart_strength_change = -6 }
+			set_temp_variable = { cart_influence_change = -6 }
+			modify_cartel_variables_effect = yes
+			if = {
+				limit = { 874 = { is_owned_and_controlled_by = ROOT } }
+				874 = {
+					add_building_construction = {
+						type = radar_station
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
 		}
 
 		ai_will_do = {
@@ -12779,32 +13091,174 @@ focus_tree = {
 	}
 
 	focus = {
-		id = VEN_fight_the_farc
-		icon = MEX_Destroy_the_carteles_unidos
+		id = VEN_southcom_dea_cooperation
+		icon = american_arms_focus
 
 		x = 4
-		y = 2
-		relative_position_id = VEN_cartel_question
+		y = 4
+		relative_position_id = VEN_national_army
 
-		cost = 10
+		cost = 4
 
 		prerequisite = { focus = VEN_fight_the_cartels }
 
-		search_filters = { FOCUS_FILTER_INSURGENCY }
+		available = {
+			country_exists = USA
+			NOT = { has_war_with = USA }
+			NOT = { has_completed_focus = VEN_expel_the_dea }
+		}
+
+		bypass = {
+			OR = {
+				NOT = { country_exists = USA }
+				has_war_with = USA
+			}
+		}
+
+		search_filters = { FOCUS_FILTER_MILITARY FOCUS_FILTER_INSURGENCY FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_southcom_dea_cooperation"
+			USA = {
+				country_event = { id = venezuela.255 days = 2 }
+			}
+		}
+
+		ai_will_do = { base = 2 }
+	}
+
+	focus = {
+		id = VEN_fight_the_farc
+		icon = Generic_Jungle_Ghost
+
+		x = 6
+		y = 4
+		relative_position_id = VEN_national_army
+
+		cost = 4
+
+		prerequisite = { focus = VEN_fight_the_cartels }
+
+		search_filters = { FOCUS_FILTER_MILITARY FOCUS_FILTER_INSURGENCY }
+
+		bypass = {
+			OR = {
+				NOT = {
+					has_idea = VEN_FARC_active
+					has_idea = VEN_FARC_weak
+					has_idea = VEN_FARC_weakened
+				}
+				NOT = { country_exists = COL }
+				has_war_with = COL
+			}
+		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_fight_the_farc"
+			army_experience = 25
+			air_experience = 10
 			set_temp_variable = { percent_change = 3 }
 			set_temp_variable = { influence_target = COL }
 			change_influence_percentage = yes
 			add_equipment_to_stockpile = {
-				type = infantry_weapons_1
+				type = infantry_weapons
 				amount = -700
 			}
 			COL = {
 				add_equipment_to_stockpile = {
-					type = infantry_weapons_1
+					type = infantry_weapons
 					amount = 700
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = improved_relations
+				}
+			}
+			set_temp_variable = { cart_strength_change = -5 }
+			modify_cartel_variables_effect = yes
+		}
+
+		ai_will_do = { base = 1 }
+	}
+
+	focus = {
+		id = VEN_riverine_patrols
+		icon = focus_SIA_river_patrols
+
+		x = 2
+		y = 5
+		relative_position_id = VEN_national_army
+
+		cost = 3
+
+		prerequisite = { focus = VEN_war_on_drugs }
+
+		search_filters = { FOCUS_FILTER_MILITARY FOCUS_FILTER_NAVY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_riverine_patrols"
+			navy_experience = 15
+			army_experience = 10
+			set_temp_variable = { cart_strength_change = -4 }
+			modify_cartel_variables_effect = yes
+		}
+
+		ai_will_do = { base = 1 }
+	}
+
+	focus = {
+		id = VEN_dea_intel_fusion
+		icon = recon
+
+		x = 4
+		y = 5
+		relative_position_id = VEN_national_army
+
+		cost = 3
+
+		prerequisite = { focus = VEN_southcom_dea_cooperation }
+
+		search_filters = { FOCUS_FILTER_MILITARY FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_dea_intel_fusion"
+			add_command_power = 25
+			add_political_power = 35
+			set_temp_variable = { cart_strength_change = -4 }
+			set_temp_variable = { cart_influence_change = -4 }
+			modify_cartel_variables_effect = yes
+		}
+
+		ai_will_do = { base = 1 }
+	}
+
+	focus = {
+		id = VEN_aerial_interdiction
+		icon = POL_sikorsky
+
+		x = 6
+		y = 5
+		relative_position_id = VEN_national_army
+
+		cost = 3
+
+		prerequisite = { focus = VEN_fight_the_farc }
+
+		search_filters = { FOCUS_FILTER_MILITARY FOCUS_FILTER_AIRFORCE }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_aerial_interdiction"
+			air_experience = 20
+			set_temp_variable = { cart_strength_change = -4 }
+			modify_cartel_variables_effect = yes
+			if = {
+				limit = { 915 = { is_owned_and_controlled_by = ROOT } }
+				915 = {
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
 				}
 			}
 		}
@@ -12813,24 +13267,25 @@ focus_tree = {
 	}
 
 	focus = {
-		id = VEN_arresting_high_profile_individuals
-		icon = political_arrests2
+		id = VEN_special_forces_raids
+		icon = ypg_spec
 
-		x = 1
-		y = 1
-		relative_position_id = VEN_war_on_drugs
+		x = 2
+		y = 6
+		relative_position_id = VEN_national_army
 
-		cost = 10
+		cost = 4
 
-		prerequisite = { focus = VEN_war_on_drugs }
-		prerequisite = { focus = VEN_fight_the_farc }
+		prerequisite = { focus = VEN_riverine_patrols }
 
-		search_filters = { FOCUS_FILTER_INSURGENCY }
+		search_filters = { FOCUS_FILTER_MILITARY FOCUS_FILTER_INSURGENCY }
 
 		completion_reward = {
-			log = "[GetDateText]: [Root.GetName]: Focus VEN_arresting_high_profile_individuals"
-			set_temp_variable = { cart_strength_change = -10 }
-			set_temp_variable = { cart_influence_change = -5 }
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_special_forces_raids"
+			army_experience = 25
+			air_experience = 15
+			add_ideas = VEN_counter_insurgency_corps_idea
+			set_temp_variable = { cart_strength_change = -5 }
 			modify_cartel_variables_effect = yes
 		}
 
@@ -12838,21 +13293,91 @@ focus_tree = {
 	}
 
 	focus = {
+		id = VEN_arresting_high_profile_individuals
+		icon = focus_NRY_arrest_quisling
+
+		x = 6
+		y = 6
+		relative_position_id = VEN_national_army
+
+		cost = 4
+
+		prerequisite = { focus = VEN_aerial_interdiction }
+
+		search_filters = { FOCUS_FILTER_MILITARY FOCUS_FILTER_INSURGENCY }
+
+		bypass = {
+			NOT = { has_dynamic_modifier = { modifier = cartel_penalties } }
+		}
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_arresting_high_profile_individuals"
+			add_command_power = 30
+			army_experience = 15
+			add_political_power = 50
+			set_temp_variable = { cart_strength_change = -10 }
+			set_temp_variable = { cart_influence_change = -8 }
+			modify_cartel_variables_effect = yes
+			if = {
+				limit = {
+					has_completed_focus = VEN_southcom_dea_cooperation
+					country_exists = USA
+					NOT = { has_war_with = USA }
+				}
+				add_political_power = 25
+				USA = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = improved_relations
+					}
+				}
+			}
+		}
+
+		ai_will_do = { base = 1 }
+	}
+
+	focus = {
 		id = VEN_dismantle_the_farc
-		icon = seize
+		icon = generic_counter_insurgency_icon
 
-		x = 0
-		y = 1
-		relative_position_id = VEN_arresting_high_profile_individuals
+		x = 4
+		y = 7
+		relative_position_id = VEN_national_army
 
-		cost = 10
+		cost = 5
 
+		prerequisite = { focus = VEN_special_forces_raids }
 		prerequisite = { focus = VEN_arresting_high_profile_individuals }
+		prerequisite = { focus = VEN_dea_intel_fusion }
 
-		search_filters = { FOCUS_FILTER_INSURGENCY }
+		search_filters = { FOCUS_FILTER_MILITARY FOCUS_FILTER_INSURGENCY }
+
+		bypass = {
+			NOT = {
+				has_idea = VEN_FARC_active
+				has_idea = VEN_FARC_weak
+				has_idea = VEN_FARC_weakened
+			}
+		}
 
 		completion_reward = {
 			log = "[GetDateText]: [Root.GetName]: Focus VEN_dismantle_the_farc"
+			army_experience = 30
+			add_war_support = 0.05
+			add_command_power = 25
+			if = {
+				limit = {
+					country_exists = USA
+					NOT = { has_war_with = USA }
+				}
+				USA = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = improved_relations
+					}
+				}
+			}
 			unlock_decision_category_tooltip = VEN_destroy_farc
 			custom_effect_tooltip = VEN_farc_decisions
 		}
@@ -12860,6 +13385,55 @@ focus_tree = {
 		ai_will_do = { base = 1 }
 	}
 
+	focus = {
+		id = VEN_hemispheric_security_partner
+		icon = USA_prism
+
+		x = 4
+		y = 8
+		relative_position_id = VEN_national_army
+
+		cost = 5
+
+		prerequisite = { focus = VEN_dismantle_the_farc }
+
+		search_filters = { FOCUS_FILTER_MILITARY FOCUS_FILTER_POLITICAL }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus VEN_hemispheric_security_partner"
+			army_experience = 20
+			add_stability = 0.05
+			set_temp_variable = { cart_strength_change = -5 }
+			set_temp_variable = { cart_influence_change = -5 }
+			modify_cartel_variables_effect = yes
+			if = {
+				limit = {
+					country_exists = USA
+					NOT = { has_war_with = USA }
+				}
+				USA = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = improved_relations
+					}
+				}
+			}
+			if = {
+				limit = {
+					country_exists = COL
+					NOT = { has_war_with = COL }
+				}
+				COL = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = improved_relations
+					}
+				}
+			}
+		}
+
+		ai_will_do = { base = 1 }
+	}
 	###################
 	# Military Branch #
 	###################
@@ -12867,8 +13441,8 @@ focus_tree = {
 		id = VEN_national_army
 		icon = small_arms3
 
-		x = 41
-		y = -6
+		x = 44
+		y = -1
 
 		cost = 10
 
@@ -12882,12 +13456,15 @@ focus_tree = {
 		ai_will_do = { base = 1 }
 	}
 
+	# =========================================================================
+	# NAVY SUB-BRANCH
+	# =========================================================================
 	focus = {
 		id = VEN_the_navy
 		icon = VEN_navy
 
-		x = -21
-		y = 2
+		x = -43
+		y = 3
 		relative_position_id = VEN_national_army
 
 		cost = 10
@@ -13388,6 +13965,7 @@ focus_tree = {
 			VEN_advance_us_navy_mission = yes
 			VEN_add_naval_mastery_20 = yes
 			add_popularity = { ideology = democratic popularity = 0.05 }
+			recalculate_party = yes
 			USA = { add_opinion_modifier = { target = VEN modifier = military_cooperation } }
 			add_opinion_modifier = { target = USA modifier = military_cooperation }
 			set_temp_variable = { percent_change = 5 }
@@ -13437,6 +14015,7 @@ focus_tree = {
 				modifier = VEN_USA_Naval_License_Agreement
 			}
 			add_popularity = { ideology = democratic popularity = 0.05 }
+			recalculate_party = yes
 			set_temp_variable = { percent_change = 5 }
 			set_temp_variable = { tag_index = USA }
 			set_temp_variable = { influence_target = VEN }
@@ -13527,6 +14106,7 @@ focus_tree = {
 				category = CAT_naval_modules
 			}
 			add_popularity = { ideology = democratic popularity = 0.05 }
+			recalculate_party = yes
 			set_temp_variable = { percent_change = 6 }
 			set_temp_variable = { tag_index = USA }
 			set_temp_variable = { influence_target = VEN }
@@ -13610,6 +14190,7 @@ focus_tree = {
 			}
 			give_military_access = USA
 			add_popularity = { ideology = democratic popularity = 0.08 }
+			recalculate_party = yes
 			set_temp_variable = { percent_change = 10 }
 			set_temp_variable = { tag_index = USA }
 			set_temp_variable = { influence_target = VEN }
@@ -13623,8 +14204,8 @@ focus_tree = {
 		id = VEN_military_reforms
 		icon = VEN_army
 
-		x = -4
-		y = 2
+		x = -12
+		y = 3
 		relative_position_id = VEN_national_army
 
 		cost = 10
@@ -13763,12 +14344,15 @@ focus_tree = {
 		}
 	}
 
-	# Doctrina 1: Guerrilla Bolivariana
+	# =========================================================================
+	# ARMY DOCTRINES
+	# =========================================================================
+	# Doctrine 1: Bolivarian Guerrilla
 	focus = {
 		id = VEN_army_guerrilla
 		icon = army_mobilisation1
 
-		x = -5
+		x = -4
 		y = 2
 		relative_position_id = VEN_military_reforms
 
@@ -13799,7 +14383,7 @@ focus_tree = {
 		id = VEN_army_asymmetric
 		icon = army_defence1
 
-		x = -5
+		x = -4
 		y = 3
 		relative_position_id = VEN_military_reforms
 
@@ -13831,7 +14415,7 @@ focus_tree = {
 		id = VEN_army_jungle_warfare
 		icon = Generic_Jungle_Insurgency
 
-		x = -5
+		x = -4
 		y = 4
 		relative_position_id = VEN_military_reforms
 
@@ -13902,12 +14486,12 @@ focus_tree = {
 		ai_will_do = { base = 1 }
 	}
 
-	# Doctrina 2: Élite y Caribes
+	# Doctrine 2: Elite & Caribes
 	focus = {
 		id = VEN_national_militia
 		icon = VEN_militia
 
-		x = -6
+		x = -5
 		y = 5
 		relative_position_id = VEN_military_reforms
 
@@ -13934,7 +14518,7 @@ focus_tree = {
 		id = VEN_reorg_colectivos
 		icon = army_mobilisation
 
-		x = -4
+		x = -3
 		y = 5
 		relative_position_id = VEN_military_reforms
 
@@ -14118,7 +14702,7 @@ focus_tree = {
 		ai_will_do = { base = 1 }
 	}
 
-	# Doctrina 3: Artillería y Potencia de Fuego (Shock and Awe)
+	# Doctrine 3: Artillery & Firepower (Shock and Awe)
 	focus = {
 		id = VEN_the_special_forces
 		icon = spec-ops
@@ -14256,7 +14840,7 @@ focus_tree = {
 		id = VEN_army_firepower
 		icon = army_planning
 
-		x = 5
+		x = 4
 		y = 2
 		relative_position_id = VEN_military_reforms
 
@@ -14291,7 +14875,7 @@ focus_tree = {
 		id = VEN_army_mobile_arty
 		icon = artillery2
 
-		x = 5
+		x = 4
 		y = 3
 		relative_position_id = VEN_military_reforms
 
@@ -14340,7 +14924,7 @@ focus_tree = {
 		id = VEN_army_counter_battery
 		icon = army_radar
 
-		x = 5
+		x = 4
 		y = 4
 		relative_position_id = VEN_military_reforms
 
@@ -14375,12 +14959,12 @@ focus_tree = {
 		ai_will_do = { base = 1 }
 	}
 
-	# Convergencia Final
+	# Final Convergence
 	focus = {
 		id = VEN_army_heavy_arty
 		icon = army_rzso
 
-		x = 4
+		x = 3
 		y = 5
 		relative_position_id = VEN_military_reforms
 
@@ -14465,7 +15049,7 @@ focus_tree = {
 		id = VEN_spirit_of_bolivar
 		icon = artillery3
 
-		x = 6
+		x = 5
 		y = 5
 		relative_position_id = VEN_military_reforms
 
@@ -14492,7 +15076,7 @@ focus_tree = {
 		icon = army_general_stuff1
 
 		x = 0
-		y = 6
+		y = 7
 		relative_position_id = VEN_military_reforms
 
 		cost = 5
@@ -14548,7 +15132,7 @@ focus_tree = {
 		icon = army_marching
 
 		x = -2
-		y = 7
+		y = 8
 		relative_position_id = VEN_military_reforms
 
 		cost = 5
@@ -14596,7 +15180,7 @@ focus_tree = {
 		icon = army_reform
 
 		x = 2
-		y = 7
+		y = 8
 		relative_position_id = VEN_military_reforms
 
 		cost = 10
@@ -14629,7 +15213,7 @@ focus_tree = {
 		icon = VEN_strong_ven
 
 		x = 0
-		y = 8
+		y = 9
 		relative_position_id = VEN_military_reforms
 
 		cost = 10
@@ -14662,8 +15246,8 @@ focus_tree = {
 		id = VEN_bolivarian_guard
 		icon = VEN_gnb
 
-		x = -14
-		y = 2
+		x = -36
+		y = 3
 		relative_position_id = VEN_national_army
 
 		cost = 5
@@ -14959,8 +15543,8 @@ focus_tree = {
 		id = VEN_the_airforce
 		icon = VEN_air_force
 
-		x = 10
-		y = 2
+		x = -26
+		y = 3
 		relative_position_id = VEN_national_army
 
 		cost = 5
@@ -14978,12 +15562,15 @@ focus_tree = {
 		ai_will_do = { base = 1 }
 	}
 
-	# Pilar Izquierdo: Complejo Aeroespacial de Guayana y Aragua (Rama Nacional Soberana)
+	# =========================================================================
+	# AIR FORCE SUB-BRANCH
+	# =========================================================================
+	# Left Pillar: Guayana & Aragua Aerospace Complex (Sovereign National Branch)
 	focus = {
 		id = VEN_air_bael_upgrade
 		icon = airforce_base_1
 
-		x = -5
+		x = -4
 		y = 1
 		relative_position_id = VEN_the_airforce
 
@@ -15429,12 +16016,12 @@ focus_tree = {
 		}
 	}
 
-	# Pilar Central: Doctrina de Combate y Alineacion Geopolitica (x = -2, 0, +2)
+	# Center Pillar: Combat Doctrine & Geopolitical Alignment (x = -2, 0, +2)
 	focus = {
 		id = VEN_combat_aircraft
 		icon = air_superiority
 
-		x = 6
+		x = 5
 		y = 1
 		relative_position_id = VEN_the_airforce
 
@@ -15471,12 +16058,12 @@ focus_tree = {
 		}
 	}
 
-	# Sub-ruta EEUU / Occidente (x = -2)
+	# US / Western Sub-path (x = -2)
 	focus = {
 		id = VEN_air_usa_alignment
 		icon = amercian_f16
 
-		x = 4
+		x = 3
 		y = 2
 		relative_position_id = VEN_the_airforce
 
@@ -15555,7 +16142,7 @@ focus_tree = {
 		id = VEN_air_f16_f35_licenses
 		icon = F16_2
 
-		x = 4
+		x = 3
 		y = 3
 		relative_position_id = VEN_the_airforce
 
@@ -15699,7 +16286,7 @@ focus_tree = {
 		id = VEN_air_nato_interop
 		icon = f35
 
-		x = 4
+		x = 3
 		y = 4
 		relative_position_id = VEN_the_airforce
 
@@ -15821,12 +16408,12 @@ focus_tree = {
 		ai_will_do = { base = 1 }
 	}
 
-	# Sub-ruta Rusia (x = 0)
+	# Russian Sub-path (x = 0)
 	focus = {
 		id = VEN_air_russia_alignment
 		icon = blr_su33
 
-		x = 6
+		x = 5
 		y = 2
 		relative_position_id = VEN_the_airforce
 
@@ -15884,7 +16471,7 @@ focus_tree = {
 		id = VEN_air_su30_package
 		icon = blr_su33
 
-		x = 6
+		x = 5
 		y = 3
 		relative_position_id = VEN_the_airforce
 
@@ -16025,7 +16612,7 @@ focus_tree = {
 		id = VEN_bombers
 		icon = sov_pak_da
 
-		x = 6
+		x = 5
 		y = 4
 		relative_position_id = VEN_the_airforce
 
@@ -16169,12 +16756,12 @@ focus_tree = {
 		}
 	}
 
-	# Sub-ruta Autonomia Nacional / Concurso Internacional (x = +2)
+	# National Autonomy / International Tender Sub-path (x = +2)
 	focus = {
 		id = VEN_air_neutral_autonomy
 		icon = air_doctrine
 
-		x = 8
+		x = 7
 		y = 2
 		relative_position_id = VEN_the_airforce
 
@@ -16224,7 +16811,7 @@ focus_tree = {
 		id = VEN_air_fx_ven_tender
 		icon = european_jet
 
-		x = 8
+		x = 7
 		y = 3
 		relative_position_id = VEN_the_airforce
 
@@ -16252,7 +16839,7 @@ focus_tree = {
 		id = VEN_air_asymmetric
 		icon = advan_fighters
 
-		x = 8
+		x = 7
 		y = 4
 		relative_position_id = VEN_the_airforce
 
@@ -16420,7 +17007,7 @@ focus_tree = {
 		id = VEN_air_supremacy
 		icon = VEN_air_force
 
-		x = 6
+		x = 5
 		y = 5
 		relative_position_id = VEN_the_airforce
 
@@ -16461,7 +17048,7 @@ focus_tree = {
 		ai_will_do = { base = 5 }
 	}
 
-	# Pilar Derecho: Defensa Aeroespacial (CODAI), Drones y Programa Espacial (x = +4 a +6)
+	# Right Pillar: Aerospace Defense (CODAI), Drones & Space Program (x = +4 to +6)
 	focus = {
 		id = VEN_air_sam_network
 		icon = air_defense2
@@ -16808,15 +17395,15 @@ focus_tree = {
 	}
 
 	##################################################################
-	# Rama Blindada, Mecanizada y Motorizada (x = 143..149, y = 1..5)
+	# Armored, Mechanized & Motorized Branch (x = 143..149, y = 1..5)
 	##################################################################
 
 	focus = {
 		id = VEN_armor_mech_cmd
 		icon = army_military_industryy
 
-		x = 23
-		y = 2
+		x = -3
+		y = 3
 		relative_position_id = VEN_national_army
 
 		cost = 5

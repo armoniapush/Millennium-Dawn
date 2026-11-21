@@ -1,5 +1,7 @@
 ideas = {
 	country = {
+		### BOLIVARIAN ECONOMY, TRADE & COMMUNIST PATH ###
+
 		bolivarian_economy = {
 
 			name = bolivarian_economy
@@ -110,7 +112,6 @@ ideas = {
 
 		china_trade_deal = {
 
-
 			name = VEN_china_trade_deal
 
 			picture = trade
@@ -127,7 +128,6 @@ ideas = {
 
 		russian_trade_deal = {
 
-
 			name = VEN_russia_trade_deal
 
 			picture = trade
@@ -142,9 +142,7 @@ ideas = {
 			}
 		}
 
-
 		VEN_communist_militias = {
-
 
 			name = VEN_communist_militias
 
@@ -156,11 +154,9 @@ ideas = {
 				land_reinforce_rate = 0.05
 			}
 
-
 		}
 
 		VEN_armed_proletariat = {
-
 
 			name = VEN_armed_proletariat
 
@@ -173,7 +169,6 @@ ideas = {
 		}
 
 		VEN_self_sacrifice = {
-
 
 			name = VEN_self_sacrifice
 
@@ -188,7 +183,6 @@ ideas = {
 
 		VEN_political_war = {
 
-
 			name = VEN_political_war
 
 			picture = class_war
@@ -200,7 +194,6 @@ ideas = {
 		}
 
 		red_rising = {
-
 
 			name = VEN_state_equality
 
@@ -215,7 +208,6 @@ ideas = {
 		}
 
 		collective_industries = {
-
 
 			name = collective_industries
 
@@ -233,8 +225,7 @@ ideas = {
 
 		VEN_good_of_americas = {
 
-
-			name = efficient_industries
+			name = VEN_good_of_americas
 
 			picture = production_bonus
 
@@ -247,7 +238,6 @@ ideas = {
 			}
 		}
 		efficient_industries = {
-
 
 			name = efficient_industries
 
@@ -265,7 +255,6 @@ ideas = {
 
 		press_filled_with_propaganda = {
 
-
 			name = press_filled_with_propaganda
 
 			picture = political_censorship
@@ -281,7 +270,6 @@ ideas = {
 
 		press_free = {
 
-
 			name = press_free
 
 			picture = political_freedom
@@ -296,7 +284,6 @@ ideas = {
 		}
 
 		indoctrinated_army = {
-
 
 			name = indoctrinated_army
 
@@ -316,7 +303,6 @@ ideas = {
 
 		professional_army = {
 
-
 			name = professional_army
 
 			picture = volunteer_defenders
@@ -334,7 +320,6 @@ ideas = {
 		}
 
 		recent_agrarian_reform = {
-
 
 			name = recent_agrarian_reform
 
@@ -354,7 +339,6 @@ ideas = {
 		}
 
 		pdvsa = {
-
 
 			name = pdvsa
 
@@ -423,8 +407,9 @@ ideas = {
 			}
 		}
 
-		ven_leader_cult = {
+		### POLITICAL & OPPOSITION IDEAS ###
 
+		ven_leader_cult = {
 
 			picture = chavez_id_ea_populism
 
@@ -452,6 +437,8 @@ ideas = {
 				attack_bonus_against = 0.15
 			}
 		}
+		### NATIONALIST, CAPITALIST & EXPANSIONIST IDEAS ###
+
 		VEN_venezuela_militarism_idea = {
 
 			picture = manpower_bonus
@@ -630,6 +617,8 @@ ideas = {
 				stability_factor = 0.05
 			}
 		}
+		### INDUSTRY, TOURISM & ENVIRONMENT ###
+
 		VEN_technocrat_boom_idea = {
 
 			picture = research_bonus
@@ -671,7 +660,6 @@ ideas = {
 
 		VEN_rainforest_protectors = {
 
-
 			picture = national_defenders
 
 			modifier = {
@@ -680,6 +668,8 @@ ideas = {
 				experience_gain_army = 0.05
 			}
 		}
+
+		### NAVAL DOCTRINE & US NAVAL MISSION ###
 
 		VEN_navy_sovereign_planning_idea = {
 			name = VEN_navy_sovereign_planning_idea
@@ -789,6 +779,8 @@ ideas = {
 				foreign_influence_defense_modifier = -0.25
 			}
 		}
+
+		### ARMY REFORM & MILITARY DOCTRINE ###
 
 		VEN_outdated_army_idea = {
 			name = VEN_outdated_army_idea
@@ -959,6 +951,8 @@ ideas = {
 			}
 		}
 
+		### EDUCATION, WORKFORCE & ECONOMIC TRANSITION ###
+
 		VEN_brain_drain = {
 			allowed_civil_war = { always = yes }
 			picture = low_popular_support
@@ -1010,7 +1004,6 @@ ideas = {
 		VEN_secure_workforce = {
 			name = VEN_secure_workforce
 
-
 			picture = production_bonus
 
 			modifier = {
@@ -1023,7 +1016,6 @@ ideas = {
 
 		VEN_brain_drain_reversal = {
 			name = VEN_brain_drain_reversal
-
 
 			picture = brain_drain_idea
 
@@ -1099,6 +1091,8 @@ ideas = {
 			}
 		}
 
+		### POLITICAL ALIGNMENT & INTERNAL SECURITY ###
+
 		VEN_us_backed_intervention = {
 			allowed_civil_war = { always = yes }
 			picture = AST_usnavy
@@ -1164,6 +1158,8 @@ ideas = {
 				consumer_goods_factor = -0.02
 			}
 		}
+		### FARC, SANCTIONS & CARTEL OPERATIONS ###
+
 		VEN_FARC_active = {
 
 			picture = fars_idea
@@ -1191,6 +1187,47 @@ ideas = {
 				social_cost_multiplier_modifier = 0.05
 			}
 		}
+		VEN_FARC_narco_corridor = {
+
+			picture = fars_idea
+			modifier = {
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
+				supply_consumption_factor = -0.05
+				corruption_cost_factor = 0.10
+				opinion_gain_monthly_factor = -0.15
+			}
+		}
+		VEN_ofac_sanctions_idea = {
+
+			picture = sov_western_sanctions_idea
+			modifier = {
+				trade_opinion_factor = -0.35
+				consumer_goods_factor = 0.03
+				foreign_influence_defense_modifier = 0.15
+			}
+		}
+		VEN_crypto_laundering_idea = {
+
+			picture = NRY_printing_money
+			modifier = {
+				projects_cost_modifier = -0.10
+				corruption_cost_factor = 0.15
+				interest_rate_multiplier_modifier = -0.15
+			}
+		}
+		VEN_counter_insurgency_corps_idea = {
+
+			picture = army_officer
+			modifier = {
+				army_org_factor = 0.05
+				recon_factor = 0.10
+				terrain_penalty_reduction = 0.10
+				supply_consumption_factor = -0.05
+			}
+		}
+		### OIL SECTOR & PETROSTATE DEVELOPMENT ###
+
 		VEN_american_oil_deals = {
 
 			allowed_civil_war = { always = yes }
@@ -1243,6 +1280,8 @@ ideas = {
 				gdp_from_resource_sector_modifier = 0.40
 			}
 		}
+		### FIFTH REPUBLIC, DIPLOMACY & CONSCRIPTION ###
+
 		VEN_the_people = {
 
 			picture = class_war
@@ -1276,7 +1315,6 @@ ideas = {
 
 			allowed_civil_war = { always = yes }
 
-
 			picture = united_nations_blue
 			modifier = {
 				political_power_factor = 0.15
@@ -1295,7 +1333,6 @@ ideas = {
 		}
 		VEN_expanded_diplomacy = {
 
-
 			name = VEN_expanded_diplomacy
 
 			picture = international_treaty2
@@ -1309,7 +1346,6 @@ ideas = {
 
 			allowed_civil_war = { always = yes }
 
-
 			picture = air_industry
 
 			equipment_bonus = {
@@ -1321,7 +1357,6 @@ ideas = {
 		VEN_iron_control_vdp = {
 
 			allowed_civil_war = { always = yes }
-
 
 			picture = gold
 
@@ -1335,7 +1370,6 @@ ideas = {
 
 			allowed_civil_war = { always = yes }
 
-
 			picture = ven_cuba_spies
 			modifier = {
 				foreign_influence_modifier = 0.2
@@ -1346,7 +1380,6 @@ ideas = {
 		VEN_CUB_venezuelan_democratic_influence = {
 
 			allowed_civil_war = { always = yes }
-
 
 			picture = democracy
 
@@ -1359,7 +1392,6 @@ ideas = {
 		VEN_reinforced_mandatory_services = {
 
 			allowed_civil_war = { always = yes }
-
 
 			picture = politicised_army
 
@@ -1375,7 +1407,6 @@ ideas = {
 
 			allowed_civil_war = { always = yes }
 
-
 			picture = politicised_army
 
 			modifier = {
@@ -1385,6 +1416,8 @@ ideas = {
 				army_personnel_cost_multiplier_modifier = -0.05
 			}
 		}
+
+		### AEROSPACE & AIR FORCE INITIATIVES ###
 
 		VEN_joint_aerospace_supremacy_idea = {
 
@@ -1446,6 +1479,8 @@ ideas = {
 				}
 			}
 		}
+
+		### GNB TERRITORIAL COMMANDS ###
 
 		VEN_gnb_garrison_commands_idea = {
 
@@ -1549,7 +1584,7 @@ ideas = {
 			}
 		}
 
-		# Rama Blindada, Mecanizada y Motorizada
+		### ARMORED, MECHANIZED & MOTORIZED BRANCH ###
 		VEN_cemablin_t72_doctrine_idea = {
 			allowed_civil_war = { always = yes }
 			picture = armor2
@@ -1650,7 +1685,7 @@ ideas = {
 			}
 		}
 
-		# Pilar Derecho Aéreo: CODAI, Drones y Aeroespacial
+		### AIR DEFENSE, DRONES & AEROSPACE PILLAR ###
 		VEN_codai_air_defense_idea = {
 			allowed_civil_war = { always = yes }
 			picture = ukr_antiair_missile_troops_idea
@@ -1712,6 +1747,8 @@ ideas = {
 				air_ace_generation_chance_factor = 0.15
 			}
 		}
+
+		### HEMISPHERIC REALIGNMENT & US TUTELAGE ###
 
 		VEN_hemispheric_realignment_idea = {
 			allowed_civil_war = { always = yes }
@@ -1795,6 +1832,28 @@ ideas = {
 				industrial_capacity_factory = -0.15
 				consumer_goods_factor = 0.05
 				trade_opinion_factor = -0.50
+			}
+		}
+
+		VEN_us_expeditionary_support_idea = {
+			allowed_civil_war = { always = yes }
+			picture = USA_coalition_forces
+			modifier = {
+				army_org_factor = 0.08
+				army_attack_factor = 0.08
+				planning_speed = 0.15
+				supply_consumption_factor = -0.10
+			}
+		}
+
+		VEN_us_tutelage_idea = {
+			allowed_civil_war = { always = yes }
+			picture = USA_USAID
+			modifier = {
+				stability_factor = 0.05
+				production_speed_buildings_factor = 0.10
+				political_power_factor = -0.15
+				western_drift = 0.03
 			}
 		}
 

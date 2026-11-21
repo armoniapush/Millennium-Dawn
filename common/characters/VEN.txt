@@ -1,5 +1,8 @@
+# Venezuela Characters (Commanders, Admirals, Advisors & Political Leaders)
+
 characters = {
 
+	# === Base Military Commanders & Advisors ===
 	VEN_vladimir_padrino_lopez = {
 		name = "Vladimir Padrino Lopez"
 		portraits = {
@@ -72,7 +75,7 @@ characters = {
 
 		advisor = {
 			slot = navy_chief
-			idea_token = orlando_miguel_maneiro_gaspar
+			idea_token = edgar_valentin_cruz_arteaga
 			ledger = navy
 			traits = {
 				navy_chief_reform_2
@@ -229,7 +232,7 @@ characters = {
 		}
 		advisor = {
 			slot = army_chief
-			idea_token = edgar_valentin_cruz_arteaga
+			idea_token = orlando_miguel_maneiro_gaspar
 			ledger = army
 			traits = {
 				army_chief_reform_2
@@ -239,8 +242,6 @@ characters = {
 				factor = 1
 			}
 		}
-
-
 
 	}
 	VEN_carlos_jose_vieira_acevedo = {
@@ -272,6 +273,544 @@ characters = {
 			ai_will_do = {
 				factor = 1
 			}
+		}
+	}
+
+	# === 1999-2004 Historical Crisis Characters & Commanders ===
+	VEN_raul_isaias_baduel = {
+		name = "Raul Isaias Baduel"
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/VEN/small/raul_isaias_baduel_small.dds"
+				large = "gfx/leaders/VEN/raul_isaias_baduel.dds"
+			}
+			army = {
+				small = "gfx/leaders/VEN/small/raul_isaias_baduel_small.dds"
+				large = "gfx/leaders/VEN/raul_isaias_baduel.dds"
+			}
+		}
+		country_leader = {
+			ideology = Nat_Populism
+			traits = { nationalist_Nat_Populism military_career }
+			expire = "2050.1.1.1"
+			id = -1
+		}
+		corps_commander = {
+			traits = { commando paratrooper trickster }
+			skill = 4
+			attack_skill = 4
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+		}
+		advisor = {
+			slot = high_command
+			idea_token = raul_isaias_baduel
+			ledger = army
+			traits = { army_commando_2 }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	VEN_jorge_garcia_carneiro = {
+		name = "Jorge Garcia Carneiro"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VEN/small/jorge_garcia_carneiro_small.dds"
+				large = "gfx/leaders/VEN/jorge_garcia_carneiro.dds"
+			}
+		}
+		corps_commander = {
+			traits = { infantry_officer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		advisor = {
+			slot = high_command
+			idea_token = jorge_garcia_carneiro
+			ledger = army
+			traits = { army_infantry_2 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+	VEN_carlos_molina_tamayo = {
+		name = "Carlos Molina Tamayo"
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/VEN/small/carlos_molina_tamayo_small.dds"
+				large = "gfx/leaders/VEN/carlos_molina_tamayo.dds"
+			}
+			army = {
+				small = "gfx/leaders/VEN/small/carlos_molina_tamayo_small.dds"
+				large = "gfx/leaders/VEN/carlos_molina_tamayo.dds"
+			}
+		}
+		country_leader = {
+			ideology = Western_Autocracy
+			traits = { western_Western_Autocracy military_career pro_american scientist_engineer }
+			expire = "2050.1.1.1"
+			id = -1
+		}
+		navy_leader = {
+			traits = { gunnery_expert chief_engineer superior_tactician }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 3
+			maneuvering_skill = 3
+			coordination_skill = 4
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = carlos_molina_tamayo
+			ledger = navy
+			traits = { navy_chief_decisive_battle_2 }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	VEN_efrain_vasquez_velasco = {
+		name = "Efrain Vasquez Velasco"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VEN/small/efrain_vasquez_velasco_small.dds"
+				large = "gfx/leaders/VEN/efrain_vasquez_velasco.dds"
+			}
+		}
+		corps_commander = {
+			traits = { career_officer }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = efrain_vasquez_velasco
+			ledger = army
+			traits = { army_chief_organizational_2 }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	VEN_enrique_medina_gomez = {
+		name = "Enrique Medina Gomez"
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/VEN/small/enrique_medina_gomez_small.dds"
+				large = "gfx/leaders/VEN/enrique_medina_gomez.dds"
+			}
+			army = {
+				small = "gfx/leaders/VEN/small/enrique_medina_gomez_small.dds"
+				large = "gfx/leaders/VEN/enrique_medina_gomez.dds"
+			}
+		}
+		country_leader = {
+			ideology = Nat_Fascism
+			traits = { nationalist_Nat_Fascism military_career pro_american }
+			expire = "2050.1.1.1"
+			id = -1
+		}
+		corps_commander = {
+			traits = { infantry_leader }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+	VEN_pedro_pereira = {
+		name = "Pedro Pereira"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VEN/small/pedro_pereira_small.dds"
+				large = "gfx/leaders/VEN/pedro_pereira.dds"
+			}
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = pedro_pereira
+			ledger = air
+			traits = { air_chief_reform_2 }
+			cost = 150
+			ai_will_do = { factor = 1 }
+		}
+	}
+	VEN_carlos_alfonzo_martinez = {
+		name = "Carlos Alfonzo Martinez"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VEN/small/carlos_alfonzo_martinez_small.dds"
+				large = "gfx/leaders/VEN/carlos_alfonzo_martinez.dds"
+			}
+		}
+		corps_commander = {
+			traits = { trait_cautious }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	VEN_diosdado_cabello = {
+		name = "Diosdado Cabello"
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/VEN/small/diosdado_cabello_small.dds"
+				large = "gfx/leaders/VEN/diosdado_cabello.dds"
+			}
+		}
+		country_leader = {
+			ideology = anarchist_communism
+			traits = { emerging_anarchist_communism military_career ruthless }
+			expire = "2050.1.1.1"
+			id = -1
+		}
+		country_leader = {
+			ideology = oligarchism
+			traits = { neutrality_oligarchism military_career ruthless }
+			expire = "2050.1.1.1"
+			id = -1
+		}
+	}
+	VEN_ali_rodriguez_araque = {
+		name = "Ali Rodriguez Araque"
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/VEN/small/ali_rodriguez_araque_small.dds"
+				large = "gfx/leaders/VEN/ali_rodriguez_araque.dds"
+			}
+		}
+		country_leader = {
+			ideology = anarchist_communism
+			traits = { emerging_anarchist_communism economist silent_workhorse }
+			expire = "2050.1.1.1"
+			id = -1
+		}
+	}
+	VEN_pedro_carmona_estanga = {
+		name = "Pedro Carmona Estanga"
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/VEN/small/pedro_carmona_estanga_small.dds"
+				large = "gfx/leaders/VEN/pedro_carmona_estanga.dds"
+			}
+		}
+		country_leader = {
+			ideology = Neutral_conservatism
+			traits = { neutrality_Neutral_conservatism captain_of_industry }
+			expire = "2050.1.1.1"
+			id = -1
+		}
+	}
+	VEN_guaicaipuro_lameda = {
+		name = "Guaicaipuro Lameda"
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/VEN/small/guaicaipuro_lameda_small.dds"
+				large = "gfx/leaders/VEN/guaicaipuro_lameda.dds"
+			}
+		}
+		country_leader = {
+			ideology = Neutral_conservatism
+			traits = { neutrality_Neutral_conservatism economist military_career }
+			expire = "2050.1.1.1"
+			id = -1
+		}
+		country_leader = {
+			ideology = Western_Autocracy
+			traits = { western_Western_Autocracy economist military_career }
+			expire = "2050.1.1.1"
+			id = -1
+		}
+	}
+	VEN_enrique_mendoza = {
+		name = "Enrique Mendoza"
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/VEN/small/enrique_mendoza_small.dds"
+				large = "gfx/leaders/VEN/enrique_mendoza.dds"
+			}
+		}
+		country_leader = {
+			ideology = conservatism
+			traits = { western_conservatism pro_american }
+			expire = "2050.1.1.1"
+			id = -1
+		}
+	}
+	VEN_carlos_ortega = {
+		name = "Carlos Ortega"
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/VEN/small/carlos_ortega_small.dds"
+				large = "gfx/leaders/VEN/carlos_ortega.dds"
+			}
+		}
+		country_leader = {
+			ideology = liberalism
+			traits = { western_liberalism }
+			expire = "2050.1.1.1"
+			id = -1
+		}
+	}
+	VEN_maria_corina_machado = {
+		name = "Maria Corina Machado"
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/VEN/small/maria_corina_machado_small.dds"
+				large = "gfx/leaders/VEN/maria_corina_machado.dds"
+			}
+		}
+		country_leader = {
+			ideology = liberalism
+			traits = { western_liberalism pro_american ideological_crusader }
+			expire = "2050.1.1.1"
+			id = -1
+		}
+		country_leader = {
+			ideology = Neutral_Libertarian
+			traits = { neutrality_Neutral_Libertarian pro_american ideological_crusader }
+			expire = "2050.1.1.1"
+			id = -1
+		}
+	}
+	VEN_leopoldo_lopez = {
+		name = "Leopoldo Lopez"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/VEN/leopoldo_lopez.dds"
+			}
+		}
+		country_leader = {
+			ideology = liberalism
+			traits = { western_liberalism pro_american }
+			expire = "2050.1.1.1"
+			id = -1
+		}
+		country_leader = {
+			ideology = Neutral_Libertarian
+			traits = { neutrality_Neutral_Libertarian pro_american }
+			expire = "2050.1.1.1"
+			id = -1
+		}
+	}
+	VEN_francisco_arias_cardenas = {
+		name = "Francisco Arias Cardenas"
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/VEN/small/francisco_arias_cardenas_small.dds"
+				large = "gfx/leaders/VEN/francisco_arias_cardenas.dds"
+			}
+			army = {
+				small = "gfx/leaders/VEN/small/francisco_arias_cardenas_small.dds"
+				large = "gfx/leaders/VEN/francisco_arias_cardenas.dds"
+			}
+		}
+		corps_commander = {
+			traits = { career_officer trickster }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+		}
+		country_leader = {
+			ideology = Nat_Autocracy
+			traits = { nationalist_Nat_Autocracy military_career pro_american }
+			expire = "2050.1.1.1"
+			id = -1
+		}
+		country_leader = {
+			ideology = Nat_Populism
+			traits = { nationalist_Nat_Populism military_career pro_american }
+			expire = "2050.1.1.1"
+			id = -1
+		}
+		country_leader = {
+			ideology = Western_Autocracy
+			traits = { western_Western_Autocracy military_career pro_american }
+			expire = "2050.1.1.1"
+			id = -1
+		}
+	}
+	VEN_henrique_salas_romer = {
+		name = "Henrique Salas Romer"
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/VEN/small/henrique_salas_romer_small.dds"
+				large = "gfx/leaders/VEN/henrique_salas_romer.dds"
+			}
+		}
+		country_leader = {
+			ideology = conservatism
+			traits = { western_conservatism economist pro_american }
+			expire = "2050.1.1.1"
+			id = -1
+		}
+	}
+	VEN_junta_militar = {
+		name = "Junta Militar"
+		portraits = {
+			civilian = {
+				small = "gfx/leaders/VEN/small/VEN_junta_militar_small.dds"
+				large = "gfx/leaders/VEN/VEN_junta_militar.dds"
+			}
+			army = {
+				small = "gfx/leaders/VEN/small/VEN_junta_militar_small.dds"
+				large = "gfx/leaders/VEN/VEN_junta_militar.dds"
+			}
+		}
+		country_leader = {
+			ideology = Nat_Autocracy
+			traits = { nationalist_Nat_Autocracy military_career ruthless }
+			expire = "2050.1.1.1"
+			id = -1
+		}
+	}
+
+	# === Unlockable / Assimilable Commanders (Female Officers, Pilots, Admirals & Generals) ===
+	VEN_marisol_contreras = {
+		name = "Marisol Contreras"
+		gender = female
+		portraits = {
+			army = {
+				small = "gfx/leaders/VEN/small/Portrait_Marisol_Contreras_small.dds"
+				large = "gfx/leaders/VEN/Portrait_Marisol_Contreras.dds"
+			}
+		}
+		corps_commander = {
+			traits = { organizer logistics_wizard infantry_officer }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 4
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = marisol_contreras
+			ledger = army
+			traits = { army_chief_organizational_2 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+	VEN_gabriela_paez = {
+		name = "Gabriela Paez"
+		gender = female
+		portraits = {
+			army = {
+				small = "gfx/leaders/VEN/small/Portrait_Gabriela_Paez_small.dds"
+				large = "gfx/leaders/VEN/Portrait_Gabriela_Paez.dds"
+			}
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = gabriela_paez
+			ledger = air
+			traits = { air_chief_reform_2 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+	VEN_rafael_torres = {
+		name = "Rafael Torres"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VEN/small/Portrait_Rafael_Torres_small.dds"
+				large = "gfx/leaders/VEN/Portrait_Rafael_Torres.dds"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = rafael_torres
+			ledger = air
+			traits = { air_chief_ground_support_1 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+	VEN_carlos_zapata = {
+		name = "Carlos Zapata"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VEN/small/Portrait_Carlos_Zapata_small.dds"
+				large = "gfx/leaders/VEN/Portrait_Carlos_Zapata.dds"
+			}
+		}
+		navy_leader = {
+			traits = { superior_tactician }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			maneuvering_skill = 3
+			coordination_skill = 3
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = carlos_zapata
+			ledger = navy
+			traits = { navy_chief_decisive_battle_2 }
+			cost = 100
+			ai_will_do = { factor = 1 }
+		}
+	}
+	VEN_miguel_salazar = {
+		name = "Miguel Salazar"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VEN/small/Portrait_Miguel_Salazar_small.dds"
+				large = "gfx/leaders/VEN/Portrait_Miguel_Salazar.dds"
+			}
+		}
+		navy_leader = {
+			traits = { old_guard_navy }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 4
+			maneuvering_skill = 2
+			coordination_skill = 3
+		}
+	}
+	VEN_roberto_urdaneta = {
+		name = "Roberto Urdaneta"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VEN/small/Portrait_Roberto_Urdaneta_small.dds"
+				large = "gfx/leaders/VEN/Portrait_Roberto_Urdaneta.dds"
+			}
+		}
+		corps_commander = {
+			traits = { panzer_leader }
+			skill = 3
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+	VEN_manuel_bermudez = {
+		name = "Manuel Bermudez"
+		portraits = {
+			army = {
+				small = "gfx/leaders/VEN/small/Portrait_Manuel_Bermudez_small.dds"
+				large = "gfx/leaders/VEN/Portrait_Manuel_Bermudez.dds"
+			}
+		}
+		corps_commander = {
+			traits = { commando }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 3
 		}
 	}
 }

@@ -1,5 +1,8 @@
+# Venezuela Country History (2000 Start)
+
 capital = 875
 2000.1.1 = {
+	# === Country Setup & Starting Flags ===
 	set_variable = { currency_strength = 0.4 }
 	set_cosmetic_tag = VEN
 	set_country_flag = dynamic_flag
@@ -66,6 +69,7 @@ capital = 875
 			}
 		}
 	}
+	# === Starting OOB & Ideas ===
 	set_naval_oob = "VEN_2000_naval_mtg"
 
 	add_ideas = {
@@ -128,6 +132,7 @@ capital = 875
 	set_variable = { fossil_fuel_industry_opinion = 75 }
 	set_variable = { small_medium_business_owners_opinion = 35 }
 
+	# === Economy & Tax Variables ===
 	set_variable = { var = debt value = 61 }
 	set_variable = { var = treasury value = 23 }
 	set_variable = { var = corporate_tax_rate value = 28 }
@@ -135,6 +140,7 @@ capital = 875
 	set_variable = { var = int_investments value = 17 }
 	set_variable = { var = overall_productivity value = 531 }
 
+	# === Diplomatic & Language Opinion Modifiers ===
 	add_opinion_modifier = { target = CHL modifier = spanish_speaking }
 	reverse_add_opinion_modifier = { target = CHL modifier = spanish_speaking }
 	add_opinion_modifier = { target = ECU modifier = spanish_speaking }
@@ -162,6 +168,7 @@ capital = 875
 	add_opinion_modifier = { target = URG modifier = spanish_speaking }
 	reverse_add_opinion_modifier = { target = URG modifier = spanish_speaking }
 
+	# === Starting Technologies & Equipment Variants ===
 	set_technology = {
 		railway_system_01 = 1
 		railway_system_02 = 1
@@ -234,6 +241,7 @@ capital = 875
 		role_icon_index = 12
 	}
 
+	# === Naval Technologies ===
 	set_technology = {
 		corvette_hull_1 = 1
 
@@ -278,7 +286,7 @@ capital = 875
 		tech_landing_craft_1 = 1
 	}
 
-
+	# === Politics, Ruling Party & Leader ===
 	set_popularities = {
 		democratic = 37.0
 		communism = 60.0
@@ -315,6 +323,7 @@ capital = 875
 		}
 	}
 
+	# === Starting Characters ===
 	recruit_character = VEN_vladimir_padrino_lopez
 	recruit_character = VEN_juan_de_jesus_garcia_toussaintt
 	recruit_character = VEN_jesus_alberto_milano_mendoza
@@ -327,7 +336,14 @@ capital = 875
 	recruit_character = VEN_luis_medina_fernandes
 	recruit_character = VEN_orlando_miguel_maneiro_gaspar
 	recruit_character = VEN_carlos_jose_vieira_acevedo
-
+	recruit_character = VEN_raul_isaias_baduel
+	recruit_character = VEN_jorge_garcia_carneiro
+	recruit_character = VEN_carlos_molina_tamayo
+	recruit_character = VEN_efrain_vasquez_velasco
+	recruit_character = VEN_enrique_medina_gomez
+	recruit_character = VEN_pedro_pereira
+	recruit_character = VEN_carlos_alfonzo_martinez
+	recruit_character = VEN_francisco_arias_cardenas
 
 	# Relation Starting Configuration (moved from on_startup)
 	add_opinion_modifier = { target = HAM modifier = HAM_Not_A_Recognized_country }

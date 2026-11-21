@@ -1058,6 +1058,7 @@ calculate_additional_income_rate = {
 				OR = {
 					neutrality_neutral_oligarch_are_in_power = yes
 					has_dynamic_modifier = { modifier = narco_state_bonuses }
+					has_dynamic_modifier = { modifier = VEN_cartel_symbiosis_modifier }
 				}
 			}
 			set_variable = {

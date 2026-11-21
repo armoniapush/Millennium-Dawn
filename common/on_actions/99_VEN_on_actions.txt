@@ -1,0 +1,21 @@
+# Venezuela On-Actions
+
+on_actions = {
+	# Fires post-civil-war resolution event (venezuela.7) when Venezuela's political civil war ends
+	on_civil_war_end = {
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						original_tag = VEN
+						has_country_flag = VEN_political_civil_war_active
+					}
+				}
+				ROOT = {
+					clr_country_flag = VEN_political_civil_war_active
+					country_event = { id = venezuela.7 days = 1 }
+				}
+			}
+		}
+	}
+}

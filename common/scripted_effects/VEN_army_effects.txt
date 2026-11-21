@@ -1,3 +1,7 @@
+# Scripted effects for Venezuela's army reform and doctrine tree
+
+# Effect: VEN_advance_army_reform
+# Purpose: Steps Venezuela through the 4-stage outdated army idea chain up to VEN_rejuvinated_army.
 VEN_advance_army_reform = {
 	if = {
 		limit = { has_idea = VEN_outdated_army_idea }
@@ -33,6 +37,8 @@ VEN_advance_army_reform = {
 	}
 }
 
+# Effect: VEN_add_land_mastery_20
+# Purpose: Grants 20 land doctrine mastery if a grand doctrine is selected, otherwise 35 army experience.
 VEN_add_land_mastery_20 = {
 	if = {
 		limit = { has_selected_land_grand_doctrine = yes }
@@ -46,6 +52,8 @@ VEN_add_land_mastery_20 = {
 	}
 }
 
+# Effect: VEN_add_land_mastery_30
+# Purpose: Grants 30 land doctrine mastery if a grand doctrine is selected, otherwise 50 army experience.
 VEN_add_land_mastery_30 = {
 	if = {
 		limit = { has_selected_land_grand_doctrine = yes }

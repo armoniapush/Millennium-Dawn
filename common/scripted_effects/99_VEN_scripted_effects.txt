@@ -1,0 +1,361 @@
+# Venezuela 1999-2004 Political Crisis, Entrenchment & Civil War Scripted Effects
+
+# Effect: VEN_clear_chavismo_ideas
+# Purpose: Removes Chavismo/crisis ideas and the entrenchment dynamic modifier, marking the political crisis resolved.
+VEN_clear_chavismo_ideas = {
+	remove_ideas = {
+		VEN_plan_bolivar_1
+		VEN_plan_bolivar_2
+		VEN_plan_bolivar_3
+		VEN_plan_bolivar_4
+		VEN_plan_bolivar_5
+		bolivarian_economy
+		collective_industries
+		press_filled_with_propaganda
+		indoctrinated_army
+		VEN_opposition_strengthened
+	}
+	if = {
+		limit = { has_dynamic_modifier = { modifier = VEN_chavista_entrenchment_modifier } }
+		remove_dynamic_modifier = { modifier = VEN_chavista_entrenchment_modifier }
+	}
+	set_country_flag = VEN_political_crisis_resolved
+}
+
+# Effect: VEN_sync_entrenchment_modifier
+# Purpose: Initializes and clamps VEN_chavez_grip / VEN_opp_momentum and updates entrenchment modifier variables.
+VEN_sync_entrenchment_modifier = {
+	if = {
+		limit = { NOT = { has_country_flag = VEN_entrenchment_init } }
+		set_country_flag = VEN_entrenchment_init
+		if = {
+			limit = { NOT = { has_variable = VEN_chavez_grip } }
+			set_variable = { VEN_chavez_grip = 70 }
+		}
+		if = {
+			limit = { NOT = { has_variable = VEN_opp_momentum } }
+			set_variable = { VEN_opp_momentum = 20 }
+		}
+		if = {
+			limit = {
+				emerging_anarchist_communism_in_power_or_coalition = yes
+				NOT = { has_dynamic_modifier = { modifier = VEN_chavista_entrenchment_modifier } }
+			}
+			add_dynamic_modifier = { modifier = VEN_chavista_entrenchment_modifier }
+		}
+	}
+	clamp_variable = { var = VEN_chavez_grip min = 0 max = 100 }
+	clamp_variable = { var = VEN_opp_momentum min = 0 max = 100 }
+	set_temp_variable = { _g = VEN_chavez_grip }
+	divide_temp_variable = { _g = 500 }
+	set_variable = { VEN_grip_pp = _g }
+	set_temp_variable = { _d = VEN_chavez_grip }
+	divide_temp_variable = { _d = 2000 }
+	set_variable = { VEN_grip_drift = _d }
+	set_temp_variable = { _c = VEN_chavez_grip }
+	divide_temp_variable = { _c = 400 }
+	set_variable = { VEN_grip_cost = _c }
+	set_temp_variable = { _s = VEN_chavez_grip }
+	subtract_from_temp_variable = { _s = 50 }
+	divide_temp_variable = { _s = 500 }
+	set_variable = { VEN_grip_stab = _s }
+}
+
+# Effect: VEN_recruit_post_crisis_commanders
+# Purpose: Recruits the post-crisis Venezuelan military commanders if not already present.
+VEN_recruit_post_crisis_commanders = {
+	if = {
+		limit = { NOT = { has_character = VEN_marisol_contreras } }
+		recruit_character = VEN_marisol_contreras
+	}
+	if = {
+		limit = { NOT = { has_character = VEN_gabriela_paez } }
+		recruit_character = VEN_gabriela_paez
+	}
+	if = {
+		limit = { NOT = { has_character = VEN_rafael_torres } }
+		recruit_character = VEN_rafael_torres
+	}
+	if = {
+		limit = { NOT = { has_character = VEN_carlos_zapata } }
+		recruit_character = VEN_carlos_zapata
+	}
+	if = {
+		limit = { NOT = { has_character = VEN_miguel_salazar } }
+		recruit_character = VEN_miguel_salazar
+	}
+	if = {
+		limit = { NOT = { has_character = VEN_roberto_urdaneta } }
+		recruit_character = VEN_roberto_urdaneta
+	}
+	if = {
+		limit = { NOT = { has_character = VEN_manuel_bermudez } }
+		recruit_character = VEN_manuel_bermudez
+	}
+}
+
+# Effect: VEN_start_political_civil_war
+# Purpose: Launches the Venezuelan political civil war and sets up the opposing rebel faction.
+# Parameters: Expects country flag VEN_cw_chavez, VEN_cw_opp, or VEN_cw_junta (and optional VEN_cw_nationalist_rebels / temp rul_party_temp).
+VEN_start_political_civil_war = {
+	set_country_flag = VEN_political_civil_war_active
+	clr_country_flag = VEN_recall_campaign_active
+	if = {
+		limit = {
+			OR = {
+				has_country_flag = VEN_cw_opp
+				has_country_flag = VEN_cw_junta
+			}
+		}
+		VEN_clear_chavismo_ideas = yes
+		if = {
+			limit = { NOT = { has_variable = rul_party_temp } }
+			if = {
+				limit = { has_country_flag = VEN_cw_junta }
+				set_temp_variable = { rul_party_temp = 22 }
+				set_temp_variable = { disable_elections = 1 }
+			}
+			else = {
+				set_temp_variable = { rul_party_temp = 1 }
+				set_temp_variable = { disable_elections = 0 }
+			}
+		}
+		change_ruling_party_effect = yes
+		if = {
+			limit = { has_country_flag = VEN_cw_junta }
+			add_popularity = {
+				ideology = nationalist
+				popularity = 0.25
+			}
+			recalculate_party = yes
+			if = {
+				limit = { NOT = { has_character = VEN_junta_militar } }
+				recruit_character = VEN_junta_militar
+			}
+			promote_character = VEN_junta_militar
+		}
+		else_if = {
+			limit = { has_country_flag = VEN_cw_molina_leader }
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.25
+			}
+			recalculate_party = yes
+			if = {
+				limit = { NOT = { has_character = VEN_carlos_molina_tamayo } }
+				recruit_character = VEN_carlos_molina_tamayo
+			}
+			promote_character = VEN_carlos_molina_tamayo
+		}
+		else = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.25
+			}
+			recalculate_party = yes
+			if = {
+				limit = { NOT = { has_character = VEN_enrique_mendoza } }
+				recruit_character = VEN_enrique_mendoza
+			}
+			promote_character = VEN_enrique_mendoza
+		}
+		if = {
+			limit = { has_country_flag = VEN_us_intervention_war }
+			start_civil_war = {
+				ideology = communism
+				size = 0.70
+				keep_political_leader = yes
+			}
+			add_ideas = VEN_us_expeditionary_support_idea
+			division_template = {
+				name = "Brigada de Liberación"
+				priority = 1
+				regiments = {
+					L_Inf_Bat = { x = 0 y = 0 }
+					L_Inf_Bat = { x = 0 y = 1 }
+					L_Inf_Bat = { x = 0 y = 2 }
+					L_Inf_Bat = { x = 1 y = 0 }
+					L_Inf_Bat = { x = 1 y = 1 }
+				}
+				support = {
+					L_Engi_Comp = { x = 0 y = 0 }
+					L_Recce_Comp = { x = 0 y = 1 }
+				}
+			}
+			capital_scope = {
+				create_unit = {
+					division = "name = \"1st Brigada de Liberación\" division_template = \"Brigada de Liberación\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"2nd Brigada de Liberación\" division_template = \"Brigada de Liberación\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"3rd Brigada de Liberación\" division_template = \"Brigada de Liberación\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
+					owner = ROOT
+				}
+				create_unit = {
+					division = "name = \"4th Brigada de Liberación\" division_template = \"Brigada de Liberación\" start_experience_factor = 0.8 start_equipment_factor = 1.0"
+					owner = ROOT
+				}
+			}
+			if = {
+				limit = {
+					country_exists = USA
+					NOT = { has_war_with = USA }
+				}
+				USA = {
+					add_ai_strategy = {
+						type = send_volunteers_desire
+						id = ROOT
+						value = 500
+					}
+					add_relation_modifier = {
+						target = ROOT
+						modifier = generic_increased_military_support
+					}
+				}
+			}
+		}
+		else = {
+			start_civil_war = {
+				ideology = communism
+				size = 0.45
+				keep_political_leader = yes
+			}
+		}
+		random_enemy_country = {
+			limit = { original_tag = VEN }
+			set_country_flag = VEN_chavista_rebel_tag
+			if = {
+				limit = {
+					ROOT = { has_country_flag = VEN_us_intervention_war }
+					country_exists = SOV
+				}
+				SOV = {
+					add_ai_strategy = {
+						type = send_volunteers_desire
+						id = PREV
+						value = 500
+					}
+					add_relation_modifier = {
+						target = PREV
+						modifier = generic_increased_military_support
+					}
+				}
+			}
+			every_unit_leader = {
+				limit = {
+					OR = {
+						is_character = VEN_carlos_molina_tamayo
+						is_character = VEN_efrain_vasquez_velasco
+						is_character = VEN_enrique_medina_gomez
+						is_character = VEN_carlos_alfonzo_martinez
+						AND = {
+							is_character = VEN_raul_isaias_baduel
+							ROOT = { has_country_flag = VEN_baduel_defected }
+						}
+					}
+				}
+				set_nationality = ROOT
+			}
+			ROOT = {
+				every_unit_leader = {
+					limit = {
+						OR = {
+							AND = {
+								is_character = VEN_raul_isaias_baduel
+								ROOT = { NOT = { has_country_flag = VEN_baduel_defected } }
+							}
+							is_character = VEN_jorge_garcia_carneiro
+						}
+					}
+					set_nationality = PREV.PREV
+				}
+			}
+		}
+	}
+	else = {
+		set_country_flag = VEN_cw_chavez
+		if = {
+			limit = { has_country_flag = VEN_cw_nationalist_rebels }
+			start_civil_war = {
+				ideology = nationalist
+				size = 0.40
+				keep_political_leader = yes
+			}
+		}
+		else = {
+			start_civil_war = {
+				ideology = democratic
+				size = 0.40
+				keep_political_leader = yes
+			}
+		}
+		random_enemy_country = {
+			limit = { original_tag = VEN }
+			set_country_flag = VEN_opposition_rebel_tag
+			every_unit_leader = {
+				limit = {
+					OR = {
+						AND = {
+							is_character = VEN_raul_isaias_baduel
+							ROOT = { NOT = { has_country_flag = VEN_baduel_defected } }
+						}
+						is_character = VEN_jorge_garcia_carneiro
+					}
+				}
+				set_nationality = ROOT
+			}
+			ROOT = {
+				every_unit_leader = {
+					limit = {
+						OR = {
+							is_character = VEN_carlos_molina_tamayo
+							is_character = VEN_efrain_vasquez_velasco
+							is_character = VEN_enrique_medina_gomez
+							is_character = VEN_carlos_alfonzo_martinez
+							AND = {
+								is_character = VEN_raul_isaias_baduel
+								ROOT = { has_country_flag = VEN_baduel_defected }
+							}
+						}
+					}
+					set_nationality = PREV.PREV
+				}
+			}
+		}
+	}
+	mark_focus_tree_layout_dirty = yes
+}
+
+# Effect: VEN_sync_cartel_symbiosis_effect
+# Purpose: Replaces cartel_penalties with VEN_cartel_symbiosis_modifier and syncs its scaled variables.
+VEN_sync_cartel_symbiosis_effect = {
+	if = {
+		limit = { NOT = { has_dynamic_modifier = { modifier = VEN_cartel_symbiosis_modifier } } }
+		add_dynamic_modifier = { modifier = VEN_cartel_symbiosis_modifier }
+	}
+	if = {
+		limit = { has_dynamic_modifier = { modifier = cartel_penalties } }
+		remove_dynamic_modifier = { modifier = cartel_penalties }
+	}
+	clamp_variable = { var = strength_of_cartels min = 0 max = 100 }
+	clamp_variable = { var = cartel_political_influence min = 0 max = 100 }
+
+	set_variable = { VEN_sym_pp = strength_of_cartels }
+	multiply_variable = { VEN_sym_pp = 0.002 }
+
+	set_variable = { VEN_sym_corr = strength_of_cartels }
+	multiply_variable = { VEN_sym_corr = 0.01 }
+
+	set_variable = { VEN_sym_stab = strength_of_cartels }
+	multiply_variable = { VEN_sym_stab = 0.001 }
+
+	set_variable = { VEN_sym_army = strength_of_cartels }
+	multiply_variable = { VEN_sym_army = 0.001 }
+
+	set_variable = { VEN_sym_tax = strength_of_cartels }
+	multiply_variable = { VEN_sym_tax = -0.004 }
+}

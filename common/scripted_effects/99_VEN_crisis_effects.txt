@@ -1,0 +1,18 @@
+# Venezuela 1999-2004 Political Crisis Scripted Effects
+# Note: VEN_clear_chavismo_ideas and VEN_sync_entrenchment_modifier live in 99_VEN_scripted_effects.txt
+
+# Effect: VEN_init_crisis_variables
+# Purpose: Initializes the 1999-2004 political crisis state flag and syncs the Chavista entrenchment dynamic modifier.
+VEN_init_crisis_variables = {
+	if = {
+		limit = { NOT = { has_country_flag = VEN_crisis_vars_init } }
+		set_country_flag = VEN_crisis_vars_init
+	}
+	VEN_sync_entrenchment_modifier = yes
+}
+
+# Effect: VEN_update_grip_modifier
+# Purpose: Refreshes the Chavista entrenchment dynamic modifier variables after grip/momentum changes.
+VEN_update_grip_modifier = {
+	VEN_sync_entrenchment_modifier = yes
+}

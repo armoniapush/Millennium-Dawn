@@ -1,5 +1,7 @@
 # Scripted effects for Venezuela's naval reform tree
 
+# Effect: VEN_add_naval_mastery_15
+# Purpose: Grants 15 naval doctrine mastery if a grand doctrine is selected, otherwise 15 navy experience.
 VEN_add_naval_mastery_15 = {
 	if = {
 		limit = { has_selected_naval_grand_doctrine = yes }
@@ -10,6 +12,8 @@ VEN_add_naval_mastery_15 = {
 	}
 }
 
+# Effect: VEN_add_naval_mastery_20
+# Purpose: Grants 20 naval doctrine mastery if a grand doctrine is selected, otherwise 20 navy experience.
 VEN_add_naval_mastery_20 = {
 	if = {
 		limit = { has_selected_naval_grand_doctrine = yes }
@@ -20,6 +24,8 @@ VEN_add_naval_mastery_20 = {
 	}
 }
 
+# Effect: VEN_add_naval_mastery_25
+# Purpose: Grants 25 naval doctrine mastery if a grand doctrine is selected, otherwise 25 navy experience.
 VEN_add_naval_mastery_25 = {
 	if = {
 		limit = { has_selected_naval_grand_doctrine = yes }
@@ -30,6 +36,8 @@ VEN_add_naval_mastery_25 = {
 	}
 }
 
+# Effect: VEN_advance_us_navy_mission
+# Purpose: Progresses the US Naval Mission idea chain through 3 tiers up to VEN_us_caribbean_fleet_idea.
 VEN_advance_us_navy_mission = {
 	if = {
 		limit = { has_idea = VEN_us_naval_mission_1 }
@@ -57,6 +65,8 @@ VEN_advance_us_navy_mission = {
 	}
 }
 
+# Effect: VEN_grant_us_surface_license
+# Purpose: Grants Venezuela a free US frigate/corvette production license (highest available tech), or a frigate tech bonus.
 VEN_grant_us_surface_license = {
 	if = {
 		limit = { USA = { has_tech = frigate_hull_4 } }
@@ -108,6 +118,8 @@ VEN_grant_us_surface_license = {
 	}
 }
 
+# Effect: VEN_grant_us_destroyer_sub_license
+# Purpose: Grants Venezuela free US destroyer and attack submarine production licenses (highest available tech), or a destroyer tech bonus.
 VEN_grant_us_destroyer_sub_license = {
 	if = {
 		limit = { USA = { has_tech = destroyer_hull_4 } }

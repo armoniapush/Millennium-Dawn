@@ -1,3 +1,5 @@
+### STATE & TERRITORIAL MODIFIERS ###
+
 VEN_mission_vuelta_al_campo_modifier = {
 	icon = "GFX_idea_agricultural_reforms"
 
@@ -13,6 +15,8 @@ VEN_gnb_integrated_territory_modifier = {
 	local_building_slots = 1
 	state_production_speed_buildings_factor = 0.10
 }
+
+### WESTERN & NATO PATH MODIFIERS ###
 
 VEN_western_economic_boom_modifier = {
 	icon = "GFX_idea_foreign_capital"
@@ -41,6 +45,8 @@ VEN_nato_joint_command_modifier = {
 	land_doctrine_cost_factor = VEN_mil_doctrine_cost
 }
 
+### NATIONALIST PATH MODIFIERS ###
+
 VEN_national_security_state_modifier = {
 	icon = "GFX_idea_nationalist_outlook"
 
@@ -60,6 +66,8 @@ VEN_national_security_state_modifier = {
 	foreign_influence_defense_modifier = VEN_nss_inf_def
 }
 
+### US TUTELAGE MODIFIER ###
+
 VEN_us_tutelage_modifier = {
 	icon = "GFX_idea_usa_aid"
 
@@ -70,6 +78,8 @@ VEN_us_tutelage_modifier = {
 	army_org_factor = VEN_us_tutelage_org
 	democratic_drift = VEN_us_tutelage_dem
 }
+
+### CAPITALIST & PDVSA PATH MODIFIERS ###
 
 VEN_pdvsa_conglomerate_modifier = {
 	icon = "GFX_idea_oil_profits"
@@ -97,6 +107,8 @@ VEN_free_market_miracle_modifier = {
 	stability_factor = VEN_fmm_stab
 }
 
+### BLACK GOLD IMPERIUM MODIFIER ###
+
 VEN_black_gold_imperium_modifier = {
 	icon = "GFX_idea_fascism2"
 
@@ -121,6 +133,8 @@ VEN_black_gold_imperium_modifier = {
 	subversive_activites_upkeep = VEN_bgi_subversion
 }
 
+### BOLIVARIAN & FIFTH REPUBLIC MODIFIERS ###
+
 VEN_fifth_republic_state_modifier = {
 	icon = "GFX_idea_chavez_id_ea_populism"
 
@@ -139,4 +153,32 @@ VEN_fifth_republic_state_modifier = {
 	corporate_tax_income_multiplier_modifier = VEN_5th_corp_tax
 	tax_gain_multiplier_modifier = VEN_5th_tax_gain
 	productivity_growth_modifier = VEN_5th_prod_growth
+}
+
+VEN_chavista_entrenchment_modifier = {
+	icon = "GFX_idea_chavez_id_ea_populism"
+
+	# Automatically removed if emerging/anarchist-communism leaves government
+	remove_trigger = {
+		emerging_anarchist_communism_in_power_or_coalition = no
+	}
+
+	political_power_factor = VEN_grip_pp
+	communism_drift = VEN_grip_drift
+	social_cost_multiplier_modifier = VEN_grip_cost
+	stability_factor = VEN_grip_stab
+}
+
+### CARTEL SYMBIOSIS MODIFIER ###
+
+VEN_cartel_symbiosis_modifier = {
+	icon = "GFX_idea_cartels"
+
+	political_power_factor = VEN_sym_pp
+	corruption_cost_factor = VEN_sym_corr
+	stability_factor = VEN_sym_stab
+	army_morale_factor = VEN_sym_army
+	army_org_factor = VEN_sym_army
+	tax_gain_multiplier_modifier = VEN_sym_tax
+	custom_modifier_tooltip = CAR_additional_income_drug_trade_tt
 }

@@ -1,11 +1,38 @@
+### SECURITY & COUNTER-INSURGENCY ###
+
 VEN_destroy_farc = {
 	allowed = { original_tag = VEN }
 
 	icon = GFX_decision_category_eng_move_to_secure_the_dominions
 	priority = 180
 
-	visible = { has_completed_focus = VEN_dismantle_the_farc }
+	visible = {
+		has_completed_focus = VEN_dismantle_the_farc
+		OR = {
+			has_idea = VEN_FARC_active
+			has_idea = VEN_FARC_weak
+			has_idea = VEN_FARC_weakened
+		}
+	}
 }
+
+VEN_cartel_operations_category = {
+	allowed = { original_tag = VEN }
+
+	icon = GFX_decision_category_cartel
+	priority = 175
+
+	visible = {
+		OR = {
+			has_completed_focus = VEN_expel_the_dea
+			has_dynamic_modifier = { modifier = VEN_cartel_symbiosis_modifier }
+		}
+		NOT = { has_completed_focus = VEN_fight_the_cartels }
+		NOT = { has_country_flag = CARTEL_defeated_the_cartels }
+	}
+}
+
+### RESOURCE & INFRASTRUCTURE ###
 
 VEN_exploit_our_oil_reserves = {
 	allowed = { original_tag = VEN }
@@ -23,17 +50,37 @@ VEN_hydroelectric_decision_category = {
 	visible = { has_completed_focus = VEN_encouraging_hydropower }
 }
 
-VEN_ai_path_category = {
+### POLITICAL & DIPLOMATIC CRISES ###
+
+VEN_recall_referendum_category = {
 	allowed = {
-		is_ai = yes
 		original_tag = VEN
 	}
 
 	icon = GFX_decisions_category_political
-	priority = 100
+	priority = 200
 
-	visible = { VEN_ai_opposition_path = yes }
+	visible = {
+		has_country_flag = VEN_recall_campaign_active
+		emerging_anarchist_communism_in_power_or_coalition = yes
+		has_civil_war = no
+	}
 }
+
+VEN_us_tutelage_category = {
+	allowed = {
+		original_tag = VEN
+	}
+
+	icon = GFX_decisions_category_political
+	priority = 195
+
+	visible = {
+		has_country_flag = VEN_us_tutelage_active
+	}
+}
+
+### MILITARY & TERRITORIAL COMMANDS ###
 
 VEN_gnb_territorial_commands = {
 	allowed = { original_tag = VEN }
@@ -42,4 +89,24 @@ VEN_gnb_territorial_commands = {
 	priority = 160
 
 	visible = { has_completed_focus = VEN_gnb_zone_commands }
+}
+
+VEN_officer_assimilation_category = {
+	allowed = { original_tag = VEN }
+
+	icon = GFX_decision_category_military_operation
+	priority = 140
+
+	# Visible while any of the 7 exiled/opposition officers remain unassimilated
+	visible = {
+		OR = {
+			NOT = { has_character = VEN_marisol_contreras }
+			NOT = { has_character = VEN_gabriela_paez }
+			NOT = { has_character = VEN_rafael_torres }
+			NOT = { has_character = VEN_carlos_zapata }
+			NOT = { has_character = VEN_miguel_salazar }
+			NOT = { has_character = VEN_roberto_urdaneta }
+			NOT = { has_character = VEN_manuel_bermudez }
+		}
+	}
 }

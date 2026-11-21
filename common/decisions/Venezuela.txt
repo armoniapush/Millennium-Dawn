@@ -1,10 +1,12 @@
 # Author(s): AngriestBird, Aglitternote
+### FARC COUNTER-INSURGENCY DECISIONS ###
+
 VEN_destroy_farc = {
 	VEN_prepare_army = {
-		cost = 100
+		cost = 25
 
 		fire_only_once = yes
-		days_remove = 60
+		days_remove = 30
 
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VEN_prepare_army"
@@ -20,12 +22,12 @@ VEN_destroy_farc = {
 		}
 	}
 	VEN_fortify_border = {
-		cost = 100
+		cost = 35
 		visible = {
 			has_country_flag = VEN_farc_war
 		}
 		fire_only_once = yes
-		days_remove = 90
+		days_remove = 45
 
 		complete_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VEN_fortify_border"
@@ -86,12 +88,12 @@ VEN_destroy_farc = {
 		}
 	}
 	VEN_infiltrate_farc_ranks = {
-		cost = 100
+		cost = 35
 		visible = {
 			has_country_flag = VEN_farc_war
 		}
 		fire_only_once = yes
-		days_remove = 60
+		days_remove = 45
 
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VEN_infiltrate_farc_ranks"
@@ -107,12 +109,12 @@ VEN_destroy_farc = {
 		}
 	}
 	VEN_train_colombian_police = {
-		cost = 100
+		cost = 35
 		visible = {
 			has_country_flag = VEN_farc_war
 		}
 		fire_only_once = yes
-		days_remove = 60
+		days_remove = 45
 
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VEN_train_colombian_police"
@@ -127,13 +129,14 @@ VEN_destroy_farc = {
 			base = 10
 		}
 	}
-	####
+	# Offensive Operations
 	VEN_attack_farc = {
-		cost = 100
+		cost = 50
 		visible = {
 			has_country_flag = VEN_done_mission1
 			has_country_flag = VEN_done_mission2
 			has_country_flag = VEN_done_mission3
+			has_idea = VEN_FARC_active
 			NOT = {
 				OR = {
 					has_country_flag = VEN_do_mission1
@@ -143,14 +146,20 @@ VEN_destroy_farc = {
 			}
 		}
 		fire_only_once = yes
-		days_remove = 180
+		days_remove = 60
 
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VEN_attack_farc"
-			swap_ideas = {
-				remove_idea = VEN_FARC_active
-				add_idea = VEN_FARC_weak
+			if = {
+				limit = { has_idea = VEN_FARC_active }
+				swap_ideas = {
+					remove_idea = VEN_FARC_active
+					add_idea = VEN_FARC_weak
+				}
 			}
+			set_temp_variable = { cart_strength_change = -5 }
+			set_temp_variable = { cart_influence_change = -5 }
+			modify_cartel_variables_effect = yes
 		}
 
 		ai_will_do = {
@@ -158,12 +167,12 @@ VEN_destroy_farc = {
 		}
 	}
 	VEN_campaign_against_farc = {
-		cost = 100
+		cost = 50
 		visible = {
 			has_idea = VEN_FARC_weak
 		}
 		fire_only_once = yes
-		days_remove = 90
+		days_remove = 60
 
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VEN_campaign_against_farc"
@@ -171,6 +180,9 @@ VEN_destroy_farc = {
 				remove_idea = VEN_FARC_weak
 				add_idea = VEN_FARC_weakened
 			}
+			set_temp_variable = { cart_strength_change = -5 }
+			set_temp_variable = { cart_influence_change = -5 }
+			modify_cartel_variables_effect = yes
 		}
 
 		ai_will_do = {
@@ -178,16 +190,20 @@ VEN_destroy_farc = {
 		}
 	}
 	VEN_destroy_farc_influence = {
-		cost = 100
+		cost = 50
 		visible = {
 			has_idea = VEN_FARC_weakened
 		}
 		fire_only_once = yes
-		days_remove = 180
+		days_remove = 60
 
 		remove_effect = {
 			log = "[GetDateText]: [Root.GetName]: Decision VEN_destroy_farc_influence"
 			remove_ideas = VEN_FARC_weakened
+			set_temp_variable = { cart_strength_change = -5 }
+			set_temp_variable = { cart_influence_change = -5 }
+			modify_cartel_variables_effect = yes
+			country_event = { id = venezuela.252 days = 1 }
 		}
 
 		ai_will_do = {
@@ -195,6 +211,368 @@ VEN_destroy_farc = {
 		}
 	}
 }
+
+### CARTEL & PROXY OPERATIONS ###
+
+VEN_cartel_operations_category = {
+	VEN_turn_blind_eye_border = {
+		icon = GFX_decision_generic_welfare
+		visible = {
+			NOT = {
+				has_dynamic_modifier = { modifier = narco_state_bonuses }
+				has_dynamic_modifier = { modifier = VEN_cartel_symbiosis_modifier }
+			}
+		}
+
+		cost = 25
+		days_remove = 30
+		days_re_enable = 30
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_turn_blind_eye_border"
+			add_stability = -0.02
+			set_temp_variable = { treasury_change = 0.5 }
+			modify_treasury_effect = yes
+			set_temp_variable = { cart_strength_change = 6 }
+			set_temp_variable = { cart_influence_change = 4 }
+			modify_cartel_variables_effect = yes
+		}
+
+		ai_will_do = { base = 0 }
+	}
+
+	VEN_illicit_militia_funding = {
+		icon = GFX_decision_generic_army_support
+		visible = {
+			NOT = {
+				has_dynamic_modifier = { modifier = narco_state_bonuses }
+				has_dynamic_modifier = { modifier = VEN_cartel_symbiosis_modifier }
+			}
+		}
+
+		cost = 25
+		days_remove = 45
+		days_re_enable = 60
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_illicit_militia_funding"
+			set_temp_variable = { cart_strength_change = 5 }
+			set_temp_variable = { cart_influence_change = 6 }
+			modify_cartel_variables_effect = yes
+			set_temp_variable = { party_index = 15 }
+			set_temp_variable = { party_popularity_increase = 0.03 }
+			set_temp_variable = { temp_outlook_increase = 0.03 }
+			change_relative_party_popularity = yes
+		}
+
+		ai_will_do = { base = 0 }
+	}
+
+	VEN_narco_launder_profits = {
+		icon = GFX_decision_generic_welfare
+		visible = {
+			OR = {
+				has_dynamic_modifier = { modifier = narco_state_bonuses }
+				has_dynamic_modifier = { modifier = VEN_cartel_symbiosis_modifier }
+			}
+		}
+
+		cost = 50
+		days_remove = 60
+		days_re_enable = 90
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_narco_launder_profits"
+			set_temp_variable = { treasury_change = gdp_total }
+			multiply_temp_variable = { treasury_change = 0.015 }
+			modify_treasury_effect = yes
+			set_temp_variable = { cart_strength_change = 3 }
+			add_to_variable = { strength_of_cartels = 3 }
+			clamp_variable = { var = strength_of_cartels min = 0 max = 100 }
+			custom_effect_tooltip = modify_cartel_strength_effect_tt
+			if = {
+				limit = { has_dynamic_modifier = { modifier = VEN_cartel_symbiosis_modifier } }
+				VEN_sync_cartel_symbiosis_effect = yes
+			}
+			else = {
+				calculate_cartel_bonuses = yes
+			}
+			hidden_effect = { ingame_update_setup = yes }
+		}
+
+		ai_will_do = { base = 5 }
+	}
+
+	VEN_narco_export_corridors = {
+		icon = GFX_decision_recruit_operative
+		visible = {
+			OR = {
+				has_dynamic_modifier = { modifier = narco_state_bonuses }
+				has_dynamic_modifier = { modifier = VEN_cartel_symbiosis_modifier }
+			}
+		}
+
+		cost = 50
+		days_remove = 60
+		days_re_enable = 120
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_narco_export_corridors"
+			if = {
+				limit = { country_exists = COL }
+				set_temp_variable = { percent_change = 3 }
+				set_temp_variable = { influence_target = COL }
+				change_influence_percentage = yes
+			}
+			if = {
+				limit = { country_exists = GUY }
+				set_temp_variable = { percent_change = 3 }
+				set_temp_variable = { influence_target = GUY }
+				change_influence_percentage = yes
+			}
+			if = {
+				limit = { country_exists = BRA }
+				set_temp_variable = { percent_change = 3 }
+				set_temp_variable = { influence_target = BRA }
+				change_influence_percentage = yes
+			}
+			set_temp_variable = { cart_influence_change = 4 }
+			add_to_variable = { cartel_political_influence = 4 }
+			clamp_variable = { var = cartel_political_influence min = 0 max = 100 }
+			custom_effect_tooltip = modify_cartel_political_influence_effect_tt
+			if = {
+				limit = { has_dynamic_modifier = { modifier = VEN_cartel_symbiosis_modifier } }
+				VEN_sync_cartel_symbiosis_effect = yes
+			}
+			else = {
+				calculate_cartel_bonuses = yes
+			}
+			hidden_effect = { ingame_update_setup = yes }
+		}
+
+		ai_will_do = { base = 5 }
+	}
+
+	VEN_amo_gold_fuel_convoys = {
+		icon = GFX_decision_generic_prospect_for_resources
+		visible = {
+			OR = {
+				has_completed_focus = VEN_orinoco_mining_arc
+				has_dynamic_modifier = { modifier = VEN_cartel_symbiosis_modifier }
+				has_dynamic_modifier = { modifier = narco_state_bonuses }
+			}
+		}
+		available = {
+			fuel > 1999
+		}
+
+		cost = 25
+		days_remove = 30
+		days_re_enable = 30
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_amo_gold_fuel_convoys"
+			add_fuel = -2000
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Remove VEN_amo_gold_fuel_convoys"
+			set_temp_variable = { treasury_change = gdp_total }
+			multiply_temp_variable = { treasury_change = 0.025 }
+			modify_treasury_effect = yes
+			add_to_variable = { strength_of_cartels = 3 }
+			clamp_variable = { var = strength_of_cartels min = 0 max = 100 }
+			if = {
+				limit = { has_dynamic_modifier = { modifier = VEN_cartel_symbiosis_modifier } }
+				VEN_sync_cartel_symbiosis_effect = yes
+			}
+			else_if = {
+				limit = { has_dynamic_modifier = { modifier = narco_state_bonuses } }
+				calculate_cartel_bonuses = yes
+			}
+			else = {
+				calculate_cartel_penalty = yes
+			}
+			hidden_effect = { ingame_update_setup = yes }
+		}
+
+		ai_will_do = { base = 5 }
+	}
+
+	VEN_air_africa_corridor = {
+		icon = GFX_decision_generic_air
+		visible = {
+			OR = {
+				has_completed_focus = VEN_militarize_bolipuertos
+				has_dynamic_modifier = { modifier = VEN_cartel_symbiosis_modifier }
+				has_dynamic_modifier = { modifier = narco_state_bonuses }
+			}
+		}
+		available = {
+			fuel > 1499
+		}
+
+		cost = 35
+		days_remove = 45
+		days_re_enable = 60
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_air_africa_corridor"
+			add_fuel = -1500
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Remove VEN_air_africa_corridor"
+			set_temp_variable = { treasury_change = gdp_total }
+			multiply_temp_variable = { treasury_change = 0.02 }
+			modify_treasury_effect = yes
+			add_to_variable = { cartel_political_influence = 4 }
+			clamp_variable = { var = cartel_political_influence min = 0 max = 100 }
+			if = {
+				limit = { country_exists = COL }
+				set_temp_variable = { percent_change = 2 }
+				set_temp_variable = { influence_target = COL }
+				change_influence_percentage = yes
+			}
+			if = {
+				limit = { country_exists = BRA }
+				set_temp_variable = { percent_change = 2 }
+				set_temp_variable = { influence_target = BRA }
+				change_influence_percentage = yes
+			}
+			hidden_effect = { ingame_update_setup = yes }
+		}
+
+		ai_will_do = { base = 5 }
+	}
+
+	VEN_proxy_fund_colombian_insurgency = {
+		icon = GFX_decision_generic_army_support
+		visible = {
+			OR = {
+				has_completed_focus = VEN_guerrilla_border_sanctuary
+				has_completed_focus = VEN_asymmetric_proxy_warfare
+				has_completed_focus = VEN_atlantic_narco_empire
+			}
+			country_exists = COL
+			NOT = { is_in_faction_with = COL }
+		}
+
+		cost = 25
+		days_remove = 45
+		days_re_enable = 90
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_proxy_fund_colombian_insurgency"
+			set_temp_variable = { treasury_change = -1.5 }
+			modify_treasury_effect = yes
+			add_equipment_to_stockpile = {
+				type = infantry_weapons
+				amount = -500
+			}
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Remove VEN_proxy_fund_colombian_insurgency"
+			set_temp_variable = { percent_change = 4 }
+			set_temp_variable = { influence_target = COL }
+			change_influence_percentage = yes
+			COL = {
+				add_stability = -0.03
+				set_temp_variable = { cart_strength_change = 6 }
+				set_temp_variable = { cart_influence_change = 5 }
+				modify_cartel_variables_effect = yes
+			}
+		}
+
+		ai_will_do = { base = 2 }
+	}
+
+	VEN_proxy_northern_flood = {
+		icon = GFX_decision_recruit_operative
+		visible = {
+			OR = {
+				has_completed_focus = VEN_asymmetric_proxy_warfare
+				has_completed_focus = VEN_atlantic_narco_empire
+			}
+		}
+
+		cost = 50
+		days_remove = 60
+		days_re_enable = 120
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_proxy_northern_flood"
+			set_temp_variable = { treasury_change = -2.0 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Remove VEN_proxy_northern_flood"
+			add_war_support = 0.05
+			army_experience = 15
+			if = {
+				limit = { country_exists = MEX }
+				MEX = {
+					set_temp_variable = { cart_strength_change = 4 }
+					modify_cartel_variables_effect = yes
+				}
+			}
+			if = {
+				limit = { country_exists = NIC }
+				set_temp_variable = { percent_change = 3 }
+				set_temp_variable = { influence_target = NIC }
+				change_influence_percentage = yes
+			}
+			if = {
+				limit = { country_exists = CUB }
+				set_temp_variable = { percent_change = 3 }
+				set_temp_variable = { influence_target = CUB }
+				change_influence_percentage = yes
+			}
+			USA = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = hostile_status
+				}
+			}
+		}
+
+		ai_will_do = { base = 1 }
+	}
+
+	VEN_balance_barracks_and_party = {
+		icon = GFX_decision_generic_political_discourse
+		visible = {
+			has_completed_focus = VEN_expel_the_dea
+			emerging_anarchist_communism_in_power_or_coalition = yes
+		}
+
+		cost = 25
+		days_remove = 30
+		days_re_enable = 60
+
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_balance_barracks_and_party"
+			set_temp_variable = { treasury_change = -1.0 }
+			modify_treasury_effect = yes
+		}
+
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision Remove VEN_balance_barracks_and_party"
+			add_to_variable = { VEN_chavez_grip = 5 }
+			VEN_sync_entrenchment_modifier = yes
+			set_temp_variable = { temp_opinion = 5 }
+			change_the_military_opinion = yes
+			set_temp_variable = { temp_opinion = 5 }
+			change_communist_cadres_opinion = yes
+		}
+
+		ai_will_do = { base = 5 }
+	}
+}
+
+### OIL & RESOURCE EXPLOITATION ###
 
 VEN_exploit_our_oil_reserves = {
 
@@ -286,6 +664,8 @@ VEN_exploit_our_oil_reserves = {
 		}
 	}
 }
+
+### HYDROELECTRIC INFRASTRUCTURE ###
 
 VEN_hydroelectric_decision_category = {
 
@@ -390,125 +770,380 @@ VEN_hydroelectric_decision_category = {
 	}
 }
 
-VEN_ai_path_category = {
-	VEN_rally_the_opposition = {
+### 2004 RECALL REFERENDUM ###
 
-		icon = generic_decision
-
-		cost = 25
-
-		days_re_enable = 45
-
-		visible = {
-			NOT = { has_completed_focus = VEN_pdvsa_takeover }
+VEN_recall_referendum_category = {
+	VEN_recall_referendum_mission = {
+		icon = generic_political_discourse
+		allowed = { original_tag = VEN }
+		available = {
 			OR = {
-				has_global_flag = VEN_DEMOCRATIC_OPPOSITION_FOCUS_PATH
-				VEN_ai_pdvsa_path = yes
+				emerging_anarchist_communism_in_power_or_coalition = no
+				has_civil_war = yes
+				has_country_flag = VEN_political_crisis_resolved
 			}
 		}
-
-		available = {
+		activation = {
+			has_country_flag = VEN_recall_campaign_active
+			emerging_anarchist_communism_in_power_or_coalition = yes
 			has_civil_war = no
-			check_variable = { party_pop_array^2 < 0.55 }
 		}
-
+		is_good = no
+		days_mission_timeout = 210
+		selectable_mission = no
 		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision VEN_rally_the_opposition"
+			clr_country_flag = VEN_recall_campaign_active
+		}
+		timeout_effect = {
+			log = "[GetDateText]: [Root.GetName]: Mission VEN_recall_referendum_mission timeout"
+			country_event = { id = venezuela.1 days = 1 }
+		}
+	}
+
+	# --- Opposition Campaign Decisions ---
+	VEN_dec_el_firmazo = {
+		icon = generic_decision
+		cost = 60
+		fire_only_once = yes
+		days_remove = 25
+		visible = { has_country_flag = VEN_recall_campaign_active }
+		available = { has_civil_war = no }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_dec_el_firmazo"
+			add_to_variable = { VEN_opp_momentum = 8 }
+			add_to_variable = { VEN_chavez_grip = -4 }
+			VEN_sync_entrenchment_modifier = yes
 			set_temp_variable = { party_index = 2 }
 			set_temp_variable = { party_popularity_increase = 0.03 }
 			set_temp_variable = { temp_outlook_increase = 0.03 }
 			change_relative_party_popularity = yes
+			custom_effect_tooltip = VEN_recall_opp_boost_tt
 		}
-
-		ai_will_do = { base = 100 }
+		ai_will_do = {
+			base = 0
+			modifier = { add = 100 VEN_ai_opposition_path = yes }
+		}
 	}
 
-	VEN_opposition_takes_the_country = {
-
+	VEN_dec_el_reafirmazo = {
 		icon = generic_decision
-
-		cost = 150
-
-		days_re_enable = 180
-
-		visible = {
-			NOT = { has_completed_focus = VEN_pdvsa_takeover }
-			OR = {
-				has_global_flag = VEN_DEMOCRATIC_OPPOSITION_FOCUS_PATH
-				VEN_ai_pdvsa_path = yes
-			}
-		}
-
-		available = {
-			has_civil_war = no
-			has_completed_focus = VEN_our_president
-			western_liberals_are_in_power = no
-			check_variable = { party_pop_array^2 > 0.5 }
-		}
-
-		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision VEN_opposition_takes_the_country"
-			set_temp_variable = { rul_party_temp = 2 }
-			set_temp_variable = { disable_elections = 0 }
-			change_ruling_party_effect = yes
-		}
-
-		ai_will_do = { base = 100 }
-	}
-
-	VEN_rally_the_officers = {
-
-		icon = generic_decision
-
-		cost = 25
-
-		days_re_enable = 45
-
-		visible = { has_global_flag = VEN_MILITARY_JUNTA_FOCUS_PATH }
-
-		available = {
-			has_civil_war = no
-			check_variable = { party_pop_array^22 < 0.55 }
-		}
-
-		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision VEN_rally_the_officers"
-			set_temp_variable = { party_index = 22 }
-			set_temp_variable = { party_popularity_increase = 0.03 }
-			set_temp_variable = { temp_outlook_increase = 0.03 }
+		cost = 75
+		fire_only_once = yes
+		days_remove = 28
+		visible = { has_country_flag = VEN_recall_campaign_active }
+		available = { has_civil_war = no }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_dec_el_reafirmazo"
+			add_to_variable = { VEN_opp_momentum = 9 }
+			add_to_variable = { VEN_chavez_grip = -4 }
+			VEN_sync_entrenchment_modifier = yes
+			set_temp_variable = { party_index = 2 }
+			set_temp_variable = { party_popularity_increase = 0.04 }
+			set_temp_variable = { temp_outlook_increase = 0.04 }
 			change_relative_party_popularity = yes
+			custom_effect_tooltip = VEN_recall_opp_boost_tt
 		}
-
-		ai_will_do = { base = 100 }
+		ai_will_do = {
+			base = 0
+			modifier = { add = 100 VEN_ai_opposition_path = yes }
+		}
 	}
 
-	VEN_officers_take_the_country = {
-
+	VEN_dec_civic_strike = {
 		icon = generic_decision
-
-		cost = 150
-
-		days_re_enable = 180
-
-		visible = { has_global_flag = VEN_MILITARY_JUNTA_FOCUS_PATH }
-
+		cost = 85
+		fire_only_once = yes
+		days_remove = 30
+		visible = { has_country_flag = VEN_recall_campaign_active }
 		available = {
 			has_civil_war = no
-			has_completed_focus = VEN_our_president
-			nationalist_military_junta_are_in_power = no
-			check_variable = { party_pop_array^22 > 0.5 }
+			check_variable = { treasury > 1.49 }
 		}
-
 		complete_effect = {
-			log = "[GetDateText]: [Root.GetName]: Decision VEN_officers_take_the_country"
-			set_temp_variable = { rul_party_temp = 22 }
-			set_temp_variable = { disable_elections = 1 }
-			change_ruling_party_effect = yes
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_dec_civic_strike"
+			set_temp_variable = { treasury_change = -1.5 }
+			modify_treasury_effect = yes
+			add_stability = -0.04
 		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_dec_civic_strike remove"
+			add_to_variable = { VEN_opp_momentum = 9 }
+			add_to_variable = { VEN_chavez_grip = -5 }
+			VEN_sync_entrenchment_modifier = yes
+			custom_effect_tooltip = VEN_recall_opp_boost_tt
+		}
+		ai_will_do = {
+			base = 0
+			modifier = { add = 100 VEN_ai_opposition_path = yes }
+		}
+	}
 
-		ai_will_do = { base = 100 }
+	VEN_dec_oas_carter_observers = {
+		icon = generic_decision
+		cost = 90
+		fire_only_once = yes
+		days_remove = 30
+		visible = { has_country_flag = VEN_recall_campaign_active }
+		available = { has_civil_war = no }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_dec_oas_carter_observers"
+			add_to_variable = { VEN_opp_momentum = 8 }
+			add_to_variable = { VEN_chavez_grip = -5 }
+			VEN_sync_entrenchment_modifier = yes
+			custom_effect_tooltip = VEN_recall_opp_boost_tt
+		}
+		ai_will_do = {
+			base = 0
+			modifier = { add = 100 VEN_ai_opposition_path = yes }
+		}
+	}
+
+	VEN_dec_movilizacion_nacional = {
+		icon = generic_decision
+		cost = 110
+		fire_only_once = yes
+		days_remove = 35
+		visible = { has_country_flag = VEN_recall_campaign_active }
+		available = { has_civil_war = no }
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_dec_movilizacion_nacional"
+			add_to_variable = { VEN_opp_momentum = 10 }
+			add_to_variable = { VEN_chavez_grip = -5 }
+			VEN_sync_entrenchment_modifier = yes
+			set_temp_variable = { party_index = 2 }
+			set_temp_variable = { party_popularity_increase = 0.05 }
+			set_temp_variable = { temp_outlook_increase = 0.05 }
+			change_relative_party_popularity = yes
+			custom_effect_tooltip = VEN_recall_opp_boost_tt
+		}
+		ai_will_do = {
+			base = 0
+			modifier = { add = 100 VEN_ai_opposition_path = yes }
+		}
+	}
+
+	# --- Government Countermeasures ---
+	VEN_dec_operacion_florentino = {
+		icon = generic_decision
+		cost = 60
+		fire_only_once = yes
+		days_remove = 21
+		visible = { has_country_flag = VEN_recall_campaign_active }
+		available = { has_civil_war = no }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_dec_operacion_florentino"
+			set_temp_variable = { debt_change = 20 }
+			modify_debt_effect = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_dec_operacion_florentino remove"
+			add_to_variable = { VEN_chavez_grip = 12 }
+			add_to_variable = { VEN_opp_momentum = -6 }
+			VEN_sync_entrenchment_modifier = yes
+			set_party_index_to_ruling_party = yes
+			set_temp_variable = { party_popularity_increase = 0.04 }
+			set_temp_variable = { temp_outlook_increase = 0.04 }
+			change_relative_party_popularity = yes
+			custom_effect_tooltip = VEN_recall_chavez_boost_tt
+		}
+		ai_will_do = {
+			base = 100
+			modifier = { factor = 0 VEN_ai_opposition_path = yes }
+		}
+	}
+
+	VEN_dec_plan_republica_shield = {
+		icon = generic_decision
+		cost = 75
+		fire_only_once = yes
+		days_remove = 21
+		visible = { has_country_flag = VEN_recall_campaign_active }
+		available = {
+			has_civil_war = no
+			check_variable = { treasury > 1.49 }
+		}
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_dec_plan_republica_shield"
+			set_temp_variable = { treasury_change = -1.5 }
+			modify_treasury_effect = yes
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_dec_plan_republica_shield remove"
+			add_to_variable = { VEN_chavez_grip = 10 }
+			add_to_variable = { VEN_opp_momentum = -6 }
+			VEN_sync_entrenchment_modifier = yes
+			custom_effect_tooltip = VEN_recall_chavez_boost_tt
+		}
+		ai_will_do = {
+			base = 100
+			modifier = { factor = 0 VEN_ai_opposition_path = yes }
+		}
 	}
 }
+
+### US TUTELAGE MANAGEMENT ###
+
+VEN_us_tutelage_category = {
+	VEN_complete_us_tutelage = {
+		icon = generic_decision
+		cost = 50
+		fire_only_once = yes
+		days_remove = 30
+		visible = {
+			has_country_flag = VEN_us_tutelage_active
+		}
+		available = {
+			has_civil_war = no
+			OR = {
+				has_completed_focus = VEN_usa_democratic_transition
+				has_completed_focus = VEN_usa_authoritarian_pact
+				has_completed_focus = VEN_establish_free_market
+			}
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove VEN_complete_us_tutelage"
+			clr_country_flag = VEN_us_tutelage_active
+			if = {
+				limit = { has_idea = VEN_us_tutelage_idea }
+				remove_ideas = VEN_us_tutelage_idea
+			}
+			if = {
+				limit = { is_subject_of = USA }
+				USA = { end_puppet = VEN }
+			}
+			add_stability = 0.05
+			USA = { add_opinion_modifier = { target = ROOT modifier = large_increase } }
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+
+	VEN_break_us_tutelage = {
+		icon = generic_decision
+		cost = 100
+		fire_only_once = yes
+		days_remove = 15
+		visible = {
+			has_country_flag = VEN_us_tutelage_active
+		}
+		available = {
+			has_civil_war = no
+			has_completed_focus = VEN_venezuelian_unity
+		}
+		remove_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision remove VEN_break_us_tutelage"
+			clr_country_flag = VEN_us_tutelage_active
+			if = {
+				limit = { has_idea = VEN_us_tutelage_idea }
+				remove_ideas = VEN_us_tutelage_idea
+			}
+			if = {
+				limit = { is_subject_of = USA }
+				USA = { end_puppet = VEN }
+			}
+			diplomatic_relation = { country = USA relation = military_access active = no }
+			add_stability = -0.05
+			set_temp_variable = { party_index = 20 }
+			set_temp_variable = { party_popularity_increase = 0.05 }
+			change_relative_party_popularity = yes
+			USA = { add_opinion_modifier = { target = ROOT modifier = usa_fp_severe_confrontation } }
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+}
+
+### OFFICER ASSIMILATION ###
+
+VEN_officer_assimilation_category = {
+	VEN_assimilate_marisol_contreras = {
+		icon = generic_army_support
+		cost = 35
+		fire_only_once = yes
+		visible = { NOT = { has_character = VEN_marisol_contreras } }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_assimilate_marisol_contreras"
+			recruit_character = VEN_marisol_contreras
+		}
+		ai_will_do = { base = 15 }
+	}
+
+	VEN_assimilate_gabriela_paez = {
+		icon = generic_air
+		cost = 35
+		fire_only_once = yes
+		visible = { NOT = { has_character = VEN_gabriela_paez } }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_assimilate_gabriela_paez"
+			recruit_character = VEN_gabriela_paez
+		}
+		ai_will_do = { base = 15 }
+	}
+
+	VEN_assimilate_rafael_torres = {
+		icon = generic_air
+		cost = 40
+		fire_only_once = yes
+		visible = { NOT = { has_character = VEN_rafael_torres } }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_assimilate_rafael_torres"
+			recruit_character = VEN_rafael_torres
+		}
+		ai_will_do = { base = 10 }
+	}
+
+	VEN_assimilate_carlos_zapata = {
+		icon = generic_naval
+		cost = 40
+		fire_only_once = yes
+		visible = { NOT = { has_character = VEN_carlos_zapata } }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_assimilate_carlos_zapata"
+			recruit_character = VEN_carlos_zapata
+		}
+		ai_will_do = { base = 10 }
+	}
+
+	VEN_assimilate_miguel_salazar = {
+		icon = generic_naval
+		cost = 40
+		fire_only_once = yes
+		visible = { NOT = { has_character = VEN_miguel_salazar } }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_assimilate_miguel_salazar"
+			recruit_character = VEN_miguel_salazar
+		}
+		ai_will_do = { base = 10 }
+	}
+
+	VEN_assimilate_roberto_urdaneta = {
+		icon = generic_tank
+		cost = 40
+		fire_only_once = yes
+		visible = { NOT = { has_character = VEN_roberto_urdaneta } }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_assimilate_roberto_urdaneta"
+			recruit_character = VEN_roberto_urdaneta
+		}
+		ai_will_do = { base = 10 }
+	}
+
+	VEN_assimilate_manuel_bermudez = {
+		icon = generic_military
+		cost = 40
+		fire_only_once = yes
+		visible = { NOT = { has_character = VEN_manuel_bermudez } }
+		complete_effect = {
+			log = "[GetDateText]: [Root.GetName]: Decision VEN_assimilate_manuel_bermudez"
+			recruit_character = VEN_manuel_bermudez
+		}
+		ai_will_do = { base = 10 }
+	}
+}
+
+### GNB TERRITORIAL COMMANDS ###
 
 VEN_gnb_territorial_commands = {
 

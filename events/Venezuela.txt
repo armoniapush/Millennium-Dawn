@@ -1,9 +1,10 @@
-add_namespace = venezuela
+﻿add_namespace = venezuela
 add_namespace = venezuela_news
 add_namespace = gca
 
-# 2004 - The Recall Elections
-# TODO: Setup historical event chains to give Venezuela some flavour uwu
+### 2004 RECALL REFERENDUM & POST-REFERENDUM UPRISING ###
+
+# 2004 - The Recall Referendum
 country_event = {
 	id = venezuela.1
 	title = venezuela.1.t
@@ -14,25 +15,31 @@ country_event = {
 
 	trigger = {
 		original_tag = VEN
-		date < 2016.1.1
 		emerging_anarchist_communism_in_power_or_coalition = yes
-		has_country_leader = { name = "Hugo Chávez" ruling_only = yes }
-		has_country_flag = VEN_2004_recall_referendum_engaged
+		has_civil_war = no
+		has_country_flag = VEN_recall_campaign_active
 	}
 
-	# Schedule the Election
+	# Proceed to the Recall Vote
 	option = {
 		name = venezuela.1.a
 		log = "[GetDateText]: [This.GetName]: venezuela.1.a executed"
-		country_event = { id = venezuela.2 days = 15 }
-		ai_chance = { base = 10 }
+		country_event = { id = venezuela.2 days = 7 }
+		ai_chance = { base = 90 }
 	}
 
-	# Denounce the Recall Election
+	# Suspend / Annul the Recall Election (triggers backlash & civil war choice)
 	option = {
 		name = venezuela.1.b
+		log = "[GetDateText]: [This.GetName]: venezuela.1.b executed"
+		add_stability = -0.12
+		add_political_power = -75
+		add_to_variable = { VEN_opp_momentum = 15 }
+		VEN_sync_entrenchment_modifier = yes
+		clr_country_flag = VEN_recall_campaign_active
+		country_event = { id = venezuela.249 days = 3 }
 		ai_chance = {
-			base = 1
+			base = 10
 			modifier = {
 				factor = 0
 				VEN_ai_historical_path = yes
@@ -41,7 +48,7 @@ country_event = {
 	}
 }
 
-# 2004 - Recall Referendum Results
+# 2004 - Recall Referendum Results (Deterministic: VEN_opp_momentum >= VEN_chavez_grip)
 country_event = {
 	id = venezuela.2
 	title = venezuela.2.t
@@ -59,83 +66,638 @@ country_event = {
 
 	trigger = {
 		original_tag = VEN
-		date < 2016.1.1
 		emerging_anarchist_communism_in_power_or_coalition = yes
-		has_country_leader = { name = "Hugo Chávez" ruling_only = yes }
-		has_country_flag = VEN_2004_recall_referendum_engaged
+		has_civil_war = no
+		has_country_flag = VEN_recall_campaign_active
 	}
 
 	immediate = {
-		random_list = {
-			60 = {
-				modifier = {
-					add = 40
-					has_completed_focus = VEN_mission_florentino
+		VEN_sync_entrenchment_modifier = yes
+		if = {
+			limit = {
+				OR = {
+					check_variable = { VEN_opp_momentum >= VEN_chavez_grip }
+					AND = {
+						is_ai = yes
+						VEN_ai_opposition_path = yes
+					}
 				}
-				modifier = {
-					factor = 0.6
-					has_idea = VEN_opposition_strengthened
+				NOT = {
+					AND = {
+						is_ai = yes
+						VEN_ai_historical_path = yes
+					}
 				}
-				modifier = {
-					factor = 0.75
-					check_variable = { party_pop_array^2 > 0.20 }
-				}
-				set_country_flag = VEN_2004_recall_chavez_survives
 			}
-			40 = {
-				modifier = {
-					add = 20
-					has_idea = VEN_opposition_strengthened
-				}
-				modifier = {
-					add = 15
-					check_variable = { party_pop_array^2 > 0.20 }
-				}
-				modifier = {
-					factor = 0
-					is_ai = yes
-					VEN_ai_historical_path = yes
-				}
-				set_country_flag = VEN_2004_recall_chavez_recalled
-			}
+			set_country_flag = VEN_2004_recall_chavez_recalled
+		}
+		else = {
+			set_country_flag = VEN_2004_recall_chavez_survives
 		}
 	}
 
+	# "NO" Wins: Chavez Survives & Consolidates
 	option = {
 		name = venezuela.2.a
 		trigger = { has_country_flag = VEN_2004_recall_chavez_survives }
 		log = "[GetDateText]: [This.GetName]: venezuela.2.a executed"
 		add_stability = 0.05
-		add_political_power = 50
+		add_political_power = 75
 		set_party_index_to_ruling_party = yes
 		set_temp_variable = { party_popularity_increase = 0.05 }
 		change_relative_party_popularity = yes
-		hidden_effect = {
-			clr_country_flag = VEN_2004_recall_referendum_engaged
-			clr_country_flag = VEN_2004_recall_campaign_active
-			clr_country_flag = VEN_2004_recall_chavez_survives
+		set_country_flag = VEN_political_crisis_resolved
+		set_country_flag = VEN_path_chavismo_locked
+		if = {
+			limit = { has_dynamic_modifier = { modifier = VEN_chavista_entrenchment_modifier } }
+			remove_dynamic_modifier = { modifier = VEN_chavista_entrenchment_modifier }
 		}
+		hidden_effect = {
+			clr_country_flag = VEN_recall_campaign_active
+			clr_country_flag = VEN_2004_recall_chavez_survives
+			mark_focus_tree_layout_dirty = yes
+		}
+		ai_chance = { base = 100 }
 	}
 
+	# Opposition Refuses Result -> Opens Post-Referendum Military Crossroads (Camino A vs B)
+	option = {
+		name = venezuela.2.c
+		trigger = {
+			has_country_flag = VEN_2004_recall_chavez_survives
+			is_ai = no
+		}
+		log = "[GetDateText]: [This.GetName]: venezuela.2.c executed (Post-Referendum Military Crossroads)"
+		hidden_effect = {
+			clr_country_flag = VEN_recall_campaign_active
+			clr_country_flag = VEN_2004_recall_chavez_survives
+		}
+		country_event = { id = venezuela.260 days = 2 }
+	}
+
+	# "SI" Wins: Chavez Recalled -> Democratic Opposition Takes Power
 	option = {
 		name = venezuela.2.b
 		trigger = { has_country_flag = VEN_2004_recall_chavez_recalled }
 		log = "[GetDateText]: [This.GetName]: venezuela.2.b executed"
-		add_stability = -0.10
-		add_political_power = -50
-		country_event = { id = MD4_election_campaign.0 days = 1 }
-		hidden_effect = {
-			clr_country_flag = VEN_2004_recall_referendum_engaged
-			clr_country_flag = VEN_2004_recall_campaign_active
-			clr_country_flag = VEN_2004_recall_chavez_recalled
+		add_stability = -0.05
+		VEN_clear_chavismo_ideas = yes
+		set_temp_variable = { rul_party_temp = 1 }
+		set_temp_variable = { disable_elections = 0 }
+		change_ruling_party_effect = yes
+		if = {
+			limit = { NOT = { has_character = VEN_enrique_mendoza } }
+			recruit_character = VEN_enrique_mendoza
 		}
+		promote_character = VEN_enrique_mendoza
+		set_country_flag = VEN_political_crisis_resolved
+		set_country_flag = VEN_path_democratic_locked
+		if = {
+			limit = { NOT = { has_completed_focus = VEN_we_are_in_power } }
+			complete_national_focus = VEN_we_are_in_power
+		}
+		hidden_effect = {
+			clr_country_flag = VEN_recall_campaign_active
+			clr_country_flag = VEN_2004_recall_chavez_recalled
+			mark_focus_tree_layout_dirty = yes
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+# Post-Referendum Military Uprising: National Alone (Camino A) vs US Intervention (Camino B)
+country_event = {
+	id = venezuela.260
+	title = venezuela.260.t
+	desc = venezuela.260.d
+	picture = GFX_event_VEN_tank
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		original_tag = VEN
+		has_civil_war = no
+		NOT = { has_country_flag = VEN_political_crisis_resolved }
+	}
+
+	# Camino A: National Military Rises Alone (Full Sovereignty)
+	option = {
+		name = venezuela.260.a
+		log = "[GetDateText]: [This.GetName]: venezuela.260.a executed (Camino A - National Military Alone)"
+		add_stability = -0.08
+		add_war_support = 0.08
+		custom_effect_tooltip = VEN_camino_a_molina_tt
+		set_country_flag = VEN_cw_opp
+		set_country_flag = VEN_cw_molina_leader
+		set_temp_variable = { rul_party_temp = 0 }
+		set_temp_variable = { disable_elections = 1 }
+		VEN_start_political_civil_war = yes
+		hidden_effect = {
+			news_event = { id = venezuela_news.1 days = 1 }
+		}
+		ai_chance = { base = 50 }
+	}
+
+	# Camino B: US Intervention over FARC Narco-Terrorism Indictment (Leads to US Tutelage)
+	option = {
+		name = venezuela.260.b
+		log = "[GetDateText]: [This.GetName]: venezuela.260.b executed (Camino B - US Intervention)"
+		trigger = {
+			country_exists = USA
+			NOT = { has_war_with = USA }
+		}
+		add_stability = -0.10
+		add_war_support = 0.05
+		custom_effect_tooltip = VEN_camino_b_usa_tt
+		set_country_flag = VEN_cw_opp
+		set_country_flag = VEN_cw_molina_leader
+		set_country_flag = VEN_us_intervention_war
+		set_temp_variable = { rul_party_temp = 0 }
+		set_temp_variable = { disable_elections = 1 }
+		VEN_start_political_civil_war = yes
+		hidden_effect = {
+			news_event = { id = venezuela_news.2 days = 1 }
+		}
+		ai_chance = { base = 50 }
+	}
+}
+
+# World News: Camino A - Venezuelan Military Uprising
+news_event = {
+	id = venezuela_news.1
+	title = venezuela_news.1.t
+	desc = venezuela_news.1.d
+	picture = GFX_venezuelan_civil_war
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = venezuela_news.1.a
+		ai_chance = { base = 100 }
+	}
+}
+
+# World News: Camino B - US Indicts Caracas Over FARC Narco-Terrorism & Backs Rebels
+news_event = {
+	id = venezuela_news.2
+	title = venezuela_news.2.t
+	desc = venezuela_news.2.d
+	picture = GFX_venezuela_heli_attack
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = venezuela_news.2.a
+		ai_chance = { base = 100 }
+	}
+}
+
+### 2001-2002 POLITICAL CRISIS & CIVIL WAR ###
+
+# Nov 2001 - Feb 2002: 49 Decrees, Lameda Fired & Fedecamaras-CTV Strike
+country_event = {
+	id = venezuela.3
+	title = venezuela.3.t
+	desc = venezuela.3.d
+	picture = GFX_treaty
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = VEN_ev_3_fired
+			if = {
+				limit = {
+					NOT = { has_country_flag = VEN_ev_4_fired }
+					NOT = { has_country_flag = VEN_political_crisis_resolved }
+				}
+				country_event = { id = venezuela.4 days = 90 }
+			}
+		}
+	}
+
+	# Enforce the 49 Decrees and dismiss Guaicaipuro Lameda
+	option = {
+		name = venezuela.3.a
+		log = "[GetDateText]: [This.GetName]: venezuela.3.a executed"
+		add_political_power = 25
+		add_stability = -0.04
+		add_to_variable = { VEN_chavez_grip = 8 }
+		add_to_variable = { VEN_opp_momentum = 10 }
+		VEN_sync_entrenchment_modifier = yes
+		set_country_flag = VEN_opp_front_ready
+		custom_effect_tooltip = VEN_recall_opp_boost_tt
 		ai_chance = {
-			base = 1
-			modifier = { factor = 0.25 has_active_mission = bankruptcy_incoming_collapse }
-			modifier = { factor = 0 has_stability < 0.3 }
+			base = 80
+			modifier = { factor = 0 VEN_ai_opposition_path = yes }
+		}
+	}
+
+	# Negotiate concessions with Fedecamaras & CTV
+	option = {
+		name = venezuela.3.b
+		log = "[GetDateText]: [This.GetName]: venezuela.3.b executed"
+		add_political_power = -40
+		add_stability = 0.03
+		add_to_variable = { VEN_chavez_grip = -4 }
+		add_to_variable = { VEN_opp_momentum = 4 }
+		VEN_sync_entrenchment_modifier = yes
+		ai_chance = {
+			base = 20
+			modifier = { factor = 0 VEN_ai_historical_path = yes }
 		}
 	}
 }
+
+# Feb 2002: Navy Pronouncement (Rear Adm. Carlos Molina Tamayo)
+country_event = {
+	id = venezuela.4
+	title = venezuela.4.t
+	desc = venezuela.4.d
+	picture = GFX_generic_soldiers
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		original_tag = VEN
+		emerging_anarchist_communism_in_power_or_coalition = yes
+		has_civil_war = no
+		NOT = { has_country_flag = VEN_political_crisis_resolved }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = VEN_ev_4_fired
+			if = {
+				limit = {
+					NOT = { has_country_flag = VEN_ev_5_fired }
+					NOT = { has_country_flag = VEN_political_crisis_resolved }
+				}
+				country_event = { id = venezuela.5 days = 55 }
+			}
+		}
+	}
+
+	# Dissident officers rally behind Molina Tamayo
+	option = {
+		name = venezuela.4.a
+		log = "[GetDateText]: [This.GetName]: venezuela.4.a executed"
+		set_country_flag = VEN_navy_dissidents_ready
+		add_to_variable = { VEN_chavez_grip = -6 }
+		add_to_variable = { VEN_opp_momentum = 10 }
+		VEN_sync_entrenchment_modifier = yes
+		set_temp_variable = { party_index = 22 }
+		set_temp_variable = { party_popularity_increase = 0.04 }
+		set_temp_variable = { temp_outlook_increase = 0.04 }
+		change_relative_party_popularity = yes
+		custom_effect_tooltip = VEN_recall_opp_boost_tt
+		ai_chance = {
+			base = 25
+			modifier = { add = 75 has_global_flag = VEN_MILITARY_JUNTA_FOCUS_PATH }
+		}
+	}
+
+	# Purge dissident brass and shore up loyalist commands
+	option = {
+		name = venezuela.4.b
+		log = "[GetDateText]: [This.GetName]: venezuela.4.b executed"
+		add_stability = -0.03
+		add_political_power = -25
+		add_to_variable = { VEN_chavez_grip = 8 }
+		VEN_sync_entrenchment_modifier = yes
+		custom_effect_tooltip = VEN_recall_chavez_boost_tt
+		ai_chance = {
+			base = 75
+			modifier = { factor = 0 has_global_flag = VEN_MILITARY_JUNTA_FOCUS_PATH }
+		}
+	}
+}
+
+# April 2002 Crisis: Carmona Decree vs. Baduel's Operation Dignity
+country_event = {
+	id = venezuela.5
+	title = venezuela.5.t
+	desc = venezuela.5.d
+	picture = GFX_venez_capt
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		original_tag = VEN
+		emerging_anarchist_communism_in_power_or_coalition = yes
+		has_civil_war = no
+		NOT = { has_country_flag = VEN_political_crisis_resolved }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = VEN_ev_5_fired
+		}
+	}
+
+	# A: Baduel's Operation Dignity restores Chavez (Historical -> Recall Referendum)
+	option = {
+		name = venezuela.5.a
+		log = "[GetDateText]: [This.GetName]: venezuela.5.a executed"
+		add_stability = 0.05
+		add_political_power = 50
+		add_to_variable = { VEN_chavez_grip = 10 }
+		add_to_variable = { VEN_opp_momentum = -8 }
+		VEN_sync_entrenchment_modifier = yes
+		retire_character = VEN_efrain_vasquez_velasco
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { has_country_flag = VEN_ev_6_fired }
+					NOT = { has_country_flag = VEN_political_crisis_resolved }
+				}
+				country_event = { id = venezuela.6 days = 180 }
+			}
+		}
+		ai_chance = {
+			base = 70
+			modifier = { factor = 0 VEN_ai_pdvsa_path = yes }
+			modifier = { factor = 0 has_global_flag = VEN_MILITARY_JUNTA_FOCUS_PATH }
+		}
+	}
+
+	# B: Carmona Decree -> PDVSA Corporate Junta consolidates power
+	option = {
+		name = venezuela.5.b
+		trigger = {
+			has_country_flag = VEN_pdvsa_option_prepared
+			check_variable = { VEN_opp_momentum >= 50 }
+		}
+		log = "[GetDateText]: [This.GetName]: venezuela.5.b executed (PDVSA Takeover)"
+		VEN_clear_chavismo_ideas = yes
+		set_temp_variable = { rul_party_temp = 14 }
+		set_temp_variable = { disable_elections = 1 }
+		change_ruling_party_effect = yes
+		if = {
+			limit = { NOT = { has_character = VEN_pedro_carmona_estanga } }
+			recruit_character = VEN_pedro_carmona_estanga
+		}
+		promote_character = VEN_pedro_carmona_estanga
+		set_country_flag = VEN_political_crisis_resolved
+		set_country_flag = VEN_path_pdvsa_locked
+		retire_character = VEN_raul_isaias_baduel
+		retire_character = VEN_jorge_garcia_carneiro
+		if = {
+			limit = { NOT = { has_completed_focus = VEN_we_are_in_power } }
+			complete_national_focus = VEN_we_are_in_power
+		}
+		mark_focus_tree_layout_dirty = yes
+		ai_chance = {
+			base = 0
+			modifier = { add = 100 VEN_ai_pdvsa_path = yes }
+		}
+	}
+
+	# C: Trigger 1 Civil War -> Molina Tamayo, Ramirez Perez & Vasquez Velasco lead Junta
+	option = {
+		name = venezuela.5.c
+		trigger = {
+			has_country_flag = VEN_military_outreach_prepared
+			has_country_flag = VEN_navy_dissidents_ready
+		}
+		log = "[GetDateText]: [This.GetName]: venezuela.5.c executed (Trigger 1 Civil War - Junta)"
+		set_country_flag = VEN_cw_junta
+		VEN_start_political_civil_war = yes
+		ai_chance = {
+			base = 0
+			modifier = { add = 100 has_global_flag = VEN_MILITARY_JUNTA_FOCUS_PATH }
+		}
+	}
+
+	# D: Trigger 1 Civil War -> Defend Chavez with Baduel against Nationalist rebels
+	option = {
+		name = venezuela.5.d_opt
+		trigger = { is_ai = no }
+		log = "[GetDateText]: [This.GetName]: venezuela.5.d_opt executed (Trigger 1 Civil War - Chavez)"
+		set_country_flag = VEN_cw_chavez
+		set_country_flag = VEN_cw_nationalist_rebels
+		VEN_start_political_civil_war = yes
+	}
+
+	# E: Baduel's Betrayal -> 42nd Paratrooper Brigade joins the dissidence (Civil War - Junta)
+	option = {
+		name = venezuela.5.e
+		trigger = {
+			is_ai = no
+			has_country_flag = VEN_military_outreach_prepared
+		}
+		log = "[GetDateText]: [This.GetName]: venezuela.5.e executed (Baduel Defection Civil War)"
+		set_country_flag = VEN_baduel_defected
+		add_to_variable = { VEN_chavez_grip = -15 }
+		add_to_variable = { VEN_opp_momentum = 12 }
+		VEN_sync_entrenchment_modifier = yes
+		set_country_flag = VEN_cw_junta
+		VEN_start_political_civil_war = yes
+		ai_chance = { base = 0 }
+	}
+}
+
+# Oct - Dec 2002: Plaza Altamira & Oil Strike
+country_event = {
+	id = venezuela.6
+	title = venezuela.6.t
+	desc = venezuela.6.d
+	picture = GFX_stock_market
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		original_tag = VEN
+		emerging_anarchist_communism_in_power_or_coalition = yes
+		has_civil_war = no
+		NOT = { has_country_flag = VEN_political_crisis_resolved }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = VEN_ev_6_fired
+		}
+	}
+
+	# Wear down the strike & fire 18,000 PDVSA workers -> Proceeds to Recall Campaign
+	option = {
+		name = venezuela.6.a
+		log = "[GetDateText]: [This.GetName]: venezuela.6.a executed"
+		add_stability = -0.05
+		add_to_variable = { VEN_chavez_grip = 8 }
+		add_to_variable = { VEN_opp_momentum = -4 }
+		VEN_sync_entrenchment_modifier = yes
+		country_event = { id = venezuela.101 days = 120 }
+		ai_chance = { base = 90 }
+	}
+
+	# Assault Plaza Altamira -> Trigger 2 Civil War (Lead Dissidents: Medina Gomez, Pedro Pereira & Alfonzo Martinez)
+	option = {
+		name = venezuela.6.b
+		trigger = { is_ai = no }
+		log = "[GetDateText]: [This.GetName]: venezuela.6.b executed (Trigger 2 Civil War - Junta)"
+		set_country_flag = VEN_cw_junta
+		VEN_start_political_civil_war = yes
+	}
+
+	# Assault Plaza Altamira -> Trigger 2 Civil War (Defend Chavez)
+	option = {
+		name = venezuela.6.c
+		trigger = { is_ai = no }
+		log = "[GetDateText]: [This.GetName]: venezuela.6.c executed (Trigger 2 Civil War - Chavez)"
+		set_country_flag = VEN_cw_chavez
+		set_country_flag = VEN_cw_nationalist_rebels
+		VEN_start_political_civil_war = yes
+	}
+
+	# D: Baduel breaks with Chavez and backs Plaza Altamira dissidence
+	option = {
+		name = venezuela.6.d_opt
+		trigger = {
+			is_ai = no
+			NOT = { has_country_flag = VEN_baduel_defected }
+		}
+		log = "[GetDateText]: [This.GetName]: venezuela.6.d_opt executed (Baduel Joins Plaza Altamira)"
+		set_country_flag = VEN_baduel_defected
+		add_stability = -0.08
+		add_to_variable = { VEN_chavez_grip = -15 }
+		add_to_variable = { VEN_opp_momentum = 12 }
+		VEN_sync_entrenchment_modifier = yes
+		country_event = { id = venezuela.101 days = 120 }
+		ai_chance = { base = 0 }
+	}
+}
+
+# Post-Civil War Victory & Reconstruction (triggered via on_civil_war_end)
+country_event = {
+	id = venezuela.7
+	title = venezuela.7.t
+	desc = venezuela.7.d
+	picture = GFX_handshake_black
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		original_tag = VEN
+	}
+
+	immediate = {
+		hidden_effect = {
+			clr_country_flag = VEN_recall_campaign_active
+			clr_country_flag = VEN_cw_nationalist_rebels
+			clr_country_flag = VEN_cw_junta
+			clr_country_flag = VEN_cw_opp
+			clr_country_flag = VEN_cw_chavez
+			set_country_flag = VEN_political_crisis_resolved
+			if = {
+				limit = { has_idea = VEN_us_expeditionary_support_idea }
+				remove_ideas = VEN_us_expeditionary_support_idea
+			}
+			if = {
+				limit = { NOT = { has_government = communism } }
+				VEN_clear_chavismo_ideas = yes
+				if = {
+					limit = {
+						has_country_flag = VEN_us_intervention_war
+						country_exists = USA
+					}
+					clr_country_flag = VEN_us_intervention_war
+					set_country_flag = VEN_us_tutelage_active
+					USA = {
+						set_autonomy = {
+							target = VEN
+							autonomy_state = autonomy_associated_state
+							end_wars = yes
+							end_civil_wars = yes
+						}
+					}
+					add_ideas = VEN_us_tutelage_idea
+					VEN = { give_military_access = USA }
+				}
+				else_if = {
+					limit = { has_country_flag = VEN_us_intervention_war }
+					clr_country_flag = VEN_us_intervention_war
+				}
+				if = {
+					limit = { NOT = { has_country_flag = VEN_baduel_defected } }
+					retire_character = VEN_raul_isaias_baduel
+				}
+				retire_character = VEN_jorge_garcia_carneiro
+				if = {
+					limit = { NOT = { has_completed_focus = VEN_we_are_in_power } }
+					complete_national_focus = VEN_we_are_in_power
+				}
+			}
+			else = {
+				clr_country_flag = VEN_us_intervention_war
+				clr_country_flag = VEN_cw_molina_leader
+				retire_character = VEN_carlos_molina_tamayo
+				retire_character = VEN_efrain_vasquez_velasco
+				retire_character = VEN_enrique_medina_gomez
+				retire_character = VEN_carlos_alfonzo_martinez
+				if = {
+					limit = { has_country_flag = VEN_baduel_defected }
+					retire_character = VEN_raul_isaias_baduel
+				}
+			}
+			if = {
+				limit = { has_government = communism }
+				set_country_flag = VEN_path_chavismo_locked
+				if = {
+					limit = { has_dynamic_modifier = { modifier = VEN_chavista_entrenchment_modifier } }
+					remove_dynamic_modifier = { modifier = VEN_chavista_entrenchment_modifier }
+				}
+			}
+			else_if = {
+				limit = { has_country_flag = VEN_cw_molina_leader }
+				clr_country_flag = VEN_cw_molina_leader
+				if = {
+					limit = { NOT = { has_character = VEN_carlos_molina_tamayo } }
+					recruit_character = VEN_carlos_molina_tamayo
+				}
+				promote_character = VEN_carlos_molina_tamayo
+			}
+			else_if = {
+				limit = { has_government = nationalist }
+				set_country_flag = VEN_path_nationalist_locked
+				if = {
+					limit = { NOT = { has_character = VEN_junta_militar } }
+					recruit_character = VEN_junta_militar
+				}
+				promote_character = VEN_junta_militar
+			}
+			else_if = {
+				limit = { has_government = neutrality }
+				set_country_flag = VEN_path_pdvsa_locked
+				if = {
+					limit = { NOT = { has_character = VEN_pedro_carmona_estanga } }
+					recruit_character = VEN_pedro_carmona_estanga
+				}
+				promote_character = VEN_pedro_carmona_estanga
+			}
+			else = {
+				set_country_flag = VEN_path_democratic_locked
+				if = {
+					limit = { NOT = { has_character = VEN_enrique_mendoza } }
+					recruit_character = VEN_enrique_mendoza
+				}
+				promote_character = VEN_enrique_mendoza
+			}
+			VEN_recruit_post_crisis_commanders = yes
+			mark_focus_tree_layout_dirty = yes
+		}
+	}
+
+	option = {
+		name = venezuela.7.a
+		log = "[GetDateText]: [This.GetName]: venezuela.7.a executed"
+		add_stability = 0.08
+		add_political_power = 75
+		ai_chance = { base = 100 }
+	}
+}
+
+### US OIL IMPORT POLICY ###
 
 # US import policy
 country_event = {
@@ -230,6 +792,8 @@ country_event = {
 	}
 }
 
+### GRAN-COLOMBIA ALLIANCE (GCA) ###
+
 # Offer to Join the Gran-Colombia Alliance
 country_event = {
 	id = gca.1
@@ -318,6 +882,8 @@ country_event = {
 
 	option = { name = gca.3.a }
 }
+### REGIONAL DIPLOMACY & TERRITORIAL DEMANDS ###
+
 # Curacao Return
 country_event = {
 	id = venezuela.8
@@ -436,8 +1002,6 @@ country_event = {
 	}
 }
 
-
-
 # Good Choice
 country_event = {
 	id = venezuela.12
@@ -553,7 +1117,9 @@ country_event = {
 		ai_chance = { base = 50 }
 	}
 }
-#
+### US SECURITY & BASING AGREEMENTS ###
+
+# Venezuela Proposes Mutual Defense Guarantee (USA)
 country_event = {
 	id = venezuela.19
 	title = venezuela.19.t
@@ -608,7 +1174,7 @@ country_event = {
 		}
 	}
 }
-#
+# USA Accepts Mutual Defense Guarantee
 country_event = {
 	id = venezuela.20
 	title = venezuela.20.t
@@ -629,7 +1195,7 @@ country_event = {
 		ai_chance = { base = 50 }
 	}
 }
-#
+# USA Refuses Mutual Defense Guarantee
 country_event = {
 	id = venezuela.21
 	title = venezuela.21.t
@@ -664,7 +1230,7 @@ country_event = {
 		}
 	}
 
-	#
+	# Decline military bases
 	option = {
 		name = venezuela.22.b
 		log = "[GetDateText]: [This.GetName]: venezuela.22.b executed"
@@ -698,6 +1264,8 @@ country_event = {
 	}
 }
 
+### HISTORICAL TIMELINE & ELECTIONS ###
+
 # Death of Hugo Chávez
 country_event = {
 	id = venezuela.24
@@ -728,14 +1296,14 @@ country_event = {
 	}
 }
 
-
-# 2000 Elections
+# 2000 Elections (6-year term)
 country_event = {
 	id = venezuela.100
 	title = venezuela.100.t
 	desc = venezuela.100.d
 	picture = GFX_election_day
 	is_triggered_only = yes
+	fire_only_once = yes
 
 	trigger = {
 		original_tag = VEN
@@ -748,11 +1316,11 @@ country_event = {
 		log = "[GetDateText]: [This.GetName]: venezuela.100.a executed"
 		country_event = MD4_election_campaign.0
 		hidden_effect = { set_elections_72_months = yes }
-		ai_chance = { base = 50 }
+		ai_chance = { base = 100 }
 	}
 }
 
-# 2003 - Signatures Collected
+# 2003/2004 - Signatures Collected -> Starts Recall Campaign Mission
 country_event = {
 	id = venezuela.101
 	title = venezuela.101.t
@@ -761,27 +1329,29 @@ country_event = {
 	is_triggered_only = yes
 	fire_only_once = yes
 
-	# picture =
 	trigger = {
 		original_tag = VEN
 		emerging_anarchist_communism_in_power_or_coalition = yes
-		has_country_leader = { name = "Hugo Chávez" ruling_only = yes }
-		NOT = { has_country_flag = VEN_2004_recall_referendum_engaged }
+		has_civil_war = no
+		NOT = { has_country_flag = VEN_political_crisis_resolved }
+		NOT = { has_country_flag = VEN_recall_campaign_active }
 	}
 
-	# Signatures Collected... a crisis is coming
 	option = {
 		name = venezuela.101.a
 		log = "[GetDateText]: [This.GetName]: venezuela.101.a executed"
+		set_country_flag = VEN_recall_campaign_active
+		VEN_sync_entrenchment_modifier = yes
 		set_temp_variable = { party_index = 2 }
 		set_temp_variable = { party_popularity_increase = 0.03 }
 		set_temp_variable = { temp_outlook_increase = 0.03 }
 		change_relative_party_popularity = yes
-		set_country_flag = VEN_2004_recall_referendum_engaged
-		set_country_flag = { flag = VEN_2004_recall_campaign_active days = 240 value = 1 }
-		country_event = { id = venezuela.1 days = 245 }
+		custom_effect_tooltip = VEN_recall_campaign_started_tt
+		ai_chance = { base = 100 }
 	}
 }
+
+### FOREIGN TRADE DEALS ###
 
 # Trade Deal with China
 country_event = {
@@ -861,6 +1431,7 @@ country_event = {
 	}
 }
 
+# Trade Deal Response (China / Russia)
 country_event = {
 	id = venezuela.201
 	title = {
@@ -962,7 +1533,9 @@ country_event = {
 	}
 }
 
-# Concurso Internacional de Cazas FX-VEN (Neutral)
+### AIR FORCE PROCUREMENT & CAVIM PROTOTYPES ###
+
+# FX-VEN International Fighter Competition (Neutral)
 country_event = {
 	id = venezuela.210
 	title = venezuela.210.t
@@ -970,7 +1543,7 @@ country_event = {
 	picture = GFX_fighter_jet
 	is_triggered_only = yes
 
-	# Opcion A: Saab JAS 39 Gripen (Suecia) - 30 unidades ($6.0B)
+	# Option A: Saab JAS 39 Gripen (Sweden) - 30 units ($6.0B)
 	option = {
 		name = venezuela.210.a
 		log = "[GetDateText]: [This.GetName]: venezuela.210.a executed"
@@ -1009,7 +1582,7 @@ country_event = {
 		ai_chance = { factor = 50 }
 	}
 
-	# Opcion B: Dassault Rafale (Francia) - 24 unidades ($7.8B)
+	# Option B: Dassault Rafale (France) - 24 units ($7.8B)
 	option = {
 		name = venezuela.210.b
 		log = "[GetDateText]: [This.GetName]: venezuela.210.b executed"
@@ -1048,7 +1621,7 @@ country_event = {
 		ai_chance = { factor = 30 }
 	}
 
-	# Opcion C: Eurofighter Typhoon (Alemania) - 24 unidades ($8.0B)
+	# Option C: Eurofighter Typhoon (Germany) - 24 units ($8.0B)
 	option = {
 		name = venezuela.210.c
 		log = "[GetDateText]: [This.GetName]: venezuela.210.c executed"
@@ -1088,7 +1661,7 @@ country_event = {
 	}
 }
 
-# Buro de Diseno Nacional CAVIM - Especializacion de Prototipos (Rama Nacional)
+# CAVIM National Design Bureau - Prototype Specialization (National Branch)
 country_event = {
 	id = venezuela.211
 	title = venezuela.211.t
@@ -1096,7 +1669,7 @@ country_event = {
 	picture = GFX_fighter_jet
 	is_triggered_only = yes
 
-	# Opcion A: Caza de Superioridad y Furtividad - CAVIM F-21 Relampago
+	# Option A: Stealth Air Superiority Fighter - CAVIM F-21 Relampago
 	option = {
 		name = venezuela.211.a
 		log = "[GetDateText]: [This.GetName]: venezuela.211.a executed"
@@ -1153,7 +1726,7 @@ country_event = {
 		ai_chance = { factor = 50 }
 	}
 
-	# Opcion B: Bombardero Estrategico y Ataque Pesado - CAVIM B-24 Caroni
+	# Option B: Strategic & Heavy Strike Bomber - CAVIM B-24 Caroni
 	option = {
 		name = venezuela.211.b
 		log = "[GetDateText]: [This.GetName]: venezuela.211.b executed"
@@ -1209,7 +1782,7 @@ country_event = {
 		ai_chance = { factor = 25 }
 	}
 
-	# Opcion C: Helicoptero de Ataque y Drones - CAVIM AH-14 Roraima
+	# Option C: Attack Helicopter & Drones - CAVIM AH-14 Roraima
 	option = {
 		name = venezuela.211.c
 		log = "[GetDateText]: [This.GetName]: venezuela.211.c executed"
@@ -1238,7 +1811,9 @@ country_event = {
 	}
 }
 
-# Modelo de Capital Occidental (VEN_introduce_western_industries)
+### WESTERN ALIGNMENT & US TUTELAGE ###
+
+# Western Capital Model (VEN_introduce_western_industries)
 country_event = {
 	id = venezuela.220
 	title = venezuela.220.t
@@ -1247,7 +1822,7 @@ country_event = {
 
 	is_triggered_only = yes
 
-	# Opcion A: Modelo Wall Street & Desregulacion
+	# Option A: Wall Street Model & Deregulation
 	option = {
 		name = venezuela.220.a
 		log = "[GetDateText]: [This.GetName]: venezuela.220.a executed"
@@ -1267,7 +1842,7 @@ country_event = {
 		ai_chance = { factor = 40 }
 	}
 
-	# Opcion B: Pacto Industrial Social-Mercado Europeo
+	# Option B: European Social-Market Industrial Pact
 	option = {
 		name = venezuela.220.b
 		log = "[GetDateText]: [This.GetName]: venezuela.220.b executed"
@@ -1289,7 +1864,7 @@ country_event = {
 		ai_chance = { factor = 35 }
 	}
 
-	# Opcion C: Zonas Economicas Especiales Soberanas
+	# Option C: Sovereign Special Economic Zones
 	option = {
 		name = venezuela.220.c
 		log = "[GetDateText]: [This.GetName]: venezuela.220.c executed"
@@ -1305,7 +1880,7 @@ country_event = {
 	}
 }
 
-# Terminos de Concesion en Maracaibo y el Orinoco (VEN_usa_oil_privatization)
+# Maracaibo & Orinoco Concession Terms (VEN_usa_oil_privatization)
 country_event = {
 	id = venezuela.221
 	title = venezuela.221.t
@@ -1314,7 +1889,7 @@ country_event = {
 
 	is_triggered_only = yes
 
-	# Opcion A: Concesion Mayoritaria a Petroleras de EE. UU.
+	# Option A: Majority Concession to US Oil Companies
 	option = {
 		name = venezuela.221.a
 		log = "[GetDateText]: [This.GetName]: venezuela.221.a executed"
@@ -1338,7 +1913,7 @@ country_event = {
 		ai_chance = { factor = 55 }
 	}
 
-	# Opcion B: Empresa Mixta 51/49 (Control Estatal)
+	# Option B: 51/49 Joint Venture (State Control)
 	option = {
 		name = venezuela.221.b
 		log = "[GetDateText]: [This.GetName]: venezuela.221.b executed"
@@ -1367,7 +1942,7 @@ country_event = {
 	picture = GFX_NATO_picture
 	is_triggered_only = yes
 
-	# Opcion A: Guerra Aeroterrestre y Maniobra Mecanizada
+	# Option A: AirLand Battle & Mechanized Maneuver
 	option = {
 		name = venezuela.222.a
 		log = "[GetDateText]: [This.GetName]: venezuela.222.a executed"
@@ -1393,7 +1968,7 @@ country_event = {
 		ai_chance = { factor = 40 }
 	}
 
-	# Opcion B: Fuerza Aeromovil y Operaciones Especiales en Selva
+	# Option B: Airmobile Force & Jungle Special Operations
 	option = {
 		name = venezuela.222.b
 		log = "[GetDateText]: [This.GetName]: venezuela.222.b executed"
@@ -1419,7 +1994,7 @@ country_event = {
 		ai_chance = { factor = 35 }
 	}
 
-	# Opcion C: Escudo Aeronaval Conjunto del Caribe
+	# Option C: Joint Caribbean Aeronaval Shield
 	option = {
 		name = venezuela.222.c
 		log = "[GetDateText]: [This.GetName]: venezuela.222.c executed"
@@ -1453,7 +2028,7 @@ country_event = {
 	picture = GFX_USA_generic
 	is_triggered_only = yes
 
-	# Opcion A: Base Conjunta Soberana (Equilibrada)
+	# Option A: Sovereign Joint Base (Balanced)
 	option = {
 		name = venezuela.223.a
 		log = "[GetDateText]: [This.GetName]: venezuela.223.a executed"
@@ -1474,7 +2049,7 @@ country_event = {
 		ai_chance = { factor = 50 }
 	}
 
-	# Opcion B: Fortaleza del Caribe Financiada por EE. UU.
+	# Option B: US-Funded Caribbean Fortress
 	option = {
 		name = venezuela.223.b
 		log = "[GetDateText]: [This.GetName]: venezuela.223.b executed"
@@ -1498,7 +2073,7 @@ country_event = {
 		ai_chance = { factor = 30 }
 	}
 
-	# Opcion C: Centro Logistico Rotativo de Baja Huella
+	# Option C: Low-Footprint Rotational Logistics Hub
 	option = {
 		name = venezuela.223.c
 		log = "[GetDateText]: [This.GetName]: venezuela.223.c executed"
@@ -1519,16 +2094,16 @@ country_event = {
 	}
 }
 
-# Pacto de Seguridad Nacional con Washington (Rama Autoritaria-Nacionalista)
+# National Security Pact with Washington (Authoritarian-Nationalist Branch)
 country_event = {
 	id = venezuela.224
 	title = venezuela.224.t
 	desc = venezuela.224.d
-	picture = GFX_VEN_generic
+	picture = GFX_treaty
 
 	is_triggered_only = yes
 
-	# Opcion A: Junta Civico-Militar Pro-Occidental (Nat_Autocracy)
+	# Option A: Pro-Western Civil-Military Junta (Nat_Autocracy)
 	option = {
 		name = venezuela.224.a
 		log = "[GetDateText]: [This.GetName]: venezuela.224.a executed"
@@ -1536,6 +2111,11 @@ country_event = {
 		set_temp_variable = { col_one = 0 }
 		set_temp_variable = { disable_elections = 1 }
 		change_ruling_party_effect = yes
+		if = {
+			limit = { NOT = { has_character = VEN_francisco_arias_cardenas } }
+			recruit_character = VEN_francisco_arias_cardenas
+		}
+		promote_character = VEN_francisco_arias_cardenas
 		add_popularity = { ideology = nationalist popularity = 0.12 }
 		recalculate_party = yes
 		hidden_effect = {
@@ -1546,14 +2126,22 @@ country_event = {
 		ai_chance = { factor = 45 }
 	}
 
-	# Opcion B: Presidencialismo Nacionalista de Mano Dura (Nat_Populism)
+	# Option B: Hardline Nationalist Presidentialism (Nat_Populism - Francisco Arias Cardenas)
 	option = {
 		name = venezuela.224.b
 		log = "[GetDateText]: [This.GetName]: venezuela.224.b executed"
 		set_temp_variable = { rul_party_temp = 20 }
 		set_temp_variable = { col_one = 0 }
-		set_temp_variable = { disable_elections = 0 }
+		set_temp_variable = { disable_elections = 1 }
 		change_ruling_party_effect = yes
+		if = {
+			limit = { NOT = { has_character = VEN_francisco_arias_cardenas } }
+			recruit_character = VEN_francisco_arias_cardenas
+		}
+		promote_character = {
+			character = VEN_francisco_arias_cardenas
+			ideology = Nat_Populism
+		}
 		add_popularity = { ideology = nationalist popularity = 0.10 }
 		recalculate_party = yes
 		hidden_effect = {
@@ -1564,7 +2152,7 @@ country_event = {
 		ai_chance = { factor = 35 }
 	}
 
-	# Opcion C: Autocracia Tecnocratica Occidental (Western_Autocracy)
+	# Option C: Western Technocratic Autocracy (Western_Autocracy - Carlos Molina Tamayo)
 	option = {
 		name = venezuela.224.c
 		log = "[GetDateText]: [This.GetName]: venezuela.224.c executed"
@@ -1572,6 +2160,11 @@ country_event = {
 		set_temp_variable = { col_one = 22 }
 		set_temp_variable = { disable_elections = 1 }
 		change_ruling_party_effect = yes
+		if = {
+			limit = { NOT = { has_character = VEN_carlos_molina_tamayo } }
+			recruit_character = VEN_carlos_molina_tamayo
+		}
+		promote_character = VEN_carlos_molina_tamayo
 		add_popularity = { ideology = democratic popularity = 0.06 }
 		add_popularity = { ideology = nationalist popularity = 0.06 }
 		recalculate_party = yes
@@ -1584,16 +2177,16 @@ country_event = {
 	}
 }
 
-# Respaldo de EE. UU. sobre el Esequibo y Guyana
+# US Backing on Essequibo & Guyana
 country_event = {
 	id = venezuela.225
 	title = venezuela.225.t
 	desc = venezuela.225.d
-	picture = GFX_VEN_generic
+	picture = GFX_venez_capt
 
 	is_triggered_only = yes
 
-	# Opcion A: Exigir arbitraje estadounidense por la Guayana Esequiba (1005)
+	# Option A: Demand US arbitration over Guayana Esequiba (1005)
 	option = {
 		name = venezuela.225.a
 		log = "[GetDateText]: [This.GetName]: venezuela.225.a executed"
@@ -1610,7 +2203,7 @@ country_event = {
 		ai_chance = { factor = 55 }
 	}
 
-	# Opcion B: Exigir la integracion total de Guyana con respaldo de Washington (1005 + 877)
+	# Option B: Demand full integration of Guyana with Washington's backing (1005 + 877)
 	option = {
 		name = venezuela.225.b
 		log = "[GetDateText]: [This.GetName]: venezuela.225.b executed"
@@ -1644,16 +2237,16 @@ country_event = {
 	}
 }
 
-# Ultimatum en Georgetown bajo presion de Washington
+# Ultimatum in Georgetown under Washington's Pressure
 country_event = {
 	id = venezuela.226
 	title = venezuela.226.t
 	desc = venezuela.226.d
-	picture = GFX_VEN_generic
+	picture = GFX_generic_soldiers
 
 	is_triggered_only = yes
 
-	# Opcion A: Ceder ante el arbitraje estadounidense
+	# Option A: Yield to US arbitration
 	option = {
 		name = venezuela.226.a
 		log = "[GetDateText]: [This.GetName]: venezuela.226.a executed"
@@ -1678,7 +2271,7 @@ country_event = {
 		}
 	}
 
-	# Opcion B: Rechazar el arbitraje y resistir
+	# Option B: Reject arbitration and resist
 	option = {
 		name = venezuela.226.b
 		log = "[GetDateText]: [This.GetName]: venezuela.226.b executed"
@@ -1699,12 +2292,12 @@ country_event = {
 	}
 }
 
-# Presion de EE. UU. 1: Condiciones de la Embajada en Caracas
+# US Pressure 1: Caracas Embassy Conditions
 country_event = {
 	id = venezuela.227
 	title = venezuela.227.t
 	desc = venezuela.227.d
-	picture = GFX_VEN_generic
+	picture = GFX_handshake_black
 
 	is_triggered_only = yes
 
@@ -1744,12 +2337,12 @@ country_event = {
 	}
 }
 
-# Presion de EE. UU. 2: Auditores del FMI y del Tesoro
+# US Pressure 2: IMF & Treasury Auditors
 country_event = {
 	id = venezuela.228
 	title = venezuela.228.t
 	desc = venezuela.228.d
-	picture = GFX_VEN_generic
+	picture = GFX_stock_market
 
 	is_triggered_only = yes
 
@@ -1786,12 +2379,12 @@ country_event = {
 	}
 }
 
-# Presion de EE. UU. 3: Tutela del Mando Sur (SOUTHCOM)
+# US Pressure 3: SOUTHCOM Tutelage
 country_event = {
 	id = venezuela.229
 	title = venezuela.229.t
 	desc = venezuela.229.d
-	picture = GFX_VEN_generic
+	picture = GFX_generic_soldiers
 
 	is_triggered_only = yes
 
@@ -1833,16 +2426,16 @@ country_event = {
 	}
 }
 
-# Climax: El Pulso Final con Washington
+# Climax: Final Showdown with Washington
 country_event = {
 	id = venezuela.230
 	title = venezuela.230.t
 	desc = venezuela.230.d
-	picture = GFX_VEN_generic
+	picture = GFX_treaty
 
 	is_triggered_only = yes
 
-	# Opcion A: Aceptar ser el socio subalterno permanente de Washington (Buffeada)
+	# Option A: Accept becoming Washington's permanent junior partner (Buffed)
 	option = {
 		name = venezuela.230.a
 		log = "[GetDateText]: [This.GetName]: venezuela.230.a executed"
@@ -1877,7 +2470,7 @@ country_event = {
 		ai_chance = { factor = 60 }
 	}
 
-	# Opcion B: Romper la tutela -> Crisis Total, Retiro de Beneficios y Casus Belli de EE. UU.
+	# Option B: Break tutelage -> Total Crisis, Benefit Withdrawal & US Casus Belli
 	option = {
 		name = venezuela.230.b
 		log = "[GetDateText]: [This.GetName]: venezuela.230.b executed"
@@ -1920,7 +2513,7 @@ country_event = {
 			diplomatic_relation = { country = USA relation = non_aggression_pact active = no }
 			diplomatic_relation = { country = USA relation = military_access active = no }
 			USA = {
-				# Nacionalizacion: revoca todas las concesiones de petroleo/minerales cedidas a EE. UU. (874, 876, 916 -> 100% recuperado por VEN).
+				# Nationalization: revokes all oil/mineral concessions ceded to the US (874, 876, 916 -> 100% recovered by VEN).
 				remove_resource_rights = 874
 				remove_resource_rights = 876
 				remove_resource_rights = 916
@@ -1942,6 +2535,8 @@ country_event = {
 		ai_chance = { factor = 40 }
 	}
 }
+
+### CAPITALIST / PDVSA TAKEOVER PATH ###
 
 # PDVSA National Oil Strike
 country_event = {
@@ -2067,6 +2662,8 @@ country_event = {
 		ai_chance = { factor = 40 }
 	}
 }
+
+### CHAVISTA / BOLIVARIAN PATH & FOREIGN POLICY ###
 
 # Caribbean Oil Cartel Summit
 country_event = {
@@ -2428,5 +3025,560 @@ country_event = {
 		change_fossil_fuel_industry_opinion = yes
 		add_stability = 0.05
 		ai_chance = { factor = 35 }
+	}
+}
+
+### HISTORICAL 2001-2004 CRISIS & ALTAMIRA UPRISING ###
+
+# 2001 - Enabling Act & 49 Decrees
+country_event = {
+	id = venezuela.244
+	title = venezuela.244.t
+	desc = venezuela.244.d
+	picture = GFX_treaty
+	is_triggered_only = yes
+
+	option = {
+		name = venezuela.244.a
+		log = "[GetDateText]: [This.GetName]: venezuela.244.a executed"
+		add_political_power = 25
+		add_stability = -0.04
+		add_to_variable = { VEN_chavez_grip = 10 }
+		add_to_variable = { VEN_opp_momentum = 8 }
+		VEN_sync_entrenchment_modifier = yes
+		custom_effect_tooltip = VEN_recall_chavez_boost_tt
+		ai_chance = {
+			base = 80
+			modifier = { factor = 0 VEN_ai_opposition_path = yes }
+		}
+	}
+
+	option = {
+		name = venezuela.244.b
+		log = "[GetDateText]: [This.GetName]: venezuela.244.b executed"
+		add_stability = 0.03
+		add_to_variable = { VEN_chavez_grip = 4 }
+		VEN_sync_entrenchment_modifier = yes
+		ai_chance = {
+			base = 20
+			modifier = { factor = 0 VEN_ai_historical_path = yes }
+		}
+	}
+}
+
+# Dec 2001 - National Civic Strike (Fedecamaras & CTV)
+country_event = {
+	id = venezuela.245
+	title = venezuela.245.t
+	desc = venezuela.245.d
+	picture = GFX_stock_market
+	is_triggered_only = yes
+
+	option = {
+		name = venezuela.245.a
+		log = "[GetDateText]: [This.GetName]: venezuela.245.a executed"
+		add_stability = -0.03
+		add_to_variable = { VEN_chavez_grip = -5 }
+		add_to_variable = { VEN_opp_momentum = 10 }
+		VEN_sync_entrenchment_modifier = yes
+		set_country_flag = VEN_opp_front_ready
+		custom_effect_tooltip = VEN_recall_opp_boost_tt
+		ai_chance = {
+			base = 20
+			modifier = { add = 80 VEN_ai_opposition_path = yes }
+		}
+	}
+
+	option = {
+		name = venezuela.245.b
+		log = "[GetDateText]: [This.GetName]: venezuela.245.b executed"
+		add_political_power = 25
+		add_to_variable = { VEN_chavez_grip = 5 }
+		add_to_variable = { VEN_opp_momentum = 4 }
+		VEN_sync_entrenchment_modifier = yes
+		ai_chance = {
+			base = 80
+			modifier = { factor = 0 VEN_ai_opposition_path = yes }
+		}
+	}
+}
+
+# Feb 2002 - PDVSA Meritocracy Crisis & Rear Adm. Carlos Molina Tamayo
+country_event = {
+	id = venezuela.246
+	title = venezuela.246.t
+	desc = venezuela.246.d
+	picture = GFX_generic_soldiers
+	is_triggered_only = yes
+
+	option = {
+		name = venezuela.246.a
+		log = "[GetDateText]: [This.GetName]: venezuela.246.a executed"
+		set_country_flag = VEN_navy_dissidents_ready
+		add_to_variable = { VEN_chavez_grip = -6 }
+		add_to_variable = { VEN_opp_momentum = 10 }
+		VEN_sync_entrenchment_modifier = yes
+		set_temp_variable = { party_index = 22 }
+		set_temp_variable = { party_popularity_increase = 0.04 }
+		set_temp_variable = { temp_outlook_increase = 0.04 }
+		change_relative_party_popularity = yes
+		custom_effect_tooltip = VEN_recall_opp_boost_tt
+		ai_chance = {
+			base = 20
+			modifier = { add = 80 has_global_flag = VEN_MILITARY_JUNTA_FOCUS_PATH }
+		}
+	}
+
+	option = {
+		name = venezuela.246.b
+		log = "[GetDateText]: [This.GetName]: venezuela.246.b executed"
+		add_stability = -0.03
+		add_to_variable = { VEN_chavez_grip = 8 }
+		VEN_sync_entrenchment_modifier = yes
+		ai_chance = {
+			base = 80
+			modifier = { factor = 0 has_global_flag = VEN_MILITARY_JUNTA_FOCUS_PATH }
+		}
+	}
+}
+
+# April 2002 - Carmona Decree vs Operation Restoration of National Dignity
+country_event = {
+	id = venezuela.247
+	title = venezuela.247.t
+	desc = venezuela.247.d
+	picture = GFX_venez_capt
+	is_triggered_only = yes
+
+	# A: Baduel & Garcia Carneiro restore Chavez (Historical -> pushes to Recall Referendum)
+	option = {
+		name = venezuela.247.a
+		log = "[GetDateText]: [This.GetName]: venezuela.247.a executed"
+		add_stability = 0.05
+		add_political_power = 50
+		add_to_variable = { VEN_chavez_grip = 10 }
+		add_to_variable = { VEN_opp_momentum = -8 }
+		VEN_sync_entrenchment_modifier = yes
+		retire_character = VEN_efrain_vasquez_velasco
+		ai_chance = {
+			base = 70
+			modifier = { factor = 0 VEN_ai_pdvsa_path = yes }
+			modifier = { factor = 0 has_global_flag = VEN_MILITARY_JUNTA_FOCUS_PATH }
+		}
+	}
+
+	# B: Carmona Decree / PDVSA Corporate Junta consolidates power
+	option = {
+		name = venezuela.247.b
+		trigger = {
+			OR = {
+				check_variable = { VEN_opp_momentum >= 38 }
+				is_ai = no
+			}
+		}
+		log = "[GetDateText]: [This.GetName]: venezuela.247.b executed (PDVSA Takeover)"
+		VEN_clear_chavismo_ideas = yes
+		set_temp_variable = { rul_party_temp = 14 }
+		set_temp_variable = { disable_elections = 1 }
+		change_ruling_party_effect = yes
+		if = {
+			limit = { NOT = { has_character = VEN_pedro_carmona_estanga } }
+			recruit_character = VEN_pedro_carmona_estanga
+		}
+		promote_character = VEN_pedro_carmona_estanga
+		set_country_flag = VEN_political_crisis_resolved
+		set_country_flag = VEN_path_pdvsa_locked
+		retire_character = VEN_raul_isaias_baduel
+		retire_character = VEN_jorge_garcia_carneiro
+		if = {
+			limit = { NOT = { has_completed_focus = VEN_we_are_in_power } }
+			complete_national_focus = VEN_we_are_in_power
+		}
+		mark_focus_tree_layout_dirty = yes
+		ai_chance = {
+			base = 0
+			modifier = { add = 100 VEN_ai_pdvsa_path = yes }
+		}
+	}
+
+	# C: Navy (Molina Tamayo / Ramirez Perez) & Army refuse to stand down -> April 2002 Civil War (Lead Junta)
+	option = {
+		name = venezuela.247.c
+		trigger = {
+			OR = {
+				has_country_flag = VEN_navy_dissidents_ready
+				is_ai = no
+			}
+		}
+		log = "[GetDateText]: [This.GetName]: venezuela.247.c executed (Civil War - Junta)"
+		set_country_flag = VEN_cw_junta
+		VEN_start_political_civil_war = yes
+		ai_chance = {
+			base = 0
+			modifier = { add = 100 has_global_flag = VEN_MILITARY_JUNTA_FOCUS_PATH }
+		}
+	}
+
+	# D: Navy & Dissidents rebel -> Civil War (Defend Chavez with Baduel)
+	option = {
+		name = venezuela.247.d_opt
+		trigger = {
+			is_ai = no
+		}
+		log = "[GetDateText]: [This.GetName]: venezuela.247.d_opt executed (Civil War - Chavez)"
+		set_country_flag = VEN_cw_chavez
+		set_country_flag = VEN_cw_nationalist_rebels
+		VEN_start_political_civil_war = yes
+	}
+}
+
+# Oct-Dec 2002 - Plaza Altamira & Oil Strike
+country_event = {
+	id = venezuela.248
+	title = venezuela.248.t
+	desc = venezuela.248.d
+	picture = GFX_generic_soldiers
+	is_triggered_only = yes
+
+	# Wear down the strike and let the Constitutional Recall proceed
+	option = {
+		name = venezuela.248.a
+		log = "[GetDateText]: [This.GetName]: venezuela.248.a executed"
+		add_stability = -0.05
+		country_event = { id = venezuela.101 days = 5 }
+		ai_chance = { base = 90 }
+	}
+
+	# Storm Plaza Altamira by force -> Triggers Civil War choice
+	option = {
+		name = venezuela.248.b
+		trigger = { is_ai = no }
+		log = "[GetDateText]: [This.GetName]: venezuela.248.b executed"
+		country_event = { id = venezuela.249 days = 1 }
+	}
+}
+
+# Altamira / 2004 Uprising - Choose your side in the Civil War
+country_event = {
+	id = venezuela.249
+	title = venezuela.249.t
+	desc = venezuela.249.d
+	picture = GFX_handshake_black
+	is_triggered_only = yes
+
+	# Side with the Dissident Military / Democratic Coalition
+	option = {
+		name = venezuela.249.a
+		log = "[GetDateText]: [This.GetName]: venezuela.249.a executed"
+		set_country_flag = VEN_cw_opp
+		VEN_start_political_civil_war = yes
+		ai_chance = { base = 20 }
+	}
+
+	# Side with the Navy / Nationalist Officers (Molina Tamayo & Medina Gomez)
+	option = {
+		name = venezuela.249.b
+		log = "[GetDateText]: [This.GetName]: venezuela.249.b executed"
+		set_country_flag = VEN_cw_junta
+		VEN_start_political_civil_war = yes
+		ai_chance = { base = 10 }
+	}
+
+	# Defend the Bolivarian Republic with Baduel
+	option = {
+		name = venezuela.249.c
+		log = "[GetDateText]: [This.GetName]: venezuela.249.c executed"
+		set_country_flag = VEN_cw_chavez
+		VEN_start_political_civil_war = yes
+		ai_chance = { base = 70 }
+	}
+}
+
+### CARTEL OF THE SUNS & ANTI-CARTEL OPERATIONS ###
+
+# The Pact of the Suns (Cartel Takeover)
+country_event = {
+	id = venezuela.250
+	title = venezuela.250.t
+	desc = venezuela.250.d
+	picture = GFX_cartels_stacks
+	is_triggered_only = yes
+
+	# Quiet institutional takeover from within
+	option = {
+		name = venezuela.250.a
+		log = "[GetDateText]: [This.GetName]: venezuela.250.a executed"
+		trigger = {
+			OR = {
+				check_variable = { cartel_political_influence > 49 }
+				has_government = communism
+			}
+		}
+		add_stability = -0.08
+		increase_corruption = yes
+		hidden_effect = {
+			clr_country_flag = dynamic_flag
+			set_cosmetic_tag = VEN_cartel_suns
+			set_temp_variable = { rul_party_temp = 15 }
+			set_temp_variable = { disable_elections = 1 }
+			change_ruling_party_effect = yes
+			if = {
+				limit = { NOT = { has_character = VEN_diosdado_cabello } }
+				recruit_character = VEN_diosdado_cabello
+			}
+			promote_character = {
+				character = VEN_diosdado_cabello
+				ideology = oligarchism
+			}
+			if = {
+				limit = { has_dynamic_modifier = { modifier = cartel_penalties } }
+				remove_dynamic_modifier = { modifier = cartel_penalties }
+			}
+			set_country_flag = CARTEL_narco_wars_triggered
+			if = {
+				limit = { check_variable = { strength_of_cartels < 60 } }
+				set_variable = { strength_of_cartels = 60 }
+			}
+			calculate_cartel_bonuses = yes
+			ingame_update_setup = yes
+			every_country = {
+				limit = {
+					OR = {
+						original_tag = USA
+						original_tag = COL
+					}
+					NOT = { is_in_faction_with = ROOT }
+				}
+				country_event = { id = venezuela.251 days = 2 }
+			}
+		}
+		custom_effect_tooltip = VEN_narco_state_established_tt
+		ai_chance = { base = 80 }
+	}
+
+	# Open violent seizure of power
+	option = {
+		name = venezuela.250.b
+		log = "[GetDateText]: [This.GetName]: venezuela.250.b executed"
+		hidden_effect = {
+			clr_country_flag = dynamic_flag
+			set_cosmetic_tag = VEN_cartel_suns
+			start_civil_war = {
+				ideology = democratic
+				size = 0.45
+			}
+			set_temp_variable = { rul_party_temp = 15 }
+			set_temp_variable = { disable_elections = 1 }
+			change_ruling_party_effect = yes
+			if = {
+				limit = { NOT = { has_character = VEN_diosdado_cabello } }
+				recruit_character = VEN_diosdado_cabello
+			}
+			promote_character = {
+				character = VEN_diosdado_cabello
+				ideology = oligarchism
+			}
+			if = {
+				limit = { has_dynamic_modifier = { modifier = cartel_penalties } }
+				remove_dynamic_modifier = { modifier = cartel_penalties }
+			}
+			set_country_flag = CARTEL_narco_wars_triggered
+			if = {
+				limit = { check_variable = { strength_of_cartels < 60 } }
+				set_variable = { strength_of_cartels = 60 }
+			}
+			calculate_cartel_bonuses = yes
+			ingame_update_setup = yes
+			every_country = {
+				limit = {
+					OR = {
+						original_tag = USA
+						original_tag = COL
+					}
+					NOT = { is_in_faction_with = ROOT }
+				}
+				country_event = { id = venezuela.251 days = 2 }
+			}
+		}
+		custom_effect_tooltip = VEN_narco_state_established_tt
+		ai_chance = { base = 20 }
+	}
+}
+
+# International Reaction to Narco-State in Caracas
+country_event = {
+	id = venezuela.251
+	title = venezuela.251.t
+	desc = venezuela.251.d
+	picture = GFX_cartels_stacks
+	is_triggered_only = yes
+
+	option = {
+		name = venezuela.251.a
+		log = "[GetDateText]: [This.GetName]: venezuela.251.a executed"
+		add_opinion_modifier = {
+			target = FROM
+			modifier = hostile_status
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+# FARC Dismantled in Venezuela
+country_event = {
+	id = venezuela.252
+	title = venezuela.252.t
+	desc = venezuela.252.d
+	picture = GFX_cartels_caught
+	is_triggered_only = yes
+
+	option = {
+		name = venezuela.252.a
+		log = "[GetDateText]: [This.GetName]: venezuela.252.a executed"
+		add_stability = 0.05
+		add_political_power = 25
+		COL = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = improved_relations
+			}
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+# OFAC Sanctions on Minerven & Venezuelan Illicit Networks
+country_event = {
+	id = venezuela.253
+	title = venezuela.253.t
+	desc = venezuela.253.d
+	picture = GFX_cartels_stacks
+	is_triggered_only = yes
+
+	option = {
+		name = venezuela.253.a
+		log = "[GetDateText]: [This.GetName]: venezuela.253.a executed"
+		add_ideas = VEN_ofac_sanctions_idea
+		USA = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = hostile_status
+			}
+		}
+		ai_chance = { base = 100 }
+	}
+}
+
+# International Scandal: Narcosobrinos & Regime Exposure
+country_event = {
+	id = venezuela.254
+	title = venezuela.254.t
+	desc = venezuela.254.d
+	picture = GFX_cartels_caught
+	is_triggered_only = yes
+
+	# Cover up and protect the inner circle
+	option = {
+		name = venezuela.254.a
+		log = "[GetDateText]: [This.GetName]: venezuela.254.a executed"
+		add_stability = -0.04
+		increase_corruption = yes
+		set_temp_variable = { cart_influence_change = 6 }
+		modify_cartel_variables_effect = yes
+		set_temp_variable = { temp_opinion = 5 }
+		change_the_military_opinion = yes
+		ai_chance = { base = 75 }
+	}
+
+	# Sacrifice low-level officers to calm international pressure
+	option = {
+		name = venezuela.254.b
+		log = "[GetDateText]: [This.GetName]: venezuela.254.b executed"
+		add_to_variable = { VEN_chavez_grip = -6 }
+		VEN_sync_entrenchment_modifier = yes
+		set_temp_variable = { temp_opinion = -8 }
+		change_the_military_opinion = yes
+		set_temp_variable = { cart_strength_change = -5 }
+		modify_cartel_variables_effect = yes
+		ai_chance = { base = 25 }
+	}
+}
+
+# USA: Venezuela requests SOUTHCOM & DEA Anti-Cartel Support
+country_event = {
+	id = venezuela.255
+	title = venezuela.255.t
+	desc = venezuela.255.d
+	picture = GFX_handshake_black
+	is_triggered_only = yes
+
+	# Approve Joint Task Force & Security Aid
+	option = {
+		name = venezuela.255.a
+		log = "[GetDateText]: [This.GetName]: venezuela.255.a executed"
+		add_opinion_modifier = {
+			target = FROM
+			modifier = improved_relations
+		}
+		FROM = {
+			country_event = { id = venezuela.256 days = 2 }
+		}
+		ai_chance = {
+			base = 85
+			modifier = {
+				factor = 0.25
+				FROM = { has_government = communism }
+			}
+		}
+	}
+
+	# Decline military cooperation
+	option = {
+		name = venezuela.255.b
+		log = "[GetDateText]: [This.GetName]: venezuela.255.b executed"
+		ai_chance = { base = 15 }
+	}
+}
+
+# VEN: U.S. SOUTHCOM & DEA Aid Arrives
+country_event = {
+	id = venezuela.256
+	title = venezuela.256.t
+	desc = venezuela.256.d
+	picture = GFX_handshake_black
+	is_triggered_only = yes
+
+	option = {
+		name = venezuela.256.a
+		log = "[GetDateText]: [This.GetName]: venezuela.256.a executed"
+		add_equipment_to_stockpile = {
+			type = infantry_weapons
+			amount = 1500
+			producer = USA
+		}
+		add_equipment_to_stockpile = {
+			type = util_vehicle_1
+			amount = 100
+			producer = USA
+		}
+		set_temp_variable = { treasury_change = 2.5 }
+		modify_treasury_effect = yes
+		set_temp_variable = { cart_strength_change = -5 }
+		set_temp_variable = { cart_influence_change = -5 }
+		modify_cartel_variables_effect = yes
+		add_opinion_modifier = {
+			target = USA
+			modifier = improved_relations
+		}
+		USA = {
+			set_temp_variable = { percent_change = 3 }
+			set_temp_variable = { influence_target = PREV }
+			change_influence_percentage = yes
+		}
+		if = {
+			limit = { has_idea = VEN_ofac_sanctions_idea }
+			remove_ideas = VEN_ofac_sanctions_idea
+		}
+		ai_chance = { base = 100 }
 	}
 }

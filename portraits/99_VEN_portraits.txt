@@ -1,0 +1,20 @@
+VEN = {
+	army = {
+		male = {
+			"gfx/leaders/VEN/VEN_future_air_04.dds"
+			"gfx/leaders/VEN/VEN_future_army_09.dds"
+			"gfx/leaders/VEN/VEN_future_army_10.dds"
+			"gfx/leaders/VEN/VEN_future_army_11.dds"
+			"gfx/leaders/VEN/VEN_future_army_12.dds"
+			"gfx/leaders/VEN/VEN_future_army_13.dds"
+		}
+		}
+	navy = {
+		male = {
+			"gfx/leaders/VEN/VEN_future_navy_04.dds"
+			"gfx/leaders/VEN/VEN_future_navy_06.dds"
+			"gfx/leaders/VEN/VEN_future_navy_07.dds"
+			"gfx/leaders/VEN/VEN_future_navy_08.dds"
+		}
+	}
+}
