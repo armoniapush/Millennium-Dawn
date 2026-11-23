@@ -1,1 +1,4 @@
 # Venezuela Opinion Modifiers - Clean Slate (Venezuela-Rework-2026)
+
+opinion_modifiers = {
+}

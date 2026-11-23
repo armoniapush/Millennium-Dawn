@@ -1,1 +1,6 @@
 # Venezuela Ideas - Clean Slate (Venezuela-Rework-2026)
+
+ideas = {
+	country = {
+	}
+}
